@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Session 2 — Custom GPTs & Agents (Slides)</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/highlight/monokai.min.css">
+  <style>
+    .reveal pre code{font-size: 0.9em}
+    .reveal .slides{font-size: 28px}
+    .reveal .brand{color:#7c5cff}
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Load slides from Markdown for easy editing -->
+      <section data-markdown="slides.md"
+               data-separator="^---$"
+               data-separator-vertical="^--$"
+               data-separator-notes="^Note:"></section>
+    </div>
+  </div>
+
+  <script type="module">
+    import Reveal from 'https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.esm.js';
+    import Markdown from 'https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/markdown/markdown.esm.js';
+    import Highlight from 'https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.esm.js';
+
+    const deck = new Reveal({
+      hash: true,
+      slideNumber: true,
+      progress: true,
+      controls: true,
+      center: true,
+      plugins: [ Markdown, Highlight ]
+    });
+    deck.initialize({
+      transition: 'slide',
+      width: 1280,
+      height: 720
+    });
+  </script>
+</body>
+</html>
