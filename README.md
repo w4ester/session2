@@ -31,8 +31,7 @@ bash
 Always show details
 
 Copy code
-python3 -m http.server 9000
-# then open http://localhost:9000
+
 No API keys required
 All interactions on the site are client-side. The tokenizer uses a pure-JS CL100K model and does not call external APIs.
 
