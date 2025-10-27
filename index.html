@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM Workshop for Marketers — Session 2</title>
+  <meta name="description" content="Hands-on workshop: Boost your marketing team’s productivity with Custom GPTs and Agents." />
+  <meta property="og:title" content="LLM Workshop for Marketers — Session 2" />
+  <meta property="og:description" content="Hands-on workshop site that runs on GitHub Pages. Tokenization visualizer, prompt engineering, templates, and agent basics." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">🤖</span>
+        <div class="brand-text">
+          <strong>Session 2:</strong>
+          <span>Boost Your Marketing Team’s Productivity with Custom GPTs & Agents</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#tokenization">Tokenization</a>
+        <a href="#prompting">Prompting</a>
+        <a href="#templates">Templates</a>
+        <a href="#agents">Agents</a>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Open Slides ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero">
+      <h1>Welcome to the LLM Workshop</h1>
+      <p class="lead">Learn how to build a chatbot that speaks your language, understands your business, and boosts productivity. This page is fully static and works on GitHub Pages.</p>
+      <ul class="pill-list">
+        <li>LLMs 101</li>
+        <li>Tokenization</li>
+        <li>Prompt Engineering</li>
+        <li>Prompt Templates</li>
+        <li>Intro to Agents</li>
+      </ul>
+    </section>
+
+    <!-- 1. Tokenization -->
+    <section id="tokenization" class="card">
+      <div class="card-header">
+        <h2>1) Understanding Tokenization</h2>
+        <p class="muted">See how your text is split into tokens (CL100K — used by many GPT models).</p>
+      </div>
+      <div class="grid two">
+        <div>
+          <label for="tok-input" class="lbl">Enter text to tokenize</label>
+          <textarea id="tok-input" class="input" rows="6" placeholder="Hello world! How are marketing campaigns optimized with AI?"></textarea>
+          <div class="controls">
+            <button id="btn-tokenize" class="btn primary">Tokenize Text</button>
+            <label class="chk"><input type="checkbox" id="chatml-toggle"> Wrap as chat (adds &lt;|im_start|&gt;/&lt;|im_end|&gt;)</label>
+          </div>
+        </div>
+        <div>
+          <div class="statline">
+            <div><strong>Total tokens:</strong> <span id="tok-count">0</span></div>
+            <div><strong>Unique tokens:</strong> <span id="tok-unique">0</span></div>
+          </div>
+          <div id="tok-list" class="token-list" aria-live="polite"></div>
+        </div>
+      </div>
+      <details class="note">
+        <summary>What are tokens?</summary>
+        <p>LLMs process text as <em>tokens</em> (subwords/characters). Counting tokens helps you estimate prompt size and model limits. Chat-style prompts often add special tokens that represent roles and message boundaries.</p>
+      </details>
+    </section>
+
+    <!-- 2. Prompt Engineering -->
+    <section id="prompting" class="card">
+      <div class="card-header">
+        <h2>2) Prompt Engineering Basics</h2>
+        <p class="muted">Four principles: be specific, provide context, use examples, and break complex tasks into steps.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Key Principles</h3>
+          <ol class="principles">
+            <li><strong>Be specific and clear</strong> — specify format, tone, length, and audience.</li>
+            <li><strong>Provide context</strong> — share relevant background and constraints.</li>
+            <li><strong>Use examples</strong> — show a few samples of good outputs.</li>
+            <li><strong>Break tasks into steps</strong> — guide the model’s reasoning.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Prompt Comparison</h3>
+          <div class="compare">
+            <div class="panel">
+              <div class="panel-h">Basic Prompt</div>
+              <textarea class="input small" id="basic-prompt" rows="6">Write a social media post about our new product.</textarea>
+              <button class="btn" id="btn-basic-output">Show Example Output</button>
+              <pre class="output" id="basic-output" aria-live="polite"></pre>
+            </div>
+            <div class="panel">
+              <div class="panel-h">Engineered Prompt</div>
+              <textarea class="input small" id="eng-prompt" rows="10">Write a LinkedIn post about our new AI-powered marketing analytics dashboard that helps marketing teams track campaign performance in real time.
+
+The post should:
+- Be professional but conversational
+- Highlight the key benefit of saving 5+ hours/week on reporting
+- Include a question to encourage engagement
+- Be around 150 words
+- Include 3 relevant hashtags</textarea>
+              <button class="btn" id="btn-eng-output">Show Example Output</button>
+              <pre class="output" id="eng-output" aria-live="polite"></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tryit">
+        <h3>Try it yourself</h3>
+        <p class="muted">Improve the basic prompt by adding product specifics, target audience, tone, format, length, and constraints.</p>
+        <div class="grid two">
+          <div>
+            <label for="try-input" class="lbl">Your engineered prompt</label>
+            <textarea id="try-input" class="input" rows="8" placeholder="e.g., Create a 2-paragraph LinkedIn post announcing our AI-powered analytics dashboard for B2B marketers..."></textarea>
+            <div class="controls">
+              <button id="btn-score" class="btn primary">Score My Prompt</button>
+              <button id="btn-copy" class="btn ghost">Copy Prompt</button>
+            </div>
+          </div>
+          <div>
+            <div class="panel">
+              <div class="panel-h">Prompt Quality Check</div>
+              <ul id="score-list" class="checklist"></ul>
+              <div class="score">
+                <span class="meter" id="score-meter" style="--pct:0%"></span>
+                <span id="score-label">Score: 0/10</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Templates -->
+    <section id="templates" class="card">
+      <div class="card-header">
+        <h2>3) Create Prompt Templates</h2>
+        <p class="muted">Reusable templates ensure speed and consistency.</p>
+      </div>
+      <div class="grid two">
+        <div>
+          <label class="lbl" for="tpl-task">Marketing Task</label>
+          <input id="tpl-task" class="input" placeholder="e.g., Email Subject Line Generation" />
+          <label class="lbl" for="tpl-vars">Variables (comma-separated)</label>
+          <input id="tpl-vars" class="input" placeholder="product name, offer details, audience, tone" />
+          <label class="lbl" for="tpl-instr">AI Instructions</label>
+          <textarea id="tpl-instr" class="input" rows="6" placeholder="What should the AI do? Desired format? Constraints?"></textarea>
+          <div class="controls">
+            <button id="btn-make-template" class="btn primary">Generate Template</button>
+            <button id="btn-copy-template" class="btn ghost">Copy</button>
+            <button id="btn-download-template" class="btn ghost">Download .md</button>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <div class="panel-h">Generated Template</div>
+            <pre class="output" id="tpl-output" aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Agents -->
+    <section id="agents" class="card">
+      <div class="card-header">
+        <h2>4) Introduction to AI Agents</h2>
+        <p class="muted">Agents combine an LLM with tools, memory, and planning to automate workflows.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <pre class="mermaid">
+flowchart LR
+  User((User)) --> Agent[Custom Marketing Agent]
+  Agent --> Tools
+  Tools --> CRM[CRM API]
+  Tools --> Analytics[Analytics/Data]
+  Tools --> Ads[Ad Platform APIs]
+  Agent --> Memory[(Memory)]
+  Agent --> Plans{Planner}
+  Plans -->|Tasks| Agent
+  Agent -->|Results| User
+          </pre>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr><th>Use Case</th><th>Description</th><th>Tools Needed</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Content Calendar Manager</td><td>Suggests ideas, drafts posts, and schedules based on audience analytics.</td><td>Calendar API, Analytics tool, Social scheduler</td></tr>
+              <tr><td>Competitive Monitor</td><td>Tracks competitor content, pricing, and campaigns.</td><td>Web scraper, Email alerts, Dashboard</td></tr>
+              <tr><td>Personalization Engine</td><td>Creates custom email content from behavior and segments.</td><td>CRM integration, ESP, Analytics</td></tr>
+              <tr><td>Ad Copy Optimizer</td><td>Generates & tests ad variants; learns from performance.</td><td>Ad APIs, A/B testing</td></tr>
+            </tbody>
+          </table>
+          <p class="note muted">Always review agent outputs before publishing customer-facing content.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Workshop Conclusion & Next Steps</h2>
+      </div>
+      <ul class="bullet">
+        <li>How tokenization works and affects context limits</li>
+        <li>Principles of effective prompting</li>
+        <li>Reusable templates for common tasks</li>
+        <li>How agents orchestrate tools to automate workflows</li>
+      </ul>
+      <div class="controls">
+        <a class="btn primary" href="slides/" target="_blank" rel="noopener">Open the Slide Deck ↗</a>
+        <a class="btn" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built for a hands-on workshop. 100% static, deployable on GitHub Pages.</p>
+      <p class="muted">Libraries: CL100K tokenizer, Reveal.js, Mermaid.</p>
+      <p><a href="https://github.com/new" target="_blank" rel="noopener">Create a new GitHub repo</a> • <a href="slides/" target="_blank" rel="noopener">Slides</a></p>
+    </div>
+  </footer>
+
+  <!-- App logic -->
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
