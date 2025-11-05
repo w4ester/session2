@@ -1,4 +1,4 @@
-# 🤖 Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs & Agents
+# Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs & Agents
 ### LLM Workshop for Marketers
 **Objective:** Build a chatbot that speaks your language, understands your business, and boosts productivity.
 
