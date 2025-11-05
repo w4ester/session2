@@ -1,449 +1,760 @@
-# 🤖 Session 2: AI Agents for Marketing Teams
+# Session 2
 
-### Build Your First Custom Marketing Agent (No Code Required)
+## AI Agents for Marketing
 
-**What You'll Build:**  
-A custom AI assistant that understands your brand, automates repetitive tasks, and delivers consistent results across campaigns.
+**Build Your First Custom Agent**  
+*No Code Required*
 
----
-
-## Session Overview
-
-**75 Minutes | Hands-On | Immediately Applicable**
-
-1. **LLM Foundations** (15 min) - Tokens, context, and costs
-2. **Prompt Engineering** (20 min) - Write better prompts, get better results
-3. **Reusable Templates** (15 min) - Build once, use everywhere
-4. **Live Agent Build** (20 min) - Create your marketing agent
-5. **Deploy & Scale** (5 min) - Next steps for your team
-
-> 💡 **Session Goal:** You'll leave with a working marketing agent and reusable prompt templates.
+Note: Welcome everyone! Today you'll build a real AI agent you can use Monday. This is hands-on - follow along on your laptop.
 
 ---
 
-## Why This Matters
+## You'll Build This Today
 
-### Traditional Workflow:
-- Draft → Review → Revise → Approve → Publish
-- 2-3 hours per campaign asset
-- Inconsistent brand voice
+✅ Custom AI marketing assistant  
+✅ Understands your brand  
+✅ Automates repetitive tasks  
+✅ Reusable prompt templates
 
-### With AI Agents:
-- Generate → Refine → Publish
-- 20-30 minutes per asset
-- Consistent, on-brand output
+<span class="brand">**Saves 5-10 hours/week**</span>
 
-**ROI:** 5-10 hours saved per week on content creation
+Note: Set expectations high. This is practical, not theoretical. Show of hands - who wants their time back?
 
 ---
 
-## Part 1: Understanding Tokens
+## 75-Minute Build
 
-### What Are Tokens?
+| Time | Topic |
+|------|-------|
+| 15 min | **LLM Foundations** |
+| 20 min | **Prompt Engineering** |
+| 15 min | **Templates** |
+| 20 min | **Build Your Agent** |
+| 5 min | **Deploy & Scale** |
 
-LLMs read text as **tokens** (chunks of ~4 characters).
-
-**Why This Matters:**
-- 💰 **Cost:** You pay per token (~$0.03 per 1,000 tokens)
-- 🧠 **Limits:** Most models cap at 8k-128k tokens
-- ⏱️ **Speed:** More tokens = slower responses
-
-### Live Demo
-
-🧩 **Try it:** [Tokenization Visualizer](https://w4ester.github.io/session2/#tokenization)
-
-**Example:**
-```
-"Marketing AI automates repetitive writing tasks efficiently."
-```
-
-**Result:** 12 tokens (including spaces and punctuation)
-
-### Exercise Prompt:
-```
-Explain how token limits affect the length of campaign briefs I can analyze in a single prompt.
-```
+Note: We're moving fast. Everything is on the workshop site to reference later.
 
 ---
 
-## Part 2: Prompt Engineering
+## The Problem
 
-### The Four Principles
+### Before AI Agents
 
-**1. Be Specific**
-- Define format, length, and tone
-- Specify your audience
+Draft → Review → Revise → Approve → Publish
 
-**2. Provide Context**
-- Background information
-- Constraints and requirements
+⏱️ **2-3 hours** per campaign asset
 
-**3. Use Examples**
-- Show the style you want
-- Include good and bad examples
-
-**4. Break It Down**
-- Complex tasks → simple steps
-- Use numbered instructions
+Note: Show of hands - who's experienced this? The endless revision cycles?
 
 ---
 
-### Before & After
+## The Solution
 
-#### ❌ Basic Prompt:
+### With AI Agents
+
+Generate → Refine → Publish
+
+⏱️ **20-30 minutes** per asset
+
+<span class="brand">**5-10 hours saved weekly**</span>
+
+Note: Same quality output, fraction of the time. That's what we're building today.
+
+---
+
+<!-- PART 1: TOKENS -->
+
+# Part 1
+
+## Understanding Tokens
+
+Note: Quick foundation - 5 minutes on this. It affects everything else.
+
+---
+
+## What Are Tokens?
+
+LLMs read text as **tokens**  
+(~4 characters each)
+
 ```
-Write a social media post about our new product.
+"Marketing AI automates tasks."
 ```
 
-#### ✅ Engineered Prompt:
-```
-Write a LinkedIn post announcing our AI-powered marketing analytics dashboard.
+= **8 tokens**
 
-Target Audience: Marketing managers at mid-size B2B companies
-Key Benefit: Saves 5+ hours/week on manual reporting
+Note: Demo live on the tokenizer. Have everyone open the link.
+
+---
+
+## Why Tokens Matter
+
+💰 **Cost**  
+~$0.03 per 1,000 tokens
+
+🧠 **Limits**  
+8k - 128k token caps
+
+⏱️ **Speed**  
+More tokens = slower
+
+Note: This is why prompt engineering matters. Efficient = cheaper and faster.
+
+---
+
+## Live Demo
+
+🧩 **[Open Tokenization Visualizer](https://w4ester.github.io/session2/#tokenization)**
+
+Try this:
+```
+"Our AI assistant helps marketers build 
+smarter campaigns faster and consistently."
+```
+
+Watch how it breaks down!
+
+Note: Give them 60 seconds to play with it. Point out spaces and punctuation count as tokens.
+
+---
+
+<!-- PART 2: PROMPT ENGINEERING -->
+
+# Part 2
+
+## Prompt Engineering
+
+**Write Better → Get Better**
+
+Note: This is the skill multiplier. Master this and every prompt improves.
+
+---
+
+## The 4 Principles
+
+1️⃣ **Be Specific**
+
+2️⃣ **Provide Context**
+
+3️⃣ **Use Examples**
+
+4️⃣ **Break It Down**
+
+Note: Write these down. They apply to EVERY AI tool, not just what we're building.
+
+---
+
+## Before
+
+❌ **Basic Prompt**
+
+```
+Write a social media post 
+about our new product.
+```
+
+Generic, vague, unusable
+
+Note: This is what most people start with. Let's see what happens when we apply the 4 principles.
+
+---
+
+## After
+
+✅ **Engineered Prompt**
+
+```
+Write a LinkedIn post announcing our 
+AI-powered marketing analytics dashboard.
+
+Target: Marketing managers at B2B companies
+Benefit: Saves 5+ hours/week on reporting
 Tone: Professional but approachable
 Length: 150 words
-Include: One measurable benefit, one question for engagement, 3 hashtags
+Include: 1 metric, 1 question, 3 hashtags
 CTA: "Book a demo"
 ```
 
-**Result:** 300% better engagement, 50% less revision time
+Note: Run both prompts live. Show the dramatic difference in output quality.
 
 ---
 
-### Your Turn: Prompt Workshop
+## The Difference
 
-**🧩 Activity:** [Prompt Quality Checker](https://w4ester.github.io/session2/#prompting)
+❌ Basic = Generic output  
+✅ Engineered = **300% better engagement**
 
-**Challenge:**
-Improve this prompt:
-```
-Write an email promoting our analytics dashboard.
-```
+<span class="brand">Specificity = Quality</span>
 
-**Add:**
-- Who is the audience?
-- What's the key benefit?
-- What action should they take?
-- What tone/voice?
-- How long?
+Note: Real metric from teams using engineered prompts. The more guidance, the better output.
 
 ---
 
-## Part 3: Prompt Templates
+## Your Turn
 
-### Why Templates Beat One-Offs
+**Improve This:**
 
-| One-Off Prompts | Templates |
-|----------------|-----------|
-| Inconsistent results | Reliable quality |
-| Can't scale | Share across team |
-| Reinvent each time | Use immediately |
-| No best practices | Embedded expertise |
+```
+Write an email promoting 
+our analytics dashboard.
+```
+
+🧩 **[Prompt Quality Checker](https://w4ester.github.io/session2/#prompting)**
+
+Note: Give them 3 minutes. Walk around if in-person. We'll share examples after.
 
 ---
 
-### Template Anatomy
+## What to Add
 
-**1. Variables** (customizable)
-```
-{product_name}, {audience}, {key_benefit}, {cta}
-```
+- 🎯 Audience?
+- 💡 Key benefit?
+- 📞 Call to action?
+- 🎨 Tone?
+- 📏 Length?
 
-**2. Instructions** (what to do)
-```
-"Write a [content_type] for [audience] highlighting [benefit]"
-```
+**Add these → Better results**
 
-**3. Structure** (format)
-```
-"Use 3 bullet points, include 1 statistic, end with a question"
-```
-
-**4. Examples** (show don't tell)
-```
-"Good example: [paste sample]"
-```
+Note: These 5 elements transform basic prompts into great ones.
 
 ---
 
-### Build a Template
+## Share Time
 
-**🧩 Activity:** [Template Generator](https://w4ester.github.io/session2/#templates)
+**Who improved their score?** 🙋
 
-**Example Template:**
-```
-# Campaign Summary Template
+Show one example
 
-Create a weekly campaign report for {date_range}.
+Note: Pick 2-3 good examples. Point out what made them better. Reinforce the 4 principles.
 
-Format:
-📊 Performance Overview
-- {top_performing_channel}: {metric}
-- {second_channel}: {metric}
+---
 
-💡 Key Insights
-- [What worked well]
-- [What needs adjustment]
+<!-- PART 3: TEMPLATES -->
 
-🎯 Next Week's Focus
-- [Top priority]
-- [Quick win opportunity]
+# Part 3
+
+## Prompt Templates
+
+**Build Once, Use Forever**
+
+Note: This is how you scale. One person builds it, whole team benefits.
+
+---
+
+## Why Templates?
+
+| One-Offs | Templates |
+|----------|-----------|
+| ❌ Inconsistent | ✅ Reliable |
+| ❌ Don't scale | ✅ Team shares |
+| ❌ Reinvent | ✅ Reuse |
+
+Note: Templates are your team's competitive advantage. Build once, use 100 times.
+
+---
+
+## Template Parts
+
+**1. Variables** → `{product_name}`
+
+**2. Instructions** → What to do
+
+**3. Structure** → Format rules
+
+**4. Examples** → Show quality
+
+Note: Think Mad Libs for marketing. Fill in the blanks, get great content.
+
+---
+
+## Example Template
+
+```markdown
+# Weekly Report for {date_range}
+
+📊 Performance
+- {top_channel}: {metric}
+
+💡 Insights
+- [What worked]
+- [What needs work]
+
+🎯 Next Week
+- [Priority]
 
 Tone: Data-driven but conversational
-Length: 200-300 words
 ```
 
-**→ Download as .md → Share with team → Reuse weekly**
+Note: This is reusable every week. Just swap variables. Same quality every time.
 
 ---
 
-## Part 4: AI Agents Explained
+## Build Yours
 
-### What's an Agent?
+🧩 **[Template Generator](https://w4ester.github.io/session2/#templates)**
 
-**Simple Chatbot:**
+Pick ONE task you do weekly
+
+Build a template for it
+
+Download → Share with team
+
+Note: Give them 5 minutes. Focus on ONE repetitive task. Quality over quantity.
+
+---
+
+<!-- PART 4: AI AGENTS -->
+
+# Part 4
+
+## AI Agents
+
+**LLMs + Tools + Automation**
+
+Note: Now we combine everything. This is the future of marketing workflows.
+
+---
+
+## Chatbot vs Agent
+
+**Chatbot:**
 ```
 Input → LLM → Output
 ```
 
-**AI Agent:**
+**Agent:**
 ```
-Input → LLM + Tools + Memory + Planning → Better Output
+Input → LLM + Tools + Memory → Better Output
 ```
 
-**Components:**
-- 🧠 **LLM:** The brain (reasoning)
-- 🔧 **Tools:** Web search, file analysis, calculations
-- 💾 **Memory:** Conversation history, brand guidelines
-- 🎯 **Planning:** Break tasks into steps
+Note: Agents can browse web, analyze files, remember context. Way more powerful.
 
 ---
 
-### Marketing Agent Use Cases
+## Agent Components
 
-#### Content Creation:
-- Draft email campaigns with A/B variants
-- Generate social posts optimized per platform
-- Create ad copy matching brand voice
+🧠 **LLM** → The brain
 
-#### Analysis:
-- Summarize campaign performance from CSVs
-- Competitor content analysis
-- Trend identification from web research
+🔧 **Tools** → Web, files, calculations
 
-#### Workflow Automation:
-- Content calendar management
-- SEO optimization suggestions
-- First-draft creation for review
+💾 **Memory** → Past conversations
 
-⚠️ **Rule:** Always review AI outputs before publishing
+🎯 **Planning** → Multi-step tasks
+
+Note: This is what makes agents different. They don't just chat, they work.
 
 ---
 
-## Part 5: Build Your Agent (Live Demo)
+## Marketing Use Cases
 
-### No-Code Agent Builder
+**Content**
+- Email campaigns (A/B variants)
+- Social posts (platform-optimized)
+- Ad copy (brand-consistent)
 
-**Tool:** [OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)
+**Analysis**
+- Campaign reports
+- Competitor research
+- Trend identification
 
-### Steps:
+Note: These are real use cases. Teams are using agents for this today.
 
-**1. Name It:** "Campaign Companion" or "Brand Voice Assistant"
+---
 
-**2. Define Purpose:**
+## ⚠️ Golden Rule
+
+**Always review before publishing**
+
+Agents = First drafts  
+You = Final approval
+
+Note: Agents are assistants, not replacements. Quality control stays human.
+
+---
+
+<!-- PART 5: BUILD -->
+
+# Part 5
+
+## Build Your Agent
+
+**Live Demo 🚀**
+
+Note: Main event. Everyone follow along. We're building together, step by step.
+
+---
+
+## Tool: Agent Builder
+
+📖 **[OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)**
+
+**Building:** Marketing Assistant
+
+**Time:** 15 minutes
+
+**Open the link now** 👆
+
+Note: Make sure everyone has it open. Help anyone who needs it. This is the hands-on part.
+
+---
+
+## Step 1: Name It
+
+**Examples:**
+- Campaign Companion
+- Brand Voice Assistant
+- Marketing Co-Pilot
+
+**Choose yours** (clear + descriptive)
+
+Note: Name matters for adoption. Make it friendly and purpose-driven.
+
+---
+
+## Step 2: Instructions
+
+**Copy this template:**
+
 ```
-You are a marketing assistant for [Company Name].
-You help draft, review, and optimize campaign content.
-You understand our brand voice: [professional/casual/witty].
-Always include measurable benefits and clear CTAs.
+You are a marketing assistant for [Company].
+
+Your role:
+- Draft and optimize campaign content
+- Maintain brand voice: [professional/casual]
+- Always include measurable benefits
+- Always include clear CTAs
+- Format for [LinkedIn/Email/Ads]
 ```
 
-**3. Add Tools:**
-- ✅ Web Browsing (competitor research)
-- ✅ Data Analysis (CSV uploads)
-- ✅ DALL-E (visual concepts)
+Note: Customize company name and brand voice. This is the agent's job description.
 
-**4. Test & Iterate:**
+---
+
+## Step 3: Add Tools
+
+✅ **Web Browsing**  
+→ Research competitors
+
+✅ **Data Analysis**  
+→ Upload campaign CSVs
+
+✅ **DALL-E** (optional)  
+→ Generate images
+
+Note: Start with browsing and data analysis. Add more later as needed.
+
+---
+
+## Step 4: Test It
+
+**Test Prompt:**
+
 ```
-Create 3 LinkedIn posts announcing our new analytics feature.
+Create 3 LinkedIn posts about our 
+new analytics feature.
+
 Each should:
 - Highlight time savings (5+ hours/week)
-- Use a different angle (ROI/ease-of-use/team collaboration)
+- Use different angles (ROI, ease, collaboration)
 - Include engagement question
 - Stay under 150 words
+- Include 2-3 hashtags
 ```
 
-**5. Share:** Generate link → Team uses the same agent
+Note: This tests if instructions worked. Run it now. Look for consistent voice and format.
 
 ---
 
-### Agent Architecture
+## Step 5: Review Output
 
-```
-Your Request
-    ↓
-AI Planning Layer (breaks down task)
-    ↓
-Tool Selection (web, files, calculations)
-    ↓
-Content Generation
-    ↓
-Quality Check (against instructions)
-    ↓
-Refined Output → You
-```
+Check for:
+
+✅ Right tone?  
+✅ Right length?  
+✅ Includes CTAs?  
+✅ On brand?
+
+**If no** → Adjust instructions  
+**If yes** → Save & share! 🎉
+
+Note: Iteration is normal. First version is rarely perfect. That's okay.
 
 ---
 
-## Quick Reference: Best Prompts
+## Share Your Agent
 
-### Tokenization Analysis:
+**Options:**
+
+1. **Direct Link** → Team members
+2. **API** → Connect to tools
+3. **Docs** → Write usage guide
+
+📖 [Deployment docs](https://platform.openai.com/docs/guides/agent-builder)
+
+Note: Links are easiest for small teams. API for enterprise scale.
+
+---
+
+<!-- PROMPT LIBRARY -->
+
+# Prompt Library
+
+**Copy-Paste Ready**
+
+Note: Save these. Workshop site has all of them forever.
+
+---
+
+## Tokenization
+
 ```
-Tokenize this sentence and explain each token:
-"Our AI assistant helps marketers build smarter campaigns faster."
+Tokenize this and explain each token:
+"Our AI helps marketers build campaigns."
 ```
 
-### Prompt Improvement:
-```
-Improve this prompt for a marketing email:
-[paste basic prompt]
+🧩 [Try it live](https://w4ester.github.io/session2/#tokenization)
 
-Add: audience, tone, length, structure, examples, and CTA.
+Note: Great for understanding how LLMs read your content.
+
+---
+
+## Prompt Improvement
+
+```
+Improve this prompt: [paste yours]
+
+Add:
+- Audience
+- Tone
+- Length
+- Structure
+- Examples
+- CTA
 ```
 
-### Template Creation:
+Note: Use this template to improve any prompt. Works every time.
+
+---
+
+## Template Creation
+
 ```
-Create a reusable prompt template for [task type].
+Create a template for [task type]
+
 Variables: {var1}, {var2}, {var3}
-Include: format instructions, tone guidance, length specs.
+Include: format, tone, length specs
 ```
 
-### Agent Task:
+Note: This meta-prompt creates new templates. Very powerful for scaling.
+
+---
+
+## Campaign Analysis
+
 ```
 Analyze the attached campaign CSV.
-Provide: top 3 performers, bottom 2, one actionable insight per channel.
-Format as a 250-word memo for the CMO.
+
+Provide:
+- Top 3 performers
+- Bottom 2 performers
+- One insight per channel
+- Next week recommendations
+
+Format: 250-word CMO memo
 ```
 
----
-
-## Key Takeaways
-
-### ✅ You Now Know:
-
-1. **Tokens = Cost + Speed**  
-   Write efficient prompts to save money and time
-
-2. **Four Principles = Better Prompts**  
-   Specificity, context, examples, structure
-
-3. **Templates = Scalability**  
-   Build once, reuse across campaigns
-
-4. **Agents = Automation**  
-   Combine LLMs + tools for complex workflows
-
-5. **No Code = No Excuses**  
-   Anyone can build custom AI assistants
+Note: Real workflow prompt. Upload CSV, get executive summary. Modify for your needs.
 
 ---
 
-## Your Next 3 Actions
+<!-- TAKEAWAYS -->
 
-### This Week:
-1. Build one agent for your most repetitive task
-2. Create 2-3 templates for common workflows
-3. Test, document results, share with team
+# Key Takeaways
 
-### Metrics to Track:
-- ⏱️ Time saved per task
-- 🔄 Revision cycles reduced
-- ✅ Team adoption rate
+**What You Learned**
 
-**Share Back:**
-What worked? What didn't? Iterate together.
+Note: Let's wrap up the key lessons. These apply beyond today's workshop.
 
 ---
 
-## Resources & Tools
+## 5 Core Lessons
 
-### 🌐 Workshop Hub
+1. **Tokens = Cost + Speed**
+
+2. **4 Principles = Quality**
+
+3. **Templates = Scale**
+
+4. **Agents = Automation**
+
+5. **No Code = No Barriers**
+
+Note: These principles work with ANY AI tool, not just what we built today.
+
+---
+
+<!-- ACTION PLAN -->
+
+# Your Action Plan
+
+**Next 7 Days**
+
+Note: Don't let this sit. Take action this week.
+
+---
+
+## This Week
+
+**Day 1-2**  
+Build ONE agent for repetitive task
+
+**Day 3-4**  
+Create 2-3 templates
+
+**Day 5-7**  
+Test, measure, share
+
+Note: Start small. Pick the task that takes 2+ hours weekly. Prove value first.
+
+---
+
+## Track These Metrics
+
+⏱️ Time saved per task
+
+🔄 Revision cycles reduced
+
+✅ Team adoption rate
+
+Note: Numbers matter. Document savings to justify expansion.
+
+---
+
+## Success Pattern
+
+1. Start small (one workflow)
+2. Document results
+3. Share learnings
+4. Scale gradually
+5. Iterate always
+
+Note: Don't try to automate everything. Prove value, then expand.
+
+---
+
+<!-- RESOURCES -->
+
+# Resources
+
+**Everything You Need**
+
+Note: All of this is free and available forever.
+
+---
+
+## 🌐 Workshop Hub
+
 **[w4ester.github.io/session2](https://w4ester.github.io/session2/)**
 
 - Tokenization Visualizer
 - Prompt Quality Checker
 - Template Generator
-- All Slides & Examples
+- Full Documentation
+- Download All Materials
 
-### 🛠️ Build Tools
+Note: Bookmark this. No login required. Available 24/7.
 
+---
+
+## 🛠️ Tools
+
+**Build:**
 - [OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)
-- [Claude Projects](https://claude.ai) (alternative)
-- [GitHub Repository](https://github.com/w4ester/session2)
+- [Claude Projects](https://claude.ai)
 
-### 📖 Learn More
+**Learn:**
+- [OpenAI Prompt Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+- [Anthropic Prompts](https://docs.anthropic.com/prompts)
 
-- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
-- [Anthropic Prompt Library](https://docs.anthropic.com/prompts)
-
----
-
-## Frequently Asked Questions
-
-**Q: What if my agent makes mistakes?**  
-A: Always review before publishing. Use agents for first drafts, you provide final approval.
-
-**Q: Can I use this with our brand guidelines?**  
-A: Yes! Upload guidelines as files or paste into agent instructions.
-
-**Q: How do I share agents with my team?**  
-A: Agents built with OpenAI Agent Builder can be shared via API or integrated into your workflows. Check the [Agent Builder documentation](https://platform.openai.com/docs/guides/agent-builder) for deployment options.
-
-**Q: What about data privacy?**  
-A: Check your AI provider's terms. For sensitive data, use on-premise solutions.
-
-**Q: Do I need coding skills?**  
-A: No! This entire workshop uses no-code tools. If you can write a prompt, you can build an agent.
-
-**Q: How much does this cost?**  
-A: OpenAI Agent Builder pricing varies by usage. Check [OpenAI's pricing page](https://openai.com/pricing) for current rates. Claude Projects is included with Claude Pro ($20/month).
+Note: Agent Builder and Claude need paid accounts. Others are free.
 
 ---
 
-## Start Building Today
+## 📁 Code
 
-**You have the tools.**  
-**You have the knowledge.**  
-**You have the templates.**
+**[GitHub Repository](https://github.com/w4ester/session2)**
 
-**Now go automate your workflow.**
+- All slides
+- All prompts
+- All templates
+- Workshop source code
 
-🚀 **Your AI-powered marketing team starts now.**
+Fork it, modify it, use it
 
----
-
-## About This Workshop
-
-**Session 2 of the LLM Workshop Series**  
-Created for non-technical marketers, strategists, and creative professionals.
-
-**Facilitator Resources:**
-- All slides are self-contained
-- No prior setup required
-- Interactive demos hosted on GitHub Pages
-- Reusable prompt library included
-
-**Workshop Site:** [w4ester.github.io/session2](https://w4ester.github.io/session2/)  
-**GitHub:** [github.com/w4ester/session2](https://github.com/w4ester/session2)
+Note: MIT licensed. Use however you want. Contributions welcome.
 
 ---
 
-**License:** MIT  
-**Contributions:** Welcome! Open an issue or PR.
+<!-- Q&A -->
+
+# Questions?
+
+Note: Open floor. Address specific questions from audience.
 
 ---
 
-**Session 2 Complete** ✅
+## Common Questions
 
-*Build smarter, not harder — your AI-powered marketing workflow starts now!*
+**Q: Mistakes?**  
+A: Always review. Agents = drafts.
+
+**Q: Brand guidelines?**  
+A: Upload files or paste into instructions.
+
+**Q: Share with team?**  
+A: Check Agent Builder docs for options.
+
+**Q: Data privacy?**  
+A: Review AI provider terms.
+
+Note: Privacy is often the biggest concern. Address it directly.
+
+---
+
+<!-- CLOSING -->
+
+# You're Ready 🚀
+
+**You have:**
+
+✅ The tools  
+✅ The knowledge  
+✅ The templates  
+✅ The agent
+
+Note: This is just the start. Real learning happens when you build.
+
+---
+
+## Start This Week
+
+**One Task**  
+**One Template**  
+**One Agent**
+
+<span class="brand">**Go automate**</span>
+
+Note: Don't wait. Build something this week. Share results.
+
+---
+
+# Thank You! 🎉
+
+**Session 2 Complete**
+
+🌐 [w4ester.github.io/session2](https://w4ester.github.io/session2/)  
+📁 [github.com/w4ester/session2](https://github.com/w4ester/session2)
+
+*Build smarter, not harder*
+
+Note: Thank them. Remind them the site has everything. They can revisit anytime. Stay available for questions.
