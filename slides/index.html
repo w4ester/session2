@@ -16,13 +16,13 @@
     }
 
     .reveal .slides {
-      font-size: 32px;
-      text-align: left;
+      font-size: 28px;
+      text-align: center;
     }
 
     /* Title slide styling */
     .reveal h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 0.3em;
@@ -31,46 +31,55 @@
     }
 
     .reveal h2 {
-      font-size: 2em;
+      font-size: 1.8em;
       font-weight: 600;
       color: #1e293b;
-      margin: 0.8em 0 0.5em 0;
+      margin: 0.6em 0 0.4em 0;
       border-bottom: 3px solid #7c5cff;
-      padding-bottom: 0.3em;
+      padding-bottom: 0.2em;
+      display: inline-block;
+      min-width: 60%;
     }
 
     .reveal h3 {
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-weight: 600;
       color: #334155;
-      margin: 0.7em 0 0.4em 0;
+      margin: 0.5em 0 0.3em 0;
     }
 
     .reveal h4 {
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 600;
       color: #475569;
-      margin: 0.6em 0 0.3em 0;
+      margin: 0.4em 0 0.2em 0;
     }
 
     /* Tagline / subtitle styling */
     .reveal p strong:first-child {
       display: block;
-      font-size: 1.2em;
+      font-size: 1.1em;
       color: #7c5cff;
       font-weight: 600;
-      margin: 0.5em 0;
+      margin: 0.3em 0;
+    }
+
+    /* Paragraph spacing */
+    .reveal p {
+      margin: 0.4em 0;
     }
 
     /* Metadata styling (Speakers, Moderator, etc.) */
     .reveal .metadata {
       background: rgba(124, 92, 255, 0.08);
       border-left: 4px solid #7c5cff;
-      padding: 1.5em;
-      margin: 1.5em 0;
+      padding: 1em;
+      margin: 1em auto;
       border-radius: 8px;
-      font-size: 0.9em;
-      line-height: 1.6;
+      font-size: 0.85em;
+      line-height: 1.5;
+      max-width: 90%;
+      text-align: left;
     }
 
     .reveal .metadata strong {
@@ -80,33 +89,36 @@
 
     /* Lists */
     .reveal ul, .reveal ol {
-      margin: 0.5em 0 0.5em 1.5em;
-      line-height: 1.6;
+      margin: 0.5em auto;
+      line-height: 1.5;
+      display: inline-block;
+      text-align: left;
     }
 
     .reveal li {
-      margin: 0.3em 0;
+      margin: 0.25em 0;
     }
 
     /* Tables */
     .reveal table {
       border-collapse: collapse;
-      margin: 1em auto;
-      font-size: 0.85em;
-      width: 100%;
+      margin: 0.8em auto;
+      font-size: 0.75em;
+      width: 90%;
+      max-width: 100%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .reveal table th {
       background: linear-gradient(135deg, #7c5cff, #6366f1);
       color: white;
-      padding: 0.8em;
+      padding: 0.6em;
       font-weight: 600;
       border: none;
     }
 
     .reveal table td {
-      padding: 0.7em;
+      padding: 0.5em;
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -122,22 +134,25 @@
     .reveal pre {
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       border-radius: 8px;
-      margin: 1em 0;
+      margin: 0.8em auto;
+      max-width: 90%;
     }
 
     .reveal pre code {
-      font-size: 0.85em;
-      padding: 1.5em;
-      line-height: 1.5;
+      font-size: 0.7em;
+      padding: 1em;
+      line-height: 1.4;
+      max-height: 400px;
+      overflow: auto;
     }
 
     /* Inline code */
     .reveal code {
       background: rgba(124, 92, 255, 0.1);
       color: #7c5cff;
-      padding: 0.2em 0.4em;
+      padding: 0.15em 0.35em;
       border-radius: 4px;
-      font-size: 0.9em;
+      font-size: 0.85em;
     }
 
     /* Links */
@@ -209,9 +224,20 @@
     /* Section transitions */
     .reveal section {
       background: white;
-      padding: 2em;
+      padding: 1.2em 1.5em;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      height: 100%;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Ensure content doesn't overflow */
+    .reveal .slides > section {
+      height: 100%;
+      max-height: 720px;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -237,13 +263,15 @@
       progress: true,
       controls: true,
       center: true,
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      transition: 'slide',
       plugins: [ Markdown, Highlight ]
     });
-    deck.initialize({
-      transition: 'slide',
-      width: 1280,
-      height: 720
-    });
+    deck.initialize();
   </script>
 </body>
 </html>
