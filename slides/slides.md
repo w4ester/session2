@@ -2,11 +2,19 @@
 
 **No Code Required — Build in 60 Minutes**
 
+**Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs and Agents**
+**Speakers: William Forrester & Mo Edzerman**
+**Moderator: Todd Marks**
+**Objective**: Learn how to create an AI agent that understands your brand, speaks in your voice, and enhances your marketing workflow. This interactive workshop will cover the essentials of how language models process information, how to craft effective prompts, and how to apply advanced prompting techniques for consistent, on brand content generation. You will also explore how AI agents work and build your own custom content marketing agent using an Agent Builder, an intelligent assistant designed to streamline content creation and boost productivity across your marketing efforts.
+
+
+
 What you'll build today:
 - ✅ Tokenization visualizer
 - ✅ Prompt quality checker
-- ✅ Template generator
-- ✅ Custom marketing agent
+- ✅ Template generator with autocomplete
+- ✅ **Campaign Brief Generator Custom GPT**
+- ✅ **Campaign Brief Agent with tools**
 
 🌐 **[Workshop Site: w4ester.github.io/session2](https://w4ester.github.io/session2/)**
 
@@ -22,8 +30,10 @@ Note: Welcome! Everything is hands-on. Follow along on your laptop. Workshop sit
 | 8 min | Tokenization Demo | [Live Tool](#tokenization) |
 | 12 min | Prompt Engineering | [Scoring Tool](#prompting) |
 | 8 min | Templates | [Generator](#templates) |
-| 15 min | Build Agent | OpenAI Agent Builder |
-| 10 min | Q&A | — |
+| 10 min | **Build Custom GPT** | ChatGPT GPT Editor |
+| 5 min | **Custom GPT vs Agent** | Slides |
+| 10 min | **Build Campaign Agent** | OpenAI Agents |
+| 5 min | Q&A | — |
 
 **💰 The Business Case**
 - Problem: Repetitive marketing tasks consume 5-10 hours/week
@@ -156,86 +166,168 @@ Note: Templates are your scaling strategy. One person builds, whole team benefit
 
 **🧩 [Template Generator →](https://w4ester.github.io/session2/#templates)**
 
-**Build a template (5 minutes):**
+**Build a template (5-8 minutes):**
 1. Go to section 3 on workshop site
-2. Pick ONE repetitive task you do weekly
-3. Enter:
-   - Task name: "Email Subject Line Generation"
-   - Variables: "product name, offer details, audience, tone"
-   - Instructions: "Create 5 subject line options..."
+2. **NEW: Try Quick Start presets** (Email, Social, Ad Copy, Blog)
+3. Or start from scratch with **autocomplete suggestions**:
+   - Task name: Type "Email..." to see 12 suggestions
+   - Variables: See 5 common variable combinations
+   - Instructions: Customize for your needs
 4. Click "Generate Template"
 5. Download .md file
 
 **Example templates to build:**
-- Weekly performance reports
-- Social media posts
-- Campaign briefs
-- Email sequences
+- Email subject lines (preset available!)
+- Social media posts (preset available!)
+- Ad copy (preset available!)
+- Blog outlines (preset available!)
 
-Note: Focus on ONE task. Quality over quantity. Save the template — you'll use it forever.
-
----
-
-## What Are AI Agents?
-
-**Chatbot vs Agent:**
-
-**Chatbot:** Input → LLM → Output
-
-**Agent:** Input → LLM + Tools + Memory + Planning → Better Output
-
-**Agent Components:**
-- 🧠 **LLM** — The brain (GPT-4, Claude)
-- 🔧 **Tools** — Web browsing, file analysis, calculations
-- 💾 **Memory** — Remembers past conversations
-- 🎯 **Planning** — Breaks complex tasks into steps
-
-**💰 Agent Costs & ROI:**
-- OpenAI Plus: **$20/month**
-- Time saved: **5-10 hours/week** = $250-750/week
-- ROI: **$1,000-3,000/month saved** vs $20/month cost
-- Payback: **First day**
-
-Note: Agents don't just chat — they work. They can research competitors, analyze CSVs, draft campaigns.
+Note: Presets save time! Click one, customize if needed, generate. Save the template — you'll use it forever.
 
 ---
 
-## Live Build: OpenAI Agent Builder Walkthrough
+## Build a Custom GPT: Campaign Brief Generator
 
-**🧩 [OpenAI Agent Builder →](https://platform.openai.com/agent-builder)**
+**Why Campaign Brief Generator?**
+- Saves 1-2 hours per brief → 5 minutes
+- 4-8 briefs/month = **5-10 hours saved monthly**
+- **Annual savings: $4,500-9,000** (@$75/hr)
+- Cost: ChatGPT Plus **$240/year**
+
+**What is a Custom GPT?**
+- Your own AI assistant that knows your business
+- Upload brand guidelines, past briefs, messaging docs
+- Custom instructions for consistent output
+- Shareable with your team
+
+**💡 Perfect First AI Project:**
+- Everyone writes campaign briefs
+- Clear input/output structure
+- Immediate, measurable value
+- No coding required!
+
+Note: Custom GPTs are the easiest entry point to AI automation. Build one, prove value, scale from there.
+
+---
+
+## Live Build: Campaign Brief Generator GPT
+
+**🧩 [ChatGPT → Create a GPT →](https://chatgpt.com/gpts/editor)**
 
 **Build together (10 minutes):**
 
-**Step 1:** Click "+ Create" and name your agent
-- Example: "Campaign Companion" or "Brand Voice Assistant"
+**Step 1:** Click "Create a GPT"
+- Name: "Campaign Brief Generator"
+- Description: "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics."
 
-**Step 2:** Add instructions
+**Step 2:** Add Instructions
 ```
-You are a marketing assistant for [Company].
+You are a Campaign Brief Generator for [Your Company].
 
 Your role:
-- Draft and optimize campaign content
-- Maintain brand voice: [professional/casual]
-- Always include measurable benefits
-- Always include clear CTAs
-- Format for [LinkedIn/Email/Ads]
+- Create comprehensive campaign briefs
+- Use our brand voice: [professional/casual/technical]
+- Include measurable success metrics
+- Reference past successful campaigns
+
+Required sections:
+1. Campaign Overview
+2. Target Audience
+3. Key Messaging
+4. Channels & Tactics
+5. Success Metrics
+6. Timeline & Budget
+7. Creative Requirements
 ```
 
-**Step 3:** Enable tools
-- ✅ Web Browsing (competitor research)
-- ✅ Data Analysis (upload campaign CSVs)
+**Step 3:** Upload Knowledge (optional)
+- Past successful briefs
+- Brand guidelines
+- Messaging framework
 
 **Step 4:** Test it
 ```
-Create 3 LinkedIn posts about our analytics feature.
-Each should highlight time savings (5+ hours/week),
-use different angles, include engagement questions,
-stay under 150 words, and include 2-3 hashtags.
+Create a campaign brief for a product launch
+targeting B2B marketing managers.
 ```
 
-**Step 5:** Review, adjust, save, share with team
+**Step 5:** Share with team!
 
-Note: Walk through each step live. Help anyone stuck. This is the main deliverable — everyone leaves with a working agent.
+Note: Everyone should have a working Custom GPT by end of this section. Help neighbors if stuck.
+
+---
+
+## Custom GPT vs Agent: What's the Difference?
+
+| Feature | Custom GPT | Agent |
+|---------|------------|-------|
+| **Knowledge** | ✅ Your docs | ✅ Your docs |
+| **Instructions** | ✅ Custom | ✅ Custom |
+| **Web Browsing** | ❌ No | ✅ Yes |
+| **Data Analysis** | ❌ No | ✅ Yes |
+| **Multi-step Tasks** | ❌ No | ✅ Yes |
+| **API Integrations** | ❌ No | ✅ Yes |
+
+**When to Upgrade GPT → Agent:**
+- ✅ Need to research competitors (web browsing)
+- ✅ Need to analyze campaign data (CSV uploads)
+- ✅ Need multi-step workflows (research → analyze → generate)
+- ✅ Need API integrations (CRM, analytics tools)
+
+**💰 Cost Comparison:**
+- Custom GPT: **$20/month** (ChatGPT Plus)
+- Agent: **$20/month** (same subscription!)
+- ROI: **Same price, more capabilities**
+
+**💡 Recommendation:**
+Start with Custom GPT → Prove value → Upgrade to Agent when you need tools
+
+Note: You already built the Custom GPT. Now let's add tools to make it an agent.
+
+---
+
+## Hands-On: Build Campaign Brief Agent
+
+**🧩 [OpenAI Agents →](https://platform.openai.com/agents)**
+
+**Enhance your Custom GPT with tools (10 minutes):**
+
+**Step 1:** Go to OpenAI Agents (requires Plus)
+- Click "Create Agent" or import your Custom GPT
+- Name: "Campaign Brief Agent"
+
+**Step 2:** Use same instructions from your Custom GPT
+- Copy/paste your Campaign Brief Generator instructions
+
+**Step 3:** **Enable Tools** (this is the magic!)
+- ✅ **Web Browsing** → "Research competitor campaigns automatically"
+- ✅ **Data Analysis** → "Upload past campaign CSVs, analyze what worked"
+- ✅ **Memory** → "Remember brand preferences across sessions"
+
+**Step 4:** Test with 3 examples
+
+**Example 1: Basic Brief**
+```
+Create a campaign brief for a summer sale
+targeting existing customers
+```
+
+**Example 2: With Research**
+```
+Create a brief for Q2 product launch.
+First, research what competitors did in their
+recent launches, then create the brief with insights.
+```
+
+**Example 3: With Data**
+```
+Here's our Q1 campaign performance CSV.
+Analyze what worked best, then create a Q2
+brief using those insights.
+[Upload CSV]
+```
+
+Note: Watch the agent use tools! It will browse web, analyze data, THEN generate the brief. This is the power of agents vs GPTs.
 
 ---
 
@@ -244,8 +336,9 @@ Note: Walk through each step live. Help anyone stuck. This is the main deliverab
 **What You Built Today:**
 - ✅ Tokenization understanding (optimize costs)
 - ✅ 4 prompt engineering principles (quality)
-- ✅ Reusable templates (scale)
-- ✅ Custom agent (automation)
+- ✅ Reusable templates with presets (scale)
+- ✅ **Campaign Brief Generator Custom GPT** (automation)
+- ✅ **Campaign Brief Agent with tools** (intelligent automation)
 
 **💰 Financial Impact:**
 
@@ -272,8 +365,10 @@ Note: These are conservative estimates. Many teams save 15-20 hours/week. Docume
 - No login required
 
 **🛠️ Tools:**
-- [OpenAI Agent Builder](https://platform.openai.com/agent-builder) (requires Plus)
-- [OpenAI Docs](https://platform.openai.com/docs/guides/agents)
+- [ChatGPT Custom GPT Editor](https://chatgpt.com/gpts/editor) (requires Plus)
+- [OpenAI Agents Platform](https://platform.openai.com/agents) (requires Plus)
+- [Custom GPT Docs](https://help.openai.com/en/articles/8554397-creating-a-gpt)
+- [Agent Docs](https://platform.openai.com/docs/guides/agents)
 - [Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
 
 **📁 Code:**
@@ -281,9 +376,10 @@ Note: These are conservative estimates. Many teams save 15-20 hours/week. Docume
 - Fork it, modify it, use it (MIT license)
 
 **📋 Your Action Plan (Next 7 Days):**
-- Day 1-2: Build ONE agent for repetitive task
-- Day 3-4: Create 2-3 templates
-- Day 5-7: Test, measure, document savings
+- Day 1: Use your Campaign Brief Generator Custom GPT on real work
+- Day 2-3: Create 2-3 more templates for other repetitive tasks
+- Day 4-5: Upgrade to Campaign Brief Agent (add tools)
+- Day 6-7: Test agent with research + data, measure, document savings
 
 **Track These Metrics:**
 - ⏱️ Time saved per task
@@ -299,14 +395,17 @@ Note: Bookmark the workshop site. All tools work forever. Start with ONE workflo
 
 **Common Questions:**
 
-**Q: What if the agent makes mistakes?**
-A: Always review outputs. Agents = first drafts, humans = final approval.
+**Q: What if the Custom GPT/agent makes mistakes?**
+A: Always review outputs. Custom GPTs/Agents = first drafts, humans = final approval.
 
 **Q: How do I enforce brand guidelines?**
-A: Upload brand docs or paste guidelines into agent instructions.
+A: Upload brand docs to Custom GPT knowledge or paste guidelines into instructions.
 
-**Q: Can I share my agent with my team?**
-A: Yes! OpenAI Agent Builder has team sharing options.
+**Q: Can I share my Custom GPT/agent with my team?**
+A: Yes! Both Custom GPTs and Agents have team sharing options in ChatGPT Plus.
+
+**Q: Should I start with Custom GPT or Agent?**
+A: Start with Custom GPT! Build it, prove value, then upgrade to Agent when you need tools (research, data analysis).
 
 **Q: What about data privacy?**
 A: Review your AI provider's terms. Don't input sensitive customer data.
@@ -315,12 +414,13 @@ A: Review your AI provider's terms. Don't input sensitive customer data.
 A: Pick tasks that are repetitive, time-consuming (2+ hours/week), and have clear quality standards.
 
 **What you have now:**
-✅ The tools
-✅ The knowledge
-✅ The templates
-✅ The agent
+✅ The tools (Tokenizer, Prompt Checker, Template Generator)
+✅ The knowledge (4 prompt engineering principles)
+✅ The templates (with presets & autocomplete)
+✅ **The Custom GPT (Campaign Brief Generator)**
+✅ **The Agent (with web browsing & data analysis)**
 
-**Go build something this week.**
+**Go automate something this week.**
 
 🌐 [Workshop Site](https://w4ester.github.io/session2/) • 📁 [GitHub](https://github.com/w4ester/session2)
 

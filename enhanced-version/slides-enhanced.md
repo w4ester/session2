@@ -22,15 +22,17 @@ Note: Set expectations high. This is practical, not theoretical. Show of hands -
 
 ---
 
-## 75-Minute Build
+## 60-Minute Workshop
 
 | Time | Topic |
 |------|-------|
-| 15 min | **LLM Foundations** |
-| 20 min | **Prompt Engineering** |
-| 15 min | **Templates** |
-| 20 min | **Build Your Agent** |
-| 5 min | **Deploy & Scale** |
+| 5-7 min | **Introduction** |
+| 8 min | **LLM Foundations** |
+| 12 min | **Prompt Engineering** |
+| 8 min | **Templates** |
+| 10 min | **Build Your Agent** |
+| 2 min | **Deploy & Scale** |
+| 15 min | **Q&A** |
 
 Note: We're moving fast. Everything is on the workshop site to reference later.
 
@@ -42,7 +44,7 @@ Note: We're moving fast. Everything is on the workshop site to reference later.
 
 Draft → Review → Revise → Approve → Publish
 
-⏱️ **2-3 hours** per campaign asset
+⏱️ **2-3 hours per campaign asset**
 
 Note: Show of hands - who's experienced this? The endless revision cycles?
 
@@ -54,7 +56,7 @@ Note: Show of hands - who's experienced this? The endless revision cycles?
 
 Generate → Refine → Publish
 
-⏱️ **20-30 minutes** per asset
+⏱️ **20-30 minutes per asset**
 
 <span class="brand">**5-10 hours saved weekly**</span>
 
