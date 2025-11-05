@@ -406,4 +406,4 @@ Want to improve the workshop?
 
 **Let's GrOw! 🚀**
 
-*Build smarter, not harder - your AI-powered marketing team starts now!*
+*Building Producers not users - Your AI-power starts now!*
