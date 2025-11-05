@@ -16,7 +16,7 @@ An interactive, hands-on workshop for teaching how to build AI agents. 100% stat
 - ✅ **Prompt Scorer** - Real-time scoring with AI suggestions
 - ✅ **Template Library** - Save, load, and share templates
 - ✅ **Agent Builder** - Step-by-step walkthrough simulator
-- ✅ **Challenge Mode** - 3 real marketing scenarios to solve
+- ✅ **Challenge Mode** - 3 real scenarios to solve
 
 ### Gamification
 - ✅ **Achievement System** - Track completion and scores
