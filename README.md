@@ -1,6 +1,6 @@
 # Session 2: AI Agents for Marketing - Enhanced Workshop
 
-An interactive, hands-on workshop for teaching marketers how to build AI agents. 100% static, runs on GitHub Pages, no backend required!
+An interactive, hands-on workshop for teaching how to build AI agents. 100% static, runs on frontend, no backend required!
 
 ## 🚀 What's New in the Enhanced Version
 
@@ -16,7 +16,7 @@ An interactive, hands-on workshop for teaching marketers how to build AI agents.
 - ✅ **Prompt Scorer** - Real-time scoring with AI suggestions
 - ✅ **Template Library** - Save, load, and share templates
 - ✅ **Agent Builder** - Step-by-step walkthrough simulator
-- ✅ **Challenge Mode** - 3 real marketing scenarios to solve
+- ✅ **Challenge Mode** - 3 real scenarios to solve
 
 ### Gamification
 - ✅ **Achievement System** - Track completion and scores
@@ -394,9 +394,8 @@ Want to improve the workshop?
 
 ## 🎉 Credits
 
-**Created by:** Will Esterson  
-**For:** Baltimore AI Producers Lab & MSDE Division of College and Career Pathways  
-**Purpose:** Teaching families and educators to build AI tools, not just consume them  
+**Created by:** Will F  
+
 
 **Special thanks to:**
 - Workshop participants for feedback
@@ -407,4 +406,4 @@ Want to improve the workshop?
 
 **Let's GrOw! 🚀**
 
-*Build smarter, not harder - your AI-powered marketing team starts now!*
+*Building Producers not users - Your AI-power starts now!*
