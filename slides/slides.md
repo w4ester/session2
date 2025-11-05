@@ -1,66 +1,72 @@
-# Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs & Agents
-### LLM Workshop for Marketers
-**Objective:** Build a chatbot that speaks your language, understands your business, and boosts productivity.
+Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs & Agents
+# LLM Workshop for Marketers
+
+### Objective
+Build a chatbot that speaks your language, understands your business, and boosts productivity.
 
 ---
 
 ## Agenda
-1. From Novice to Comfortable: Understanding LLMs
-2. Tokenization: what are tokens and why they matter
-3. Prompt Engineering: principles & examples
-4. Prompt Templates: reusable scaffolds
-5. Intro to Agents: tools, memory, and planning
-6. Hands-on activities & resources
 
---
+- From Novice to Comfortable: Understanding LLMs  
+- Tokenization: what are tokens and why they matter  
+- Prompt Engineering: principles & examples  
+- Prompt Templates: reusable scaffolds  
+- Intro to Agents: tools, memory, and planning  
+- **New! Build a No-Code Marketing Agent**  
+- Hands-on activities & resources  
+
+---
 
 ## Audience
+
 Non-technical marketers who want practical, real-world applications.
 
 ---
 
 ## Understanding Tokenization
-- LLMs read tokens (subwords), not words
-- Token counts affect:
-  - Cost (most providers bill by token)
-  - Context window limits
-  - Latency and truncation risk
 
-**Hands-on:** Use the Tokenization Visualizer on the workshop site.
+LLMs read **tokens** (subwords), not full words.  
+Token counts affect:
 
---
+- 💰 Cost (providers bill by token)  
+- 🧠 Context window limits  
+- ⏱️ Latency and truncation risk  
 
-### Demo: Tokenizing a message
-```text
-Hello world! How are marketing campaigns optimized with AI?
-See total tokens
+**Hands-on:** Try the *Tokenization Visualizer* on the workshop site.
 
-Inspect token pieces
+---
 
-Toggle a chat wrapper to observe overhead
+## Demo: Tokenizing a Message
 
-Prompt Engineering Basics
-Four Principles
+Example:  
+`Hello world! How are marketing campaigns optimized with AI?`
 
-Be specific and clear
+🧩 See total tokens  
+🔍 Inspect token pieces  
+💬 Toggle a chat wrapper to observe overhead  
 
-Provide context
+---
 
-Use examples (few-shot)
+## Prompt Engineering Basics
 
-Break complex tasks into steps
-```
+### Four Principles
+1. **Be specific and clear** – tone, format, length, audience  
+2. **Provide context** – background and constraints  
+3. **Use examples** – few-shot prompting  
+4. **Break complex tasks** – step-by-step guidance  
 
---
+---
 
-Prompt comparison
-Basic
+## Prompt Comparison
 
+**Basic**
 Write a social media post about our new product.
 
-Engineered
 
-Write a LinkedIn post about our new AI-powered marketing analytics dashboard that helps marketing teams track campaign performance in real time.
+**Engineered**
+Write a LinkedIn post about our new AI-powered marketing analytics dashboard
+that helps marketing teams track campaign performance in real time.
 
 The post should:
 
@@ -74,64 +80,99 @@ Be around 150 words
 
 Include 3 relevant hashtags
 
---
 
-Try it yourself
-Open the "Prompt Quality Check" on the site
 
-Paste your improved prompt
+---
 
-Aim for 8+/10 by adding audience, tone, length, format, constraints, examples
+## Try It Yourself
 
-Prompt Templates
-Why templates?
+💡 Open the “Prompt Quality Check” on the workshop site.  
+- Paste your improved prompt  
+- Aim for **8+/10** by adding audience, tone, format, length, and examples  
 
-Consistency across teams
+---
 
-Faster iteration
+## Prompt Templates
 
-Built-in best practices
+### Why Templates?
+- ✅ Consistency across teams  
+- ⚡ Faster iteration  
+- 🧱 Built-in best practices  
 
-Template components
+**Template Components**
+- Variables  
+- Instructions  
+- Structure  
+- Examples  
 
-Variables
+---
 
-Instructions
+## Exercise
 
-Structure
+🧩 Generate an *Email Subject Line* template on the workshop site.  
+📥 Download it as `.md` and share with your team.
 
-Examples
+---
 
---
+## Introduction to AI Agents
 
-Exercise
-Generate an "Email Subject Line" template on the site
+Agents = **LLM + tools + memory + planning + feedback loops**
 
-Download as .md and share with your team
+Marketing use cases:
+- 📅 Content Calendar Manager  
+- 🕵️ Competitive Monitor  
+- 💌 Personalization Engine  
+- ✍️ Ad Copy Optimizer  
 
-Introduction to AI Agents
-Agents = LLM + tools + memory + planning + feedback loops
+⚠️ Always review agent outputs before publishing.
 
-Marketing use cases
+---
 
-Content Calendar Manager
+## Concept Diagram
 
-Competitive Monitor
+(See “Introduction to AI Agents” diagram on the workshop site.)
 
-Personalization Engine
+---
 
-Ad Copy Optimizer
+## 🧠 NEW: Build a No-Code Marketing Agent
 
-Caution
-Always review agent outputs before publishing.
+### OpenAI Agent Builder Demo
 
---
+🧩 Create your own **Marketing Assistant** without code!
 
-Concept Diagram
-(See diagram on the workshop site.)
+**Steps:**
+1. Open [OpenAI Agent Builder ↗](https://chat.openai.com/create)  
+2. Click **+ Create** and name your agent  
+3. Add clear **instructions** (“Draft social posts and summarize ad results”)  
+4. Optionally enable **Web Browsing** or **File Upload**  
+5. Save, test, and share your agent with your team  
 
-Wrap-up
-You learned
+---
+
+### Demo Checklist
+
+✅ Demo OpenAI account ready  
+✅ Slides or screen recording of Agent Builder  
+✅ Example prompt: *“Create 3 LinkedIn post options promoting our new analytics feature.”*  
+✅ Example result: Copy generation + performance summary  
+
+---
+
+### Concept Flow (No-Code Agent Builder)
+
+```mermaid
+flowchart LR
+  Marketer([Marketer 🧑‍💼]) --> Builder["🧩 OpenAI Agent Builder"]
+  Builder --> Config[Define purpose & instructions]
+  Builder --> Tools[Add tools<br/>Browsing · File Upload · APIs]
+  Tools --> Test[Test & Iterate]
+  Test --> Launch[🚀 Live Marketing Agent]
+  Launch --> Results[📊 Generates Campaign Copy<br/>Analyzes Ad Performance]
+
+
+Wrap-Up
+
+You learned:
 
 Tokenization essentials
 
@@ -141,14 +182,22 @@ Template building
 
 Agent fundamentals
 
-Next steps
-Pick one workflow this week and apply a template; iterate based on results.
+No-Code Agent creation
+
+Next Steps
+
+Pick one workflow this week and apply a template.
+
+Experiment with the Agent Builder.
+
+Iterate based on real campaign results.
 
 Resources
-Workshop site (this repo root)
 
-Slides (this folder)
+🌐 Workshop site (repo root)
 
-Downloadable prompt templates
+🖥️ Slides (this folder)
 
-Feedback welcome!
+📄 Downloadable prompt templates
+
+💬 Feedback welcome!
