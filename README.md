@@ -1,6 +1,6 @@
 # Session 2: AI Agents for Marketing - Enhanced Workshop
 
-An interactive, hands-on workshop for teaching how to build AI agents. 100% static, runs on GitHub Pages, no backend required!
+An interactive, hands-on workshop for teaching how to build AI agents. 100% static, runs on frontend, no backend required!
 
 ## 🚀 What's New in the Enhanced Version
 
