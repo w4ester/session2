@@ -83,6 +83,17 @@
       <details class="note">
         <summary>What are tokens?</summary>
         <p>LLMs process text as <em>tokens</em> (subwords/characters). Counting tokens helps you estimate prompt size and model limits. Chat-style prompts often add special tokens that represent roles and message boundaries.</p>
+
+        <p style="margin-top: 1rem;"><strong>What do the #numbers mean?</strong></p>
+        <p>Each token has a unique ID number from a vocabulary of ~100,000 tokens. The model was trained to recognize these specific patterns:</p>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li><strong>Common words</strong> get single tokens (e.g., "the" = #1820, "marketing" = #90099)</li>
+          <li><strong>Rare words</strong> are split into pieces (e.g., "tokenization" → "token" + "ization")</li>
+          <li><strong>Spaces/punctuation</strong> are often part of tokens (e.g., " hello" with a leading space)</li>
+          <li><strong>Numbers & code</strong> follow special patterns (e.g., "123" might be 1 token or 3)</li>
+          <li><strong>Emoji</strong> typically use multiple tokens per character</li>
+        </ul>
+        <p style="margin-top: 0.5rem;"><em>The same token ID always represents the same text, making it easy for the model to "understand" patterns across different prompts.</em></p>
       </details>
     </section>
 
