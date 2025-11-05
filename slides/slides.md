@@ -1,15 +1,15 @@
-# Session 2: Build AI Agents for Marketing
+# Build AI Agents for Marketing
 
 **No Code Required — Build in 60 Minutes**
 
-**Session 2: Boost Your Marketing Team’s Productivity with Custom GPTs and Agents**
-**Speakers: William Forrester & Mo Edzerman**
-**Moderator: Todd Marks**
-**Objective**: Learn how to create an AI agent that understands your brand, speaks in your voice, and enhances your marketing workflow. This interactive workshop will cover the essentials of how language models process information, how to craft effective prompts, and how to apply advanced prompting techniques for consistent, on brand content generation. You will also explore how AI agents work and build your own custom content marketing agent using an Agent Builder, an intelligent assistant designed to streamline content creation and boost productivity across your marketing efforts.
+<div class="metadata">
+<strong>Session 2:</strong> Boost Your Marketing Team's Productivity with Custom GPTs and Agents<br><br>
+<strong>Speakers:</strong> William Forrester & Mo Edzerman<br>
+<strong>Moderator:</strong> Todd Marks<br><br>
+<strong>Objective:</strong> Learn how to create an AI agent that understands your brand, speaks in your voice, and enhances your marketing workflow. This interactive workshop will cover the essentials of how language models process information, how to craft effective prompts, and how to apply advanced prompting techniques for consistent, on-brand content generation.
+</div>
 
-
-
-What you'll build today:
+### What you'll build today:
 - ✅ Tokenization visualizer
 - ✅ Prompt quality checker
 - ✅ Template generator with autocomplete
