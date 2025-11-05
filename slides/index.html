@@ -16,43 +16,55 @@
     }
 
     .reveal .slides {
-      font-size: 28px;
+      font-size: 36px;
       text-align: center;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* Force slides to scale properly */
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .reveal .slides > section {
+      height: auto !important;
     }
 
     /* Title slide styling */
     .reveal h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.4em;
       line-height: 1.2;
       text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .reveal h2 {
-      font-size: 1.8em;
+      font-size: 2em;
       font-weight: 600;
       color: #1e293b;
-      margin: 0.6em 0 0.4em 0;
+      margin: 0.7em 0 0.5em 0;
       border-bottom: 3px solid #7c5cff;
-      padding-bottom: 0.2em;
+      padding-bottom: 0.3em;
       display: inline-block;
       min-width: 60%;
     }
 
     .reveal h3 {
-      font-size: 1.3em;
+      font-size: 1.5em;
       font-weight: 600;
       color: #334155;
-      margin: 0.5em 0 0.3em 0;
+      margin: 0.6em 0 0.4em 0;
     }
 
     .reveal h4 {
-      font-size: 1.1em;
+      font-size: 1.2em;
       font-weight: 600;
       color: #475569;
-      margin: 0.4em 0 0.2em 0;
+      margin: 0.5em 0 0.3em 0;
     }
 
     /* Tagline / subtitle styling */
@@ -73,12 +85,12 @@
     .reveal .metadata {
       background: rgba(124, 92, 255, 0.08);
       border-left: 4px solid #7c5cff;
-      padding: 1em;
-      margin: 1em auto;
+      padding: 1.5em;
+      margin: 1.5em auto;
       border-radius: 8px;
-      font-size: 0.85em;
-      line-height: 1.5;
-      max-width: 90%;
+      font-size: 0.9em;
+      line-height: 1.6;
+      max-width: 85%;
       text-align: left;
     }
 
@@ -102,9 +114,9 @@
     /* Tables */
     .reveal table {
       border-collapse: collapse;
-      margin: 0.8em auto;
-      font-size: 0.75em;
-      width: 90%;
+      margin: 1em auto;
+      font-size: 0.85em;
+      width: 85%;
       max-width: 100%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
@@ -112,13 +124,13 @@
     .reveal table th {
       background: linear-gradient(135deg, #7c5cff, #6366f1);
       color: white;
-      padding: 0.6em;
+      padding: 0.8em;
       font-weight: 600;
       border: none;
     }
 
     .reveal table td {
-      padding: 0.5em;
+      padding: 0.7em;
       border-bottom: 1px solid #e2e8f0;
     }
 
@@ -134,15 +146,15 @@
     .reveal pre {
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       border-radius: 8px;
-      margin: 0.8em auto;
-      max-width: 90%;
+      margin: 1em auto;
+      max-width: 85%;
     }
 
     .reveal pre code {
-      font-size: 0.7em;
-      padding: 1em;
-      line-height: 1.4;
-      max-height: 400px;
+      font-size: 0.8em;
+      padding: 1.2em;
+      line-height: 1.5;
+      max-height: 500px;
       overflow: auto;
     }
 
@@ -150,9 +162,9 @@
     .reveal code {
       background: rgba(124, 92, 255, 0.1);
       color: #7c5cff;
-      padding: 0.15em 0.35em;
+      padding: 0.2em 0.4em;
       border-radius: 4px;
-      font-size: 0.85em;
+      font-size: 0.9em;
     }
 
     /* Links */
@@ -224,20 +236,13 @@
     /* Section transitions */
     .reveal section {
       background: white;
-      padding: 1.2em 1.5em;
+      padding: 2em 2.5em;
       border-radius: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      height: 100%;
       display: flex !important;
       flex-direction: column;
       justify-content: center;
-    }
-
-    /* Ensure content doesn't overflow */
-    .reveal .slides > section {
-      height: 100%;
-      max-height: 720px;
-      overflow: hidden;
+      min-height: 80vh;
     }
   </style>
 </head>
@@ -263,11 +268,11 @@
       progress: true,
       controls: true,
       center: true,
-      width: 1280,
-      height: 720,
-      margin: 0.04,
-      minScale: 0.2,
-      maxScale: 2.0,
+      width: 1600,
+      height: 900,
+      margin: 0.01,
+      minScale: 0.1,
+      maxScale: 3.0,
       transition: 'slide',
       plugins: [ Markdown, Highlight ]
     });
