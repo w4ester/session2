@@ -28,6 +28,7 @@
         <a href="#tokenization">Tokenization</a>
         <a href="#prompting">Prompting</a>
         <a href="#templates">Templates</a>
+        <a href="#custom-gpt">Custom GPT</a>
         <a href="#agents">Agents</a>
         <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
         <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Open Slides ↗</a>
@@ -44,7 +45,8 @@
         <li>Tokenization</li>
         <li>Prompt Engineering</li>
         <li>Prompt Templates</li>
-        <li>Intro to Agents</li>
+        <li>Custom GPTs</li>
+        <li>AI Agents</li>
       </ul>
     </section>
 
@@ -196,101 +198,220 @@ The post should:
       </div>
     </section>
 
-    <!-- 4. Agents -->
-    <section id="agents" class="card">
+    <!-- 4. Custom GPT -->
+    <section id="custom-gpt" class="card">
       <div class="card-header">
-        <h2>4) Introduction to AI Agents</h2>
-        <p class="muted">Agents combine an LLM with tools, memory, and planning to automate workflows.</p>
+        <h2>4) Build a Custom GPT: Campaign Brief Generator</h2>
+        <p class="muted">Create a custom GPT that knows your brand, speaks your voice, and generates campaign briefs in seconds.</p>
       </div>
 
       <div class="grid two">
         <div>
-          <pre class="mermaid">
-flowchart LR
-  User((User)) --> Agent[Custom Marketing Agent]
-  Agent --> Tools
-  Tools --> CRM[CRM API]
-  Tools --> Analytics[Analytics/Data]
-  Tools --> Ads[Ad Platform APIs]
-  Agent --> Memory[(Memory)]
-  Agent --> Plans{Planner}
-  Plans -->|Tasks| Agent
-  Agent -->|Results| User
-          </pre>
-        </div>
-        <div>
-          <table class="table">
-            <thead>
-              <tr><th>Use Case</th><th>Description</th><th>Tools Needed</th></tr>
-            </thead>
+          <h3>Why Campaign Brief Generator?</h3>
+          <ul class="bullet">
+            <li><strong>Time savings:</strong> 1-2 hours per brief → 5 minutes</li>
+            <li><strong>Consistency:</strong> Same format, tone, and quality every time</li>
+            <li><strong>Team alignment:</strong> Everyone uses the same structure</li>
+            <li><strong>Scales expertise:</strong> Junior marketers get senior-level briefs</li>
+          </ul>
+
+          <h3>💰 ROI Calculation</h3>
+          <table class="table" style="font-size: 0.875rem;">
             <tbody>
-              <tr><td>Content Calendar Manager</td><td>Suggests ideas, drafts posts, and schedules based on audience analytics.</td><td>Calendar API, Analytics tool, Social scheduler</td></tr>
-              <tr><td>Competitive Monitor</td><td>Tracks competitor content, pricing, and campaigns.</td><td>Web scraper, Email alerts, Dashboard</td></tr>
-              <tr><td>Personalization Engine</td><td>Creates custom email content from behavior and segments.</td><td>CRM integration, ESP, Analytics</td></tr>
-              <tr><td>Ad Copy Optimizer</td><td>Generates & tests ad variants; learns from performance.</td><td>Ad APIs, A/B testing</td></tr>
+              <tr><td>Briefs per month</td><td>4-8</td></tr>
+              <tr><td>Time per brief (manual)</td><td>1.5 hours</td></tr>
+              <tr><td>Time with Custom GPT</td><td>10 minutes</td></tr>
+              <tr><td><strong>Monthly time saved</strong></td><td><strong>5-10 hours</strong></td></tr>
+              <tr><td><strong>Annual savings (@$75/hr)</strong></td><td><strong>$4,500-9,000</strong></td></tr>
+              <tr><td>Cost (ChatGPT Plus)</td><td>$240/year</td></tr>
             </tbody>
           </table>
-          <p class="note muted">Always review agent outputs before publishing customer-facing content.</p>
         </div>
+
+        <div>
+          <h3>Step-by-Step: Build Your GPT</h3>
+          <ol style="line-height: 1.8;">
+            <li>Go to <a href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">ChatGPT → Create a GPT ↗</a></li>
+            <li><strong>Name it:</strong> "Campaign Brief Generator"</li>
+            <li><strong>Description:</strong> "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics."</li>
+            <li><strong>Instructions:</strong> (see template below)</li>
+            <li><strong>Upload knowledge:</strong> Past successful briefs, brand guidelines, messaging docs</li>
+            <li><strong>Test it:</strong> "Create a brief for a product launch targeting B2B marketing managers"</li>
+            <li><strong>Share:</strong> Make it available to your team</li>
+          </ol>
+
+          <div class="panel" style="margin-top: 1rem;">
+            <div class="panel-h">Sample Instructions Template</div>
+            <pre class="output" style="font-size: 0.8rem; min-height: auto;">You are a Campaign Brief Generator for [Your Company].
+
+Your role:
+- Create comprehensive campaign briefs
+- Use our brand voice: [professional/casual/technical]
+- Follow our brief structure
+- Include measurable success metrics
+- Reference past successful campaigns
+
+Required sections:
+1. Campaign Overview
+2. Target Audience
+3. Key Messaging
+4. Channels & Tactics
+5. Success Metrics
+6. Timeline & Budget
+7. Creative Requirements
+
+Always ask clarifying questions if needed.</pre>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;" class="mermaid">
+        flowchart LR
+          Start([Marketing Manager]) --> GPT["🤖 Custom GPT:<br/>Campaign Brief Generator"]
+          GPT --> Input[Input: Product, Audience, Goal]
+          Input --> Process[Process: Apply brand voice,<br/>reference past briefs,<br/>structure output]
+          Process --> Output[Output: Complete campaign brief<br/>with messaging, channels, metrics]
+          Output --> Review[Review & Refine]
+          Review --> Done([Ready to Execute])
+      </div>
+
+      <div class="controls" style="margin-top: 1.5rem; padding: 0 24px 24px;">
+        <a class="btn primary" href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Create Your GPT Now ↗</a>
+        <a class="btn" href="https://help.openai.com/en/articles/8554397-creating-a-gpt" target="_blank" rel="noopener">Custom GPT Docs ↗</a>
       </div>
     </section>
 
-    <!-- 5. OpenAI Agent Builder Demo -->
+    <!-- 5. From Custom GPT to Agent -->
+    <section id="agents" class="card">
+      <div class="card-header">
+        <h2>5) From Custom GPT to Agent: Adding Tools</h2>
+        <p class="muted">Take your Campaign Brief Generator to the next level by adding tools, memory, and autonomous planning.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Custom GPT vs Agent: What's the Difference?</h3>
+          <table class="table">
+            <thead>
+              <tr><th>Feature</th><th>Custom GPT</th><th>Agent</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Knowledge</td><td>✅ Your docs</td><td>✅ Your docs</td></tr>
+              <tr><td>Instructions</td><td>✅ Custom</td><td>✅ Custom</td></tr>
+              <tr><td>Web Browsing</td><td>❌ No</td><td>✅ Yes</td></tr>
+              <tr><td>Data Analysis</td><td>❌ No</td><td>✅ Yes</td></tr>
+              <tr><td>Multi-step Tasks</td><td>❌ No</td><td>✅ Yes</td></tr>
+              <tr><td>API Integrations</td><td>❌ No</td><td>✅ Yes</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Enhance Your Campaign Brief Generator</h3>
+          <ul class="bullet">
+            <li><strong>+ Web Browsing:</strong> Research competitor campaigns automatically</li>
+            <li><strong>+ Data Analysis:</strong> Upload past campaign CSVs, analyze what worked</li>
+            <li><strong>+ Memory:</strong> Remember your brand preferences across sessions</li>
+            <li><strong>+ Planning:</strong> Break brief creation into research → draft → refine</li>
+          </ul>
+        </div>
+        <div>
+          <pre class="mermaid">
+flowchart TB
+  Start([Campaign Request]) --> GPT["Custom GPT:<br/>Campaign Brief Generator"]
+  GPT --> Enhanced{Enhance with<br/>Agent Tools?}
+  Enhanced -->|No| BasicOutput[Basic Brief]
+  Enhanced -->|Yes| Tools[Agent Tools]
+  Tools --> Web[🌐 Web Browsing:<br/>Research competitors]
+  Tools --> Data[📊 Data Analysis:<br/>Analyze past campaigns]
+  Tools --> Memory[💾 Memory:<br/>Remember preferences]
+  Web --> Smart[Smart Brief with<br/>competitive insights<br/>+ data-backed recommendations]
+  Data --> Smart
+  Memory --> Smart
+          </pre>
+
+          <div class="panel">
+            <div class="panel-h">Real Example: Enhanced Campaign Brief</div>
+            <pre class="output">Input: "Create brief for Q2 product launch"
+
+Agent actions:
+1. [Web] Research 3 competitor launches
+2. [Data] Analyze our past Q1 performance
+3. [Memory] Recall our brand voice guidelines
+4. [Generate] Comprehensive brief with:
+   - Competitor positioning insights
+   - Data-backed channel recommendations
+   - Success metrics based on past results
+   - Timeline aligned with our calendar
+
+Time: 3 minutes vs 2 hours manual</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="note" style="margin: 1.5rem 24px 24px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel-2);">
+        <p style="margin: 0;">💡 <strong>Tip:</strong> Start with a Custom GPT, prove the value, then upgrade to an agent when you need tools and automation.</p>
+      </div>
+    </section>
+
+    <!-- 6. Build Your Agent -->
 <section id="agent-builder" class="card">
   <div class="card-header">
-    <h2>5) Build a No-Code Marketing Agent</h2>
+    <h2>6) Hands-On: Build Your Campaign Agent</h2>
     <p class="muted">
-      Use OpenAI’s drag-and-drop Agent Builder to create a custom marketing assistant — no coding required.
+      Turn your Custom GPT into a full agent with web browsing and data analysis capabilities.
     </p>
   </div>
 
   <div class="grid two">
     <div>
-      <h3>Demo Objective</h3>
-      <ul class="bullet">
-        <li>Introduce the OpenAI Agent Builder interface.</li>
-        <li>Create a “Marketing Assistant” that drafts campaigns and analyzes ad results.</li>
-        <li>Show marketers how to configure an agent visually (no code).</li>
-      </ul>
+      <h3>Build: Campaign Brief Agent (10 min)</h3>
+      <p>Take your Custom GPT and add agent tools to make it smarter.</p>
 
-      <h3>Steps We'll Cover</h3>
+      <h4>Step-by-Step Build</h4>
       <ol>
-        <li>Open the <a href="https://platform.openai.com/agent-builder" target="_blank" rel="noopener">OpenAI Agent Builder ↗</a></li>
-        <li>Click <strong>+ Create</strong> and name your agent.</li>
-        <li>Add clear <strong>Instructions</strong> (e.g., “Draft social posts and summarize ad performance”).</li>
-        <li>Optionally enable tools like <strong>Web Browsing</strong> or <strong>File Upload</strong>.</li>
-        <li>Save, test, and share your agent with your team.</li>
+        <li>Go to <a href="https://platform.openai.com/agents" target="_blank" rel="noopener">OpenAI Agents ↗</a> (requires Plus)</li>
+        <li>Click <strong>"Create Agent"</strong> or import your Custom GPT</li>
+        <li><strong>Name:</strong> "Campaign Brief Agent"</li>
+        <li><strong>Base Instructions:</strong> Use your Custom GPT instructions</li>
+        <li><strong>Enable Tools:</strong>
+          <ul class="bullet">
+            <li>✅ <strong>Web Browsing:</strong> "Research competitor campaigns"</li>
+            <li>✅ <strong>Data Analysis:</strong> "Analyze past campaign performance"</li>
+            <li>✅ <strong>Memory:</strong> "Remember our brand guidelines"</li>
+          </ul>
+        </li>
+        <li><strong>Test it:</strong> "Create a Q2 product launch brief. Research 2 competitors and use data from our Q1 campaigns."</li>
+        <li><strong>Review results:</strong> Agent should show research → analysis → brief generation</li>
       </ol>
-
-      <p class="note muted">
-        Ideal for non-technical marketers who want to automate creative or analytical workflows using plain language.
-      </p>
     </div>
 
     <div>
-      <h3>Live Demo Prep Checklist</h3>
-      <ul class="checklist">
-        <li>✅ Demo OpenAI account ready</li>
-        <li>✅ Slides or screen recording of Agent Builder</li>
-        <li>✅ Example prompt: “Create 3 LinkedIn post options promoting our new analytics feature.”</li>
-        <li>✅ Example result to showcase (copy generation + summary)</li>
-      </ul>
+      <h3>Test Prompt Examples</h3>
+      <div class="panel">
+        <div class="panel-h">Example 1: Basic Brief</div>
+        <pre class="output">"Create a campaign brief for a summer sale targeting existing customers"</pre>
+      </div>
+
+      <div class="panel">
+        <div class="panel-h">Example 2: With Research</div>
+        <pre class="output">"Create a brief for Q2 product launch. First, research what competitors did in their recent launches, then create the brief with insights."</pre>
+      </div>
+
+      <div class="panel">
+        <div class="panel-h">Example 3: With Data</div>
+        <pre class="output">"Here's our Q1 campaign performance CSV. Analyze what worked best, then create a Q2 brief using those insights."
+
+[Upload past campaign data CSV]</pre>
+      </div>
 
       <div class="controls">
-        <a class="btn primary" href="https://platform.openai.com/agent-builder" target="_blank" rel="noopener">Try the Agent Builder ↗</a>
-        <a class="btn primary" href="https://platform.openai.com/docs/guides/agents" target="_blank"rel="noopener">Agent Builder Docs ↗</a>
+        <a class="btn primary" href="https://platform.openai.com/agents" target="_blank" rel="noopener">Build Your Agent ↗</a>
+        <a class="btn" href="https://platform.openai.com/docs/guides/agents" target="_blank" rel="noopener">Agent Docs ↗</a>
       </div>
     </div>
   </div>
 
-  <div class="mermaid" style="margin-top:1.5rem;">
-  flowchart LR
-    Marketer([Marketer 🧑‍💼]) --> Builder["🧩 OpenAI Agent Builder"]
-    Builder --> Config[Define agent purpose & instructions]
-    Builder --> Tools[Add tools<br/>Browsing · File Upload · APIs]
-    Tools --> Test[Test & Iterate]
-    Test --> Launch[🚀 Live Marketing Agent]
-    Launch --> Results[📊 Generates Campaign Copy<br/>Analyzes Ad Performance]
+  <div class="note" style="margin: 1.5rem 24px 24px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel-2);">
+    <p style="margin: 0;"><strong>💡 Workshop Activity:</strong> Spend 10 minutes building your agent. Test all 3 examples above. Share results with your neighbor.</p>
   </div>
 </section>
 
