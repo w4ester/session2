@@ -73,6 +73,23 @@ $('#btn-tokenize')?.addEventListener('click', async () => {
   }
 });
 
+// Example text samples
+const EXAMPLES = {
+  short: "AI marketing saves time!",
+  medium: "Our new AI-powered analytics dashboard helps marketing teams track campaign performance in real-time and save 5+ hours per week on reporting.",
+  long: "Write a comprehensive 2-paragraph LinkedIn post announcing our new AI-powered marketing analytics dashboard for B2B marketers. The post should be professional but conversational, highlight the key benefit of saving 5+ hours per week on reporting, include a question to encourage engagement, be around 150 words, and include 3 relevant hashtags. Make sure the tone is authentic and speaks directly to marketing managers who are overwhelmed with manual reporting tasks.",
+  emoji: "🚀 Excited to announce our new AI-powered analytics dashboard! 📊 Save 5+ hours/week on reporting 💪 Real-time insights 🎯 Better decisions #MarTech #AI",
+  code: "import { encode, decode } from 'gpt-tokenizer';\nconst tokens = encode('Hello, world!');\nconsole.log(`Token count: ${tokens.length}`);"
+};
+
+// Example button handlers
+$$('[data-example]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const example = btn.getAttribute('data-example');
+    $('#tok-input').value = EXAMPLES[example] || '';
+  });
+});
+
 // Prompt comparison — pre-seeded example outputs
 const BASIC_EXAMPLE = `Check out our amazing new product! It's the best thing we've ever made and you're going to love it. Don't miss out on this incredible opportunity. Buy now!`;
 
