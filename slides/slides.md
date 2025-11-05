@@ -1,4 +1,4 @@
-# Session 2: AI Agents for Marketing Teams
+# 🤖 Session 2: AI Agents for Marketing Teams
 
 ### Build Your First Custom Marketing Agent (No Code Required)
 
@@ -245,7 +245,7 @@ Input → LLM + Tools + Memory + Planning → Better Output
 
 ### No-Code Agent Builder
 
-**Tool:** [OpenAI Custom GPTs](https://chat.openai.com/create)
+**Tool:** [OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)
 
 ### Steps:
 
@@ -378,7 +378,7 @@ What worked? What didn't? Iterate together.
 
 ### 🛠️ Build Tools
 
-- [OpenAI Custom GPTs](https://chat.openai.com/create)
+- [OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)
 - [Claude Projects](https://claude.ai) (alternative)
 - [GitHub Repository](https://github.com/w4ester/session2)
 
@@ -398,7 +398,7 @@ A: Always review before publishing. Use agents for first drafts, you provide fin
 A: Yes! Upload guidelines as files or paste into agent instructions.
 
 **Q: How do I share agents with my team?**  
-A: Custom GPTs have shareable links (ChatGPT Plus required for team).
+A: Agents built with OpenAI Agent Builder can be shared via API or integrated into your workflows. Check the [Agent Builder documentation](https://platform.openai.com/docs/guides/agent-builder) for deployment options.
 
 **Q: What about data privacy?**  
 A: Check your AI provider's terms. For sensitive data, use on-premise solutions.
@@ -407,7 +407,7 @@ A: Check your AI provider's terms. For sensitive data, use on-premise solutions.
 A: No! This entire workshop uses no-code tools. If you can write a prompt, you can build an agent.
 
 **Q: How much does this cost?**  
-A: OpenAI Custom GPTs require ChatGPT Plus ($20/month). Claude Projects is included with Claude Pro ($20/month).
+A: OpenAI Agent Builder pricing varies by usage. Check [OpenAI's pricing page](https://openai.com/pricing) for current rates. Claude Projects is included with Claude Pro ($20/month).
 
 ---
 
