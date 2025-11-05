@@ -11,6 +11,7 @@
   --warn:#f59e0b;
   --bad:#ef4444;
   --token:#1f2937;
+  --token-text:#f1f5f9;
   --code-bg:#0c1226;
   --code-text:#f1f5f9;
   --radius:14px;
@@ -30,7 +31,8 @@
   --ok:#059669;
   --warn:#d97706;
   --bad:#dc2626;
-  --token:#e2e8f0;
+  --token:#334155;
+  --token-text:#f1f5f9;
   --code-bg:#1e293b;
   --code-text:#f1f5f9;
   --shadow:0 10px 30px rgba(0,0,0,.08);
@@ -88,7 +90,7 @@ a{color:var(--brand)}
 
 .statline{display:flex;gap:24px;align-items:center;margin:6px 0 12px;opacity:.9}
 .token-list{display:flex;flex-wrap:wrap;gap:8px;padding:8px;min-height:80px;background:var(--code-bg);color:var(--code-text);border:1px solid var(--border);border-radius:12px}
-.token{padding:6px 8px;border-radius:10px;background:var(--token);border:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px}
+.token{padding:6px 8px;border-radius:10px;background:var(--token);color:var(--token-text);border:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px}
 .token .id{opacity:.6;margin-left:6px}
 
 .checklist{list-style:none;padding-left:0;margin:8px 0 0}
