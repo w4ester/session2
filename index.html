@@ -177,10 +177,41 @@ The post should:
       </div>
       <div class="grid two">
         <div>
+          <p class="muted" style="font-size: 0.875rem; margin-bottom: 0.75rem;"><strong>Quick Start:</strong> Choose a preset or start from scratch</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+            <button class="btn ghost" data-preset="email-subject" style="font-size: 0.875rem;">Email Subject Lines</button>
+            <button class="btn ghost" data-preset="social-post" style="font-size: 0.875rem;">Social Media Posts</button>
+            <button class="btn ghost" data-preset="ad-copy" style="font-size: 0.875rem;">Ad Copy</button>
+            <button class="btn ghost" data-preset="blog-outline" style="font-size: 0.875rem;">Blog Outlines</button>
+          </div>
+
           <label class="lbl" for="tpl-task">Marketing Task</label>
-          <input id="tpl-task" class="input" placeholder="e.g., Email Subject Line Generation" />
+          <input id="tpl-task" class="input" list="task-suggestions" placeholder="Start typing or choose from suggestions..." />
+          <datalist id="task-suggestions">
+            <option value="Email Subject Line Generation">
+            <option value="Social Media Post Creation">
+            <option value="Ad Copy Writing">
+            <option value="Blog Post Outline">
+            <option value="Product Description">
+            <option value="LinkedIn Post">
+            <option value="Landing Page Copy">
+            <option value="Video Script">
+            <option value="Press Release">
+            <option value="Case Study">
+            <option value="Newsletter Content">
+            <option value="Campaign Brief">
+          </datalist>
+
           <label class="lbl" for="tpl-vars">Variables (comma-separated)</label>
-          <input id="tpl-vars" class="input" placeholder="product name, offer details, audience, tone" />
+          <input id="tpl-vars" class="input" list="var-suggestions" placeholder="Start typing common variables..." />
+          <datalist id="var-suggestions">
+            <option value="product_name, audience, benefit, tone">
+            <option value="campaign_name, offer, deadline, cta">
+            <option value="feature, pain_point, solution, social_proof">
+            <option value="topic, angle, target_length, keywords">
+            <option value="brand_voice, platform, hashtags, image_type">
+          </datalist>
+
           <label class="lbl" for="tpl-instr">AI Instructions</label>
           <textarea id="tpl-instr" class="input" rows="6" placeholder="What should the AI do? Desired format? Constraints?"></textarea>
           <div class="controls">

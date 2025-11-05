@@ -163,6 +163,43 @@ $('#btn-copy')?.addEventListener('click', async () => {
   } catch {}
 });
 
+// Template presets
+const TEMPLATE_PRESETS = {
+  'email-subject': {
+    task: 'Email Subject Line Generation',
+    vars: 'product_name, offer, audience, urgency_level',
+    instr: 'Generate 5 email subject line options that:\n- Are 6-10 words long\n- Include the product name\n- Create urgency without being spammy\n- Test different angles (benefit, curiosity, FOMO)\n- Avoid spam trigger words'
+  },
+  'social-post': {
+    task: 'Social Media Post Creation',
+    vars: 'platform, topic, brand_voice, cta, hashtags',
+    instr: 'Create a social media post that:\n- Matches the specified platform (LinkedIn/Twitter/Instagram)\n- Uses our brand voice\n- Includes engaging hook in first line\n- Adds relevant emoji (if platform appropriate)\n- Ends with clear CTA\n- Includes 3-5 relevant hashtags'
+  },
+  'ad-copy': {
+    task: 'Ad Copy Writing',
+    vars: 'product, target_audience, pain_point, benefit, cta',
+    instr: 'Write ad copy that:\n- Addresses specific pain point\n- Highlights main benefit (not features)\n- Includes social proof or credibility signal\n- Has clear, action-oriented CTA\n- Stays under 125 characters for headline, 90 for description'
+  },
+  'blog-outline': {
+    task: 'Blog Post Outline',
+    vars: 'topic, target_keywords, audience, target_length, angle',
+    instr: 'Create a blog post outline with:\n- SEO-optimized title with target keyword\n- 5-7 main sections with H2 headings\n- 2-3 subpoints per section\n- Include intro hook and conclusion with CTA\n- Note where to add examples, stats, or quotes'
+  }
+};
+
+// Preset button handlers
+$$('[data-preset]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const preset = btn.getAttribute('data-preset');
+    const data = TEMPLATE_PRESETS[preset];
+    if (data) {
+      $('#tpl-task').value = data.task;
+      $('#tpl-vars').value = data.vars;
+      $('#tpl-instr').value = data.instr;
+    }
+  });
+});
+
 // Template generator
 function buildTemplate(task, vars, instr) {
   const varList = vars.split(',').map(v => v.trim()).filter(Boolean);
