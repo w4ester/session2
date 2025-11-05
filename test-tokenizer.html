@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokenizer Test</title>
+</head>
+<body>
+    <h1>Tokenizer Test</h1>
+    <textarea id="input" rows="4" cols="50">Hello world! This is a test.</textarea>
+    <button id="test-btn">Test Tokenizer</button>
+    <div id="result"></div>
+
+    <script type="module">
+        async function testTokenizer() {
+            try {
+                const mod = await import('https://esm.sh/gpt-tokenizer@2.8.0');
+                const text = document.getElementById('input').value;
+                const tokens = mod.encode(text);
+                document.getElementById('result').innerHTML = `
+                    <p><strong>Success!</strong></p>
+                    <p>Text: "${text}"</p>
+                    <p>Token count: ${tokens.length}</p>
+                    <p>Tokens: ${tokens.join(', ')}</p>
+                    <p>Decoded: "${mod.decode(tokens)}"</p>
+                `;
+            } catch (err) {
+                document.getElementById('result').innerHTML = `
+                    <p style="color: red;"><strong>Error:</strong> ${err.message}</p>
+                    <pre>${err.stack}</pre>
+                `;
+            }
+        }
+
+        document.getElementById('test-btn').addEventListener('click', testTokenizer);
+    </script>
+</body>
+</html>

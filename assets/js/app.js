@@ -10,10 +10,10 @@ let encodeFn = null, decodeFn = null;
 async function ensureTokenizer() {
   if (encodeFn) return;
   try {
-    // Using unpkg with ?module param for proper ESM support
-    const { encode, decode } = await import('https://unpkg.com/gpt-tokenizer@2.8.0/dist/cl100k_base.js');
-    encodeFn = encode;
-    decodeFn = decode;
+    // Using esm.sh CDN for reliable browser ESM imports
+    const mod = await import('https://esm.sh/gpt-tokenizer@2.8.0');
+    encodeFn = mod.encode;
+    decodeFn = mod.decode;
   } catch (err) {
     console.error('Failed to load tokenizer:', err);
     alert('Could not load the tokenizer library. Please check your network connection.');
