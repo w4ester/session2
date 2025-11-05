@@ -213,6 +213,65 @@ flowchart LR
       </div>
     </section>
 
+    <!-- 5. OpenAI Agent Builder Demo -->
+<section id="agent-builder" class="card">
+  <div class="card-header">
+    <h2>5) Build a No-Code Marketing Agent</h2>
+    <p class="muted">
+      Use OpenAI’s drag-and-drop Agent Builder to create a custom marketing assistant — no coding required.
+    </p>
+  </div>
+
+  <div class="grid two">
+    <div>
+      <h3>Demo Objective</h3>
+      <ul class="bullet">
+        <li>Introduce the OpenAI Agent Builder interface.</li>
+        <li>Create a “Marketing Assistant” that drafts campaigns and analyzes ad results.</li>
+        <li>Show marketers how to configure an agent visually (no code).</li>
+      </ul>
+
+      <h3>Steps We'll Cover</h3>
+      <ol>
+        <li>Open the <a href="https://chat.openai.com/create" target="_blank" rel="noopener">OpenAI Agent Builder ↗</a></li>
+        <li>Click <strong>+ Create</strong> and name your agent.</li>
+        <li>Add clear <strong>Instructions</strong> (e.g., “Draft social posts and summarize ad performance”).</li>
+        <li>Optionally enable tools like <strong>Web Browsing</strong> or <strong>File Upload</strong>.</li>
+        <li>Save, test, and share your agent with your team.</li>
+      </ol>
+
+      <p class="note muted">
+        Ideal for non-technical marketers who want to automate creative or analytical workflows using plain language.
+      </p>
+    </div>
+
+    <div>
+      <h3>Live Demo Prep Checklist</h3>
+      <ul class="checklist">
+        <li>✅ Demo OpenAI account ready</li>
+        <li>✅ Slides or screen recording of Agent Builder</li>
+        <li>✅ Example prompt: “Create 3 LinkedIn post options promoting our new analytics feature.”</li>
+        <li>✅ Example result to showcase (copy generation + summary)</li>
+      </ul>
+
+      <div class="controls">
+        <a class="btn primary" href="https://chat.openai.com/create" target="_blank" rel="noopener">Try the Agent Builder ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mermaid" style="margin-top:1.5rem;">
+  flowchart LR
+    Marketer([Marketer 🧑‍💼]) --> Builder["🧩 OpenAI Agent Builder"]
+    Builder --> Config[Define agent purpose & instructions]
+    Builder --> Tools[Add tools<br/>Browsing · File Upload · APIs]
+    Tools --> Test[Test & Iterate]
+    Test --> Launch[🚀 Live Marketing Agent]
+    Launch --> Results[📊 Generates Campaign Copy<br/>Analyzes Ad Performance]
+  </div>
+</section>
+
+
     <section class="card">
       <div class="card-header">
         <h2>Workshop Conclusion & Next Steps</h2>
