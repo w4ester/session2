@@ -394,9 +394,8 @@ Want to improve the workshop?
 
 ## 🎉 Credits
 
-**Created by:** Will Esterson  
-**For:** Baltimore AI Producers Lab & MSDE Division of College and Career Pathways  
-**Purpose:** Teaching families and educators to build AI tools, not just consume them  
+**Created by:** Will F  
+
 
 **Special thanks to:**
 - Workshop participants for feedback
