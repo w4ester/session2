@@ -228,7 +228,7 @@ const html = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
 if (themeToggle) {
-  themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  themeToggle.textContent = savedTheme === 'light' ? '☀️' : '🌙';
 }
 
 // Toggle theme
@@ -238,5 +238,5 @@ themeToggle?.addEventListener('click', () => {
 
   html.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
-  themeToggle.textContent = newTheme === 'light' ? '🌙' : '☀️';
+  themeToggle.textContent = newTheme === 'light' ? '☀️' : '🌙';
 });
