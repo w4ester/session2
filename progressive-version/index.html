@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom GPTs for CEOs — Progressive Workshop</title>
+  <meta name="description" content="Build a Custom GPT piece by piece - understand how each component works together to delegate strategic tasks." />
+  <meta property="og:title" content="Custom GPTs for CEOs — Progressive Workshop" />
+  <meta property="og:description" content="40-minute workshop: Build a Campaign Brief Generator by understanding Instructions, Knowledge, and Capabilities." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Version Switcher Navbar -->
+  <nav class="version-nav">
+    <div class="version-nav-container">
+      <span class="version-label">Workshop Versions:</span>
+      <a href="../index.html" class="version-link">📚 Original</a>
+      <a href="index.html" class="version-link active">🔄 Progressive</a>
+      <a href="../anatomy-version/index.html" class="version-link">🏗️ Anatomy</a>
+      <a href="../live-build-version/index.html" class="version-link">⚡ Live Build</a>
+      <a href="../VERSION-COMPARISON.md" class="version-link comparison" target="_blank" rel="noopener">📊 Compare</a>
+    </div>
+  </nav>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">🎯</span>
+        <div class="brand-text">
+          <strong>CEO Workshop:</strong>
+          <span>Build a Custom GPT That Works Like Your Best Strategist</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#component1">Instructions</a>
+        <a href="#component2">Knowledge</a>
+        <a href="#component3">Capabilities</a>
+        <a href="#build">Build</a>
+        <a href="#delegate">Delegate</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Open Slides ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero">
+      <h1>Build a Custom GPT That Understands Your Business</h1>
+      <p class="lead">Today you'll build a Custom GPT piece by piece. By the end, you'll see how each component works together to create a Campaign Brief Generator that saves your team hours every week.</p>
+      <ul class="pill-list">
+        <li>Component 1: Instructions</li>
+        <li>Component 2: Knowledge</li>
+        <li>Component 3: Capabilities</li>
+        <li>Build: Campaign Brief Generator</li>
+        <li>Delegate to Your Team</li>
+      </ul>
+
+      <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(124, 92, 255, 0.08); border-radius: 12px; border-left: 4px solid #7c5cff;">
+        <h3 style="margin-top: 0; color: #7c5cff;">The CEO Problem</h3>
+        <p style="text-align: left; margin: 0;">You and your team spend hours on repetitive strategic tasks: board presentation briefs, investor updates, campaign briefs, strategic communications. These tasks require your expertise, but they don't require your time.</p>
+        <p style="text-align: left; margin-top: 1rem;"><strong>What if you could delegate these tasks to a Custom GPT that knows your business, speaks your voice, and produces senior-level output?</strong></p>
+      </div>
+    </section>
+
+    <!-- Component 1: Instructions -->
+    <section id="component1" class="card">
+      <div class="card-header">
+        <h2>Component 1: Instructions</h2>
+        <p class="muted">The foundation of your Custom GPT. Instructions define how it thinks, speaks, and approaches tasks.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>What Are Instructions?</h3>
+          <p>Instructions are the "DNA" of your Custom GPT. They tell it:</p>
+          <ul class="bullet">
+            <li><strong>Its role:</strong> "You are a strategic campaign brief generator"</li>
+            <li><strong>Your brand voice:</strong> Professional but conversational, data-driven, action-oriented</li>
+            <li><strong>Required structure:</strong> What sections to include, how to format output</li>
+            <li><strong>Quality standards:</strong> What makes a good brief vs a great brief</li>
+          </ul>
+
+          <h3>Why This Matters for CEOs</h3>
+          <p>Instructions encode your strategic thinking so your team gets consistent, high-quality output every time. No more variable quality depending on who's drafting.</p>
+        </div>
+
+        <div>
+          <h3>Example: Campaign Brief Instructions</h3>
+          <pre class="output" style="text-align: left; font-size: 0.8rem;">You are a Campaign Brief Generator for a B2B SaaS company.
+
+Your role:
+- Create comprehensive campaign briefs
+- Use a professional but conversational tone
+- Always include data-backed recommendations
+- Reference past successful campaigns when relevant
+
+Required brief structure:
+1. Campaign Overview (2-3 sentences)
+2. Target Audience (specific personas + pain points)
+3. Key Messaging (value prop + 3 supporting messages)
+4. Channels & Tactics (prioritized with rationale)
+5. Success Metrics (SMART goals)
+6. Timeline & Budget (realistic estimates)
+7. Creative Requirements (formats, examples)
+
+Quality standards:
+- Be specific, not generic
+- Include competitor context
+- Provide actionable next steps
+- Flag risks and dependencies</pre>
+
+          <div style="margin-top: 1rem; padding: 1rem; background: rgba(124, 92, 255, 0.05); border-radius: 8px;">
+            <p style="margin: 0; font-size: 0.9rem;"><strong>Key Insight:</strong> Good instructions turn generic AI into your strategic assistant. The more specific you are, the better the output.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tryit">
+        <h3>See the Difference</h3>
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-h">Without Instructions</div>
+            <pre class="output" style="font-size: 0.85rem;">"Create a campaign brief for our Q2 product launch"
+
+AI Output:
+Campaign Overview: We will launch the product in Q2.
+Target Audience: Business customers
+Key Messaging: Our product is great
+Channels: Email, social media
+Success Metrics: Increase sales
+
+(Generic, unusable)</pre>
+          </div>
+          <div class="panel">
+            <div class="panel-h">With Strategic Instructions</div>
+            <pre class="output" style="font-size: 0.85rem;">"Create a campaign brief for our Q2 product launch"
+
+AI Output:
+Campaign Overview: Q2 product launch targeting mid-market B2B SaaS companies (50-200 employees) who struggle with manual reporting. Goal: 500 qualified leads, 50 demos booked.
+
+Target Audience: Marketing Directors at mid-market SaaS companies, frustrated with disconnected tools, need real-time visibility.
+
+Key Messaging: "Real-time marketing analytics that save 10+ hours/week on reporting"
+
+Channels: LinkedIn (primary), targeted email sequences (secondary), partner webinars (tertiary)
+
+Success Metrics: 500 MQLs, 50 demos, 10 closed deals, $200K pipeline
+
+(Strategic, actionable)</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 2: Knowledge -->
+    <section id="component2" class="card">
+      <div class="card-header">
+        <h2>Component 2: Knowledge</h2>
+        <p class="muted">Upload your documents so your Custom GPT understands your specific context, brand, and past work.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>What Is Knowledge?</h3>
+          <p>Knowledge is the context your Custom GPT uses to personalize its output. Upload documents like:</p>
+          <ul class="bullet">
+            <li><strong>Brand guidelines:</strong> Voice, tone, messaging frameworks</li>
+            <li><strong>Past successful briefs:</strong> Examples to learn from</li>
+            <li><strong>Product documentation:</strong> Features, benefits, positioning</li>
+            <li><strong>Competitive analysis:</strong> How you differentiate</li>
+            <li><strong>Customer personas:</strong> Who you're targeting and why</li>
+          </ul>
+
+          <h3>Context Limits Matter</h3>
+          <p style="font-size: 0.9rem;">Custom GPTs can store up to 20 files (max 512MB each), but they process ~50-100 pages of context per conversation. Prioritize your most important documents.</p>
+
+          <div style="margin-top: 1rem; padding: 1rem; background: rgba(255, 200, 0, 0.1); border-left: 4px solid #ffc800; border-radius: 4px;">
+            <p style="margin: 0; font-size: 0.9rem;"><strong>CEO Tip:</strong> Start with 3-5 key documents. More isn't always better - focused knowledge produces better results.</p>
+          </div>
+        </div>
+
+        <div>
+          <h3>Example: What to Upload</h3>
+          <table class="table">
+            <thead>
+              <tr><th>Document Type</th><th>Why It Matters</th><th>Priority</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Brand Voice Guide</td>
+                <td>Ensures consistent tone</td>
+                <td><span style="color: #dc2626; font-weight: 600;">HIGH</span></td>
+              </tr>
+              <tr>
+                <td>Past Campaign Briefs (3-5 best)</td>
+                <td>Learn your structure & quality bar</td>
+                <td><span style="color: #dc2626; font-weight: 600;">HIGH</span></td>
+              </tr>
+              <tr>
+                <td>Product Positioning Doc</td>
+                <td>Accurate value props & messaging</td>
+                <td><span style="color: #dc2626; font-weight: 600;">HIGH</span></td>
+              </tr>
+              <tr>
+                <td>Customer Personas</td>
+                <td>Target the right audience</td>
+                <td><span style="color: #ea580c; font-weight: 600;">MEDIUM</span></td>
+              </tr>
+              <tr>
+                <td>Competitive Analysis</td>
+                <td>Differentiate effectively</td>
+                <td><span style="color: #ea580c; font-weight: 600;">MEDIUM</span></td>
+              </tr>
+              <tr>
+                <td>Past Campaign Results</td>
+                <td>Data-driven recommendations</td>
+                <td><span style="color: #16a34a; font-weight: 600;">LOW</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Before & After</h3>
+          <pre class="output" style="font-size: 0.8rem; text-align: left;">WITHOUT KNOWLEDGE:
+"Our product helps marketing teams work faster"
+(Generic)
+
+WITH BRAND GUIDELINES:
+"Real-time marketing analytics that eliminate manual reporting and give your team 10+ hours back every week"
+(On-brand, specific, benefit-focused)
+
+WITH PAST BRIEFS:
+Campaign Overview: Following our successful Q1 product launch playbook (which generated 450 MQLs), we'll target mid-market SaaS companies with a similar multi-channel approach...
+(Learns from your wins)</pre>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(124, 92, 255, 0.05); border-radius: 12px;">
+        <h3 style="margin-top: 0;">Building Block Progress</h3>
+        <div class="mermaid">
+graph LR
+    A[Component 1:<br/>Instructions] --> B[Component 2:<br/>Knowledge]
+    style A fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+    style B fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">You now have Instructions (how to think) + Knowledge (what to know). Next: Capabilities (what tools to use).</p>
+      </div>
+    </section>
+
+    <!-- Component 3: Capabilities -->
+    <section id="component3" class="card">
+      <div class="card-header">
+        <h2>Component 3: Capabilities</h2>
+        <p class="muted">Enable tools that let your Custom GPT browse the web, analyze data, or generate images when needed.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Available Capabilities</h3>
+          <table class="table">
+            <thead>
+              <tr><th>Capability</th><th>What It Does</th><th>Use Cases</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Web Browsing</strong></td>
+                <td>Search and read web pages</td>
+                <td>Research competitors, find latest trends, verify facts</td>
+              </tr>
+              <tr>
+                <td><strong>Data Analysis</strong></td>
+                <td>Process CSV/Excel files, create charts</td>
+                <td>Analyze campaign performance, identify patterns</td>
+              </tr>
+              <tr>
+                <td><strong>Image Generation</strong></td>
+                <td>Create images with DALL-E</td>
+                <td>Mockups, concept visuals (rarely needed for briefs)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>When to Enable What</h3>
+          <ul class="bullet">
+            <li><strong>Web Browsing:</strong> Enable if your briefs need current market data or competitive insights</li>
+            <li><strong>Data Analysis:</strong> Enable if you want to upload past campaign performance data</li>
+            <li><strong>Image Generation:</strong> Usually skip for text-based briefs</li>
+          </ul>
+
+          <div style="margin-top: 1rem; padding: 1rem; background: rgba(255, 200, 0, 0.1); border-left: 4px solid #ffc800; border-radius: 4px;">
+            <p style="margin: 0; font-size: 0.9rem;"><strong>CEO Tip:</strong> More capabilities don't always mean better output. Start minimal, add only what you need.</p>
+          </div>
+        </div>
+
+        <div>
+          <h3>Example: Campaign Brief with Capabilities</h3>
+          <pre class="output" style="font-size: 0.8rem; text-align: left;">Prompt: "Create a Q2 campaign brief. First, research what our top 3 competitors launched in Q1."
+
+WITH WEB BROWSING ENABLED:
+🌐 Searching for competitor Q1 launches...
+🌐 Reading TechCrunch article about Competitor A...
+🌐 Analyzing Competitor B's LinkedIn campaign...
+
+Campaign Overview:
+Based on recent competitor analysis, Q1 saw a shift toward AI-powered features in marketing tools. Competitor A launched "AI Campaign Assistant" (March 2025, generated 10K signups in 3 weeks). Competitor B focused on integration partnerships.
+
+Our opportunity: Position as the only tool with real-time analytics + AI insights. Differentiate on speed and depth of insights.
+
+(Data-informed, competitive)</pre>
+
+          <pre class="output" style="font-size: 0.8rem; text-align: left; margin-top: 1rem;">Prompt: "Here's our Q1 campaign data. What channels performed best?"
+
+[Upload: q1-campaign-data.csv]
+
+WITH DATA ANALYSIS ENABLED:
+📊 Analyzing campaign performance...
+📊 LinkedIn: 450 leads, $150 CPA
+📊 Email: 200 leads, $75 CPA
+📊 Paid Search: 100 leads, $200 CPA
+
+Recommendation: Double down on Email (lowest CPA, highest ROI). Optimize LinkedIn targeting. Consider reducing Paid Search budget.
+
+(Data-driven recommendations)</pre>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(124, 92, 255, 0.05); border-radius: 12px;">
+        <h3 style="margin-top: 0;">All Components Together</h3>
+        <div class="mermaid">
+graph LR
+    A[Component 1:<br/>Instructions] --> B[Component 2:<br/>Knowledge]
+    B --> C[Component 3:<br/>Capabilities]
+    style A fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+    style B fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+    style C fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">You now understand all 3 components. Time to combine them into your Campaign Brief Generator.</p>
+      </div>
+    </section>
+
+    <!-- Build: Combine & Build -->
+    <section id="build" class="card">
+      <div class="card-header">
+        <h2>Hands-On: Build Your Campaign Brief Generator</h2>
+        <p class="muted">Combine all 3 components to create a Custom GPT that saves your team 5-10 hours per week.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Step-by-Step Build (8 minutes)</h3>
+          <ol style="line-height: 1.8;">
+            <li><strong>Go to:</strong> <a href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">chatgpt.com/gpts/editor ↗</a></li>
+            <li><strong>Name:</strong> "Campaign Brief Generator"</li>
+            <li><strong>Description:</strong> "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics"</li>
+            <li><strong>Component 1 - Instructions:</strong> Use template below (or write your own)</li>
+            <li><strong>Component 2 - Knowledge:</strong> Upload 3-5 key documents
+              <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+                <li>Brand voice guide</li>
+                <li>2-3 past successful briefs</li>
+                <li>Product positioning doc</li>
+              </ul>
+            </li>
+            <li><strong>Component 3 - Capabilities:</strong> Enable Web Browsing + Data Analysis</li>
+            <li><strong>Test:</strong> "Create a brief for a Q2 product launch targeting marketing directors"</li>
+            <li><strong>Refine:</strong> If output isn't right, adjust instructions and test again</li>
+          </ol>
+
+          <h3>ROI Calculator</h3>
+          <table class="table" style="font-size: 0.875rem;">
+            <tbody>
+              <tr><td>Briefs per month</td><td>6</td></tr>
+              <tr><td>Time per brief (manual)</td><td>1.5 hours</td></tr>
+              <tr><td>Time with Custom GPT</td><td>10 minutes</td></tr>
+              <tr><td><strong>Monthly time saved</strong></td><td><strong>7.5 hours</strong></td></tr>
+              <tr><td><strong>Team of 5 → Annual savings (@$100/hr)</strong></td><td><strong>$45,000</strong></td></tr>
+              <tr><td>Cost (ChatGPT Plus)</td><td>$240/year per person</td></tr>
+              <tr><td><strong>Net ROI</strong></td><td><strong>37x return</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="panel">
+            <div class="panel-h">Instructions Template (Copy & Customize)</div>
+            <pre class="output" style="font-size: 0.75rem; text-align: left; max-height: 400px; overflow-y: auto;">You are a Campaign Brief Generator for [Your Company Name].
+
+ROLE & APPROACH:
+- Create comprehensive, actionable campaign briefs
+- Use a [professional/conversational/technical] tone
+- Always be specific, data-driven, and strategic
+- Reference past successful campaigns when relevant
+- Ask clarifying questions if information is missing
+
+BRAND VOICE:
+[Describe your brand voice - e.g., "Professional but approachable, data-driven, action-oriented, optimistic"]
+
+REQUIRED BRIEF STRUCTURE:
+1. Campaign Overview
+   - 2-3 sentence summary
+   - Primary goal & target outcome
+
+2. Target Audience
+   - Specific persona(s)
+   - Key pain points
+   - Why this matters now
+
+3. Key Messaging
+   - Primary value proposition
+   - 3 supporting messages
+   - Proof points/social proof
+
+4. Channels & Tactics
+   - Prioritized list with rationale
+   - Expected reach/engagement
+
+5. Success Metrics
+   - SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound)
+   - Leading & lagging indicators
+
+6. Timeline & Budget
+   - Key milestones
+   - Resource requirements
+   - Budget breakdown
+
+7. Creative Requirements
+   - Formats needed
+   - Examples/references
+   - Design guidelines
+
+QUALITY STANDARDS:
+- Be specific, not generic
+- Include competitive context
+- Provide actionable next steps
+- Flag risks, dependencies, assumptions
+- Use data to support recommendations
+
+EXAMPLE OUTPUT SNIPPETS:
+[Paste 2-3 examples of great output from your past briefs]
+
+WHEN TO USE CAPABILITIES:
+- Use Web Browsing to research competitors or validate market trends
+- Use Data Analysis when I upload past campaign performance data
+- Always cite sources when using web research</pre>
+          </div>
+
+          <div style="margin-top: 1rem; padding: 1rem; background: rgba(124, 92, 255, 0.08); border-radius: 8px;">
+            <h4 style="margin-top: 0;">Test Prompts to Try</h4>
+            <ol style="font-size: 0.9rem; text-align: left;">
+              <li>"Create a brief for Q2 product launch targeting mid-market B2B"</li>
+              <li>"Research our top 3 competitors' recent campaigns, then create a brief"</li>
+              <li>"Here's our Q1 data [upload CSV]. What worked? Create Q2 brief based on insights."</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(99, 102, 241, 0.1)); border-radius: 12px;">
+        <h3 style="margin-top: 0;">Complete System Diagram</h3>
+        <div class="mermaid">
+graph TB
+    Start([Campaign Request]) --> GPT["🎯 Campaign Brief Generator<br/>(Your Custom GPT)"]
+
+    GPT --> Inst[Component 1:<br/>Instructions<br/>How to think & structure]
+    GPT --> Know[Component 2:<br/>Knowledge<br/>Brand docs + past briefs]
+    GPT --> Cap[Component 3:<br/>Capabilities<br/>Web + Data tools]
+
+    Inst --> Process[Processing...]
+    Know --> Process
+    Cap --> Process
+
+    Process --> Output[📄 Complete Campaign Brief<br/>Overview + Audience + Messaging<br/>Channels + Metrics + Timeline]
+
+    Output --> Review{Review}
+    Review -->|Needs refinement| Refine[Refine prompt]
+    Review -->|Looks good| Team[Share with team]
+    Refine --> GPT
+    Team --> Execute([Execute campaign])
+
+    style GPT fill:#7c5cff,stroke:#6366f1,stroke-width:4px,color:#fff
+    style Inst fill:#22c55e,stroke:#16a34a,stroke-width:2px
+    style Know fill:#22c55e,stroke:#16a34a,stroke-width:2px
+    style Cap fill:#22c55e,stroke:#16a34a,stroke-width:2px
+    style Output fill:#fbbf24,stroke:#f59e0b,stroke-width:2px
+        </div>
+      </div>
+
+      <div class="controls" style="margin-top: 1.5rem; padding: 0 24px 24px;">
+        <a class="btn primary" href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Build Your GPT Now ↗</a>
+        <button class="btn" id="btn-copy-template">Copy Instructions Template</button>
+        <a class="btn ghost" href="https://help.openai.com/en/articles/8554397-creating-a-gpt" target="_blank" rel="noopener">Custom GPT Docs ↗</a>
+      </div>
+    </section>
+
+    <!-- Delegate to Your Team -->
+    <section id="delegate" class="card">
+      <div class="card-header">
+        <h2>Delegate to Your Team: Rollout Playbook</h2>
+        <p class="muted">You've built a Campaign Brief Generator. Now scale the impact by empowering your team to build more Custom GPTs.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>The Delegation Mindset</h3>
+          <p>As a CEO, your role isn't to build every Custom GPT. It's to:</p>
+          <ul class="bullet">
+            <li><strong>Understand the components</strong> so you can evaluate what your team builds</li>
+            <li><strong>Set quality standards</strong> for instructions, knowledge, and output</li>
+            <li><strong>Identify high-value use cases</strong> worth automating</li>
+            <li><strong>Track ROI</strong> to justify continued investment</li>
+          </ul>
+
+          <h3>Next Custom GPTs to Build</h3>
+          <table class="table">
+            <thead>
+              <tr><th>Use Case</th><th>Time Savings</th><th>Owner</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Board Presentation Brief Generator</td>
+                <td>2 hours → 15 min</td>
+                <td>CEO/CFO</td>
+              </tr>
+              <tr>
+                <td>Investor Update Draft Generator</td>
+                <td>1.5 hours → 10 min</td>
+                <td>CEO/IR Lead</td>
+              </tr>
+              <tr>
+                <td>Strategic Memo Writer</td>
+                <td>3 hours → 20 min</td>
+                <td>Strategy Lead</td>
+              </tr>
+              <tr>
+                <td>Product Launch Checklist Generator</td>
+                <td>1 hour → 5 min</td>
+                <td>Product Lead</td>
+              </tr>
+              <tr>
+                <td>Customer Case Study Drafter</td>
+                <td>2 hours → 15 min</td>
+                <td>Marketing Lead</td>
+              </tr>
+              <tr>
+                <td>Competitive Analysis Summarizer</td>
+                <td>4 hours → 20 min</td>
+                <td>Strategy/Sales</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="panel">
+            <div class="panel-h">30-Day Rollout Plan</div>
+            <pre class="output" style="text-align: left; font-size: 0.8rem;">WEEK 1: Pilot Phase
+✓ You've built Campaign Brief Generator today
+✓ Test with 3 real campaign briefs
+✓ Refine based on feedback
+✓ Document what works
+
+WEEK 2: Team Training
+• Share this workshop with your marketing lead
+• Have them build one Custom GPT for their team
+• Review together, refine instructions
+• Set quality standards
+
+WEEK 3: Expand Use Cases
+• Identify 2-3 more high-value use cases
+• Assign owners to build them
+• Review all Custom GPTs in team meeting
+• Share best practices
+
+WEEK 4: Measure & Scale
+• Track time saved across all use cases
+• Calculate ROI (hours saved × hourly rate)
+• Share wins with broader team
+• Identify next round of use cases</pre>
+          </div>
+
+          <div class="panel" style="margin-top: 1rem;">
+            <div class="panel-h">Metrics to Track</div>
+            <ul style="text-align: left; font-size: 0.9rem; line-height: 1.6;">
+              <li><strong>Adoption:</strong> How many team members using Custom GPTs?</li>
+              <li><strong>Usage:</strong> How many briefs/documents generated per week?</li>
+              <li><strong>Time Saved:</strong> Hours saved per person per week</li>
+              <li><strong>Quality:</strong> % of AI-generated drafts approved with minimal edits</li>
+              <li><strong>ROI:</strong> (Time saved × hourly rate) - (ChatGPT Plus costs)</li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 1rem; padding: 1rem; background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; border-radius: 4px;">
+            <p style="margin: 0; font-size: 0.9rem;"><strong>Success Story:</strong> Mid-market SaaS company (50 employees) built 8 Custom GPTs across marketing, sales, and product. Result: 40 hours saved per week, $200K annual productivity gain.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem;">
+        <h3>CEO Cheat Sheet: Evaluating Custom GPTs</h3>
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-h">Good Custom GPT</div>
+            <ul style="text-align: left; font-size: 0.9rem;">
+              <li>Clear, specific instructions</li>
+              <li>Focused knowledge (3-5 key docs)</li>
+              <li>Capabilities match the task</li>
+              <li>Output requires minimal editing</li>
+              <li>Saves at least 30 minutes per use</li>
+              <li>Team actually uses it regularly</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-h">Needs Improvement</div>
+            <ul style="text-align: left; font-size: 0.9rem;">
+              <li>Vague instructions ("be helpful")</li>
+              <li>Too much knowledge (20+ docs)</li>
+              <li>Capabilities not relevant to task</li>
+              <li>Output needs heavy editing</li>
+              <li>Saves less than 15 minutes per use</li>
+              <li>Team doesn't use it (adoption problem)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Workshop Summary & Next Steps</h2>
+      </div>
+
+      <div style="margin: 1.5rem 0;">
+        <h3>What You Learned Today</h3>
+        <div class="grid two">
+          <div>
+            <ul class="bullet">
+              <li><strong>Component 1: Instructions</strong> - The DNA that defines how your GPT thinks</li>
+              <li><strong>Component 2: Knowledge</strong> - Context from your documents</li>
+              <li><strong>Component 3: Capabilities</strong> - Tools like web browsing and data analysis</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="bullet">
+              <li><strong>Build:</strong> Combined all 3 into Campaign Brief Generator</li>
+              <li><strong>Delegate:</strong> 30-day rollout plan to scale across your team</li>
+              <li><strong>ROI:</strong> How to measure and justify investment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(124, 92, 255, 0.08); border-radius: 12px; border-left: 4px solid #7c5cff;">
+        <h3 style="margin-top: 0; color: #7c5cff;">Your Action Items</h3>
+        <ol style="text-align: left; line-height: 1.8;">
+          <li><strong>Today:</strong> Finish building your Campaign Brief Generator (if not done)</li>
+          <li><strong>This Week:</strong> Test it with 3 real briefs, refine based on results</li>
+          <li><strong>Next Week:</strong> Share this workshop with your marketing/comms lead</li>
+          <li><strong>This Month:</strong> Build 2-3 more high-value Custom GPTs, track time savings</li>
+          <li><strong>Next Quarter:</strong> Scale to 8-10 Custom GPTs across functions, measure ROI</li>
+        </ol>
+      </div>
+
+      <div class="controls" style="margin-top: 1.5rem;">
+        <a class="btn primary" href="slides/" target="_blank" rel="noopener">Open the Slide Deck ↗</a>
+        <a class="btn" href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Build Another GPT ↗</a>
+        <a class="btn ghost" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built for CEO workshop. Progressive reveal approach: Instructions → Knowledge → Capabilities → Build → Delegate.</p>
+      <p class="muted">40-minute workshop focused on strategic delegation, not technical implementation.</p>
+      <p><a href="slides/" target="_blank" rel="noopener">Slides</a> • <a href="https://help.openai.com/en/articles/8554397-creating-a-gpt" target="_blank" rel="noopener">Custom GPT Docs</a></p>
+    </div>
+  </footer>
+
+  <!-- Mermaid for diagrams -->
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      themeVariables: {
+        primaryColor: '#7c5cff',
+        primaryTextColor: '#fff',
+        primaryBorderColor: '#6366f1',
+        lineColor: '#6366f1',
+        secondaryColor: '#22c55e',
+        tertiaryColor: '#fbbf24',
+        fontSize: '16px'
+      }
+    });
+  </script>
+
+  <!-- Minimal app logic for theme toggle and copy buttons -->
+  <script type="module">
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const newTheme = theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Copy template button
+    const copyBtn = document.getElementById('btn-copy-template');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const template = document.querySelector('#build .panel pre.output').textContent;
+        try {
+          await navigator.clipboard.writeText(template);
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => {
+            copyBtn.textContent = 'Copy Instructions Template';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom GPT Workshop for CEOs — Anatomy Version</title>
+  <meta name="description" content="CEO-focused workshop: Build Custom GPTs using the anatomy-first approach." />
+  <meta property="og:title" content="Custom GPT Workshop for CEOs — Anatomy Version" />
+  <meta property="og:description" content="Learn the full architecture of Custom GPTs, then build one for your company." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Version Switcher Navbar -->
+  <nav class="version-nav">
+    <div class="version-nav-container">
+      <span class="version-label">Workshop Versions:</span>
+      <a href="../index.html" class="version-link">📚 Original</a>
+      <a href="../progressive-version/index.html" class="version-link">🔄 Progressive</a>
+      <a href="index.html" class="version-link active">🏗️ Anatomy</a>
+      <a href="../live-build-version/index.html" class="version-link">⚡ Live Build</a>
+      <a href="../VERSION-COMPARISON.md" class="version-link comparison" target="_blank" rel="noopener">📊 Compare</a>
+    </div>
+  </nav>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">🎯</span>
+        <div class="brand-text">
+          <strong>CEO Workshop:</strong>
+          <span>Build Custom GPTs for Your Company (Anatomy Version)</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#anatomy">GPT Anatomy</a>
+        <a href="#build">Build Together</a>
+        <a href="#test">Test & Refine</a>
+        <a href="#rollout">Company Rollout</a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Open Slides ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero">
+      <h1>Custom GPTs: Architecture-First Workshop for CEOs</h1>
+      <p class="lead">Stop wasting 5+ hours per week on repetitive strategic tasks. Learn the complete architecture of Custom GPTs, then build one that saves your leadership team hundreds of hours.</p>
+      <ul class="pill-list">
+        <li>Full GPT Anatomy</li>
+        <li>CEO-Focused Examples</li>
+        <li>Campaign Brief Generator</li>
+        <li>Test & Troubleshoot</li>
+        <li>Company Rollout Strategy</li>
+      </ul>
+      <div class="controls" style="margin-top: 1.5rem;">
+        <a class="btn primary" href="#anatomy">Start Learning →</a>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">View Slides ↗</a>
+      </div>
+    </section>
+
+    <!-- 1. Understanding Custom GPTs: Full Anatomy -->
+    <section id="anatomy" class="card">
+      <div class="card-header">
+        <h2>1) Understanding Custom GPTs: The Complete Architecture</h2>
+        <p class="muted">Before we build, let's see what a Custom GPT looks like under the hood. Think of it as a configurable system with 6 key components.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Architecture Diagram</h3>
+          <div class="mermaid" style="background: white; padding: 2rem; border-radius: 12px; margin: 1rem 0;">
+graph TB
+    GPT[Custom GPT System]
+
+    GPT --> Name["1. Name & Description<br/>Public-facing identity"]
+    GPT --> Instr["2. Instructions<br/>The 'brain' - how it thinks"]
+    GPT --> Know["3. Knowledge Base<br/>Your docs & examples"]
+    GPT --> Cap["4. Capabilities<br/>Web, images, code, data"]
+    GPT --> Start["5. Conversation Starters<br/>Pre-written prompts"]
+    GPT --> Act["6. Actions (Optional)<br/>API integrations"]
+
+    style GPT fill:#7c5cff,stroke:#6366f1,stroke-width:3px,color:#fff
+    style Name fill:#e0d4ff,stroke:#7c5cff,stroke-width:2px
+    style Instr fill:#c9b8ff,stroke:#6366f1,stroke-width:2px
+    style Know fill:#b39dff,stroke:#8b5cf6,stroke-width:2px
+    style Cap fill:#9d81ff,stroke:#a855f7,stroke-width:2px
+    style Start fill:#8766ff,stroke:#c084fc,stroke-width:2px
+    style Act fill:#f3e8ff,stroke:#d8b4fe,stroke-width:2px
+          </div>
+
+          <h3 style="margin-top: 2rem;">The 6 Core Components</h3>
+          <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 12px; margin: 1rem 0;">
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #7c5cff; margin-bottom: 1rem;">
+              <h4 style="color: #7c5cff; margin: 0 0 0.5rem 0;">1. Name & Description</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">What it's called and what it does (public-facing)</p>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #6366f1; margin-bottom: 1rem;">
+              <h4 style="color: #6366f1; margin: 0 0 0.5rem 0;">2. Instructions</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">The "brain" - tells the GPT how to think and respond</p>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #8b5cf6; margin-bottom: 1rem;">
+              <h4 style="color: #8b5cf6; margin: 0 0 0.5rem 0;">3. Knowledge Base</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">Upload your company docs, guidelines, past work</p>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #a855f7; margin-bottom: 1rem;">
+              <h4 style="color: #a855f7; margin: 0 0 0.5rem 0;">4. Capabilities</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">Toggle features: Web browsing, image generation, code</p>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #c084fc; margin-bottom: 1rem;">
+              <h4 style="color: #c084fc; margin: 0 0 0.5rem 0;">5. Conversation Starters</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">Pre-written prompts to guide users</p>
+            </div>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #d8b4fe;">
+              <h4 style="color: #d8b4fe; margin: 0 0 0.5rem 0;">6. Actions (Optional)</h4>
+              <p style="margin: 0; font-size: 0.9rem; color: #475569;">Connect to external APIs for advanced workflows</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Why This Matters for CEOs</h3>
+          <ul class="bullet" style="margin-bottom: 2rem;">
+            <li><strong>Scalable expertise:</strong> Encode your best practices once, use everywhere</li>
+            <li><strong>Consistent output:</strong> Every team member gets the same quality</li>
+            <li><strong>Fast deployment:</strong> Build in 30 minutes, deploy to entire company</li>
+            <li><strong>Measurable ROI:</strong> Track usage, time saved, adoption metrics</li>
+          </ul>
+
+          <h3>CEO Use Cases</h3>
+          <div class="panel" style="margin-bottom: 1rem;">
+            <div class="panel-h">Executive Summary Generator</div>
+            <p style="font-size: 0.875rem; margin: 0.5rem 0;">Transform 50-page reports into board-ready summaries</p>
+          </div>
+
+          <div class="panel" style="margin-bottom: 1rem;">
+            <div class="panel-h">Strategic Planning Brief</div>
+            <p style="font-size: 0.875rem; margin: 0.5rem 0;">Generate quarterly planning docs with market analysis</p>
+          </div>
+
+          <div class="panel" style="margin-bottom: 1rem;">
+            <div class="panel-h">Stakeholder Communication</div>
+            <p style="font-size: 0.875rem; margin: 0.5rem 0;">Draft investor updates, team announcements, PR statements</p>
+          </div>
+        </div>
+      </div>
+
+      <details class="note">
+        <summary>Anatomy vs. Progressive Approach</summary>
+        <p><strong>Traditional approach:</strong> "Let's start with instructions, then add knowledge..." (builds incrementally)</p>
+        <p><strong>Anatomy approach:</strong> "Here's the complete system architecture - now let's configure each module" (shows full picture first)</p>
+        <p><strong>Why anatomy-first works for CEOs:</strong> You're used to seeing system diagrams, org charts, and architectural overviews before diving into details. Same principle applies here.</p>
+      </details>
+    </section>
+
+    <!-- 2. Build All Components Together -->
+    <section id="build" class="card">
+      <div class="card-header">
+        <h2>2) Build Together: Campaign Brief Generator</h2>
+        <p class="muted">Now that you understand the architecture, let's build a complete Custom GPT by configuring each component. We'll create a Campaign Brief Generator that saves your marketing team 90% of brief creation time.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>The ROI Case</h3>
+          <table class="table" style="font-size: 0.875rem;">
+            <tbody>
+              <tr><td><strong>Current state</strong></td><td></td></tr>
+              <tr><td>Time per brief (manual)</td><td>1.5 hours</td></tr>
+              <tr><td>Briefs per month</td><td>8</td></tr>
+              <tr><td>Team members</td><td>5</td></tr>
+              <tr><td><strong>Monthly cost</strong></td><td><strong>60 hours @ $100/hr = $6,000</strong></td></tr>
+              <tr><td colspan="2" style="border-top: 2px solid #e2e8f0; padding-top: 0.75rem;"><strong>With Custom GPT</strong></td></tr>
+              <tr><td>Time per brief (GPT)</td><td>10 minutes</td></tr>
+              <tr><td>Monthly time</td><td>6.7 hours</td></tr>
+              <tr><td><strong>Monthly savings</strong></td><td><strong>53.3 hours = $5,330</strong></td></tr>
+              <tr><td><strong>Annual ROI</strong></td><td><strong>$63,960 - $240 = $63,720</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Build Steps (30 minutes)</h3>
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 2px solid #e2e8f0;">
+            <p style="margin: 0 0 1rem 0; font-weight: 600; color: #0f172a;">Follow this checklist:</p>
+
+            <div style="margin-bottom: 1rem;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #7c5cff;">□ Step 1: Name & Description (2 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>Name: "Campaign Brief Generator"</li>
+                <li>Description: "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics"</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #6366f1;">□ Step 2: Instructions (10 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>Define role and purpose</li>
+                <li>Specify output format</li>
+                <li>Set tone and style guidelines</li>
+                <li>Add quality checks</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #8b5cf6;">□ Step 3: Knowledge Base (10 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>Upload 3-5 past successful briefs</li>
+                <li>Add brand guidelines PDF</li>
+                <li>Include messaging framework doc</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #a855f7;">□ Step 4: Capabilities (2 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>Enable: Web Browsing (for market research)</li>
+                <li>Disable: Image generation, Code interpreter</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #c084fc;">□ Step 5: Conversation Starters (3 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>"Create a brief for a product launch"</li>
+                <li>"Generate a seasonal campaign brief"</li>
+                <li>"Build a demand gen brief targeting enterprise"</li>
+              </ul>
+            </div>
+
+            <div>
+              <p style="margin: 0 0 0.5rem 0; font-weight: 600; color: #d8b4fe;">□ Step 6: Test & Iterate (3 min)</p>
+              <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+                <li>Run test prompts</li>
+                <li>Check output quality</li>
+                <li>Refine instructions if needed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <h3>Complete Instructions Template</h3>
+        <div class="panel">
+          <div class="panel-h">Copy & Customize This Template</div>
+          <pre class="output" style="font-size: 0.8rem; text-align: left;">You are the Campaign Brief Generator for [YOUR COMPANY NAME].
+
+## Your Role
+You create comprehensive, actionable campaign briefs that follow our proven format and reflect our brand voice. You have deep knowledge of our past successful campaigns, brand guidelines, and messaging framework.
+
+## Output Format
+Every brief must include these sections:
+
+1. CAMPAIGN OVERVIEW
+   - Campaign name and tagline
+   - Primary objective (awareness/consideration/conversion)
+   - Target launch date and duration
+   - Overall budget allocation
+
+2. TARGET AUDIENCE
+   - Primary persona (demographics, psychographics, pain points)
+   - Secondary audiences (if applicable)
+   - Customer journey stage
+   - Key insights about this audience
+
+3. KEY MESSAGING
+   - Core value proposition
+   - 3-5 key messages
+   - Proof points and supporting data
+   - Emotional hook
+   - Call-to-action
+
+4. CHANNELS & TACTICS
+   - Primary channels with rationale
+   - Content types per channel
+   - Paid/organic mix
+   - Integration points across channels
+
+5. SUCCESS METRICS
+   - Primary KPI (aligned with objective)
+   - Secondary metrics
+   - Target benchmarks
+   - Measurement methodology
+
+6. CREATIVE REQUIREMENTS
+   - Visual style and tone
+   - Asset list (what needs to be created)
+   - Brand compliance notes
+   - Technical specifications
+
+7. TIMELINE & MILESTONES
+   - Key dates and deadlines
+   - Dependencies
+   - Review/approval gates
+
+## Tone & Style
+- Professional but conversational
+- Data-backed recommendations
+- Clear, actionable language
+- Strategic thinking, not just tactics
+
+## Process
+1. Ask clarifying questions about the campaign goal, audience, and constraints
+2. Reference similar past campaigns from knowledge base
+3. Generate a comprehensive brief following the format above
+4. Offer to refine specific sections based on feedback
+
+## Quality Checks
+Before finalizing, ensure:
+- All 7 sections are complete
+- Metrics are measurable and time-bound
+- Messaging aligns with brand voice
+- Budget and timeline are realistic
+- Clear next actions are defined</pre>
+        </div>
+        <div class="controls" style="margin-top: 1rem;">
+          <button id="btn-copy-instructions" class="btn primary">Copy Instructions</button>
+          <a class="btn" href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Create Your GPT Now ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Test & Refine Your GPT -->
+    <section id="test" class="card">
+      <div class="card-header">
+        <h2>3) Test & Refine Your GPT</h2>
+        <p class="muted">A Custom GPT is never perfect on the first try. Here's how to test, identify issues, and iterate quickly.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Testing Framework</h3>
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+            <h4 style="margin-top: 0;">Test Prompt 1: Simple Request</h4>
+            <pre class="output" style="font-size: 0.85rem; margin-bottom: 1rem;">"Create a campaign brief for a summer product launch targeting B2B marketers. Budget: $50K, Timeline: 8 weeks."</pre>
+            <p style="margin: 0; font-size: 0.875rem;"><strong>What to check:</strong> Does it follow all 7 sections? Is the output structured and complete?</p>
+          </div>
+
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+            <h4 style="margin-top: 0;">Test Prompt 2: Edge Case</h4>
+            <pre class="output" style="font-size: 0.85rem; margin-bottom: 1rem;">"Create a brief for a crisis communications campaign. Launch: ASAP, Budget: TBD."</pre>
+            <p style="margin: 0; font-size: 0.875rem;"><strong>What to check:</strong> Does it handle ambiguity? Does it ask clarifying questions?</p>
+          </div>
+
+          <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+            <h4 style="margin-top: 0;">Test Prompt 3: Knowledge Check</h4>
+            <pre class="output" style="font-size: 0.85rem; margin-bottom: 1rem;">"Create a brief similar to our Q4 2024 product launch campaign."</pre>
+            <p style="margin: 0; font-size: 0.875rem;"><strong>What to check:</strong> Does it reference your uploaded knowledge base? Does it apply past learnings?</p>
+          </div>
+        </div>
+
+        <div>
+          <h3>Common Issues & Fixes</h3>
+          <table class="table" style="font-size: 0.875rem;">
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>Fix</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Output too generic</td>
+                <td>Add more specific examples to instructions; upload more knowledge</td>
+              </tr>
+              <tr>
+                <td>Missing sections</td>
+                <td>Add "ALWAYS include..." language; use numbered checklist in instructions</td>
+              </tr>
+              <tr>
+                <td>Wrong tone</td>
+                <td>Add tone examples; include "voice and style" section with 3-5 examples</td>
+              </tr>
+              <tr>
+                <td>Ignoring knowledge base</td>
+                <td>Add "Reference similar campaigns from your knowledge" to instructions</td>
+              </tr>
+              <tr>
+                <td>Too long/verbose</td>
+                <td>Add word count limits; specify "concise, actionable" in instructions</td>
+              </tr>
+              <tr>
+                <td>Not asking questions</td>
+                <td>Add "Always ask 2-3 clarifying questions before generating" to instructions</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Iteration Cycle</h3>
+          <div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+            <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <div style="background: #7c5cff; color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 0.75rem;">1</div>
+              <div><strong>Test with 3 diverse prompts</strong></div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <div style="background: #6366f1; color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 0.75rem;">2</div>
+              <div><strong>Document issues and patterns</strong></div>
+            </div>
+            <div style="display: flex; align-items: center; margin-bottom: 0.75rem;">
+              <div style="background: #8b5cf6; color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 0.75rem;">3</div>
+              <div><strong>Update instructions or add knowledge</strong></div>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <div style="background: #a855f7; color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 0.75rem;">4</div>
+              <div><strong>Re-test same prompts, verify improvements</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <details class="note">
+        <summary>Pro Tips for Testing</summary>
+        <ul class="bullet">
+          <li><strong>Version control:</strong> Keep a changelog of instruction updates and what each fixed</li>
+          <li><strong>Test with real users:</strong> Have 2-3 team members test independently and report issues</li>
+          <li><strong>Save good outputs:</strong> Add exceptional GPT outputs back to knowledge base as examples</li>
+          <li><strong>Monitor edge cases:</strong> Track unusual requests that break the GPT, update instructions accordingly</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 4. Company Rollout Strategy -->
+    <section id="rollout" class="card">
+      <div class="card-header">
+        <h2>4) Company Rollout Strategy</h2>
+        <p class="muted">You've built a powerful Custom GPT. Now deploy it across your company systematically for maximum adoption and ROI.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>The 3-Phase Rollout</h3>
+
+          <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #7c5cff; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h4 style="color: #7c5cff; margin: 0 0 0.75rem 0;">Phase 1: Pilot (Week 1-2)</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+              <li><strong>Who:</strong> 3 power users from marketing team</li>
+              <li><strong>Goal:</strong> Validate quality, gather feedback, identify edge cases</li>
+              <li><strong>Metrics:</strong> # briefs created, time saved, quality score (1-10)</li>
+              <li><strong>Action:</strong> Weekly feedback session, iterate on instructions</li>
+            </ul>
+          </div>
+
+          <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #6366f1; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h4 style="color: #6366f1; margin: 0 0 0.75rem 0;">Phase 2: Department Rollout (Week 3-4)</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+              <li><strong>Who:</strong> Full marketing team (15-20 people)</li>
+              <li><strong>Goal:</strong> Achieve 80% adoption, standardize usage</li>
+              <li><strong>Metrics:</strong> Weekly active users, briefs per user, satisfaction score</li>
+              <li><strong>Action:</strong> 30-min training session, share best practices, office hours</li>
+            </ul>
+          </div>
+
+          <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #8b5cf6; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <h4 style="color: #8b5cf6; margin: 0 0 0.75rem 0;">Phase 3: Company-Wide Scale (Week 5+)</h4>
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem;">
+              <li><strong>Who:</strong> All departments needing campaign briefs</li>
+              <li><strong>Goal:</strong> Standardize brief format across company</li>
+              <li><strong>Metrics:</strong> Company-wide usage, total hours saved, ROI calculation</li>
+              <li><strong>Action:</strong> Add to onboarding, create video tutorials, monthly review</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3>Adoption Metrics Dashboard</h3>
+          <table class="table" style="font-size: 0.875rem; margin-bottom: 1.5rem;">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Target</th>
+                <th>Why It Matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Weekly Active Users</td>
+                <td>80%+</td>
+                <td>Adoption indicator</td>
+              </tr>
+              <tr>
+                <td>Briefs per User/Week</td>
+                <td>2+</td>
+                <td>Usage depth</td>
+              </tr>
+              <tr>
+                <td>Time Saved per Brief</td>
+                <td>80 min</td>
+                <td>ROI calculation</td>
+              </tr>
+              <tr>
+                <td>Quality Score (1-10)</td>
+                <td>8+</td>
+                <td>Output quality</td>
+              </tr>
+              <tr>
+                <td>NPS (Net Promoter)</td>
+                <td>50+</td>
+                <td>User satisfaction</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Success Checklist</h3>
+          <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 8px; padding: 1.5rem;">
+            <ul style="margin: 0; padding-left: 1.5rem; font-size: 0.875rem; line-height: 1.8;">
+              <li>✅ Pilot users trained and actively using GPT</li>
+              <li>✅ Feedback loop established (Slack channel, weekly sync)</li>
+              <li>✅ Instructions iterated based on real usage</li>
+              <li>✅ Knowledge base updated with new examples</li>
+              <li>✅ Usage metrics tracked in spreadsheet/dashboard</li>
+              <li>✅ Best practices documented and shared</li>
+              <li>✅ Support resources created (FAQ, video, examples)</li>
+              <li>✅ Executive sponsor championing adoption</li>
+            </ul>
+          </div>
+
+          <h3>Calculate Your ROI</h3>
+          <div class="panel">
+            <div class="panel-h">Company-Wide ROI Calculator</div>
+            <div style="padding: 1rem; font-size: 0.875rem;">
+              <div style="margin-bottom: 0.75rem;">
+                <strong>Number of GPTs deployed:</strong> <input type="number" id="num-gpts" value="1" style="width: 80px; padding: 0.25rem; border: 1px solid #e2e8f0; border-radius: 4px;"> GPTs
+              </div>
+              <div style="margin-bottom: 0.75rem;">
+                <strong>Hours saved per GPT per week:</strong> <input type="number" id="hours-saved" value="10" style="width: 80px; padding: 0.25rem; border: 1px solid #e2e8f0; border-radius: 4px;"> hrs
+              </div>
+              <div style="margin-bottom: 0.75rem;">
+                <strong>Number of active users:</strong> <input type="number" id="num-users" value="15" style="width: 80px; padding: 0.25rem; border: 1px solid #e2e8f0; border-radius: 4px;"> people
+              </div>
+              <div style="margin-bottom: 0.75rem;">
+                <strong>Average hourly rate:</strong> $<input type="number" id="hourly-rate" value="100" style="width: 80px; padding: 0.25rem; border: 1px solid #e2e8f0; border-radius: 4px;"> /hr
+              </div>
+              <button id="calc-roi" class="btn primary" style="margin-top: 0.5rem;">Calculate ROI</button>
+              <div id="roi-result" style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 4px; display: none;">
+                <p style="margin: 0 0 0.5rem 0;"><strong>Annual Savings:</strong> <span id="annual-savings" style="color: #7c5cff; font-size: 1.5rem; font-weight: bold;">$0</span></p>
+                <p style="margin: 0; font-size: 0.875rem; color: #64748b;">Cost: $240/year per user (ChatGPT Plus)</p>
+                <p style="margin: 0.5rem 0 0 0;"><strong>Net ROI:</strong> <span id="net-roi" style="color: #16a34a; font-size: 1.25rem; font-weight: bold;">$0</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <details class="note">
+        <summary>Building a GPT Library Strategy</summary>
+        <p><strong>Don't stop at one GPT.</strong> The Campaign Brief Generator is just the beginning. Consider building:</p>
+        <ul class="bullet">
+          <li><strong>Executive Summary Generator</strong> (for board decks and reports)</li>
+          <li><strong>Quarterly Planning Brief</strong> (for strategic planning cycles)</li>
+          <li><strong>Stakeholder Email Generator</strong> (for investor/customer communications)</li>
+          <li><strong>Meeting Prep Assistant</strong> (for executive briefings)</li>
+          <li><strong>Product Launch Checklist</strong> (for go-to-market planning)</li>
+        </ul>
+        <p><strong>Pro tip:</strong> Create a company "GPT Library" Notion page or Confluence space where teams can discover and share Custom GPTs.</p>
+      </details>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Workshop Conclusion & Next Steps</h2>
+      </div>
+      <h3>What You've Learned</h3>
+      <ul class="bullet">
+        <li>The complete architecture of Custom GPTs (6 core components)</li>
+        <li>How to build a production-ready Campaign Brief Generator</li>
+        <li>Testing and iteration strategies for quality outputs</li>
+        <li>A systematic 3-phase company rollout approach</li>
+        <li>ROI tracking and adoption metrics</li>
+      </ul>
+      <h3>Take Action Today</h3>
+      <div class="controls">
+        <a class="btn primary" href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Build Your First GPT ↗</a>
+        <a class="btn" href="slides/" target="_blank" rel="noopener">Review Slides ↗</a>
+        <a class="btn ghost" href="#top">Back to top</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>CEO Workshop: Custom GPT Anatomy Version. Built for GitHub Pages.</p>
+      <p class="muted">40-minute workshop format optimized for executive audiences.</p>
+      <p><a href="https://chatgpt.com/gpts/editor" target="_blank" rel="noopener">Create a GPT</a> • <a href="slides/" target="_blank" rel="noopener">Slides</a></p>
+    </div>
+  </footer>
+
+  <!-- App logic -->
+  <script type="module" src="assets/js/app.js"></script>
+  <script>
+    // Copy instructions button
+    document.getElementById('btn-copy-instructions')?.addEventListener('click', function() {
+      const instructions = document.querySelector('#build .output').textContent;
+      navigator.clipboard.writeText(instructions).then(() => {
+        this.textContent = 'Copied!';
+        setTimeout(() => { this.textContent = 'Copy Instructions'; }, 2000);
+      });
+    });
+
+    // ROI Calculator
+    document.getElementById('calc-roi')?.addEventListener('click', function() {
+      const numGpts = parseFloat(document.getElementById('num-gpts').value) || 1;
+      const hoursSaved = parseFloat(document.getElementById('hours-saved').value) || 10;
+      const numUsers = parseFloat(document.getElementById('num-users').value) || 15;
+      const hourlyRate = parseFloat(document.getElementById('hourly-rate').value) || 100;
+
+      const weeklyHours = numGpts * hoursSaved * numUsers;
+      const annualHours = weeklyHours * 52;
+      const annualSavings = annualHours * hourlyRate;
+      const cost = numUsers * 240;
+      const netROI = annualSavings - cost;
+
+      document.getElementById('annual-savings').textContent = '$' + annualSavings.toLocaleString();
+      document.getElementById('net-roi').textContent = '$' + netROI.toLocaleString();
+      document.getElementById('roi-result').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
