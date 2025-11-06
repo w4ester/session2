@@ -209,7 +209,7 @@ PDF, DOCX, TXT, CSV
 <div style="background: #fff3cd; padding: 1rem; margin-top: 1.5rem; border-radius: 8px;">
 
 ### Don't have docs ready?
-Use our sample template: [Download sample brand guidelines](../assets/sample-brand-guidelines.pdf)
+Use our sample template: [Download sample brand guidelines](../assets/sample-brand-guidelines.md)
 
 Or skip this step and add knowledge later.
 
