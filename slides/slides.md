@@ -1,427 +1,412 @@
-# Build AI Agents for Marketing
+# Custom GPTs for CEOs
+## Architecture-First Workshop
 
-**No Code Required — Build in 60 Minutes**
+**Your ROI:** Stop wasting 5+ hours/week on repetitive strategic tasks
 
-<div class="metadata">
-<strong>Session 2:</strong> Boost Your Marketing Team's Productivity with Custom GPTs and Agents<br><br>
-<strong>Speakers:</strong> William Forrester & Mo Edzerman<br>
-<strong>Moderator:</strong> Todd Marks<br><br>
-<strong>Objective:</strong> Learn how to create an AI agent that understands your brand, speaks in your voice, and enhances your marketing workflow. This interactive workshop will cover the essentials of how language models process information, how to craft effective prompts, and how to apply advanced prompting techniques for consistent, on-brand content generation.
+**Time:** 40 minutes
+**Format:** Show full picture → Build together → Deploy
+
+Note: Welcome! This is a 40-minute workshop designed specifically for CEOs. We'll show you the complete architecture of Custom GPTs upfront, then build one together. No progressive reveals - we're treating this like a system architecture review.
+
+---
+
+## Slide 1: The CEO's AI Problem
+### You're Wasting 5+ Hours Per Week
+
+**⏰ TIME: 5 minutes**
+
+**Common repetitive tasks:**
+- Campaign briefs for marketing
+- Executive summaries for board meetings
+- Strategic planning documents
+- Stakeholder communications
+- Quarterly planning briefs
+
+**The cost:**
+- **5 hours/week** × **50 weeks** = **250 hours/year**
+- At $500/hour = **$125,000 in CEO time**
+- Plus: Inconsistent quality, knowledge bottlenecks, team delays
+
+Note: TIMING: 5 minutes total. Start with pain point. CEOs understand time = money. The problem isn't just your time - it's that your expertise doesn't scale. When you're the bottleneck, the whole company slows down. Custom GPTs let you encode your knowledge once and deploy it everywhere.
+
+---
+
+## Slide 2: Custom GPT Anatomy
+### The Complete Architecture (Upfront)
+
+**⏰ TIME: 5 minutes**
+
+<div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+
+### 🏗️ 6 Core Components
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
+
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #7c5cff;">
+<strong style="color: #7c5cff;">1. Name & Description</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">Public-facing identity</span>
 </div>
 
-### What you'll build today:
-- ✅ Tokenization visualizer
-- ✅ Prompt quality checker
-- ✅ Template generator with autocomplete
-- ✅ **Campaign Brief Generator Custom GPT**
-- ✅ **Campaign Brief Agent with tools**
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #6366f1;">
+<strong style="color: #6366f1;">2. Instructions</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">The "brain" - how it thinks</span>
+</div>
 
-🌐 **[Workshop Site: w4ester.github.io/session2](https://w4ester.github.io/session2/)**
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #8b5cf6;">
+<strong style="color: #8b5cf6;">3. Knowledge Base</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">Your docs, guidelines, examples</span>
+</div>
 
-Note: Welcome! Everything is hands-on. Follow along on your laptop. Workshop site has all tools.
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #a855f7;">
+<strong style="color: #a855f7;">4. Capabilities</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">Web, images, code, data</span>
+</div>
 
----
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #c084fc;">
+<strong style="color: #c084fc;">5. Conversation Starters</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">Pre-written prompts for users</span>
+</div>
 
-## 60-Minute Workshop + ROI
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #d8b4fe;">
+<strong style="color: #d8b4fe;">6. Actions (Optional)</strong><br/>
+<span style="font-size: 0.85em; color: #64748b;">API integrations</span>
+</div>
 
-| Time | Activity | Tool |
-|------|----------|------|
-| 5-7 min | Introduction & Problem | Slides |
-| 8 min | Tokenization Demo | [Live Tool](#tokenization) |
-| 12 min | Prompt Engineering | [Scoring Tool](#prompting) |
-| 8 min | Templates | [Generator](#templates) |
-| 10 min | **Build Custom GPT** | ChatGPT GPT Editor |
-| 5 min | **Custom GPT vs Agent** | Slides |
-| 10 min | **Build Campaign Agent** | OpenAI Agents |
-| 5 min | Q&A | — |
+</div>
+</div>
 
-**💰 The Business Case**
-- Problem: Repetitive marketing tasks consume 5-10 hours/week
-- Solution: AI agents automate drafts, leaving humans for strategy
-- ROI: $250-750/week saved (at $50-75/hr) vs $20/month cost
+**Think of it like configuring a system:**
+- Not a blank slate - a **structured framework**
+- Not magic - **6 clear modules** to configure
+- Not one-size-fits-all - **customized** to your company
 
-Note: We're solving a real problem. You'll automate a workflow today. Everything is reusable after.
-
----
-
-## Understanding Tokenization
-
-**What are tokens?**
-- LLMs read text as tokens (~4 characters each)
-- Example: "Marketing AI automates tasks" = 8 tokens
-- Why it matters: Token limits, speed, and cost
-
-**💰 Real Costs (GPT-4)**
-- Input: $0.03 per 1,000 tokens
-- Output: $0.06 per 1,000 tokens
-- 500-word prompt ≈ 650 tokens = **$0.02 per request**
-- Daily agent use (5,000 tokens) = **$0.15/day** or **$4.50/month**
-
-🧩 **[Try the Tokenizer →](https://w4ester.github.io/session2/#tokenization)**
-
-Note: Demo the tokenizer live. Show how different text = different token counts. Efficient prompts = cheaper + faster.
+Note: TIMING: 5 minutes. THIS IS THE KEY SLIDE. Unlike progressive approaches that hide the full picture, we're showing everything upfront. Why? Because CEOs are used to system architecture diagrams. You don't learn org charts one person at a time - you see the full structure first. Same principle here. Spend time ensuring everyone understands these 6 components. Answer questions. This foundation makes everything else easier.
 
 ---
 
-## Live Demo: Tokenization Visualizer
+## Slide 3: Build Together
+### Campaign Brief Generator (All Components)
 
-**Try it now:**
-1. Open [workshop site section 1](https://w4ester.github.io/session2/#tokenization)
-2. Paste: "Write a social media post about our new analytics dashboard"
-3. Click "Tokenize Text"
-4. See token count + unique tokens + cost estimate
+**⏰ TIME: 20 minutes**
 
-**Test examples:**
-- Short text vs long prompt
-- With emoji (uses MORE tokens)
-- Technical/code snippets
+### Live Build - Follow Along
 
-**Why this matters:**
-- Longer prompts = higher costs
-- Token limits on models (e.g., 8K, 128K)
-
-Note: Give 2 minutes to explore. Walk through examples. Point out emoji uses 3-4 tokens per character.
-
----
-
-## 4 Principles of Prompt Engineering
-
-**❌ Basic (costs $0.02, wastes time):**
-```
-Write a social media post about our new product.
-```
-
-**✅ Engineered (costs $0.03, saves 30 minutes):**
-```
-Write a LinkedIn post announcing our AI-powered
-marketing analytics dashboard.
-
-Target: Marketing managers at B2B companies
-Benefit: Saves 5+ hours/week on reporting
-Tone: Professional but approachable
-Length: 150 words
-Include: 1 metric, 1 question, 3 hashtags
-CTA: "Book a demo"
-```
-
-**The 4 Principles:**
-1. **Be specific** — format, tone, length, audience
-2. **Provide context** — background, constraints
-3. **Use examples** — show desired output
-4. **Break it down** — guide the reasoning
-
-Note: Run both prompts live in ChatGPT. Show the dramatic difference. Better prompt = better output = less revisions.
-
----
-
-## Live Activity: Improve Your Prompts
-
-**🧩 [Prompt Quality Checker →](https://w4ester.github.io/session2/#prompting)**
-
-**Your Task (5 minutes):**
-1. Go to section 2 on workshop site
-2. Improve this prompt:
-   ```
-   Write an email promoting our analytics dashboard.
-   ```
-3. Add: audience, benefit, CTA, tone, length
-4. Click "Score My Prompt" — aim for 8/10 or higher
-5. Copy your result to use later
-
-**What to add:**
-- 🎯 Who is this for?
-- 💡 What's the key benefit?
-- 📞 What action should they take?
-- 🎨 What's the tone?
-- 📏 How long should it be?
-
-Note: Give 5 minutes. Walk around. Share 2-3 examples after. Point out what made them score high.
-
----
-
-## Why Templates Matter
-
-**Problem:**
-- Every campaign starts from scratch
-- Inconsistent quality across team
-- Experienced marketers spend time on repetitive tasks
-
-**Solution: Reusable Prompt Templates**
-- Variables: `{product_name}`, `{audience}`, `{benefit}`
-- Instructions: What the AI should do
-- Structure: Format rules
-- Examples: Show quality standards
-
-**💰 Template ROI:**
-- Build once: 30 minutes
-- Use 50 times: Save 25 hours
-- Team of 5: Save 125 hours = **$6,250-9,375 saved**
-- Cost: $0 (reusable prompt)
-
-Note: Templates are your scaling strategy. One person builds, whole team benefits.
-
----
-
-## Live Build: Template Generator
-
-**🧩 [Template Generator →](https://w4ester.github.io/session2/#templates)**
-
-**Build a template (5-8 minutes):**
-1. Go to section 3 on workshop site
-2. **NEW: Try Quick Start presets** (Email, Social, Ad Copy, Blog)
-3. Or start from scratch with **autocomplete suggestions**:
-   - Task name: Type "Email..." to see 12 suggestions
-   - Variables: See 5 common variable combinations
-   - Instructions: Customize for your needs
-4. Click "Generate Template"
-5. Download .md file
-
-**Example templates to build:**
-- Email subject lines (preset available!)
-- Social media posts (preset available!)
-- Ad copy (preset available!)
-- Blog outlines (preset available!)
-
-Note: Presets save time! Click one, customize if needed, generate. Save the template — you'll use it forever.
-
----
-
-## Build a Custom GPT: Campaign Brief Generator
-
-**Why Campaign Brief Generator?**
-- Saves 1-2 hours per brief → 5 minutes
-- 4-8 briefs/month = **5-10 hours saved monthly**
-- **Annual savings: $4,500-9,000** (@$75/hr)
-- Cost: ChatGPT Plus **$240/year**
-
-**What is a Custom GPT?**
-- Your own AI assistant that knows your business
-- Upload brand guidelines, past briefs, messaging docs
-- Custom instructions for consistent output
-- Shareable with your team
-
-**💡 Perfect First AI Project:**
-- Everyone writes campaign briefs
-- Clear input/output structure
-- Immediate, measurable value
-- No coding required!
-
-Note: Custom GPTs are the easiest entry point to AI automation. Build one, prove value, scale from there.
-
----
-
-## Live Build: Campaign Brief Generator GPT
-
-**🧩 [ChatGPT → Create a GPT →](https://chatgpt.com/gpts/editor)**
-
-**Build together (10 minutes):**
-
-**Step 1:** Click "Create a GPT"
+**Component 1: Name & Description (2 min)**
 - Name: "Campaign Brief Generator"
-- Description: "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics."
+- Description: "Creates comprehensive campaign briefs with audience insights, messaging, and success metrics"
 
-**Step 2:** Add Instructions
+**Component 2: Instructions (10 min)** ⭐ *Most important*
 ```
-You are a Campaign Brief Generator for [Your Company].
+You are the Campaign Brief Generator for [COMPANY].
 
-Your role:
-- Create comprehensive campaign briefs
-- Use our brand voice: [professional/casual/technical]
-- Include measurable success metrics
-- Reference past successful campaigns
+## Your Role
+Create comprehensive, actionable campaign briefs following
+our proven format and brand voice.
 
-Required sections:
-1. Campaign Overview
-2. Target Audience
-3. Key Messaging
-4. Channels & Tactics
-5. Success Metrics
-6. Timeline & Budget
-7. Creative Requirements
-```
+## Output Format (7 required sections)
+1. Campaign Overview (name, objective, timeline, budget)
+2. Target Audience (persona, pain points, journey stage)
+3. Key Messaging (value prop, 3-5 messages, CTA)
+4. Channels & Tactics (rationale, content types, paid/organic)
+5. Success Metrics (primary KPI, benchmarks, measurement)
+6. Creative Requirements (style, asset list, compliance)
+7. Timeline & Milestones (deadlines, dependencies, gates)
 
-**Step 3:** Upload Knowledge (optional)
-- Past successful briefs
-- Brand guidelines
-- Messaging framework
+## Process
+1. Ask clarifying questions
+2. Reference similar past campaigns
+3. Generate comprehensive brief
+4. Offer section-specific refinements
 
-**Step 4:** Test it
-```
-Create a campaign brief for a product launch
-targeting B2B marketing managers.
+## Quality Checks
+- All 7 sections complete
+- Metrics measurable and time-bound
+- Messaging aligns with brand voice
 ```
 
-**Step 5:** Share with team!
+Note: TIMING: 20 minutes total. This is where you BUILD LIVE. Open chatgpt.com/gpts/editor and create it together. Component 2 (Instructions) takes 10 minutes because it's the brain of your GPT. Walk through each section. Explain WHY each matters. The 7-section format ensures completeness. The process ensures quality. The quality checks prevent garbage outputs.
 
-Note: Everyone should have a working Custom GPT by end of this section. Help neighbors if stuck.
+--
+
+### Build Together (continued)
+
+**Component 3: Knowledge Base (5 min)**
+
+Upload 3-5 files:
+- ✅ 3 past successful campaign briefs (examples of great work)
+- ✅ Brand guidelines PDF (voice, tone, visual identity)
+- ✅ Messaging framework doc (core positioning)
+
+**Pro tip:** More knowledge = better outputs, but start small
+
+**Component 4: Capabilities (1 min)**
+- ✅ Enable: **Web Browsing** (for competitor research)
+- ❌ Disable: Image generation, Code interpreter (not needed)
+
+**Component 5: Conversation Starters (2 min)**
+- "Create a brief for a product launch"
+- "Generate a seasonal campaign brief"
+- "Build a demand gen brief targeting enterprise"
+
+**Component 6: Actions (Skip for now)**
+- Advanced: Connect to your CRM, analytics, project management
+- Today: Focus on the core 5 components
+
+Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 min). Show them WHAT to upload. Many people upload the wrong things. Past briefs = templates for the AI to learn from. Brand guidelines = consistency. Messaging framework = strategic alignment. For capabilities, explain WHY you're enabling web browsing (competitor intel) and why you're skipping the rest (focus).
+
+--
+
+### The ROI Math
+
+| Metric | Before GPT | With GPT | Savings |
+|--------|-----------|----------|---------|
+| Time per brief | 1.5 hours | 10 minutes | 80 min |
+| Briefs per month | 8 | 8 | - |
+| Team members | 5 | 5 | - |
+| **Monthly hours** | **60 hrs** | **6.7 hrs** | **53.3 hrs** |
+| **Monthly cost** | **$6,000** | **$670** | **$5,330** |
+| **Annual ROI** | - | - | **$63,960** |
+| ChatGPT Plus cost | - | $240/yr | - |
+| **Net annual ROI** | - | - | **$63,720** |
+
+**Multiply this across your company:**
+- 5 Custom GPTs × 10 departments = **50 GPTs**
+- Each saving 10 hours/week = **500 hours/week saved**
+- Annual value: **$2.6M** (at $100/hour)
+
+Note: TIMING: Include in the 20-minute build section. Show ROI during the build to maintain executive engagement. The key insight: This isn't just about ONE GPT saving time. It's about building a LIBRARY of GPTs across your company. Each GPT is a force multiplier. The compound effect is massive.
 
 ---
 
-## Custom GPT vs Agent: What's the Difference?
+## Slide 4: Test & Refine
+### Quality Assurance Process
 
-| Feature | Custom GPT | Agent |
-|---------|------------|-------|
-| **Knowledge** | ✅ Your docs | ✅ Your docs |
-| **Instructions** | ✅ Custom | ✅ Custom |
-| **Web Browsing** | ❌ No | ✅ Yes |
-| **Data Analysis** | ❌ No | ✅ Yes |
-| **Multi-step Tasks** | ❌ No | ✅ Yes |
-| **API Integrations** | ❌ No | ✅ Yes |
+**⏰ TIME: 7 minutes**
 
-**When to Upgrade GPT → Agent:**
-- ✅ Need to research competitors (web browsing)
-- ✅ Need to analyze campaign data (CSV uploads)
-- ✅ Need multi-step workflows (research → analyze → generate)
-- ✅ Need API integrations (CRM, analytics tools)
+### 3 Test Prompts (3 min)
 
-**💰 Cost Comparison:**
-- Custom GPT: **$20/month** (ChatGPT Plus)
-- Agent: **$20/month** (same subscription!)
-- ROI: **Same price, more capabilities**
+**Test 1: Simple request**
+```
+"Create a campaign brief for a summer product launch
+targeting B2B marketers. Budget: $50K, Timeline: 8 weeks."
+```
+✅ Check: All 7 sections? Structured output?
 
-**💡 Recommendation:**
-Start with Custom GPT → Prove value → Upgrade to Agent when you need tools
+**Test 2: Edge case**
+```
+"Create a brief for crisis communications campaign.
+Launch: ASAP, Budget: TBD."
+```
+✅ Check: Handles ambiguity? Asks clarifying questions?
 
-Note: You already built the Custom GPT. Now let's add tools to make it an agent.
+**Test 3: Knowledge check**
+```
+"Create a brief similar to our Q4 2024 product launch."
+```
+✅ Check: References uploaded knowledge? Applies past learnings?
+
+Note: TIMING: 7 minutes total. Testing is where most people fail. They build once and never iterate. Show them THE SYSTEMATIC APPROACH. 3 test prompts cover 3 scenarios: ideal case, edge case, knowledge integration. If it passes all 3, you're ready to deploy. If not, iterate.
+
+--
+
+### Common Issues & Fixes (3 min)
+
+| Issue | Fix | Time to Fix |
+|-------|-----|-------------|
+| Output too generic | Add specific examples to instructions; upload more knowledge | 5 min |
+| Missing sections | Add "ALWAYS include..." language; use numbered checklist | 2 min |
+| Wrong tone | Add tone examples with 3-5 voice samples | 5 min |
+| Ignoring knowledge | Add "Reference similar campaigns from your knowledge" explicitly | 2 min |
+| Too verbose | Add word count limits; specify "concise, actionable" | 2 min |
+| Not asking questions | Add "Always ask 2-3 clarifying questions first" | 2 min |
+
+**The iteration cycle:** Test → Document issues → Update instructions → Re-test
+
+**Typical iterations needed:** 2-3 rounds to production-ready
+
+Note: TIMING: 3 minutes. Show the most common issues from REAL workshops. These 6 problems account for 80% of quality issues. The fixes are simple and fast. Key insight: You're not debugging code - you're clarifying instructions. It's more like managing a person than fixing software.
+
+--
+
+### Iteration Framework (1 min)
+
+```
+Version 1.0: Initial build (30 min)
+  ↓
+Test Round 1: Find 5-10 issues (10 min)
+  ↓
+Version 1.1: Fix instructions (10 min)
+  ↓
+Test Round 2: Verify fixes (5 min)
+  ↓
+Version 1.2: Production ready ✅
+```
+
+**Total time to production:** ~1 hour (not weeks!)
+
+**Pro tip:** Keep a changelog of what each version fixed
+
+Note: TIMING: 1 minute. Emphasize SPEED. This isn't a 6-month software project. It's a 1-hour configuration task. Versions aren't releases - they're iterations. You can update instructions in real-time. No deployment pipeline needed.
 
 ---
 
-## Hands-On: Build Campaign Brief Agent
+## Slide 5: Company Rollout Strategy
+### Scale Systematically
 
-**🧩 [OpenAI Agents →](https://platform.openai.com/agents)**
+**⏰ TIME: 3 minutes**
 
-**Enhance your Custom GPT with tools (10 minutes):**
+### The 3-Phase Rollout
 
-**Step 1:** Go to OpenAI Agents (requires Plus)
-- Click "Create Agent" or import your Custom GPT
-- Name: "Campaign Brief Agent"
+**Phase 1: Pilot (Week 1-2)**
+- **Who:** 3 power users from marketing
+- **Goal:** Validate quality, gather feedback
+- **Metrics:** # briefs created, time saved, quality score (1-10)
+- **Action:** Weekly feedback → iterate instructions
 
-**Step 2:** Use same instructions from your Custom GPT
-- Copy/paste your Campaign Brief Generator instructions
+**Phase 2: Department (Week 3-4)**
+- **Who:** Full marketing team (15-20 people)
+- **Goal:** 80% adoption, standardize usage
+- **Metrics:** Weekly active users, briefs per user, NPS
+- **Action:** 30-min training, best practices, office hours
 
-**Step 3:** **Enable Tools** (this is the magic!)
-- ✅ **Web Browsing** → "Research competitor campaigns automatically"
-- ✅ **Data Analysis** → "Upload past campaign CSVs, analyze what worked"
-- ✅ **Memory** → "Remember brand preferences across sessions"
+**Phase 3: Company-Wide (Week 5+)**
+- **Who:** All departments needing briefs
+- **Goal:** Standardize format across company
+- **Metrics:** Company usage, total hours saved, ROI
+- **Action:** Add to onboarding, video tutorials, monthly review
 
-**Step 4:** Test with 3 examples
+Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of success. Adoption is 80%. The 3-phase approach prevents the "build it and nobody uses it" problem. Pilot validates, Department scales, Company-wide standardizes. Each phase has clear metrics. This is a ROLLOUT PLAN, not just a tech demo.
 
-**Example 1: Basic Brief**
-```
-Create a campaign brief for a summer sale
-targeting existing customers
-```
+--
 
-**Example 2: With Research**
-```
-Create a brief for Q2 product launch.
-First, research what competitors did in their
-recent launches, then create the brief with insights.
-```
+### Adoption Metrics Dashboard
 
-**Example 3: With Data**
-```
-Here's our Q1 campaign performance CSV.
-Analyze what worked best, then create a Q2
-brief using those insights.
-[Upload CSV]
-```
+**Track these 5 metrics weekly:**
 
-Note: Watch the agent use tools! It will browse web, analyze data, THEN generate the brief. This is the power of agents vs GPTs.
+| Metric | Target | Why It Matters |
+|--------|--------|----------------|
+| Weekly Active Users | 80%+ | Adoption indicator |
+| Briefs per User/Week | 2+ | Usage depth |
+| Time Saved per Brief | 80 min | ROI calculation |
+| Quality Score (1-10) | 8+ | Output quality |
+| NPS (Net Promoter) | 50+ | User satisfaction |
 
----
+**Success checklist:**
+- ✅ Pilot users trained and actively using GPT
+- ✅ Feedback loop established (Slack channel, weekly sync)
+- ✅ Instructions iterated based on real usage
+- ✅ Knowledge base updated with new examples
+- ✅ Usage metrics tracked in dashboard
+- ✅ Best practices documented and shared
+- ✅ Support resources created (FAQ, video)
+- ✅ Executive sponsor championing adoption
 
-## ROI Summary: Why This Matters
+Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI, quality, and satisfaction. The success checklist ensures you've built the infrastructure for scale. Missing any of these = adoption problems.
 
-**What You Built Today:**
-- ✅ Tokenization understanding (optimize costs)
-- ✅ 4 prompt engineering principles (quality)
-- ✅ Reusable templates with presets (scale)
-- ✅ **Campaign Brief Generator Custom GPT** (automation)
-- ✅ **Campaign Brief Agent with tools** (intelligent automation)
+--
 
-**💰 Financial Impact:**
+### Building a GPT Library
 
-| Item | Cost | Savings |
-|------|------|---------|
-| OpenAI Plus | $20/month | — |
-| Token usage | ~$5/month | — |
-| Time saved | — | 5-10 hrs/week |
-| **Net ROI** | **$25/month** | **$1,000-3,000/month** |
+**Don't stop at one GPT. Build a company library:**
 
-**Payback Period:** 1 day
+**Marketing:**
+- Campaign Brief Generator ✅ (built today)
+- Social Media Content Calendar
+- Email Campaign Creator
 
-**Annual ROI:** $12,000-36,000 saved vs $300 cost = **40x-120x return**
+**Executive:**
+- Executive Summary Generator (board decks)
+- Quarterly Planning Brief (strategic planning)
+- Stakeholder Email Generator (investor comms)
 
-Note: These are conservative estimates. Many teams save 15-20 hours/week. Document your results to justify expansion.
+**Operations:**
+- Meeting Prep Assistant (executive briefings)
+- Product Launch Checklist (GTM planning)
+- Process Documentation Writer
 
----
+**The multiplier effect:**
+- 1 GPT × 15 users = **150 hours/week saved**
+- 10 GPTs × 50 users = **5,000 hours/week saved**
+- 50 GPTs × 200 users = **$13M annual value**
 
-## Resources + Next Steps
+**Pro tip:** Create a "GPT Library" Notion page where teams discover and share GPTs
 
-**🌐 Workshop Site (Available Forever):**
-- [w4ester.github.io/session2](https://w4ester.github.io/session2/)
-- All tools: Tokenizer, Prompt Checker, Template Generator
-- No login required
-
-**🛠️ Tools:**
-- [ChatGPT Custom GPT Editor](https://chatgpt.com/gpts/editor) (requires Plus)
-- [OpenAI Agents Platform](https://platform.openai.com/agents) (requires Plus)
-- [Custom GPT Docs](https://help.openai.com/en/articles/8554397-creating-a-gpt)
-- [Agent Docs](https://platform.openai.com/docs/guides/agents)
-- [Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
-
-**📁 Code:**
-- [GitHub: w4ester/session2](https://github.com/w4ester/session2)
-- Fork it, modify it, use it (MIT license)
-
-**📋 Your Action Plan (Next 7 Days):**
-- Day 1: Use your Campaign Brief Generator Custom GPT on real work
-- Day 2-3: Create 2-3 more templates for other repetitive tasks
-- Day 4-5: Upgrade to Campaign Brief Agent (add tools)
-- Day 6-7: Test agent with research + data, measure, document savings
-
-**Track These Metrics:**
-- ⏱️ Time saved per task
-- 🔄 Revision cycles reduced
-- ✅ Team adoption rate
-- 💰 Cost vs savings
-
-Note: Bookmark the workshop site. All tools work forever. Start with ONE workflow. Prove value. Then scale.
+Note: THIS IS THE VISION. You're not building A tool. You're building an AI INFRASTRUCTURE. Each GPT is a knowledge asset. The library grows over time. Teams share and remix GPTs. This becomes part of your company's operating system.
 
 ---
 
-# Questions? 🚀
+## Conclusion: Your Next Steps
+### Take Action Today
 
-**Common Questions:**
+**⏰ TIME: Wrap-up**
 
-**Q: What if the Custom GPT/agent makes mistakes?**
-A: Always review outputs. Custom GPTs/Agents = first drafts, humans = final approval.
+### What You've Learned (40 minutes)
 
-**Q: How do I enforce brand guidelines?**
-A: Upload brand docs to Custom GPT knowledge or paste guidelines into instructions.
+✅ **The complete architecture** of Custom GPTs (6 components)
+✅ **Built a production-ready** Campaign Brief Generator
+✅ **Testing & iteration** strategies for quality
+✅ **3-phase rollout** approach for company adoption
+✅ **ROI tracking** and adoption metrics
 
-**Q: Can I share my Custom GPT/agent with my team?**
-A: Yes! Both Custom GPTs and Agents have team sharing options in ChatGPT Plus.
+### Take Action in the Next 24 Hours
 
-**Q: Should I start with Custom GPT or Agent?**
-A: Start with Custom GPT! Build it, prove value, then upgrade to Agent when you need tools (research, data analysis).
+**Today (30 min):**
+1. Go to [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
+2. Build your first Custom GPT using the framework
+3. Test with 3 prompts
+4. Share with 2 team members
 
-**Q: What about data privacy?**
-A: Review your AI provider's terms. Don't input sensitive customer data.
+**This Week:**
+1. Gather feedback from pilot users
+2. Iterate on instructions (2-3 rounds)
+3. Upload 5 more knowledge base files
+4. Document your ROI
 
-**Q: Which tasks should I automate first?**
-A: Pick tasks that are repetitive, time-consuming (2+ hours/week), and have clear quality standards.
+**This Month:**
+1. Roll out to full department
+2. Track adoption metrics
+3. Build 2-3 more GPTs
+4. Present ROI to leadership team
 
-**What you have now:**
-✅ The tools (Tokenizer, Prompt Checker, Template Generator)
-✅ The knowledge (4 prompt engineering principles)
-✅ The templates (with presets & autocomplete)
-✅ **The Custom GPT (Campaign Brief Generator)**
-✅ **The Agent (with web browsing & data analysis)**
+Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build a GPT someday" = never happens. "Build in next 30 minutes" = action. The 24-hour / week / month breakdown makes it concrete. End with urgency and clarity.
 
-**Go automate something this week.**
+--
 
-🌐 [Workshop Site](https://w4ester.github.io/session2/) • 📁 [GitHub](https://github.com/w4ester/session2)
+### Resources & Links
 
-Note: Stay available for questions. Remind them everything is on the workshop site. Real learning happens when they build. Thank them!
+**Build your GPT:**
+- [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor) - Create your first GPT
+- [help.openai.com/en/articles/8554397](https://help.openai.com/en/articles/8554397) - Official Custom GPT documentation
+
+**Workshop materials:**
+- [Anatomy version website](../index.html) - Full workshop site with examples
+- [Instructions template](../index.html#build) - Copy/paste template
+- [ROI calculator](../index.html#rollout) - Calculate your company savings
+
+**Questions?**
+- Share your GPT with the group
+- Post in company Slack channel
+- Schedule follow-up session in 2 weeks
+
+**Remember:** The best time to build your first GPT was yesterday. The second best time is today.
+
+Note: Provide ALL the resources they need. Links to build, documentation, workshop materials, ROI tools. Make it ZERO FRICTION to get started. End with the urgency message: "Best time was yesterday, second best is today." This is a call to action, not just information sharing.
+
+---
+
+## Thank You!
+### Questions & Discussion
+
+**Workshop complete: 40 minutes**
+
+**Your challenge:** Build 1 GPT this week and report back your time savings.
+
+**Track your success:**
+- Hours saved per week: _____
+- Quality score (1-10): _____
+- Team members using it: _____
+- ROI in first month: $_____
+
+**Share your wins** in the company Slack channel!
+
+Note: FINAL SLIDE. Open for questions. Challenge them to build 1 GPT this week. The tracking template gives them a framework to measure success. Sharing wins in Slack creates social proof and momentum. End on inspiration, not information.
