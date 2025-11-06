@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLM Workshop for Marketers — Session 2</title>
+  <meta name="description" content="Hands-on workshop: Boost your marketing team's productivity with Custom GPTs and Agents." />
+  <meta property="og:title" content="LLM Workshop for Marketers — Session 2" />
+  <meta property="og:description" content="Hands-on workshop site that runs on GitHub Pages. Tokenization visualizer, prompt engineering, templates, and agent basics." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles-enhanced.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Progress Bar -->
+  <div class="workshop-progress" id="workshop-progress">
+    <div class="progress-steps">
+      <div class="step" data-section="tokenization">
+        <div class="step-icon">🔢</div>
+        <div class="step-label">Tokens</div>
+      </div>
+      <div class="step" data-section="prompting">
+        <div class="step-icon">✍️</div>
+        <div class="step-label">Prompts</div>
+      </div>
+      <div class="step" data-section="templates">
+        <div class="step-icon">📋</div>
+        <div class="step-label">Templates</div>
+      </div>
+      <div class="step" data-section="agents">
+        <div class="step-icon">🤖</div>
+        <div class="step-label">Agents</div>
+      </div>
+      <div class="step" data-section="challenges">
+        <div class="step-icon">🎯</div>
+        <div class="step-label">Challenge</div>
+      </div>
+    </div>
+    <div class="progress-bar-fill" id="progress-fill"></div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- AI Copilot -->
+  <div class="copilot" id="copilot">
+    <button class="copilot-toggle" id="copilot-toggle">
+      💬 Need Help?
+    </button>
+    <div class="copilot-panel" id="copilot-panel">
+      <div class="copilot-header">
+        <h3>🤖 Workshop Assistant</h3>
+        <button class="copilot-close" id="copilot-close">×</button>
+      </div>
+      <div class="copilot-messages" id="copilot-messages">
+        <div class="copilot-message assistant">
+          <p>Hi! I'm here to help you during the workshop. Ask me anything about:</p>
+          <ul>
+            <li>Understanding tokens</li>
+            <li>Writing better prompts</li>
+            <li>Creating templates</li>
+            <li>Building AI agents</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copilot-input-area">
+        <input type="text" id="copilot-input" placeholder="Ask a question..." />
+        <button id="copilot-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="logo">🤖</span>
+        <div class="brand-text">
+          <strong>Session 2:</strong>
+          <span>AI Agents for Marketing Teams</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#tokenization">Tokenization</a>
+        <a href="#prompting">Prompting</a>
+        <a href="#templates">Templates</a>
+        <a href="#agents">Agents</a>
+        <a href="#challenges">Challenges</a>
+        <button class="btn ghost" id="export-work">📥 Export My Work</button>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Slides ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- Hero with Stats -->
+    <section class="hero">
+      <h1>Welcome to the LLM Workshop</h1>
+      <p class="lead">Build AI agents that save your team 5-10 hours per week. Everything you create here is saved automatically and yours to keep.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="stat-prompts">0</div>
+          <div class="stat-label">Prompts Created</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-templates">0</div>
+          <div class="stat-label">Templates Built</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-score">0/10</div>
+          <div class="stat-label">Best Score</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="stat-time">0h</div>
+          <div class="stat-label">Time Saved</div>
+        </div>
+      </div>
+
+      <ul class="pill-list">
+        <li>LLMs 101</li>
+        <li>Tokenization</li>
+        <li>Prompt Engineering</li>
+        <li>Prompt Templates</li>
+        <li>AI Agents</li>
+        <li>Real Challenges</li>
+      </ul>
+    </section>
+
+    <!-- 1. Tokenization -->
+    <section id="tokenization" class="card" data-section="tokenization">
+      <div class="card-header">
+        <h2>1) Understanding Tokenization</h2>
+        <p class="muted">See how your text is split into tokens (CL100K — used by many GPT models).</p>
+      </div>
+      <div class="grid two">
+        <div>
+          <label for="tok-input" class="lbl">Enter text to tokenize</label>
+          <textarea id="tok-input" class="input" rows="6" placeholder="Hello world! How are marketing campaigns optimized with AI?">Marketing AI automates repetitive writing tasks efficiently.</textarea>
+          <div class="controls">
+            <button id="btn-tokenize" class="btn primary">Tokenize Text</button>
+            <label class="chk"><input type="checkbox" id="chatml-toggle"> Wrap as chat message</label>
+          </div>
+          <div class="example-prompts">
+            <p class="muted">Try these examples:</p>
+            <button class="btn-example" data-text="Our new AI-powered analytics dashboard helps marketing teams track campaign performance in real-time and save 5+ hours per week.">Analytics Dashboard</button>
+            <button class="btn-example" data-text="Create a comprehensive social media strategy for Q4 2025 focusing on LinkedIn, Twitter, and Instagram with weekly content calendars and engagement metrics.">Long Campaign Brief</button>
+          </div>
+        </div>
+        <div>
+          <div class="statline">
+            <div><strong>Total tokens:</strong> <span id="tok-count">0</span></div>
+            <div><strong>Unique tokens:</strong> <span id="tok-unique">0</span></div>
+            <div><strong>Estimated cost:</strong> <span id="tok-cost">$0.00</span></div>
+          </div>
+          <div id="tok-list" class="token-list" aria-live="polite"></div>
+          
+          <div class="token-insights" id="token-insights" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+      <details class="note">
+        <summary>💡 Why tokens matter</summary>
+        <p>LLMs process text as <em>tokens</em> (subwords/characters). Counting tokens helps you:</p>
+        <ul>
+          <li><strong>Estimate costs:</strong> Most AI APIs charge per token (~$0.03 per 1,000 tokens)</li>
+          <li><strong>Manage limits:</strong> Models have context windows (8k-128k tokens)</li>
+          <li><strong>Optimize speed:</strong> Fewer tokens = faster responses</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 2. Prompt Engineering -->
+    <section id="prompting" class="card" data-section="prompting">
+      <div class="card-header">
+        <h2>2) Prompt Engineering Basics</h2>
+        <p class="muted">Four principles: be specific, provide context, use examples, and break complex tasks into steps.</p>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <h3>Key Principles</h3>
+          <ol class="principles">
+            <li><strong>Be specific and clear</strong> — specify format, tone, length, and audience.</li>
+            <li><strong>Provide context</strong> — share relevant background and constraints.</li>
+            <li><strong>Use examples</strong> — show a few samples of good outputs.</li>
+            <li><strong>Break tasks into steps</strong> — guide the model's reasoning.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>Prompt Comparison</h3>
+          <div class="compare">
+            <div class="panel">
+              <div class="panel-h">❌ Basic Prompt</div>
+              <textarea class="input small" id="basic-prompt" rows="4" readonly>Write a social media post about our new product.</textarea>
+              <button class="btn" id="btn-basic-output">Generate Output</button>
+              <div class="output-preview" id="basic-output" aria-live="polite"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-h">✅ Engineered Prompt</div>
+              <textarea class="input small" id="eng-prompt" rows="8" readonly>Write a LinkedIn post about our new AI-powered marketing analytics dashboard that helps marketing teams track campaign performance in real time.
+
+The post should:
+- Be professional but conversational
+- Highlight the key benefit of saving 5+ hours/week on reporting
+- Include a question to encourage engagement
+- Be around 150 words
+- Include 3 relevant hashtags</textarea>
+              <button class="btn primary" id="btn-eng-output">Generate Output</button>
+              <div class="output-preview" id="eng-output" aria-live="polite"></div>
+            </div>
+          </div>
+          <div class="result-comparison" id="result-comparison"></div>
+        </div>
+      </div>
+
+      <div class="tryit">
+        <h3>✍️ Your Turn: Improve This Prompt</h3>
+        <p class="muted">Take the basic prompt and apply the 4 principles. Add specifics, context, examples, and structure.</p>
+        <div class="grid two">
+          <div>
+            <label for="try-input" class="lbl">Your engineered prompt</label>
+            <textarea id="try-input" class="input" rows="10" placeholder="e.g., Create a 2-paragraph LinkedIn post announcing our AI-powered analytics dashboard for B2B marketers..."></textarea>
+            <div class="controls">
+              <button id="btn-score" class="btn primary">Score My Prompt</button>
+              <button id="btn-copy" class="btn ghost">Copy Prompt</button>
+              <button id="btn-ai-improve" class="btn ghost">✨ AI Suggestions</button>
+            </div>
+            <div id="ai-suggestions" class="ai-suggestions"></div>
+          </div>
+          <div>
+            <div class="panel">
+              <div class="panel-h">Prompt Quality Check</div>
+              <ul id="score-list" class="checklist"></ul>
+              <div class="score">
+                <span class="meter" id="score-meter" style="--pct:0%"></span>
+                <span id="score-label">Score: 0/10</span>
+              </div>
+              <div id="score-feedback" class="score-feedback"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Templates -->
+    <section id="templates" class="card" data-section="templates">
+      <div class="card-header">
+        <h2>3) Create Prompt Templates</h2>
+        <p class="muted">Reusable templates ensure speed and consistency across your team.</p>
+      </div>
+      
+      <!-- Template Library -->
+      <div class="template-library" id="template-library">
+        <h3>📚 Your Template Library</h3>
+        <div class="template-grid" id="saved-templates">
+          <div class="empty-state">
+            <p>No templates yet. Create your first one below! 👇</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <div>
+          <label class="lbl" for="tpl-task">Marketing Task</label>
+          <input id="tpl-task" class="input" placeholder="e.g., Email Subject Line Generation" />
+          
+          <label class="lbl" for="tpl-vars">Variables (comma-separated)</label>
+          <input id="tpl-vars" class="input" placeholder="product_name, offer, audience, tone" />
+          
+          <label class="lbl" for="tpl-instr">AI Instructions</label>
+          <textarea id="tpl-instr" class="input" rows="6" placeholder="What should the AI do? Desired format? Constraints?"></textarea>
+          
+          <div class="controls">
+            <button id="btn-make-template" class="btn primary">Generate Template</button>
+            <button id="btn-copy-template" class="btn ghost">Copy</button>
+            <button id="btn-save-template" class="btn ghost">💾 Save to Library</button>
+            <button id="btn-download-template" class="btn ghost">Download .md</button>
+          </div>
+
+          <div class="template-examples">
+            <p class="muted">Quick start templates:</p>
+            <button class="btn-example" data-task="Email Subject Lines" data-vars="product_name, offer, urgency" data-instr="Generate 5 attention-grabbing email subject lines under 50 characters">Email Subject Lines</button>
+            <button class="btn-example" data-task="Weekly Campaign Report" data-vars="date_range, top_channel, key_metric" data-instr="Create a concise weekly report with performance overview, insights, and recommendations">Campaign Report</button>
+            <button class="btn-example" data-task="Social Media Posts" data-vars="platform, topic, cta" data-instr="Write platform-optimized posts with engaging hooks and clear calls-to-action">Social Posts</button>
+          </div>
+        </div>
+        <div>
+          <div class="panel">
+            <div class="panel-h">Generated Template</div>
+            <pre class="output" id="tpl-output" aria-live="polite"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Agent Builder Simulator -->
+    <section id="agents" class="card" data-section="agents">
+      <div class="card-header">
+        <h2>4) Build Your Marketing Agent</h2>
+        <p class="muted">Create a custom AI agent step-by-step. Practice here, then build the real thing in OpenAI Agent Builder.</p>
+      </div>
+
+      <!-- Agent Diagram -->
+      <div class="agent-diagram-interactive">
+        <h3>How AI Agents Work</h3>
+        <div class="diagram-nodes">
+          <div class="node" data-node="llm">
+            <div class="node-icon">🧠</div>
+            <div class="node-label">LLM Brain</div>
+            <div class="node-tooltip">The reasoning engine that understands your requests</div>
+          </div>
+          <div class="node" data-node="tools">
+            <div class="node-icon">🔧</div>
+            <div class="node-label">Tools</div>
+            <div class="node-tooltip">Web search, file analysis, calculations, APIs</div>
+          </div>
+          <div class="node" data-node="memory">
+            <div class="node-icon">💾</div>
+            <div class="node-label">Memory</div>
+            <div class="node-tooltip">Remembers past conversations and brand guidelines</div>
+          </div>
+          <div class="node" data-node="planning">
+            <div class="node-icon">🎯</div>
+            <div class="node-label">Planning</div>
+            <div class="node-tooltip">Breaks complex tasks into steps</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent Builder Walkthrough -->
+      <div class="agent-builder-sim">
+        <h3>🛠️ Agent Builder Walkthrough</h3>
+        <p class="muted">Follow these steps to create your agent. Your progress is saved automatically.</p>
+
+        <div class="builder-steps">
+          <!-- Step 1 -->
+          <div class="builder-step active" data-step="1">
+            <div class="step-header">
+              <span class="step-num">1</span>
+              <h4>Name Your Agent</h4>
+            </div>
+            <div class="step-content">
+              <label class="lbl">Agent Name</label>
+              <input type="text" id="agent-name" class="input" placeholder="e.g., Campaign Companion, Brand Voice Assistant" />
+              <div class="examples">
+                <p class="muted">Examples:</p>
+                <button class="btn-small" data-name="Campaign Companion">Campaign Companion</button>
+                <button class="btn-small" data-name="Content Generator Pro">Content Generator Pro</button>
+                <button class="btn-small" data-name="Marketing Co-Pilot">Marketing Co-Pilot</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="builder-step" data-step="2">
+            <div class="step-header">
+              <span class="step-num">2</span>
+              <h4>Define Instructions</h4>
+            </div>
+            <div class="step-content">
+              <label class="lbl">What should your agent do?</label>
+              <textarea id="agent-instructions" class="input" rows="8" placeholder="You are a marketing assistant for [Company Name].
+
+Your role:
+- Draft and optimize campaign content
+- Maintain brand voice: [professional/casual/witty]
+- Always include measurable benefits
+- Always include clear CTAs"></textarea>
+              <div class="examples">
+                <button class="btn-small" id="use-template-instr">Use Template</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="builder-step" data-step="3">
+            <div class="step-header">
+              <span class="step-num">3</span>
+              <h4>Add Tools</h4>
+            </div>
+            <div class="step-content">
+              <label class="lbl">Enable capabilities:</label>
+              <div class="tool-options">
+                <label class="tool-option">
+                  <input type="checkbox" id="tool-web" value="web" />
+                  <div class="tool-card">
+                    <div class="tool-icon">🌐</div>
+                    <div class="tool-info">
+                      <strong>Web Browsing</strong>
+                      <p>Research competitors and trends</p>
+                    </div>
+                  </div>
+                </label>
+                <label class="tool-option">
+                  <input type="checkbox" id="tool-data" value="data" />
+                  <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <div class="tool-info">
+                      <strong>Data Analysis</strong>
+                      <p>Analyze campaign CSVs and metrics</p>
+                    </div>
+                  </div>
+                </label>
+                <label class="tool-option">
+                  <input type="checkbox" id="tool-image" value="image" />
+                  <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <div class="tool-info">
+                      <strong>Image Generation</strong>
+                      <p>Create visual concepts</p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="builder-step" data-step="4">
+            <div class="step-header">
+              <span class="step-num">4</span>
+              <h4>Test Your Agent</h4>
+            </div>
+            <div class="step-content">
+              <label class="lbl">Test prompt:</label>
+              <textarea id="agent-test-prompt" class="input" rows="6" placeholder="Create 3 LinkedIn posts announcing our new analytics feature. Each should highlight time savings and include an engagement question."></textarea>
+              <button id="btn-test-agent" class="btn primary">Test Agent</button>
+              <div id="agent-test-output" class="agent-output"></div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="builder-step" data-step="5">
+            <div class="step-header">
+              <span class="step-num">5</span>
+              <h4>Deploy & Share</h4>
+            </div>
+            <div class="step-content">
+              <div class="agent-summary" id="agent-summary"></div>
+              <div class="deploy-options">
+                <button id="btn-download-agent" class="btn primary">📥 Download Agent Config</button>
+                <a href="https://platform.openai.com/docs/guides/agent-builder" target="_blank" class="btn">Build in OpenAI ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="builder-nav">
+          <button id="btn-prev-step" class="btn ghost" disabled>← Previous</button>
+          <div class="step-indicator" id="step-indicator">Step 1 of 5</div>
+          <button id="btn-next-step" class="btn primary">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Marketing Challenges -->
+    <section id="challenges" class="card" data-section="challenges">
+      <div class="card-header">
+        <h2>5) 🎯 Real Marketing Challenges</h2>
+        <p class="muted">Apply what you learned to real scenarios. Complete challenges to test your skills.</p>
+      </div>
+
+      <div class="challenges-grid">
+        <!-- Challenge 1 -->
+        <div class="challenge-card" data-challenge="1">
+          <div class="challenge-header">
+            <span class="challenge-badge">Challenge 1</span>
+            <span class="challenge-difficulty easy">Easy</span>
+          </div>
+          <h3>Product Launch LinkedIn Posts</h3>
+          <p>Your company is launching a new AI-powered analytics dashboard. Create 3 LinkedIn posts with different angles.</p>
+          
+          <div class="challenge-requirements">
+            <strong>Requirements:</strong>
+            <ul>
+              <li>Each post under 150 words</li>
+              <li>Highlight time savings (5+ hours/week)</li>
+              <li>Include engagement question</li>
+              <li>Add 2-3 hashtags</li>
+            </ul>
+          </div>
+
+          <textarea class="challenge-input" id="challenge-1-input" rows="8" placeholder="Paste your prompt here..."></textarea>
+          
+          <div class="challenge-actions">
+            <button class="btn primary" data-challenge-id="1">Submit Solution</button>
+            <button class="btn ghost" data-hint="1">💡 Get Hint</button>
+          </div>
+          
+          <div class="challenge-result" id="challenge-1-result"></div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="challenge-card" data-challenge="2">
+          <div class="challenge-header">
+            <span class="challenge-badge">Challenge 2</span>
+            <span class="challenge-difficulty medium">Medium</span>
+          </div>
+          <h3>Email Campaign Template</h3>
+          <p>Create a reusable template for product announcement emails to different customer segments.</p>
+          
+          <div class="challenge-requirements">
+            <strong>Requirements:</strong>
+            <ul>
+              <li>Include variables for personalization</li>
+              <li>Structure for subject + body + CTA</li>
+              <li>Tone adjustable per segment</li>
+              <li>A/B test variations</li>
+            </ul>
+          </div>
+
+          <textarea class="challenge-input" id="challenge-2-input" rows="8" placeholder="Paste your template here..."></textarea>
+          
+          <div class="challenge-actions">
+            <button class="btn primary" data-challenge-id="2">Submit Solution</button>
+            <button class="btn ghost" data-hint="2">💡 Get Hint</button>
+          </div>
+          
+          <div class="challenge-result" id="challenge-2-result"></div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="challenge-card" data-challenge="3">
+          <div class="challenge-header">
+            <span class="challenge-badge">Challenge 3</span>
+            <span class="challenge-difficulty hard">Advanced</span>
+          </div>
+          <h3>Campaign Performance Agent</h3>
+          <p>Design an agent that analyzes weekly campaign data and provides actionable insights to the marketing team.</p>
+          
+          <div class="challenge-requirements">
+            <strong>Agent should:</strong>
+            <ul>
+              <li>Analyze CSV uploads</li>
+              <li>Identify top/bottom performers</li>
+              <li>Generate weekly executive summary</li>
+              <li>Suggest optimization strategies</li>
+            </ul>
+          </div>
+
+          <textarea class="challenge-input" id="challenge-3-input" rows="8" placeholder="Describe your agent's capabilities and instructions..."></textarea>
+          
+          <div class="challenge-actions">
+            <button class="btn primary" data-challenge-id="3">Submit Solution</button>
+            <button class="btn ghost" data-hint="3">💡 Get Hint</button>
+          </div>
+          
+          <div class="challenge-result" id="challenge-3-result"></div>
+        </div>
+      </div>
+
+      <div class="leaderboard" id="leaderboard">
+        <h3>🏆 Your Progress</h3>
+        <div class="leaderboard-content">
+          <div class="achievement" id="challenges-completed">
+            <span class="achievement-icon">🎯</span>
+            <div class="achievement-info">
+              <strong>Challenges Completed</strong>
+              <span class="achievement-value">0 / 3</span>
+            </div>
+          </div>
+          <div class="achievement" id="total-score">
+            <span class="achievement-icon">⭐</span>
+            <div class="achievement-info">
+              <strong>Total Score</strong>
+              <span class="achievement-value">0 points</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before/After Gallery -->
+    <section class="card">
+      <div class="card-header">
+        <h2>💡 Results from Past Workshops</h2>
+        <p class="muted">See how teams improved their prompts and saved time.</p>
+      </div>
+
+      <div class="results-gallery">
+        <div class="result-card">
+          <div class="result-before">
+            <span class="label">Before</span>
+            <p>"Write a blog post about AI"</p>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-after">
+            <span class="label">After</span>
+            <p>"Write a 1000-word blog post for B2B SaaS marketers explaining how AI agents automate campaign workflows. Include 3 real use cases, ROI metrics, and implementation steps. Tone: professional but approachable."</p>
+          </div>
+          <div class="result-impact">
+            <strong>Impact:</strong> 4.5x better first draft, 70% less revision time
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-before">
+            <span class="label">Before</span>
+            <p>"Create email template"</p>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-after">
+            <span class="label">After</span>
+            <p>Reusable template with 8 variables, 3 tone options, A/B subject line variations, and automated personalization for 3 customer segments.</p>
+          </div>
+          <div class="result-impact">
+            <strong>Impact:</strong> Template used 40+ times, saved 12 hours/month
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-before">
+            <span class="label">Before</span>
+            <p>Manual campaign analysis (3 hours/week)</p>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-after">
+            <span class="label">After</span>
+            <p>Custom agent analyzes CSV uploads, generates executive summaries, and provides channel-specific recommendations in 5 minutes.</p>
+          </div>
+          <div class="result-impact">
+            <strong>Impact:</strong> 156 hours saved annually per marketer
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wrap Up -->
+    <section class="card">
+      <div class="card-header">
+        <h2>🎉 Workshop Complete!</h2>
+        <p class="muted">You've learned the foundations. Now it's time to build.</p>
+      </div>
+      
+      <div class="completion-checklist">
+        <h3>What You Learned:</h3>
+        <ul class="checklist">
+          <li id="check-tokens">✓ How tokenization affects cost and speed</li>
+          <li id="check-prompts">✓ The 4 principles of prompt engineering</li>
+          <li id="check-templates">✓ Creating reusable prompt templates</li>
+          <li id="check-agents">✓ Building AI agents with tools and memory</li>
+          <li id="check-challenges">✓ Applying skills to real marketing scenarios</li>
+        </ul>
+      </div>
+
+      <div class="next-steps">
+        <h3>🚀 Next Steps:</h3>
+        <div class="step-cards">
+          <div class="step-card">
+            <div class="step-card-num">1</div>
+            <h4>This Week</h4>
+            <p>Build one agent for your most repetitive task</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card-num">2</div>
+            <h4>Next Week</h4>
+            <p>Create 2-3 templates for common workflows</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card-num">3</div>
+            <h4>Ongoing</h4>
+            <p>Track time saved and share results with team</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="export-work-final" class="btn primary">📥 Export All My Work</button>
+        <a class="btn" href="https://platform.openai.com/docs/guides/agent-builder" target="_blank" rel="noopener">Build Real Agent ↗</a>
+        <a class="btn ghost" href="slides/" target="_blank" rel="noopener">Review Slides ↗</a>
+        <button class="btn ghost" id="reset-workshop">🔄 Start Fresh</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Built for hands-on learning. 100% static, runs on GitHub Pages. Your work is saved locally.</p>
+      <p class="muted">Workshop by Will Esterson • <a href="https://github.com/w4ester/session2" target="_blank" rel="noopener">View on GitHub</a></p>
+    </div>
+  </footer>
+
+  <!-- Load scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script type="module" src="assets/js/app-enhanced.js"></script>
+</body>
+</html>
