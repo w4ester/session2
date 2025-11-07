@@ -222,9 +222,7 @@ Note: PRESENTER: "Click Knowledge section. Now Upload files. I'm uploading a sam
 ## Slide 6: Enable Capabilities (Choose Your Tools)
 ### ⏱️ 5 minutes
 
-### What capabilities should you enable?
-
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 2rem 0;">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1rem 0;">
 
 <div style="background: #d4edda; padding: 1.5rem; border-radius: 8px;">
 
