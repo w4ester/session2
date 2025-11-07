@@ -91,6 +91,8 @@ Note: TIMING: 5 minutes. THIS IS THE KEY SLIDE. Unlike progressive approaches th
 ## Slide 3: Build Together
 ### Campaign Brief Generator (All Components)
 
+<div style="font-size: 0.86em; line-height: 1.4;">
+
 **⏰ TIME: 20 minutes**
 
 ### Live Build - Follow Along
@@ -128,11 +130,15 @@ QUALITY CHECKS:
 - Messaging aligns with brand voice
 ```
 
+</div>
+
 Note: TIMING: 20 minutes total. This is where you BUILD LIVE. Open chatgpt.com/gpts/editor and create it together. Component 2 (Instructions) takes 10 minutes because it's the brain of your GPT. Walk through each section. Explain WHY each matters. The 7-section format ensures completeness. The process ensures quality. The quality checks prevent garbage outputs.
 
 ---
 
 ## Build Together (continued)
+
+<div style="font-size: 0.88em; line-height: 1.4;">
 
 **Component 3: Knowledge Base (5 min)**
 
@@ -155,6 +161,8 @@ Upload 3-5 files:
 **Component 6: Actions (Skip for now)**
 - Advanced: Connect to your CRM, analytics, project management
 - Today: Focus on the core 5 components
+
+</div>
 
 Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 min). Show them WHAT to upload. Many people upload the wrong things. Past briefs = templates for the AI to learn from. Brand guidelines = consistency. Messaging framework = strategic alignment. For capabilities, explain WHY you're enabling web browsing (competitor intel) and why you're skipping the rest (focus).
 
@@ -308,6 +316,8 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 
 ## Adoption Metrics Dashboard
 
+<div style="font-size: 0.88em; line-height: 1.4;">
+
 **Track these 5 metrics weekly:**
 
 | Metric | Target | Why It Matters |
@@ -325,11 +335,15 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 - **Quality Score** = Output quality validation
 - **NPS** = User satisfaction and advocacy
 
+</div>
+
 Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI, quality, and satisfaction. Track weekly to identify trends early.
 
 ---
 
 ## Success Checklist for Rollout
+
+<div style="font-size: 0.88em; line-height: 1.4;">
 
 **Before moving to next phase, ensure:**
 
@@ -343,6 +357,8 @@ Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI
 - ✅ Executive sponsor championing adoption
 
 **Missing any of these = adoption problems**
+
+</div>
 
 Note: The success checklist ensures you've built the infrastructure for scale. Don't rush to next phase without completing these 8 items. Each builds the foundation for sustainable adoption.
 
@@ -425,6 +441,8 @@ Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build
 
 ## Resources & Links
 
+<div style="font-size: 0.88em; line-height: 1.4;">
+
 **Build your GPT:**
 - [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor) - Create your first GPT
 - [help.openai.com/en/articles/8554397](https://help.openai.com/en/articles/8554397) - Official Custom GPT documentation
@@ -440,6 +458,8 @@ Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build
 - Schedule follow-up session in 2 weeks
 
 **Remember:** The best time to build your first GPT was yesterday. The second best time is today.
+
+</div>
 
 Note: Provide ALL the resources they need. Links to build, documentation, workshop materials, ROI tools. Make it ZERO FRICTION to get started. End with the urgency message: "Best time was yesterday, second best is today." This is a call to action, not just information sharing.
 
