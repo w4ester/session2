@@ -158,6 +158,8 @@ Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 m
 
 ### The ROI Math
 
+<div style="font-size: 0.85em;">
+
 | Metric | Before GPT | With GPT | Savings |
 |--------|-----------|----------|---------|
 | Time per brief | 1.5 hours | 10 minutes | 80 min |
@@ -169,12 +171,29 @@ Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 m
 | ChatGPT Plus cost | - | $240/yr | - |
 | **Net annual ROI** | - | - | **$63,720** |
 
-**Multiply this across your company:**
-- 5 Custom GPTs × 10 departments = **50 GPTs**
-- Each saving 10 hours/week = **500 hours/week saved**
-- Annual value: **$2.6M** (at $100/hour)
+</div>
 
-Note: TIMING: Include in the 20-minute build section. Show ROI during the build to maintain executive engagement. The key insight: This isn't just about ONE GPT saving time. It's about building a LIBRARY of GPTs across your company. Each GPT is a force multiplier. The compound effect is massive.
+**Single GPT = $63,720/year net savings**
+
+Note: TIMING: Include in the 20-minute build section. Show ROI during the build to maintain executive engagement. Walk through the math: 1.5 hours → 10 minutes = 80 min saved per brief. Times 8 briefs/month × 5 team members = massive time savings.
+
+--
+
+### Company-Wide Impact
+
+**Multiply this across your entire company:**
+
+- **5 Custom GPTs** × **10 departments** = **50 GPTs company-wide**
+- Each GPT saving **10 hours/week** per user
+- Total: **500 hours/week saved**
+- **Annual value: $2.6M** (at $100/hour blended rate)
+
+**The multiplier effect:**
+- 1 GPT → 1 team → $64K/year
+- 10 GPTs → 1 company → $640K/year
+- 50 GPTs → enterprise scale → **$2.6M+/year**
+
+Note: The key insight: This isn't just about ONE GPT saving time. It's about building a LIBRARY of GPTs across your company. Each GPT is a force multiplier. The compound effect is massive. This is infrastructure investment, not a one-off tool.
 
 ---
 
@@ -291,7 +310,21 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 | Quality Score (1-10) | 8+ | Output quality |
 | NPS (Net Promoter) | 50+ | User satisfaction |
 
-**Success checklist:**
+**Why these metrics matter:**
+- **Weekly Active Users** = Adoption indicator
+- **Briefs per User** = Usage depth (not just trying it once)
+- **Time Saved** = ROI calculation baseline
+- **Quality Score** = Output quality validation
+- **NPS** = User satisfaction and advocacy
+
+Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI, quality, and satisfaction. Track weekly to identify trends early.
+
+--
+
+### Success Checklist for Rollout
+
+**Before moving to next phase, ensure:**
+
 - ✅ Pilot users trained and actively using GPT
 - ✅ Feedback loop established (Slack channel, weekly sync)
 - ✅ Instructions iterated based on real usage
@@ -301,7 +334,9 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 - ✅ Support resources created (FAQ, video)
 - ✅ Executive sponsor championing adoption
 
-Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI, quality, and satisfaction. The success checklist ensures you've built the infrastructure for scale. Missing any of these = adoption problems.
+**Missing any of these = adoption problems**
+
+Note: The success checklist ensures you've built the infrastructure for scale. Don't rush to next phase without completing these 8 items. Each builds the foundation for sustainable adoption.
 
 --
 

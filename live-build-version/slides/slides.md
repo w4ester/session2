@@ -380,7 +380,7 @@ Note: PRESENTER: "Click Save. Choose 'Only people with a link.' Click Create." D
 
 ### You've built YOUR GPT. Now empower your entire team.
 
-<div style="font-size: 0.9em;">
+<div style="font-size: 0.85em;">
 
 | Phase | Timeline | Goal | Key Actions |
 |-------|----------|------|-------------|
@@ -392,7 +392,15 @@ Note: PRESENTER: "Click Save. Choose 'Only people with a link.' Click Create." D
 
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;">
+**The 5-phase approach:** Prove → Mandate → Deploy → Train → Scale
+
+Note: PRESENTER: "This isn't just about you. This is about transforming your entire organization. Here's the playbook." Walk through the table. "5 phases over 2 months to company-wide deployment."
+
+--
+
+### Your First 4 Weeks
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
 
 <div style="background: #d4edda; padding: 1rem; border-radius: 8px;">
 
@@ -429,14 +437,32 @@ Note: PRESENTER: "Click Save. Choose 'Only people with a link.' Click Create." D
 
 </div>
 
-### Suggested GPT Library (Each Team Builds 3):
-- **Sales:** Proposal Generator, Email Outreach, Meeting Prep
-- **Marketing:** Campaign Briefs, Social Content, SEO Optimizer
-- **Product:** PRD Generator, User Stories, Tech Specs
-- **HR:** Job Descriptions, Interview Questions, Onboarding
-- **Finance:** Report Summaries, Variance Explainers, Board Metrics
+Note: PRESENTER: "Use it for 2 weeks. Prove it works. Week 3: Present your results to leadership. Then mandate it company-wide. Each department builds 3 GPTs this quarter."
 
-Note: PRESENTER: "This isn't just about you. This is about transforming your entire organization. Here's the playbook." Walk through the table. "Use it for 2 weeks. Prove it works. Then mandate it company-wide. Each department builds 3 GPTs this quarter. That's 15-20 GPTs across your org. Imagine the time savings."
+--
+
+### Suggested GPT Library
+
+**Each Team Builds 3 GPTs:**
+
+**Sales:**
+- Proposal Generator, Email Outreach, Meeting Prep
+
+**Marketing:**
+- Campaign Briefs, Social Content, SEO Optimizer
+
+**Product:**
+- PRD Generator, User Stories, Tech Specs
+
+**HR:**
+- Job Descriptions, Interview Questions, Onboarding
+
+**Finance:**
+- Report Summaries, Variance Explainers, Board Metrics
+
+**The multiplier:** 5 departments × 3 GPTs = **15 GPTs** in first quarter
+
+Note: PRESENTER: "Each department builds 3 GPTs this quarter. That's 15-20 GPTs across your org. Imagine the time savings. This becomes your company's AI infrastructure."
 
 ---
 
