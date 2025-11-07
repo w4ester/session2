@@ -1,409 +1,483 @@
-# Session 2: AI Agents for Marketing - Enhanced Workshop
+# Session 2: Custom GPTs Workshop for CEOs
 
-An interactive, hands-on workshop for teaching how to build AI agents. 100% static, runs on frontend, no backend required!
+**Three Pedagogical Approaches | One Powerful Outcome**
 
-## 🚀 What's New in the Enhanced Version
+An interactive, CEO-focused workshop for building Custom GPTs. Choose your learning style: **Progressive** (build step-by-step), **Anatomy** (architecture-first), or **Live Build** (hands-on together). 100% static, runs on frontend, GitHub Pages ready!
 
-### Engagement Features
-- ✅ **Progress Tracking** - Visual progress bar with completion tracking
-- ✅ **Auto-Save** - All work saved automatically to localStorage
-- ✅ **AI Copilot** - Built-in help assistant that answers questions
-- ✅ **Toast Notifications** - Real-time feedback for every action
-- ✅ **Stats Dashboard** - Track prompts created, templates built, time saved
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-success)](https://w4ester.github.io/session2/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-### Interactive Tools
-- ✅ **Live Tokenization** - Animated token visualization with cost estimates
-- ✅ **Prompt Scorer** - Real-time scoring with AI suggestions
-- ✅ **Template Library** - Save, load, and share templates
-- ✅ **Agent Builder** - Step-by-step walkthrough simulator
-- ✅ **Challenge Mode** - 3 real scenarios to solve
+---
 
-### Gamification
-- ✅ **Achievement System** - Track completion and scores
-- ✅ **Before/After Gallery** - See real results from past workshops
-- ✅ **Time Saved Calculator** - Show ROI in hours
-- ✅ **Best Score Tracking** - Personal records and improvements
+## 🎯 **What Is This?**
 
-### Export & Share
-- ✅ **Export All Work** - Download prompts, templates, and agent config
-- ✅ **Download Templates** - Individual .md files for team sharing
-- ✅ **Agent Config JSON** - Ready for OpenAI Agent Builder
+This repository contains **three complete workshop versions** for teaching CEOs how to build Custom GPTs:
 
-## 📁 File Structure
+1. **🔄 Progressive Version** - Build component by component (Instructions → Knowledge → Capabilities)
+2. **🏗️ Anatomy Version** - Show full architecture first, then configure
+3. **⚡ Live Build Version** - Hands-on where everyone builds together in real-time
 
-```
-session2/
-├── index.html                 # Main workshop page (REPLACE with index-enhanced.html)
-├── slides/
-│   ├── index.html            # Reveal.js slideshow viewer
-│   └── slides.md             # Slide content (REPLACE with slides-optimized.md)
-└── assets/
-    ├── css/
-    │   └── styles.css        # Styles (REPLACE with styles-enhanced.css)
-    └── js/
-        └── app.js            # App logic (REPLACE with app-enhanced.js)
-```
+All versions accessible from a unified navigation bar. Pick the approach that best fits your audience!
 
-## 🛠️ Installation
+---
 
-### Option 1: Replace Existing Files
+## 🚀 **Quick Start**
 
-If you already have the workshop running:
+### View Online (Recommended)
+Visit the live site: **https://w4ester.github.io/session2/**
 
-1. **Backup your current files** (just in case)
+Click between versions using the purple navigation bar at the top.
 
-2. **Replace main files:**
+### Run Locally
 ```bash
-# In your session2 directory
-mv index-enhanced.html index.html
-mv slides-optimized.md slides/slides.md
-mv styles-enhanced.css assets/css/styles.css
-mv app-enhanced.js assets/js/app.js
-```
-
-3. **Push to GitHub:**
-```bash
-git add .
-git commit -m "Enhanced workshop with interactivity and gamification"
-git push origin main
-```
-
-4. **Visit your GitHub Pages URL:**
-```
-https://yourusername.github.io/session2/
-```
-
-### Option 2: Fresh Setup
-
-Starting from scratch:
-
-1. **Create new repo:**
-```bash
-mkdir session2
+# Clone the repository
+git clone https://github.com/w4ester/session2.git
 cd session2
-git init
+
+# Start a local server
+python3 -m http.server 8000
+
+# Open in browser
+open http://localhost:8000
 ```
 
-2. **Add files:**
-```bash
-# Copy all enhanced files into directory
-# Follow structure above
+---
+
+## 📁 **Repository Structure**
+
+```
+ai-workshop-session2/
+├── index.html                  # Root homepage with navbar
+├── assets/                     # Shared assets for root
+│   ├── css/styles.css         # Root styles + navbar styling
+│   └── js/app.js              # Root interactivity
+│
+├── VERSION-COMPARISON.md       # Detailed comparison of 3 versions
+├── ARCHITECTURE.md             # Complete technical documentation
+├── THEME-TESTING-REPORT.md     # Dark/light mode testing results
+│
+├── progressive-version/        # 🔄 Progressive: Build step-by-step
+│   ├── index.html             # Homepage (navbar active: Progressive)
+│   ├── slides/                # Reveal.js presentation
+│   │   ├── index.html
+│   │   └── slides.md
+│   ├── assets/
+│   │   ├── css/styles.css     # Includes navbar styling
+│   │   └── js/app.js
+│   └── readme.md              # Version-specific docs
+│
+├── anatomy-version/           # 🏗️ Anatomy: Architecture-first
+│   ├── index.html             # Homepage (navbar active: Anatomy)
+│   ├── slides/                # Reveal.js presentation
+│   │   ├── index.html
+│   │   └── slides.md
+│   ├── assets/
+│   │   ├── css/styles.css     # Includes navbar styling
+│   │   └── js/app.js
+│   └── README.md              # Version-specific docs
+│
+└── live-build-version/        # ⚡ Live Build: Hands-on together
+    ├── index.html             # Homepage (navbar active: Live Build)
+    ├── slides/                # Reveal.js presentation
+    │   ├── index.html
+    │   └── slides.md
+    ├── assets/
+    │   ├── css/styles.css     # Includes navbar styling
+    │   └── js/app.js
+    └── README.md              # Version-specific docs
 ```
 
-3. **Configure GitHub Pages:**
-   - Go to repo Settings > Pages
-   - Source: Deploy from main branch
-   - Root directory
+---
 
-4. **Push:**
+## 🎓 **The Three Versions Explained**
+
+### 🔄 **Progressive Version**
+**Pedagogical Approach:** Build incrementally, one component at a time
+
+**Learning Flow:**
+1. Start with Instructions (the "brain")
+2. Add Knowledge base (the "memory")
+3. Add Capabilities (the "tools")
+4. Final polish and deployment
+
+**Best For:**
+- Audiences who prefer step-by-step learning
+- Understanding the logical flow of GPT construction
+- Building confidence through progressive complexity
+
+**Time:** 40 minutes | **Slides:** 12
+
+**Build Example:** Campaign Brief Generator for marketing teams
+
+---
+
+### 🏗️ **Anatomy Version**
+**Pedagogical Approach:** Show the complete architecture first, then configure
+
+**Learning Flow:**
+1. Full GPT anatomy diagram upfront (all components visible)
+2. Deep dive into each component
+3. Configuration in context of the whole system
+4. Understanding interdependencies
+
+**Best For:**
+- Systems thinkers who need the big picture
+- Audiences with technical backgrounds
+- Understanding how all pieces fit together
+
+**Time:** 40 minutes | **Slides:** 12
+
+**Build Example:** Executive Communication Assistant
+
+---
+
+### ⚡ **Live Build Version**
+**Pedagogical Approach:** Hands-on, everyone builds together in real-time
+
+**Learning Flow:**
+1. Pre-workshop checklist (setup before session)
+2. Live coding/configuration session
+3. Interactive troubleshooting
+4. Real-time delegation playbook
+5. Immediate results
+
+**Best For:**
+- Hands-on learners who need to "feel" the tool
+- Building muscle memory through practice
+- Creating immediate value and takeaways
+
+**Time:** 40 minutes (+ 15 min Q&A, 5 min buffer)
+
+**Build Example:** Executive Communication Assistant (built live)
+
+---
+
+## 🎨 **Features**
+
+### ✅ **Unified Navigation Bar**
+- Purple gradient navbar on all pages
+- Sticky positioning (always visible)
+- Active state highlighting (current version)
+- One-click switching between versions
+- Mobile responsive (breakpoints at 768px)
+
+### ✅ **Dark/Light Mode Toggle**
+- Theme toggle on all pages
+- Smooth transitions (0.3s ease)
+- WCAG AAA compliant contrast
+- System font stack (instant loading)
+- Tested across all versions
+
+### ✅ **Interactive Demos**
+- Live tokenization visualizer
+- Prompt engineering examples
+- Real-world use cases
+- CEO-focused scenarios
+
+### ✅ **Reveal.js Slides**
+- Full-screen presentations
+- Keyboard navigation
+- Speaker notes
+- Mobile friendly
+- Print to PDF support
+
+### ✅ **GitHub Pages Ready**
+- 100% static (no backend)
+- Fast loading
+- CDN-hosted assets
+- Works offline (cached)
+
+---
+
+## 🛠️ **Installation & Deployment**
+
+### Deploy to GitHub Pages
+
+1. **Fork or clone this repository**
 ```bash
-git add .
-git commit -m "Initial enhanced workshop setup"
-git branch -M main
-git remote add origin https://github.com/yourusername/session2.git
+git clone https://github.com/w4ester/session2.git
+cd session2
+```
+
+2. **Push to your GitHub repository**
+```bash
+git remote set-url origin https://github.com/YOUR-USERNAME/session2.git
 git push -u origin main
 ```
 
-## 🎯 Features Walkthrough
+3. **Enable GitHub Pages**
+   - Go to repository **Settings**
+   - Navigate to **Pages** in left sidebar
+   - Source: **Deploy from a branch**
+   - Branch: **main** / **/ (root)**
+   - Click **Save**
 
-### 1. Progress Tracking
+4. **Wait 2-3 minutes for deployment**
+   - GitHub will build and deploy
+   - Visit: `https://YOUR-USERNAME.github.io/session2/`
 
-The top progress bar shows:
-- Current section (animated)
-- Completed sections (checkmarks)
-- Overall progress percentage
+### Local Development
 
-**How it works:**
-- Tracks scroll position automatically
-- Saves progress to localStorage
-- Persists across sessions
+```bash
+# Start local server
+python3 -m http.server 8000
 
-### 2. AI Copilot Assistant
+# Or use Node.js
+npx http-server -p 8000
 
-Floating help button (bottom right) provides:
-- Contextual help for each section
-- Answers common questions
-- Smart keyword matching
-
-**Try asking:**
-- "How do tokens work?"
-- "How can I improve my prompts?"
-- "What are agents?"
-
-### 3. Interactive Tokenization
-
-**Features:**
-- Animated token display
-- Cost estimation
-- Token insights (efficiency tips)
-- Example prompts to try
-
-**Educational value:**
-- Visual understanding of token chunking
-- Real-time cost awareness
-- Optimization suggestions
-
-### 4. Prompt Engineering Scorer
-
-**Scores 10 criteria:**
-1. Clear format specified
-2. Target audience defined
-3. Tone/voice set
-4. Length constraint
-5. Context provided
-6. Examples included
-7. Clear CTA
-8. Multi-step breakdown
-9. Exclusions specified
-10. Success criteria
-
-**Features:**
-- Real-time scoring
-- Visual checklist
-- AI improvement suggestions
-- Tracks personal best
-
-### 5. Template Library
-
-**Capabilities:**
-- Generate templates from inputs
-- Save to personal library
-- Load saved templates
-- Download as .md files
-- Quick-start examples
-
-**Use cases:**
-- Team sharing
-- Reusable workflows
-- Consistent outputs
-
-### 6. Agent Builder Simulator
-
-**5-Step walkthrough:**
-1. Name your agent
-2. Define instructions
-3. Select tools (web, data, images)
-4. Test with prompts
-5. Download configuration
-
-**Benefits:**
-- Practice before building real agent
-- Learn agent components
-- Export ready-to-use config
-
-### 7. Challenge Mode
-
-**3 Marketing scenarios:**
-
-**Challenge 1: Product Launch (Easy)**
-- Create LinkedIn posts
-- Practice prompt engineering
-- Real marketing scenario
-
-**Challenge 2: Email Template (Medium)**
-- Build reusable template
-- Multiple variables
-- Tone variations
-
-**Challenge 3: Campaign Agent (Advanced)**
-- Design full agent
-- Multiple capabilities
-- Complex workflow
-
-**Scoring:**
-- Automatic evaluation
-- Detailed feedback
-- Improvement tips
-- Progress tracking
-
-### 8. Export & Share
-
-**Export includes:**
-- All prompts created
-- All templates built
-- Agent configuration
-- Challenge scores
-- Statistics (time saved, completion rate)
-
-**File format:** JSON (easy to parse, share, archive)
-
-## 💾 Data Storage
-
-All data stored in browser localStorage:
-- No server needed
-- Works offline
-- Private (local only)
-- Persists across sessions
-
-**Storage keys:**
-- `workshop_session2_state` - Main state object
-
-**What's saved:**
-- Current progress
-- Created prompts
-- Built templates
-- Agent configuration
-- Challenge scores
-- Statistics
-
-**To reset:** Click "Start Fresh" button or:
-```javascript
-localStorage.removeItem('workshop_session2_state');
-location.reload();
+# Or use PHP
+php -S localhost:8000
 ```
 
-## 🎨 Customization
+Open http://localhost:8000 in your browser.
 
-### Colors
+---
 
-Edit in `styles.css`:
+## 📖 **Documentation**
+
+- **[VERSION-COMPARISON.md](VERSION-COMPARISON.md)** - Detailed comparison of all three versions
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Complete technical documentation for developers
+- **[THEME-TESTING-REPORT.md](THEME-TESTING-REPORT.md)** - Dark/light mode testing results
+
+### Quick Links:
+- **Root Homepage:** `/index.html`
+- **Progressive Version:** `/progressive-version/index.html`
+- **Anatomy Version:** `/anatomy-version/index.html`
+- **Live Build Version:** `/live-build-version/index.html`
+
+---
+
+## 🎯 **Which Version Should I Use?**
+
+| Audience Type | Best Version | Why? |
+|---------------|--------------|------|
+| **First-time learners** | 🔄 Progressive | Step-by-step builds confidence |
+| **Technical executives** | 🏗️ Anatomy | Systems view matches mental model |
+| **Hands-on learners** | ⚡ Live Build | Learn by doing, immediate results |
+| **Mixed audience** | 🔄 Progressive | Most universally accessible |
+| **Time-constrained** | ⚡ Live Build | Maximum value in minimum time |
+| **Theory-focused** | 🏗️ Anatomy | Deep understanding of architecture |
+
+**Not sure?** Start with **Progressive** - it's the most beginner-friendly.
+
+---
+
+## 🎨 **Customization**
+
+### Change Brand Colors
+
+Edit in any version's `assets/css/styles.css`:
+
 ```css
 :root {
   --brand: #7c5cff;        /* Primary purple */
-  --brand-light: #9d7eff;  /* Light purple */
-  --brand-dark: #5a3fd9;   /* Dark purple */
-  --success: #10b981;       /* Green */
-  --warning: #f59e0b;       /* Orange */
-  --error: #ef4444;         /* Red */
+  --brand-2: #22d3ee;      /* Secondary cyan */
+  --ok: #10b981;           /* Success green */
+  --warn: #f59e0b;         /* Warning orange */
+  --bad: #ef4444;          /* Error red */
 }
 ```
 
-### Copilot Responses
+### Update Slide Content
 
-Edit in `app.js`:
-```javascript
-const copilotKnowledge = {
-  'your_keyword': 'Your custom response...',
-  // Add more Q&A pairs
-};
+Edit slides in each version's `slides/slides.md`:
+
+```markdown
+# Your Slide Title
+Content here
+
+---
+
+# Next Slide
+More content
+
+<!-- Note: Speaker notes here -->
 ```
 
-### Challenge Criteria
+Slides use Reveal.js markdown format with `---` separators.
 
-Edit in `app.js`, `scoreChallenge()` function to adjust:
-- Point values
-- Scoring criteria
-- Feedback messages
+### Modify Navbar Links
 
-## 📊 Analytics & Metrics
+Edit navbar HTML in each `index.html`:
 
-Track these metrics for workshops:
+```html
+<nav class="version-nav">
+  <div class="version-nav-container">
+    <a href="your-link.html" class="version-link">Your Link</a>
+  </div>
+</nav>
+```
 
-**Engagement:**
-- % who complete all sections
-- Average time per section
-- Challenge completion rate
+---
 
-**Learning:**
-- Average prompt score improvement
-- Templates created per participant
-- Agent builds completed
+## 📊 **Browser Support**
 
-**Satisfaction:**
-- Time saved estimates
-- Export rate (% who download work)
-- Return visitors (localStorage check)
+| Browser | Support | Notes |
+|---------|---------|-------|
+| Chrome | ✅ Full | Recommended |
+| Firefox | ✅ Full | Recommended |
+| Safari | ✅ Full | macOS/iOS |
+| Edge | ✅ Full | Chromium-based |
+| Mobile | ✅ Responsive | All major browsers |
 
-## 🐛 Troubleshooting
+**Requirements:**
+- JavaScript enabled
+- LocalStorage enabled (for theme preference)
+- Modern browser (2020+)
 
-### Progress not saving?
-- Check localStorage enabled
-- Not in private/incognito mode
-- Clear cache and reload
+---
 
-### Animations not working?
-- Ensure styles.css loaded correctly
-- Check browser console for errors
-- Try hard refresh (Ctrl+Shift+R)
+## 🐛 **Troubleshooting**
 
-### Copilot not responding?
-- Check app.js loaded
-- Verify no JavaScript errors
-- Keywords might not match (add custom ones)
+### Navbar not showing?
+1. Check CSS is loaded: View Page Source → find `<link rel="stylesheet" href="assets/css/styles.css">`
+2. Hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
+3. Check browser console for errors
 
-### Export button not working?
-- Check browser allows downloads
-- Try different browser
-- Check console for errors
+### Theme toggle not working?
+1. Check JavaScript is enabled
+2. Look for errors in browser console
+3. Verify `app.js` is loaded
 
-## 🚀 Advanced Features to Add
+### Slides not displaying?
+1. Check internet connection (Reveal.js uses CDN)
+2. Open `slides/index.html` directly
+3. Verify `slides.md` exists and is formatted correctly
 
-### Future enhancements:
+### GitHub Pages not updating?
+1. Wait 2-3 minutes after push
+2. Hard refresh browser cache
+3. Check GitHub Actions tab for build status
+4. Verify Pages settings: Settings → Pages → main branch
 
-1. **Team Leaderboard**
-   - Add Firebase for real-time data
-   - Show top prompts/templates
-   - Competitive element
+---
 
-2. **Real AI Integration**
-   - OpenAI API calls (requires backend)
-   - Live generation instead of simulation
-   - Cost tracking
+## 🚀 **Advanced Features**
 
-3. **Workshop Analytics**
-   - Track aggregate stats
-   - Heatmaps of where people get stuck
-   - A/B test different teaching methods
+### Add System Theme Detection
 
-4. **Social Sharing**
-   - Share completed challenges
-   - Generate social cards
-   - LinkedIn integration
+Add to `assets/js/app.js`:
 
-5. **Video Walkthroughs**
-   - Embedded tutorial videos
-   - Screen recordings of examples
-   - Expert tips
+```javascript
+// Detect system preference
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.setAttribute('data-theme', 'dark');
+}
+```
 
-## 📚 Resources
+### Add Keyboard Shortcuts
 
-**Workshop Materials:**
-- Main Site: https://w4ester.github.io/session2/
-- Slides: https://w4ester.github.io/session2/slides/
-- GitHub: https://github.com/w4ester/session2
+```javascript
+// Ctrl+Shift+T to toggle theme
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey && e.shiftKey && e.key === 'T') {
+    toggleTheme();
+  }
+});
+```
 
-**AI Tools Referenced:**
-- [OpenAI Agent Builder](https://platform.openai.com/docs/guides/agent-builder)
+### Track Analytics
+
+Add to `index.html` before `</body>`:
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'YOUR-ID');
+</script>
+```
+
+---
+
+## 📚 **Resources**
+
+### Workshop Materials
+- **Live Site:** https://w4ester.github.io/session2/
+- **GitHub Repo:** https://github.com/w4ester/session2
+- **Version Comparison:** [VERSION-COMPARISON.md](VERSION-COMPARISON.md)
+
+### AI Tools Referenced
+- [OpenAI GPT Builder](https://platform.openai.com/docs/guides/gpt-builder)
 - [Claude Projects](https://claude.ai)
-- [Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering)
+- [Anthropic Docs](https://docs.anthropic.com)
 
-**Technical Docs:**
-- [Reveal.js](https://revealjs.com/) - Slide framework
-- [Mermaid](https://mermaid.js.org/) - Diagrams
-- [GitHub Pages](https://pages.github.com/) - Hosting
+### Technical Frameworks
+- [Reveal.js](https://revealjs.com/) - Slide presentations
+- [GitHub Pages](https://pages.github.com/) - Static site hosting
+- [Markdown](https://www.markdownguide.org/) - Content formatting
 
-## 🤝 Contributing
+---
 
-Want to improve the workshop?
+## 🤝 **Contributing**
 
-1. Fork the repo
-2. Create feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+We welcome contributions! Here's how:
 
-**Ideas welcome:**
-- New challenge scenarios
-- Better copilot responses
-- UI/UX improvements
-- Additional gamification
-- Bug fixes
+1. **Fork the repository**
+2. **Create feature branch:** `git checkout -b feature/amazing-feature`
+3. **Commit changes:** `git commit -m 'Add amazing feature'`
+4. **Push to branch:** `git push origin feature/amazing-feature`
+5. **Open Pull Request**
 
+### Contribution Ideas
+- 🎨 New color themes
+- 📊 Additional workshop versions
+- 🐛 Bug fixes
+- 📝 Documentation improvements
+- 🌐 Translations
+- ♿ Accessibility enhancements
 
-**Questions?** Check the copilot or open a discussion!
+---
 
-## 🎉 Credits
+## 📄 **License**
 
-**Created by:** Will F  
+MIT License - feel free to use this for your workshops!
 
+See [LICENSE](LICENSE) file for details.
 
-**Special thanks to:**
-- Workshop participants for feedback
+---
+
+## 🎉 **Credits**
+
+**Created by:** Will F ([@w4ester](https://github.com/w4ester))
+
+**Built with:**
+- w4ester and AI orchestration
+- Love for education and empowerment
+- Feedback from workshop participants
+
+**Special Thanks:**
+- CEOs who attended workshops and provided feedback
 - AI education community
 - Open source contributors
+- Anthropic Claude for development assistance
+
+---
+
+## 🌟 **What's Next?**
+
+### For Workshop Attendees:
+1. **Choose your version** - Pick Progressive, Anatomy, or Live Build
+2. **Complete the workshop** - Build your first Custom GPT
+3. **Deploy your GPT** - Put it to work in your business
+4. **Share your results** - Tell us how it's going!
+
+### For Workshop Facilitators:
+1. **Read ARCHITECTURE.md** - Understand the technical structure
+2. **Review VERSION-COMPARISON.md** - Pick the best version for your audience
+3. **Test locally** - Run through the workshop yourself
+4. **Customize** - Adapt content to your needs
+5. **Deploy** - Share with your participants
 
 ---
 
 **Let's GrOw! 🚀**
 
-*Building Producers not users - Your AI-power starts now!*
+*Building Producers, not users - Your AI power starts now!*
+
+---
+
+Built with w4ester and AI orchestration | Last updated: 2025-11-06
