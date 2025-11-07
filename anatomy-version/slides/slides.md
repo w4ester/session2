@@ -13,6 +13,8 @@ Note: Welcome! This is a 40-minute workshop designed specifically for CEOs. We'l
 ## Slide 1: The CEO's AI Problem
 ### You're Wasting 5+ Hours Per Week
 
+<div style="font-size: 0.88em; line-height: 1.4;">
+
 **⏰ TIME: 5 minutes**
 
 **Common repetitive tasks:**
@@ -27,6 +29,8 @@ Note: Welcome! This is a 40-minute workshop designed specifically for CEOs. We'l
 - At $500/hour = **$125,000 in CEO time**
 - Plus: Inconsistent quality, knowledge bottlenecks, team delays
 
+</div>
+
 Note: TIMING: 5 minutes total. Start with pain point. CEOs understand time = money. The problem isn't just your time - it's that your expertise doesn't scale. When you're the bottleneck, the whole company slows down. Custom GPTs let you encode your knowledge once and deploy it everywhere.
 
 ---
@@ -36,38 +40,38 @@ Note: TIMING: 5 minutes total. Start with pain point. CEOs understand time = mon
 
 **⏰ TIME: 5 minutes**
 
-<div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 2rem; border-radius: 12px; margin: 2rem 0;">
+<div style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 1.2rem; border-radius: 12px; margin: 1rem 0; font-size: 0.9em;">
 
 ### 🏗️ 6 Core Components
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; margin-top: 0.8rem;">
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #7c5cff;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #7c5cff;">
 <strong style="color: #7c5cff;">1. Name & Description</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">Public-facing identity</span>
 </div>
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #6366f1;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #6366f1;">
 <strong style="color: #6366f1;">2. Instructions</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">The "brain" - how it thinks</span>
 </div>
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #8b5cf6;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #8b5cf6;">
 <strong style="color: #8b5cf6;">3. Knowledge Base</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">Your docs, guidelines, examples</span>
 </div>
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #a855f7;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #a855f7;">
 <strong style="color: #a855f7;">4. Capabilities</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">Web, images, code, data</span>
 </div>
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #c084fc;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #c084fc;">
 <strong style="color: #c084fc;">5. Conversation Starters</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">Pre-written prompts for users</span>
 </div>
 
-<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #d8b4fe;">
+<div style="background: white; padding: 1rem; border-radius: 8px; border-left: 4px solid #d8b4fe;">
 <strong style="color: #d8b4fe;">6. Actions (Optional)</strong><br/>
 <span style="font-size: 0.85em; color: #64748b;">API integrations</span>
 </div>
@@ -272,6 +276,8 @@ Note: TIMING: 1 minute. Emphasize SPEED. This isn't a 6-month software project. 
 ## Slide 5: Company Rollout Strategy
 ### Scale Systematically
 
+<div style="font-size: 0.86em; line-height: 1.4;">
+
 **⏰ TIME: 3 minutes**
 
 ### The 3-Phase Rollout
@@ -293,6 +299,8 @@ Note: TIMING: 1 minute. Emphasize SPEED. This isn't a 6-month software project. 
 - **Goal:** Standardize format across company
 - **Metrics:** Company usage, total hours saved, ROI
 - **Action:** Add to onboarding, video tutorials, monthly review
+
+</div>
 
 Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of success. Adoption is 80%. The 3-phase approach prevents the "build it and nobody uses it" problem. Pilot validates, Department scales, Company-wide standardizes. Each phase has clear metrics. This is a ROLLOUT PLAN, not just a tech demo.
 
@@ -342,6 +350,8 @@ Note: The success checklist ensures you've built the infrastructure for scale. D
 
 ## Building a GPT Library
 
+<div style="font-size: 0.88em; line-height: 1.4;">
+
 **Don't stop at one GPT. Build a company library:**
 
 **Marketing:**
@@ -364,6 +374,8 @@ Note: The success checklist ensures you've built the infrastructure for scale. D
 - 10 GPTs × 50 users = **5,000 hours/week saved**
 - 50 GPTs × 200 users = **$13M annual value**
 
+</div>
+
 **Pro tip:** Create a "GPT Library" Notion page where teams discover and share GPTs
 
 Note: THIS IS THE VISION. You're not building A tool. You're building an AI INFRASTRUCTURE. Each GPT is a knowledge asset. The library grows over time. Teams share and remix GPTs. This becomes part of your company's operating system.
@@ -372,6 +384,8 @@ Note: THIS IS THE VISION. You're not building A tool. You're building an AI INFR
 
 ## Conclusion: Your Next Steps
 ### Take Action Today
+
+<div style="font-size: 0.86em; line-height: 1.4;">
 
 **⏰ TIME: Wrap-up**
 
@@ -402,6 +416,8 @@ Note: THIS IS THE VISION. You're not building A tool. You're building an AI INFR
 2. Track adoption metrics
 3. Build 2-3 more GPTs
 4. Present ROI to leadership team
+
+</div>
 
 Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build a GPT someday" = never happens. "Build in next 30 minutes" = action. The 24-hour / week / month breakdown makes it concrete. End with urgency and clarity.
 
