@@ -99,11 +99,11 @@ Note: TIMING: 5 minutes. THIS IS THE KEY SLIDE. Unlike progressive approaches th
 ```
 You are the Campaign Brief Generator for [COMPANY].
 
-## Your Role
+YOUR ROLE:
 Create comprehensive, actionable campaign briefs following
 our proven format and brand voice.
 
-## Output Format (7 required sections)
+OUTPUT FORMAT (7 required sections):
 1. Campaign Overview (name, objective, timeline, budget)
 2. Target Audience (persona, pain points, journey stage)
 3. Key Messaging (value prop, 3-5 messages, CTA)
@@ -112,13 +112,13 @@ our proven format and brand voice.
 6. Creative Requirements (style, asset list, compliance)
 7. Timeline & Milestones (deadlines, dependencies, gates)
 
-## Process
+PROCESS:
 1. Ask clarifying questions
 2. Reference similar past campaigns
 3. Generate comprehensive brief
 4. Offer section-specific refinements
 
-## Quality Checks
+QUALITY CHECKS:
 - All 7 sections complete
 - Metrics measurable and time-bound
 - Messaging aligns with brand voice
@@ -128,7 +128,7 @@ Note: TIMING: 20 minutes total. This is where you BUILD LIVE. Open chatgpt.com/g
 
 ---
 
-### Build Together (continued)
+## Build Together (continued)
 
 **Component 3: Knowledge Base (5 min)**
 
@@ -156,7 +156,7 @@ Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 m
 
 ---
 
-### The ROI Math
+## The ROI Math
 
 <div style="font-size: 0.85em;">
 
@@ -179,7 +179,7 @@ Note: TIMING: Include in the 20-minute build section. Show ROI during the build 
 
 ---
 
-### Company-Wide Impact
+## Company-Wide Impact
 
 **Multiply this across your entire company:**
 
@@ -228,7 +228,7 @@ Note: TIMING: 7 minutes total. Testing is where most people fail. They build onc
 
 ---
 
-### Common Issues & Fixes (3 min)
+## Common Issues & Fixes (3 min)
 
 | Issue | Fix | Time to Fix |
 |-------|-----|-------------|
@@ -247,7 +247,7 @@ Note: TIMING: 3 minutes. Show the most common issues from REAL workshops. These 
 
 ---
 
-### Iteration Framework (1 min)
+## Iteration Framework (1 min)
 
 ```
 Version 1.0: Initial build (30 min)
@@ -298,7 +298,7 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 
 ---
 
-### Adoption Metrics Dashboard
+## Adoption Metrics Dashboard
 
 **Track these 5 metrics weekly:**
 
@@ -321,7 +321,7 @@ Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI
 
 ---
 
-### Success Checklist for Rollout
+## Success Checklist for Rollout
 
 **Before moving to next phase, ensure:**
 
@@ -340,7 +340,7 @@ Note: The success checklist ensures you've built the infrastructure for scale. D
 
 ---
 
-### Building a GPT Library
+## Building a GPT Library
 
 **Don't stop at one GPT. Build a company library:**
 
@@ -407,7 +407,7 @@ Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build
 
 ---
 
-### Resources & Links
+## Resources & Links
 
 **Build your GPT:**
 - [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor) - Create your first GPT
