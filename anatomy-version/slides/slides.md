@@ -126,7 +126,7 @@ our proven format and brand voice.
 
 Note: TIMING: 20 minutes total. This is where you BUILD LIVE. Open chatgpt.com/gpts/editor and create it together. Component 2 (Instructions) takes 10 minutes because it's the brain of your GPT. Walk through each section. Explain WHY each matters. The 7-section format ensures completeness. The process ensures quality. The quality checks prevent garbage outputs.
 
---
+---
 
 ### Build Together (continued)
 
@@ -154,7 +154,7 @@ Upload 3-5 files:
 
 Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 min). Show them WHAT to upload. Many people upload the wrong things. Past briefs = templates for the AI to learn from. Brand guidelines = consistency. Messaging framework = strategic alignment. For capabilities, explain WHY you're enabling web browsing (competitor intel) and why you're skipping the rest (focus).
 
---
+---
 
 ### The ROI Math
 
@@ -177,7 +177,7 @@ Note: TIMING: Breakdown - Knowledge (5 min), Capabilities (1 min), Starters (2 m
 
 Note: TIMING: Include in the 20-minute build section. Show ROI during the build to maintain executive engagement. Walk through the math: 1.5 hours → 10 minutes = 80 min saved per brief. Times 8 briefs/month × 5 team members = massive time savings.
 
---
+---
 
 ### Company-Wide Impact
 
@@ -226,7 +226,7 @@ Launch: ASAP, Budget: TBD."
 
 Note: TIMING: 7 minutes total. Testing is where most people fail. They build once and never iterate. Show them THE SYSTEMATIC APPROACH. 3 test prompts cover 3 scenarios: ideal case, edge case, knowledge integration. If it passes all 3, you're ready to deploy. If not, iterate.
 
---
+---
 
 ### Common Issues & Fixes (3 min)
 
@@ -245,7 +245,7 @@ Note: TIMING: 7 minutes total. Testing is where most people fail. They build onc
 
 Note: TIMING: 3 minutes. Show the most common issues from REAL workshops. These 6 problems account for 80% of quality issues. The fixes are simple and fast. Key insight: You're not debugging code - you're clarifying instructions. It's more like managing a person than fixing software.
 
---
+---
 
 ### Iteration Framework (1 min)
 
@@ -296,7 +296,7 @@ Note: TIMING: 1 minute. Emphasize SPEED. This isn't a 6-month software project. 
 
 Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of success. Adoption is 80%. The 3-phase approach prevents the "build it and nobody uses it" problem. Pilot validates, Department scales, Company-wide standardizes. Each phase has clear metrics. This is a ROLLOUT PLAN, not just a tech demo.
 
---
+---
 
 ### Adoption Metrics Dashboard
 
@@ -319,7 +319,7 @@ Note: TIMING: 3 minutes total. DON'T SKIP THIS SLIDE. Building the GPT is 20% of
 
 Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI, quality, and satisfaction. Track weekly to identify trends early.
 
---
+---
 
 ### Success Checklist for Rollout
 
@@ -338,7 +338,7 @@ Note: Show the metrics. CEOs live by metrics. These 5 cover adoption, usage, ROI
 
 Note: The success checklist ensures you've built the infrastructure for scale. Don't rush to next phase without completing these 8 items. Each builds the foundation for sustainable adoption.
 
---
+---
 
 ### Building a GPT Library
 
@@ -405,7 +405,7 @@ Note: THIS IS THE VISION. You're not building A tool. You're building an AI INFR
 
 Note: TIMING: Final 2 minutes. Give them CLEAR NEXT STEPS with timelines. "Build a GPT someday" = never happens. "Build in next 30 minutes" = action. The 24-hour / week / month breakdown makes it concrete. End with urgency and clarity.
 
---
+---
 
 ### Resources & Links
 
