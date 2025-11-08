@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Workshop: Slides + GPT Builder</title>
+  <title>Workshop Setup - 3-Window Layout</title>
   <style>
     * {
       margin: 0;
@@ -13,240 +13,517 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      overflow: hidden;
-      height: 100vh;
-      background: #1a1a1a;
-    }
-
-    .workshop-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto 1fr;
-      height: 100vh;
-      gap: 0;
-    }
-
-    .toolbar {
-      grid-column: 1 / -1;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 0.75rem 1.5rem;
+      min-height: 100vh;
+      padding: 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      z-index: 100;
+      padding: 2rem;
+      text-align: center;
     }
 
-    .toolbar-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .toolbar-title {
+    .header p {
+      opacity: 0.9;
       font-size: 1.1rem;
-      font-weight: 600;
     }
 
-    .toolbar-right {
-      display: flex;
-      gap: 0.75rem;
+    .content {
+      padding: 2rem;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .section p {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .window-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .window-card {
+      background: #f9fafb;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .window-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+      border-color: #667eea;
+    }
+
+    .window-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .window-title {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .window-desc {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
 
     .btn {
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.95rem;
       transition: all 0.2s;
       cursor: pointer;
       border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      width: 100%;
     }
 
-    .btn-white {
-      background: white;
-      color: #667eea;
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
-    .btn-white:hover {
+    .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
 
-    .btn-ghost {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
     }
 
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.1);
+    .btn-secondary:hover {
+      background: #f3f4f6;
     }
 
-    .panel {
-      position: relative;
-      overflow: hidden;
-      background: #fff;
-      border: 2px solid #333;
+    .btn-large {
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
     }
 
-    .panel-left {
-      border-right: 1px solid #333;
+    .arrangement-guide {
+      background: #fef3c7;
+      border: 2px solid #fbbf24;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
     }
 
-    .panel-header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 0.5rem 1rem;
+    .arrangement-guide h3 {
+      color: #92400e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .arrangement-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .mock-window {
+      background: #e5e7eb;
+      border: 2px solid #9ca3af;
+      border-radius: 4px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      font-size: 0.75rem;
       font-weight: 600;
-      font-size: 0.9rem;
-      z-index: 10;
+      color: #4b5563;
+      min-height: 80px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
     }
 
-    .panel-header-link {
-      color: #9ca3af;
-      font-size: 0.8rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
+    .mock-window.slides {
+      background: #dbeafe;
+      border-color: #3b82f6;
+      color: #1e40af;
     }
 
-    .panel-header-link:hover {
-      color: white;
+    .mock-window.builder {
+      background: #dcfce7;
+      border-color: #10b981;
+      color: #065f46;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
+    .mock-window.chat {
+      background: #fce7f3;
+      border-color: #ec4899;
+      color: #9f1239;
     }
 
-    .loading {
+    .tips {
+      background: #eff6ff;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .tips h3 {
+      color: #1e40af;
+      margin-bottom: 1rem;
+    }
+
+    .tips ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .tips li {
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .tips li:before {
+      content: "💡";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #666;
-      font-size: 1rem;
+      left: 0;
     }
 
-    @media (max-width: 1024px) {
-      .workshop-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr 1fr;
-      }
-
-      .panel-left {
-        border-right: none;
-        border-bottom: 1px solid #333;
-      }
+    .shortcuts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
     }
 
-    /* Toggle button for mobile */
-    .mobile-toggle {
-      display: none;
+    .shortcut {
+      background: #f9fafb;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.875rem;
+    }
+
+    .shortcut-key {
+      background: #1f2937;
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.75rem;
+      display: inline-block;
+      margin-right: 0.25rem;
+    }
+
+    .footer {
+      background: #f9fafb;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-top: 2px solid #e5e7eb;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
-      .mobile-toggle {
-        display: block;
+      body {
+        padding: 1rem;
       }
 
-      .workshop-container {
-        grid-template-rows: auto 1fr;
+      .header h1 {
+        font-size: 1.5rem;
       }
 
-      .panel {
-        display: none;
+      .arrangement-visual {
+        grid-template-columns: 1fr;
       }
 
-      .panel.active {
-        display: block;
+      .shortcuts {
+        grid-template-columns: 1fr;
       }
+    }
+
+    .status {
+      text-align: center;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-weight: 500;
+    }
+
+    .status.ready {
+      background: #dcfce7;
+      color: #065f46;
+      border: 2px solid #10b981;
+    }
+
+    .checkmark {
+      color: #10b981;
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
     }
   </style>
 </head>
 <body>
-  <div class="workshop-container">
-    <div class="toolbar">
-      <div class="toolbar-left">
-        <span class="toolbar-title">⚡ Live Workshop View</span>
+  <div class="container">
+    <div class="header">
+      <h1>⚡ Workshop: 3-Window Setup</h1>
+      <p>Get your workspace ready in 3 clicks</p>
+    </div>
+
+    <div class="content">
+      <div class="section">
+        <h2>🎯 Your Workshop Workspace</h2>
+        <p>This workshop works best with 3 windows open side-by-side. Click each button below to launch your workspace:</p>
+
+        <div class="window-grid">
+          <div class="window-card">
+            <div class="window-icon">📊</div>
+            <div class="window-title">Workshop Slides</div>
+            <div class="window-desc">Follow along with the presentation and exercises</div>
+            <button class="btn btn-primary" onclick="openSlides()">Open Slides</button>
+          </div>
+
+          <div class="window-card">
+            <div class="window-icon">🤖</div>
+            <div class="window-title">GPT Builder</div>
+            <div class="window-desc">Build your Custom GPT during the workshop</div>
+            <button class="btn btn-primary" onclick="openBuilder()">Open Builder</button>
+          </div>
+
+          <div class="window-card">
+            <div class="window-icon">💬</div>
+            <div class="window-title">ChatGPT Helper</div>
+            <div class="window-desc">Get AI help with prompts, docs, and ideas</div>
+            <button class="btn btn-primary" onclick="openChat()">Open ChatGPT</button>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button class="btn btn-primary btn-large" onclick="openAll()">
+            🚀 Launch All 3 Windows
+          </button>
+        </div>
+
+        <div id="status"></div>
       </div>
-      <div class="toolbar-right">
-        <button class="btn btn-white mobile-toggle" onclick="togglePanel()">
-          <span id="toggle-text">Show Slides</span>
-        </button>
-        <a href="index.html" class="btn btn-ghost">← Back to Demo</a>
-        <a href="slides/" target="_blank" class="btn btn-ghost">Slides Fullscreen ↗</a>
+
+      <div class="arrangement-guide">
+        <h3>📐 Suggested Window Arrangement</h3>
+        <p style="color: #92400e; margin-bottom: 1rem;">Arrange your windows like this for the best experience:</p>
+
+        <div class="arrangement-visual">
+          <div class="mock-window slides">
+            📊<br>Slides<br><small>(Left)</small>
+          </div>
+          <div class="mock-window builder">
+            🤖<br>GPT Builder<br><small>(Center)</small>
+          </div>
+          <div class="mock-window chat">
+            💬<br>ChatGPT<br><small>(Right)</small>
+          </div>
+        </div>
+
+        <p style="color: #92400e; font-size: 0.875rem; margin-top: 1rem;">
+          <strong>Tip:</strong> Use your browser's tab groups or window snapping features to organize them perfectly!
+        </p>
+      </div>
+
+      <div class="tips">
+        <h3>💡 Pro Tips for Workshop Success</h3>
+        <ul>
+          <li><strong>Use ChatGPT Helper</strong> to brainstorm instructions, find example documents, or get alternative explanations</li>
+          <li><strong>Ask the AI</strong> to help you write better prompts or refine your GPT's personality</li>
+          <li><strong>Take screenshots</strong> of your progress - you can upload them to ChatGPT for feedback</li>
+          <li><strong>Save your work</strong> frequently in the GPT Builder - it auto-saves but better safe than sorry!</li>
+          <li><strong>Don't rush</strong> - use the ChatGPT Helper to explore ideas at your own pace</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>⌨️ Keyboard Shortcuts (Window Management)</h2>
+        <div class="shortcuts">
+          <div class="shortcut">
+            <div><span class="shortcut-key">⊞</span> <span class="shortcut-key">←</span></div>
+            <div style="color: #6b7280; margin-top: 0.25rem;">Snap window left (Windows)</div>
+          </div>
+          <div class="shortcut">
+            <div><span class="shortcut-key">⊞</span> <span class="shortcut-key">→</span></div>
+            <div style="color: #6b7280; margin-top: 0.25rem;">Snap window right (Windows)</div>
+          </div>
+          <div class="shortcut">
+            <div><span class="shortcut-key">⌃</span> <span class="shortcut-key">⌘</span> <span class="shortcut-key">F</span></div>
+            <div style="color: #6b7280; margin-top: 0.25rem;">Fullscreen toggle (Mac)</div>
+          </div>
+          <div class="shortcut">
+            <div><span class="shortcut-key">F11</span></div>
+            <div style="color: #6b7280; margin-top: 0.25rem;">Fullscreen (Windows/Linux)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>🎓 How to Use Your 3-Window Workspace</h2>
+        <ol style="color: #4b5563; line-height: 1.8; padding-left: 1.5rem;">
+          <li><strong>Follow the Slides</strong> (Left) - The main presentation guides you through each step</li>
+          <li><strong>Build in GPT Builder</strong> (Center) - This is where you create your Custom GPT</li>
+          <li><strong>Get Help from ChatGPT</strong> (Right) - Use it to:
+            <ul style="margin-top: 0.5rem;">
+              <li>Generate better instructions for your GPT</li>
+              <li>Find example documents or knowledge base content</li>
+              <li>Get alternative explanations if something is unclear</li>
+              <li>Brainstorm use cases or capabilities</li>
+              <li>Debug issues or improve your prompts</li>
+            </ul>
+          </li>
+        </ol>
       </div>
     </div>
 
-    <div class="panel panel-left active" id="panel-left">
-      <div class="panel-header">
-        <span>📊 Workshop Slides</span>
-        <a href="slides/" target="_blank" class="panel-header-link">Open in new tab ↗</a>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">← Back to Demo</a>
+        <a href="live-build-version/index.html" class="footer-link">Interactive Tools</a>
+        <a href="slides/" target="_blank" class="footer-link">Slides Only ↗</a>
       </div>
-      <div class="loading">Loading slides...</div>
-      <iframe src="slides/" title="Workshop Slides"></iframe>
-    </div>
-
-    <div class="panel panel-right" id="panel-right">
-      <div class="panel-header">
-        <span>🤖 ChatGPT Custom GPT Builder</span>
-        <a href="https://chatgpt.com/gpts/editor" target="_blank" class="panel-header-link">Open in new tab ↗</a>
-      </div>
-      <div class="loading">Loading GPT Builder...</div>
-      <iframe src="https://chatgpt.com/gpts/editor" title="ChatGPT GPT Builder"></iframe>
+      <p style="color: #6b7280; font-size: 0.875rem; margin-top: 1rem;">
+        💡 <strong>Remember:</strong> You can always come back to this page to reopen any window
+      </p>
     </div>
   </div>
 
   <script>
-    let showingSlides = true;
+    let openedWindows = {
+      slides: false,
+      builder: false,
+      chat: false
+    };
 
-    function togglePanel() {
-      const leftPanel = document.getElementById('panel-left');
-      const rightPanel = document.getElementById('panel-right');
-      const toggleText = document.getElementById('toggle-text');
+    function openSlides() {
+      window.open('slides/', 'workshop-slides', 'width=1000,height=800');
+      openedWindows.slides = true;
+      updateStatus();
+    }
 
-      if (showingSlides) {
-        leftPanel.classList.remove('active');
-        rightPanel.classList.add('active');
-        toggleText.textContent = 'Show Slides';
-        showingSlides = false;
+    function openBuilder() {
+      window.open('https://chatgpt.com/gpts/editor', 'gpt-builder', 'width=1000,height=800');
+      openedWindows.builder = true;
+      updateStatus();
+    }
+
+    function openChat() {
+      window.open('https://chatgpt.com/', 'chatgpt-helper', 'width=1000,height=800');
+      openedWindows.chat = true;
+      updateStatus();
+    }
+
+    function openAll() {
+      openSlides();
+      setTimeout(openBuilder, 500);
+      setTimeout(openChat, 1000);
+    }
+
+    function updateStatus() {
+      const allOpen = openedWindows.slides && openedWindows.builder && openedWindows.chat;
+      const statusDiv = document.getElementById('status');
+
+      if (allOpen) {
+        statusDiv.innerHTML = `
+          <div class="status ready">
+            <span class="checkmark">✓</span>
+            All windows opened! Arrange them side-by-side and let's get started!
+          </div>
+        `;
       } else {
-        rightPanel.classList.remove('active');
-        leftPanel.classList.add('active');
-        toggleText.textContent = 'Show GPT Builder';
-        showingSlides = true;
+        const opened = Object.values(openedWindows).filter(Boolean).length;
+        if (opened > 0) {
+          statusDiv.innerHTML = `
+            <div class="status" style="background: #fef3c7; color: #92400e; border: 2px solid #fbbf24;">
+              ${opened}/3 windows opened. Keep going!
+            </div>
+          `;
+        }
       }
     }
 
-    // Remove loading indicators when iframes load
+    // Check if popup blockers are blocking
     window.addEventListener('load', () => {
-      const iframes = document.querySelectorAll('iframe');
-      iframes.forEach(iframe => {
-        iframe.addEventListener('load', () => {
-          const loading = iframe.previousElementSibling;
-          if (loading && loading.classList.contains('loading')) {
-            loading.style.display = 'none';
-          }
-        });
-      });
+      const notice = document.createElement('div');
+      notice.style.cssText = 'position: fixed; bottom: 20px; right: 20px; background: #1f2937; color: white; padding: 1rem; border-radius: 8px; font-size: 0.875rem; max-width: 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000;';
+      notice.innerHTML = `
+        <strong>💡 Tip:</strong> If windows don't open, allow popups for this site in your browser settings.
+        <button onclick="this.parentElement.remove()" style="background: transparent; border: none; color: white; cursor: pointer; float: right; font-size: 1.2rem; margin-top: -0.5rem;">×</button>
+      `;
+      document.body.appendChild(notice);
+
+      setTimeout(() => {
+        notice.style.transition = 'opacity 0.5s';
+        notice.style.opacity = '0';
+        setTimeout(() => notice.remove(), 500);
+      }, 8000);
     });
   </script>
 </body>
