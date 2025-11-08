@@ -15,17 +15,23 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Version Switcher Navbar -->
-  <nav class="version-nav">
-    <div class="version-nav-container">
-      <span class="version-label">Workshop Versions:</span>
-      <a href="index.html" class="version-link active">📚 Original</a>
-      <a href="progressive-version/index.html" class="version-link">🔄 Progressive</a>
-      <a href="anatomy-version/index.html" class="version-link">🏗️ Anatomy</a>
-      <a href="live-build-version/index.html" class="version-link">⚡ Live Build</a>
-      <a href="VERSION-COMPARISON.md" class="version-link comparison" target="_blank" rel="noopener">📊 Compare</a>
+  <!-- Live Workshop Access -->
+  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <div class="container" style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+      <div style="color: white; font-size: 1.1rem; font-weight: 600;">
+        ⚡ Live Workshop
+      </div>
+      <a href="workshop-view.html" class="btn" style="background: white; color: #667eea; font-weight: 600; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        📊 Slides + GPT Builder →
+      </a>
+      <a href="live-build-version/index.html" class="btn ghost" style="border-color: white; color: white; font-weight: 600;">
+        Live Demo
+      </a>
+      <a href="slides/" target="_blank" rel="noopener" class="btn ghost" style="border-color: white; color: white; font-weight: 600;">
+        Slides Only ↗
+      </a>
     </div>
-  </nav>
+  </div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -480,7 +486,9 @@ Time: 3 minutes vs 2 hours manual</pre>
     <div class="container">
       <p>Built for a hands-on workshop. 100% static, deployable on GitHub Pages.</p>
       <p class="muted">Libraries: CL100K tokenizer, Reveal.js, Mermaid.</p>
-      <p><a href="https://github.com/new" target="_blank" rel="noopener">Create a new GitHub repo</a> • <a href="slides/" target="_blank" rel="noopener">Slides</a></p>
+      <!-- LIVE WORKSHOP: Only showing slides link -->
+      <p><a href="slides/" target="_blank" rel="noopener">Slides</a></p>
+      <!-- Hidden for workshop: <a href="https://github.com/new" target="_blank" rel="noopener">Create a new GitHub repo</a> -->
     </div>
   </footer>
 
