@@ -1,0 +1,38 @@
+Subject: Session 2 Workshop Tomorrow: Build Your LinkedIn Post GPT (40 min)
+
+Hi Todd, Neil, Carol, and Mo,
+
+Quick heads-up for tomorrow's workshop! We're building a LinkedIn Post GPT together in 40 minutes.
+
+WORKSHOP LINK: https://w4ester.github.io/session2/
+
+WHAT WE'RE BUILDING:
+A Custom GPT that writes LinkedIn posts in your voice and actually posts them to LinkedIn for you. Idea to published post in 2 minutes.
+
+WHAT YOU'LL NEED:
+✅ ChatGPT Plus account ($20/month) - Required
+✅ Laptop ready to code along
+✅ LinkedIn account (we'll post live!)
+
+PRE-WORKSHOP CHECKLIST:
+Before the session, please:
+1. Verify ChatGPT Plus access: https://chatgpt.com/gpts/editor
+2. Have 2-3 past LinkedIn posts ready (optional)
+3. Dual monitors recommended (slides + GPT Editor)
+
+SESSION FORMAT:
+This is fully hands-on - NOT a lecture. Everyone opens GPT Editor and builds together. I'll walk through each step, you follow along.
+
+Don't have ChatGPT Plus yet? No problem - take notes and build later with the guide.
+
+TIME: [ADD YOUR MEETING TIME]
+DURATION: 40 minutes
+LINK: https://w4ester.github.io/session2/
+
+See you tomorrow! We're posting to LinkedIn live during the session.
+
+Ready Let's GrOw! 🚀
+
+Will
+
+P.S. Want a sneak peek? Check out the slides ahead of time. But it's way more fun to build together!
