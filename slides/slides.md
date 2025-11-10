@@ -661,108 +661,233 @@ Note: PRESENTER: "Everyone needs their LinkedIn URN. Go to [show method to get U
 ---
 
 ## 🔐 Want OAuth Instead? Here's How
+### ⏱️ 15 minutes (Advanced)
 
-<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; margin: 1rem 0; align-items: start;">
+### Full OAuth Setup - Post with your own LinkedIn account
 
-<!-- Left Column: Instructions -->
-<div>
+<div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
 
-### Quick OAuth Setup (5 Minutes)
+<!-- Left Column: Step Buttons -->
+<div class="step-buttons-container">
 
-**Step 1: LinkedIn App Setup**
+<div id="step-btn-oauth-1" class="step-button active" onclick="showStep('oauth-1')">
+  <span class="step-number">1</span> Create LinkedIn App
+</div>
+
+<div id="step-btn-oauth-2" class="step-button" onclick="showStep('oauth-2')">
+  <span class="step-number">2</span> Configure OAuth in GPT
+</div>
+
+<div id="step-btn-oauth-3" class="step-button" onclick="showStep('oauth-3')">
+  <span class="step-number">3</span> Get Your LinkedIn URN
+</div>
+
+<div id="step-btn-oauth-4" class="step-button" onclick="showStep('oauth-4')">
+  <span class="step-number">4</span> Add Callback URL
+</div>
+
+<div id="step-btn-oauth-5" class="step-button" onclick="showStep('oauth-5')">
+  <span class="step-number">5</span> Test & Post!
+</div>
+
+</div>
+
+<!-- Right Column: Step Content -->
+<div class="step-content-container">
+
+<!-- Step 1 Content -->
+<div id="step-content-oauth-1" class="step-content active">
+
+### Create Your LinkedIn App
 
 Open: **[LinkedIn Developers](https://www.linkedin.com/developers/apps)**
 
-1. Create app → Fill in name, page, logo
-2. **Products** tab → Request "Share on LinkedIn" + "Sign In with LinkedIn"
-3. **Auth** tab → Add Redirect URL from GPT Editor (see callback URL at bottom of Actions page)
+1. Click **"Create app"**
+2. Fill in required fields:
+   - **App name:** "My LinkedIn Post GPT"
+   - **LinkedIn Page:** (select your company page or create one)
+   - **App logo:** (upload any logo image)
+3. Click **"Create app"**
 
-**Step 2: Configure GPT Authentication**
+**Next:**
+1. Go to **"Products"** tab
+2. Request access to:
+   - ✅ **"Share on LinkedIn"**
+   - ✅ **"Sign In with LinkedIn using OpenID Connect"**
+3. Wait for approval (usually instant)
 
-Open: **[GPT Editor](https://chatgpt.com/gpts/editor)**
-
-In **Actions** → **Authentication** → **OAuth**, enter:
-
-<div style="background: #f0f0f0; padding: 0.75rem; border-radius: 6px; font-size: 0.8em; margin: 0.5rem 0;">
-
-**Client ID:** `YOUR_CLIENT_ID_FROM_LINKEDIN`
-
-**Client Secret:** `YOUR_CLIENT_SECRET_FROM_LINKEDIN`
-
-**Authorization URL:**
-`https://www.linkedin.com/oauth/v2/authorization`
-
-**Token URL:**
-`https://www.linkedin.com/oauth/v2/accessToken`
-
-**Scope:**
-`openid profile email w_member_social`
+**Note:** PRESENTER: "Go to LinkedIn Developers. Create new app. Name it anything. Request the two products shown."
 
 </div>
 
-**Where to get your Client ID & Secret:**
-- Go to your LinkedIn app → **Auth** tab
-- Copy **Client ID** (looks like: `78abc123xyz`)
-- Copy **Client Secret** (click "Show" - looks like: `WPL_AP1.abc...`)
+<!-- Step 2 Content -->
+<div id="step-content-oauth-2" class="step-content">
 
-**Step 3: Get Your LinkedIn URN**
+### Configure OAuth in Your GPT
 
-**Quick Method (5 minutes):**
+In your **GPT Editor** → **Actions** → **Authentication**:
 
-1. **Authorize Your App:**
-   - Build this URL: `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=https://oauth.pstmn.io/v1/callback&scope=openid%20profile%20email%20w_member_social`
-   - Replace `YOUR_CLIENT_ID` with your actual Client ID
-   - Visit the URL in your browser
+1. Select **"OAuth"** from dropdown
+2. Enter these values:
 
-2. **Copy the Authorization Code:**
-   - After authorizing, you'll be redirected to: `https://oauth.pstmn.io/v1/callback?code=AQT...`
-   - Copy the entire URL
+<div style="background: #f0f0f0; padding: 1rem; border-radius: 8px; font-size: 0.85em; margin: 1rem 0;">
 
-3. **Exchange Code for Access Token:**
+**Client ID:**
+```
+(from LinkedIn app → Auth tab)
+```
 
+**Client Secret:**
+```
+(from LinkedIn app → Auth tab → Click "Show")
+```
+
+**Authorization URL:**
+```
+https://www.linkedin.com/oauth/v2/authorization
+```
+
+**Token URL:**
+```
+https://www.linkedin.com/oauth/v2/accessToken
+```
+
+**Scope:**
+```
+openid profile email w_member_social
+```
+
+</div>
+
+**Where to find Client ID & Secret:**
+- LinkedIn app → **"Auth"** tab
+- Copy **Client ID** (visible)
+- Click **"Show"** next to Primary Client Secret → Copy it
+
+**Note:** PRESENTER: "Go to your LinkedIn app Auth tab. Copy Client ID and Secret. Paste them in GPT OAuth config."
+
+</div>
+
+<!-- Step 3 Content -->
+<div id="step-content-oauth-3" class="step-content">
+
+### Get Your LinkedIn URN
+
+**Your URN identifies your LinkedIn profile to the API.**
+
+**Option A: Use OAuth Flow (Easier)**
+
+Once OAuth is configured, ask your GPT:
+```
+Get my LinkedIn URN using OAuth
+```
+
+**Option B: Manual Method**
+
+1. **Get Access Token:**
+
+Visit this URL (replace YOUR_CLIENT_ID):
+```
+https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=https://oauth.pstmn.io/v1/callback&scope=openid%20profile%20email%20w_member_social
+```
+
+2. **Authorize** → You'll be redirected to:
+```
+https://oauth.pstmn.io/v1/callback?code=AQT...
+```
+
+3. **Exchange code for token:**
 ```bash
 curl -X POST https://www.linkedin.com/oauth/v2/accessToken \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  --data-urlencode "grant_type=authorization_code" \
-  --data-urlencode "code=PASTE_CODE_FROM_STEP_2" \
-  --data-urlencode "redirect_uri=https://oauth.pstmn.io/v1/callback" \
-  --data-urlencode "client_id=YOUR_CLIENT_ID" \
-  --data-urlencode "client_secret=YOUR_CLIENT_SECRET"
+  -d "grant_type=authorization_code" \
+  -d "code=PASTE_CODE_HERE" \
+  -d "redirect_uri=https://oauth.pstmn.io/v1/callback" \
+  -d "client_id=YOUR_CLIENT_ID" \
+  -d "client_secret=YOUR_CLIENT_SECRET"
 ```
 
-4. **Get Your URN:**
-
+4. **Get URN:**
 ```bash
-curl -X GET "https://api.linkedin.com/v2/userinfo" \
-  -H "Authorization: Bearer ACCESS_TOKEN_FROM_STEP_3"
+curl https://api.linkedin.com/v2/userinfo \
+  -H "Authorization: Bearer ACCESS_TOKEN"
 ```
 
-**Response will look like:**
+5. **Response:**
 ```json
 {
   "sub": "ABC123XYZ",
-  "name": "Your Name",
-  "email": "you@email.com"
+  "name": "Your Name"
 }
 ```
 
-5. **Build Your URN:**
-   - Find the `"sub"` field → Example: `"ABC123XYZ"`
-   - Add prefix: `urn:li:person:` + `ABC123XYZ`
-   - **Final URN:** `urn:li:person:ABC123XYZ`
-   - **This is what you use in your GPT!**
+6. **Build URN:**
+```
+urn:li:person:ABC123XYZ
+```
 
-**Easier Option:** Ask your GPT (once OAuth is configured):
-*"Get my LinkedIn URN using the OAuth connection"*
+**Note:** PRESENTER: "Easiest way - let your GPT get it for you using OAuth. Or follow manual steps."
 
 </div>
 
-<!-- Right Column: Reference Image -->
-<div>
+<!-- Step 4 Content -->
+<div id="step-content-oauth-4" class="step-content">
 
-<img src="../assets/chatgpt-post-action-to-linkedin.png" alt="GPT Editor OAuth Configuration" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+### Add Callback URL to LinkedIn
 
-<p style="font-size: 0.75em; color: #666; margin-top: 0.5rem; text-align: center;">OAuth Configuration in GPT Editor</p>
+**This is CRITICAL - OAuth won't work without it!**
+
+1. In **GPT Editor** → **Actions** section, scroll to bottom
+2. Copy the **Callback URL** (looks like):
+```
+https://chat.openai.com/aip/g-abc123xyz.../oauth/callback
+```
+
+3. Go to **LinkedIn app** → **"Auth"** tab
+4. Find **"Authorized redirect URLs for your app"**
+5. Click **"Update"** or **"+ Add redirect URL"**
+6. **Paste the exact callback URL**
+7. Click **"Update"**
+
+<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.85em; margin-top: 1rem;">
+
+⚠️ **Must match EXACTLY** - Copy/paste to avoid typos!
+
+</div>
+
+**Note:** PRESENTER: "Copy callback URL from GPT Editor. Paste it in LinkedIn app Auth tab. Click Update."
+
+</div>
+
+<!-- Step 5 Content -->
+<div id="step-content-oauth-5" class="step-content">
+
+### Test Your OAuth Setup!
+
+1. **Save your GPT** (click "Update" or "Create")
+2. **Open your GPT** in chat
+3. **Type:**
+```
+Post this to LinkedIn: "Just built my own LinkedIn GPT with OAuth!
+This is amazing. #AI #GPT"
+
+My URN is: urn:li:person:YOUR_URN
+```
+
+4. **Click "Sign in to api.linkedin.com"** button
+5. **Authorize** on LinkedIn
+6. **Post should complete!**
+
+✅ **Check LinkedIn** - your post should be live!
+
+<div style="background: #d4edda; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+
+**🎉 Success!** You now have a GPT that posts to YOUR LinkedIn using OAuth!
+
+</div>
+
+**Note:** PRESENTER: "Everyone try it! Type the post prompt with your URN. Click sign in. Authorize. Boom - live on LinkedIn!"
+
+</div>
 
 </div>
 
@@ -770,17 +895,7 @@ curl -X GET "https://api.linkedin.com/v2/userinfo" \
 
 ---
 
-### 🔑 Important: Copy Your Callback URL!
-
-After adding the action, scroll to the bottom of the Actions page in GPT Editor. You'll see a **Callback URL** like:
-
-`https://chat.openai.com/aip/g-abc123.../oauth/callback`
-
-Copy this EXACT URL and add it to your LinkedIn app's **Auth** → **Redirect URLs**
-
----
-
-**Note:** You must create your own LinkedIn app and use your own credentials. Go to [LinkedIn Developers](https://www.linkedin.com/developers/apps) to get started.
+**Note:** Full setup guide available at [GPT-SETUP-GUIDE.md](../GPT-SETUP-GUIDE.md)
 
 ---
 
