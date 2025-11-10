@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Track - Custom GPT Workshop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-tertiary: #334155;
+      --accent: #ef4444;
+      --accent-light: #fee2e2;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border: #475569;
+      --success: #10b981;
+      --warning: #f59e0b;
+    }
+
+    body {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body.light-mode {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-tertiary: #e2e8f0;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --border: #cbd5e1;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-link {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .header-right {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .timer {
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .theme-toggle {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .tab {
+      padding: 1rem 1.5rem;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab:hover {
+      color: var(--text-primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .section {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .section h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .section h3 {
+      color: var(--text-primary);
+      margin: 1.5rem 0 1rem;
+      font-size: 1.2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      font-family: 'SF Mono', monospace;
+    }
+
+    .code-editor {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: 'SF Mono', monospace;
+      font-size: 0.85rem;
+      min-height: 300px;
+      overflow-x: auto;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #dc2626);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .api-template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    .api-card {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .api-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .api-card.selected {
+      border-color: var(--accent);
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .api-card h4 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .api-card p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      background: var(--bg-tertiary);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .checklist input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .alert {
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+      border-left: 4px solid;
+    }
+
+    .alert-info {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
+
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: #f59e0b;
+      color: #fbbf24;
+    }
+
+    .cost-calculator {
+      background: var(--bg-tertiary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cost-row:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .api-template-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <a href="workshop-demo-hub.html" class="back-link">← Back to Hub</a>
+      <h1>🔴 Advanced Track</h1>
+    </div>
+    <div class="header-right">
+      <div class="timer">⏱️ <span id="timer">40:00</span></div>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('instructions')">📝 Advanced Instructions</button>
+      <button class="tab" onclick="showTab('actions')">⚡ Custom Actions</button>
+      <button class="tab" onclick="showTab('model')">🧠 Model Selection</button>
+      <button class="tab" onclick="showTab('testing')">🧪 Testing & Debug</button>
+      <button class="tab" onclick="showTab('publishing')">🚀 Publishing</button>
+      <button class="tab" onclick="showTab('export')">💾 Export Config</button>
+    </div>
+
+    <!-- Instructions Tab -->
+    <div id="instructions-tab" class="tab-content active">
+      <div class="section">
+        <h2>Advanced Instruction Patterns</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Build sophisticated GPT behavior with advanced prompting techniques.
+        </p>
+
+        <div class="form-group">
+          <label>Select Pattern Template:</label>
+          <select id="pattern-template" onchange="loadPatternTemplate()">
+            <option value="">-- Choose a pattern --</option>
+            <option value="chain-of-thought">Chain-of-Thought Reasoning</option>
+            <option value="few-shot">Few-Shot Learning</option>
+            <option value="structured-output">Structured Output (JSON/Tables)</option>
+            <option value="error-handling">Error Handling & Fallbacks</option>
+            <option value="multi-step">Multi-Step Task Decomposition</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Custom Instructions:</label>
+          <textarea id="advanced-instructions" placeholder="Enter your advanced GPT instructions..."></textarea>
+        </div>
+
+        <div class="alert alert-info">
+          <strong>💡 Tip:</strong> Use chain-of-thought prompting (e.g., "Think step by step") to improve reasoning quality for complex tasks.
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="previewInstructions()">Preview Output</button>
+          <button class="btn btn-secondary" onclick="copyInstructions()">Copy to Clipboard</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions Tab -->
+    <div id="actions-tab" class="tab-content">
+      <div class="section">
+        <h2>Custom Actions & API Integrations</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Connect your GPT to external APIs and services.
+        </p>
+
+        <h3>Choose API Template:</h3>
+        <div class="api-template-grid">
+          <div class="api-card" onclick="selectAPI('airtable')">
+            <h4>📊 Airtable</h4>
+            <p>Read/write records from Airtable bases</p>
+          </div>
+          <div class="api-card" onclick="selectAPI('sheets')">
+            <h4>📈 Google Sheets</h4>
+            <p>Access and update spreadsheet data</p>
+          </div>
+          <div class="api-card" onclick="selectAPI('zapier')">
+            <h4>⚡ Zapier Webhooks</h4>
+            <p>Trigger automation workflows</p>
+          </div>
+          <div class="api-card" onclick="selectAPI('custom')">
+            <h4>🔧 Custom REST API</h4>
+            <p>Build your own integration</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>OpenAPI Schema:</label>
+          <div class="code-editor" id="openapi-schema" contenteditable="true">{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Custom API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+    "/endpoint": {
+      "get": {
+        "summary": "Get data",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}</div>
+        </div>
+
+        <div class="form-group">
+          <label>Authentication Type:</label>
+          <select id="auth-type">
+            <option value="none">None</option>
+            <option value="api-key">API Key</option>
+            <option value="bearer">Bearer Token</option>
+            <option value="oauth">OAuth 2.0</option>
+          </select>
+        </div>
+
+        <div class="alert alert-warning">
+          <strong>⚠️ Security:</strong> Never expose API keys in your GPT instructions. Use the Actions authentication settings instead.
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="validateSchema()">Validate Schema</button>
+          <button class="btn btn-secondary" onclick="testEndpoint()">Test Endpoint</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Model Selection Tab -->
+    <div id="model-tab" class="tab-content">
+      <div class="section">
+        <h2>Model Selection & Optimization</h2>
+
+        <div class="form-group">
+          <label>Choose Model:</label>
+          <select id="model-selection" onchange="updateModelInfo()">
+            <option value="gpt-4">GPT-4 (Best quality, slower, higher cost)</option>
+            <option value="gpt-4-turbo" selected>GPT-4 Turbo (Balanced, recommended)</option>
+            <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fastest, lowest cost)</option>
+          </select>
+        </div>
+
+        <div id="model-info" class="alert alert-info">
+          <strong>GPT-4 Turbo:</strong> Best balance of speed, quality, and cost. Recommended for most use cases.
+        </div>
+
+        <h3>Cost Calculator</h3>
+        <div class="cost-calculator">
+          <div class="form-group">
+            <label>Expected monthly usage (conversations):</label>
+            <input type="number" id="monthly-usage" value="1000" oninput="calculateCost()">
+          </div>
+          <div class="form-group">
+            <label>Average tokens per conversation:</label>
+            <input type="number" id="avg-tokens" value="2000" oninput="calculateCost()">
+          </div>
+          <div class="cost-row">
+            <span>Input cost:</span>
+            <span id="input-cost">$10.00</span>
+          </div>
+          <div class="cost-row">
+            <span>Output cost:</span>
+            <span id="output-cost">$30.00</span>
+          </div>
+          <div class="cost-row">
+            <span>Total monthly estimate:</span>
+            <span id="total-cost">$40.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testing Tab -->
+    <div id="testing-tab" class="tab-content">
+      <div class="section">
+        <h2>Advanced Testing & Debugging</h2>
+
+        <h3>Test Scenarios:</h3>
+        <ul class="checklist">
+          <li>
+            <input type="checkbox">
+            <span>Basic functionality test (happy path)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Edge cases (empty input, unusual formats)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Error handling (invalid data, API failures)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Token limits (test with long conversations)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Multi-turn conversations (context retention)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Action testing (if using APIs)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Output format consistency</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Performance under load</span>
+          </li>
+        </ul>
+
+        <h3>Common Issues & Fixes:</h3>
+        <div class="alert alert-warning">
+          <strong>Issue:</strong> GPT doesn't follow instructions consistently<br>
+          <strong>Fix:</strong> Be more explicit, use examples, add "ALWAYS" or "NEVER" constraints
+        </div>
+        <div class="alert alert-warning">
+          <strong>Issue:</strong> Actions timeout or fail<br>
+          <strong>Fix:</strong> Check authentication, verify endpoint URLs, test with Postman first
+        </div>
+        <div class="alert alert-warning">
+          <strong>Issue:</strong> Output format varies<br>
+          <strong>Fix:</strong> Use structured output patterns, provide exact format examples
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="runAllTests()">Run All Tests</button>
+          <button class="btn btn-secondary" onclick="exportTestResults()">Export Results</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publishing Tab -->
+    <div id="publishing-tab" class="tab-content">
+      <div class="section">
+        <h2>Publishing Strategy</h2>
+
+        <div class="form-group">
+          <label>Privacy Level:</label>
+          <select id="privacy-level">
+            <option value="private">Only me</option>
+            <option value="link">Anyone with a link</option>
+            <option value="public">Public (GPT Store)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Category:</label>
+          <select>
+            <option>Writing</option>
+            <option>Productivity</option>
+            <option>Research & Analysis</option>
+            <option>Programming</option>
+            <option>Education</option>
+            <option>Lifestyle</option>
+          </select>
+        </div>
+
+        <h3>GPT Store Optimization:</h3>
+        <ul class="checklist">
+          <li>
+            <input type="checkbox">
+            <span>Clear, descriptive name (avoid generic terms)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Compelling description (focus on benefits)</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Relevant category selection</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Custom profile picture/logo</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Example prompts showcase key features</span>
+          </li>
+          <li>
+            <input type="checkbox">
+            <span>Tested thoroughly before publishing</span>
+          </li>
+        </ul>
+
+        <div class="alert alert-info">
+          <strong>💡 Tip:</strong> GPTs with clear use cases and good conversation starters get 3x more engagement in the GPT Store.
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="publishGPT()">Publish GPT →</button>
+          <button class="btn btn-secondary" onclick="previewGPT()">Preview First</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Tab -->
+    <div id="export-tab" class="tab-content">
+      <div class="section">
+        <h2>Export Complete Configuration</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+          Save your work and share with your team.
+        </p>
+
+        <h3>Export Options:</h3>
+        <div class="btn-group">
+          <button class="btn btn-primary" onclick="exportJSON()">📦 Download JSON</button>
+          <button class="btn btn-secondary" onclick="exportMarkdown()">📄 Download Markdown</button>
+          <button class="btn btn-secondary" onclick="copyShareLink()">🔗 Copy Share Link</button>
+        </div>
+
+        <h3>Version History:</h3>
+        <ul class="checklist">
+          <li>
+            <input type="checkbox" checked disabled>
+            <span>v1.0 - Initial configuration (2 hours ago)</span>
+          </li>
+          <li>
+            <input type="checkbox" checked disabled>
+            <span>v1.1 - Added custom actions (1 hour ago)</span>
+          </li>
+          <li>
+            <input type="checkbox" checked disabled>
+            <span>v1.2 - Current version (auto-saved)</span>
+          </li>
+        </ul>
+
+        <div class="alert alert-info">
+          <strong>Auto-save enabled:</strong> Your work is saved automatically every 30 seconds.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Timer
+    let timeLeft = 40 * 60; // 40 minutes
+    setInterval(() => {
+      timeLeft--;
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('timer').textContent =
+        `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }, 1000);
+
+    // Tab switching
+    function showTab(tabName) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    // Pattern templates
+    function loadPatternTemplate() {
+      const templates = {
+        'chain-of-thought': 'When solving complex problems:\n\n1. Break down the problem into steps\n2. Think through each step explicitly\n3. Show your reasoning\n4. Arrive at a conclusion\n\nALWAYS start with "Let me think through this step by step..."',
+        'few-shot': 'Here are examples of the desired output:\n\nExample 1:\nInput: [example]\nOutput: [example output]\n\nExample 2:\nInput: [example]\nOutput: [example output]\n\nNow follow this pattern for all requests.',
+        'structured-output': 'ALWAYS respond in this exact JSON format:\n\n{\n  "summary": "...",\n  "analysis": "...",\n  "recommendations": [\n    "item 1",\n    "item 2"\n  ]\n}',
+        'error-handling': 'If you encounter an error or missing information:\n\n1. Acknowledge what went wrong\n2. Explain what information is needed\n3. Provide a fallback response\n4. Never make up data\n\nExample: "I don\'t have access to that data. To help you, I would need [specific info]."',
+        'multi-step': 'For complex requests:\n\n1. Confirm you understand the goal\n2. Break it into subtasks\n3. Complete each subtask in order\n4. Summarize results at the end\n5. Ask if further refinement is needed'
+      };
+
+      const select = document.getElementById('pattern-template');
+      const textarea = document.getElementById('advanced-instructions');
+      if (select.value && templates[select.value]) {
+        textarea.value = templates[select.value];
+      }
+    }
+
+    // API selection
+    let selectedAPI = null;
+    function selectAPI(apiType) {
+      selectedAPI = apiType;
+      document.querySelectorAll('.api-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      event.target.closest('.api-card').classList.add('selected');
+
+      const schemas = {
+        'airtable': {
+          url: 'https://api.airtable.com/v0/{baseId}/{tableName}',
+          description: 'Airtable API v0'
+        },
+        'sheets': {
+          url: 'https://sheets.googleapis.com/v4/spreadsheets/{spreadsheetId}',
+          description: 'Google Sheets API v4'
+        },
+        'zapier': {
+          url: 'https://hooks.zapier.com/hooks/catch/{hookId}/',
+          description: 'Zapier Webhook'
+        },
+        'custom': {
+          url: 'https://api.example.com',
+          description: 'Custom REST API'
+        }
+      };
+
+      if (schemas[apiType]) {
+        // Update schema editor with template
+        console.log('Selected API:', apiType);
+      }
+    }
+
+    // Model info
+    function updateModelInfo() {
+      const model = document.getElementById('model-selection').value;
+      const info = {
+        'gpt-4': 'Best reasoning and quality. Use for complex tasks requiring deep understanding. Higher cost, slower responses.',
+        'gpt-4-turbo': 'Balanced speed, quality, and cost. Recommended for most production use cases.',
+        'gpt-3.5-turbo': 'Fastest responses, lowest cost. Good for simple tasks and high-volume applications.'
+      };
+      document.getElementById('model-info').innerHTML =
+        `<strong>${model.toUpperCase()}:</strong> ${info[model]}`;
+      calculateCost();
+    }
+
+    // Cost calculator
+    function calculateCost() {
+      const model = document.getElementById('model-selection').value;
+      const usage = parseInt(document.getElementById('monthly-usage').value) || 0;
+      const tokens = parseInt(document.getElementById('avg-tokens').value) || 0;
+
+      const pricing = {
+        'gpt-4': { input: 0.03, output: 0.06 },
+        'gpt-4-turbo': { input: 0.01, output: 0.03 },
+        'gpt-3.5-turbo': { input: 0.0005, output: 0.0015 }
+      };
+
+      const rates = pricing[model];
+      const inputCost = (usage * tokens * 0.6 * rates.input) / 1000;
+      const outputCost = (usage * tokens * 0.4 * rates.output) / 1000;
+      const total = inputCost + outputCost;
+
+      document.getElementById('input-cost').textContent = `$${inputCost.toFixed(2)}`;
+      document.getElementById('output-cost').textContent = `$${outputCost.toFixed(2)}`;
+      document.getElementById('total-cost').textContent = `$${total.toFixed(2)}`;
+    }
+
+    // Button handlers
+    function previewInstructions() {
+      alert('Preview functionality - would show formatted output');
+    }
+
+    function copyInstructions() {
+      const text = document.getElementById('advanced-instructions').value;
+      navigator.clipboard.writeText(text);
+      alert('Copied to clipboard!');
+    }
+
+    function validateSchema() {
+      alert('Schema validation passed! ✓');
+    }
+
+    function testEndpoint() {
+      alert('Testing endpoint... (would perform actual API call in production)');
+    }
+
+    function runAllTests() {
+      alert('Running all tests... Check console for results');
+    }
+
+    function exportTestResults() {
+      alert('Test results exported!');
+    }
+
+    function publishGPT() {
+      alert('Publishing GPT to selected privacy level...');
+    }
+
+    function previewGPT() {
+      alert('Opening preview...');
+    }
+
+    function exportJSON() {
+      const config = {
+        instructions: document.getElementById('advanced-instructions').value,
+        model: document.getElementById('model-selection').value,
+        actions: selectedAPI,
+        privacy: document.getElementById('privacy-level').value,
+        timestamp: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'gpt-config.json';
+      a.click();
+    }
+
+    function exportMarkdown() {
+      alert('Exporting as Markdown...');
+    }
+
+    function copyShareLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Share link copied!');
+    }
+
+    // Auto-save
+    setInterval(() => {
+      console.log('Auto-saving...');
+      // Would save to localStorage in production
+    }, 30000);
+
+    // Initialize
+    calculateCost();
+  </script>
+</body>
+</html>

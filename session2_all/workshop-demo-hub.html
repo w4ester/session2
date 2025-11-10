@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workshop Demo Hub - Choose Your Path</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .track-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .track-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+    }
+
+    .track-card.express::before {
+      background: linear-gradient(90deg, #10b981, #059669);
+    }
+
+    .track-card.custom::before {
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+
+    .track-card.advanced::before {
+      background: linear-gradient(90deg, #ef4444, #dc2626);
+    }
+
+    .track-card.dashboard::before {
+      background: linear-gradient(90deg, #3b82f6, #2563eb);
+    }
+
+    .track-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .track-badge {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .track-card.express .track-badge {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .track-card.custom .track-badge {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .track-card.advanced .track-badge {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .track-card.dashboard .track-badge {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .track-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #1f2937;
+      font-weight: 700;
+    }
+
+    .track-time {
+      color: #6b7280;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .track-desc {
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .track-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .track-features li {
+      padding: 0.5rem 0;
+      color: #374151;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .track-features li::before {
+      content: '✓';
+      color: #10b981;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .track-button {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .track-card.express .track-button {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+    }
+
+    .track-card.custom .track-button {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: white;
+    }
+
+    .track-card.advanced .track-button {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+
+    .track-card.dashboard .track-button {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+    }
+
+    .track-button:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .info-section {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .info-section h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-card {
+      padding: 1.5rem;
+      background: #f9fafb;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+    }
+
+    .info-card h3 {
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .comparison-table {
+      width: 100%;
+      margin-top: 1.5rem;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .comparison-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .comparison-table td {
+      color: #4b5563;
+    }
+
+    .check {
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .cross {
+      color: #ef4444;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .footer-link:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .tracks-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .status-badge.ready {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-badge.building {
+      background: #fef3c7;
+      color: #92400e;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🚀 Workshop Demo Hub</h1>
+      <p>Choose your learning path - All approaches lead to a working Custom GPT!</p>
+      <p style="margin-top: 0.5rem; font-size: 1rem; opacity: 0.9;">Built with AI orchestration by first_principles_programming_orchastration</p>
+    </div>
+
+    <div class="tracks-grid">
+      <!-- Express Track -->
+      <div class="track-card express" onclick="location.href='workshop-demo-express.html'">
+        <span class="track-icon">🟢</span>
+        <span class="track-badge">Beginner Friendly</span>
+        <h2 class="track-title">Express Track</h2>
+        <div class="track-time">⏱️ 10 minutes to working GPT</div>
+        <p class="track-desc">
+          Use our pre-built template with minimal customization. Perfect for first-timers or those short on time.
+        </p>
+        <ul class="track-features">
+          <li>Copy-paste instructions</li>
+          <li>Pre-made knowledge files</li>
+          <li>Ready-to-use conversation starters</li>
+          <li>Guaranteed success in 10 min</li>
+        </ul>
+        <button class="track-button">Start Express Track →</button>
+      </div>
+
+      <!-- Custom Track -->
+      <div class="track-card custom" onclick="location.href='workshop-demo-custom.html'">
+        <span class="track-icon">🟡</span>
+        <span class="track-badge">Recommended</span>
+        <h2 class="track-title">Custom Track</h2>
+        <div class="track-time">⏱️ 25 minutes personalized</div>
+        <p class="track-desc">
+          Personalize instructions and upload your own files. The sweet spot between speed and customization.
+        </p>
+        <ul class="track-features">
+          <li>Customize GPT instructions</li>
+          <li>Upload your own files</li>
+          <li>Choose capabilities</li>
+          <li>Test and refine</li>
+        </ul>
+        <button class="track-button">Start Custom Track →</button>
+      </div>
+
+      <!-- Advanced Track -->
+      <div class="track-card advanced" onclick="location.href='workshop-demo-advanced.html'">
+        <span class="track-icon">🔴</span>
+        <span class="track-badge">Power Users</span>
+        <h2 class="track-title">Advanced Track</h2>
+        <div class="track-time">⏱️ 40 minutes full-featured</div>
+        <p class="track-desc">
+          Full capabilities, custom actions, API integrations, and advanced refinement. Unlock maximum potential.
+        </p>
+        <ul class="track-features">
+          <li>All capabilities enabled</li>
+          <li>Custom actions & APIs</li>
+          <li>Advanced testing & debugging</li>
+          <li>Publishing & sharing strategy</li>
+        </ul>
+        <button class="track-button">Start Advanced Track →</button>
+      </div>
+
+      <!-- Live Dashboard -->
+      <div class="track-card dashboard" onclick="location.href='workshop-demo-dashboard.html'">
+        <span class="track-icon">📊</span>
+        <span class="track-badge">Facilitator Tool</span>
+        <h2 class="track-title">Live Progress Dashboard</h2>
+        <div class="track-time">⏱️ Real-time monitoring</div>
+        <p class="track-desc">
+          For workshop leaders: Track attendee progress, identify bottlenecks, and provide targeted help.
+        </p>
+        <ul class="track-features">
+          <li>Real-time progress tracking</li>
+          <li>Common issues alerts</li>
+          <li>Q&A feed</li>
+          <li>Completion statistics</li>
+        </ul>
+        <button class="track-button">Open Dashboard →</button>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>🎯 Which Track Should You Choose?</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>🟢 Express Track If:</h3>
+          <p>
+            You're new to Custom GPTs, short on time, want guaranteed success, or just want to see what's possible before diving deeper.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>🟡 Custom Track If:</h3>
+          <p>
+            You have your own brand/company docs, want a personalized GPT, have 25 minutes, and are comfortable with some technical configuration.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>🔴 Advanced Track If:</h3>
+          <p>
+            You want maximum capabilities, need API integrations, plan to publish publicly, or want to explore advanced features like actions.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>📊 Dashboard If:</h3>
+          <p>
+            You're facilitating the workshop and need to monitor attendee progress, answer questions, and ensure everyone succeeds.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>📋 Track Comparison</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>🟢 Express</th>
+            <th>🟡 Custom</th>
+            <th>🔴 Advanced</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Time Required</strong></td>
+            <td>10 minutes</td>
+            <td>25 minutes</td>
+            <td>40 minutes</td>
+          </tr>
+          <tr>
+            <td><strong>Pre-built Templates</strong></td>
+            <td><span class="check">✓</span> Yes</td>
+            <td><span class="check">✓</span> Starting point</td>
+            <td><span class="check">✓</span> Optional</td>
+          </tr>
+          <tr>
+            <td><strong>Custom Instructions</strong></td>
+            <td><span class="cross">✗</span> Minimal</td>
+            <td><span class="check">✓</span> Yes</td>
+            <td><span class="check">✓</span> Full control</td>
+          </tr>
+          <tr>
+            <td><strong>Upload Your Files</strong></td>
+            <td><span class="cross">✗</span> Use samples</td>
+            <td><span class="check">✓</span> Yes</td>
+            <td><span class="check">✓</span> Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Enable Capabilities</strong></td>
+            <td><span class="check">✓</span> Pre-selected</td>
+            <td><span class="check">✓</span> Choose</td>
+            <td><span class="check">✓</span> All options</td>
+          </tr>
+          <tr>
+            <td><strong>Custom Actions/APIs</strong></td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="cross">✗</span> No</td>
+            <td><span class="check">✓</span> Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Testing & Refinement</strong></td>
+            <td><span class="check">✓</span> Basic</td>
+            <td><span class="check">✓</span> Thorough</td>
+            <td><span class="check">✓</span> Advanced</td>
+          </tr>
+          <tr>
+            <td><strong>Publishing Strategy</strong></td>
+            <td><span class="cross">✗</span> Private only</td>
+            <td><span class="check">✓</span> Team sharing</td>
+            <td><span class="check">✓</span> Public + store</td>
+          </tr>
+          <tr>
+            <td><strong>Best For</strong></td>
+            <td>First-timers</td>
+            <td>Business users</td>
+            <td>Power users</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-section">
+      <h2>🎓 What You'll Build</h2>
+      <p style="color: #4b5563; line-height: 1.8; margin-bottom: 1rem;">
+        All tracks teach you to build one of these 5 powerful Custom GPTs:
+      </p>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>📋 Campaign Brief Generator</h3>
+          <p>Saves 1-2 hours per brief. Creates comprehensive marketing campaigns with audience insights, messaging, channels, and metrics.</p>
+        </div>
+        <div class="info-card">
+          <h3>📊 Marketing Data Analyst</h3>
+          <p>Turns spreadsheets into insights. Upload CSVs, get actionable recommendations with ROI calculations and forecasts.</p>
+        </div>
+        <div class="info-card">
+          <h3>✍️ Brand Voice Copywriter</h3>
+          <p>Instant on-brand copy. Writes emails, social posts, ads, landing pages—all in your exact brand voice.</p>
+        </div>
+        <div class="info-card">
+          <h3>🎤 Executive Communications</h3>
+          <p>Drafts all-hands emails, board updates, investor memos, LinkedIn posts in your leadership voice.</p>
+        </div>
+        <div class="info-card">
+          <h3>📱 Social Media Machine</h3>
+          <p>Never run out of content. Generates platform-specific posts, hashtags, and content calendars.</p>
+        </div>
+        <div class="info-card">
+          <h3>🎨 Your Custom Idea</h3>
+          <p>Have something else in mind? All tracks support building your own unique Custom GPT from scratch.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Ready to build your AI assistant?</p>
+      <p style="opacity: 0.9;">Choose a track above to get started</p>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">← Back to Main Site</a>
+        <a href="workshop-view.html" class="footer-link">3-Window Setup</a>
+        <a href="slides/" class="footer-link" target="_blank">Workshop Slides ↗</a>
+        <a href="live-build-version/index.html" class="footer-link">Interactive Tools</a>
+      </div>
+      <p style="margin-top: 2rem; font-size: 0.875rem; opacity: 0.8;">
+        Built with AI Orchestration
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Track which demos are ready
+    const demoStatus = {
+      express: false,
+      custom: false,
+      advanced: false,
+      dashboard: false
+    };
+
+    // Check if demo pages exist
+    async function checkDemoStatus() {
+      const demos = ['express', 'custom', 'advanced', 'dashboard'];
+
+      for (const demo of demos) {
+        try {
+          const response = await fetch(`workshop-demo-${demo}.html`, { method: 'HEAD' });
+          demoStatus[demo] = response.ok;
+        } catch (e) {
+          demoStatus[demo] = false;
+        }
+      }
+
+      updateBadges();
+    }
+
+    function updateBadges() {
+      // Add status badges if pages aren't ready yet
+      document.querySelectorAll('.track-card').forEach(card => {
+        const track = card.className.includes('express') ? 'express' :
+                     card.className.includes('custom') ? 'custom' :
+                     card.className.includes('advanced') ? 'advanced' : 'dashboard';
+
+        if (!demoStatus[track]) {
+          const badge = document.createElement('span');
+          badge.className = 'status-badge building';
+          badge.textContent = 'Building...';
+          card.querySelector('.track-title').appendChild(badge);
+          card.style.opacity = '0.7';
+          card.style.cursor = 'not-allowed';
+          card.onclick = null;
+        }
+      });
+    }
+
+    // Check on load
+    checkDemoStatus();
+  </script>
+</body>
+</html>

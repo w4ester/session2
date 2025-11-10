@@ -1,0 +1,53 @@
+Campaign Name,Campaign Type,Start Date,End Date,Total Budget,Channel,Spend,Impressions,Clicks,CTR,Conversions,Conversion Rate,MQLs,Cost Per MQL,Demos Booked,Cost Per Demo,Pipeline Generated,ROI,Status,Notes
+Q1 Product Launch,Product Launch,2024-01-15,2024-03-31,45000,LinkedIn Ads,18000,850000,12750,1.50%,425,3.33%,187,96.26,23,782.61,285000,6.33,Completed,Strong enterprise performance
+Q1 Product Launch,Product Launch,2024-01-15,2024-03-31,45000,Email (Existing DB),3500,0,8200,82.00%,656,8.00%,245,14.29,31,112.90,312000,89.14,Completed,Best performing channel
+Q1 Product Launch,Product Launch,2024-01-15,2024-03-31,45000,Content Marketing,12000,425000,6375,1.50%,191,3.00%,95,126.32,12,1000.00,138000,11.50,Completed,SEO content performed well
+Q1 Product Launch,Product Launch,2024-01-15,2024-03-31,45000,Webinar,8500,0,450,0.00%,180,40.00%,140,60.71,28,303.57,196000,23.06,Completed,High-intent audience
+Q1 Product Launch,Product Launch,2024-01-15,2024-03-31,45000,Contingency,3000,0,0,0.00%,0,0.00%,0,0.00,0,0.00,0,0.00,Completed,Reallocated to LinkedIn Ads
+Q2 Competitive Campaign,Competitive,2024-04-01,2024-05-31,28000,LinkedIn Ads,15000,620000,8680,1.40%,260,3.00%,104,144.23,15,1000.00,168000,6.00,Completed,Targeted HubSpot customers
+Q2 Competitive Campaign,Competitive,2024-04-01,2024-05-31,28000,Display Ads,8000,1200000,12000,1.00%,120,1.00%,48,166.67,6,1333.33,72000,2.57,Completed,Low conversion quality
+Q2 Competitive Campaign,Competitive,2024-04-01,2024-05-31,28000,Email (Cold Outreach),3000,0,1200,12.00%,48,4.00%,28,107.14,8,375.00,42000,5.00,Completed,List quality was key
+Q2 Competitive Campaign,Competitive,2024-04-01,2024-05-31,28000,Content (Comparison),2000,85000,1700,2.00%,51,3.00%,34,58.82,7,285.71,51000,18.00,Completed,Comparison guide hit
+Summer Nurture,Nurture,2024-06-01,2024-08-31,12000,Email (Nurture),5000,0,3200,64.00%,192,6.00%,115,43.48,18,277.78,138000,11.50,Completed,Re-engaged cold leads
+Summer Nurture,Nurture,2024-06-01,2024-08-31,12000,Retargeting Ads,7000,480000,4800,1.00%,96,2.00%,48,145.83,8,875.00,72000,6.00,Completed,Supported email well
+Q3 Enterprise Expansion,Enterprise,2024-07-01,2024-09-30,65000,ABM (LinkedIn),25000,180000,3600,2.00%,180,5.00%,90,277.78,22,1136.36,396000,6.09,Completed,High ACV made up for high CPL
+Q3 Enterprise Expansion,Enterprise,2024-07-01,2024-09-30,65000,Direct Mail,15000,0,0,0.00%,45,0.00%,38,394.74,12,1250.00,216000,3.32,Completed,Personalized gifts worked
+Q3 Enterprise Expansion,Enterprise,2024-07-01,2024-09-30,65000,Field Events,18000,0,350,0.00%,140,40.00%,105,171.43,28,642.86,378000,5.82,Completed,2 industry conferences
+Q3 Enterprise Expansion,Enterprise,2024-07-01,2024-09-30,65000,Executive Dinners,7000,0,45,0.00%,36,80.00%,32,218.75,18,388.89,252000,8.71,Completed,High-touch approach paid off
+Fall Webinar Series,Webinar Series,2024-09-15,2024-11-15,22000,Email (Promotion),4000,0,5600,56.00%,280,5.00%,168,23.81,35,114.29,252000,11.45,Completed,3-part webinar series
+Fall Webinar Series,Webinar Series,2024-09-15,2024-11-15,22000,LinkedIn Ads,10000,450000,6300,1.40%,189,3.00%,94,106.38,22,454.55,141000,6.41,Completed,Promoted webinar registrations
+Fall Webinar Series,Webinar Series,2024-09-15,2024-11-15,22000,Partner Co-Marketing,5000,125000,2500,2.00%,75,3.00%,52,96.15,12,416.67,78000,3.55,Completed,Partner brought qualified leads
+Fall Webinar Series,Webinar Series,2024-09-15,2024-11-15,22000,Content (Blog Support),3000,95000,2850,3.00%,86,3.00%,60,50.00,11,272.73,90000,4.09,Completed,SEO traffic boost
+Q4 Year-End Push,Seasonal,2024-10-01,2024-12-31,38000,LinkedIn Ads,16000,720000,10080,1.40%,302,3.00%,151,105.96,28,571.43,226800,5.97,Active,Budget spend optimization
+Q4 Year-End Push,Seasonal,2024-10-01,2024-12-31,38000,Email (Black Friday),6000,0,9200,92.00%,552,6.00%,276,21.74,42,142.86,414000,11.00,Active,Special offer drove urgency
+Q4 Year-End Push,Seasonal,2024-10-01,2024-12-31,38000,Social (LinkedIn Organic),2000,240000,4800,2.00%,96,2.00%,58,34.48,11,181.82,87000,2.29,Active,Thought leadership posts
+Q4 Year-End Push,Seasonal,2024-10-01,2024-12-31,38000,Video Ads (YouTube),8000,980000,9800,1.00%,196,2.00%,98,81.63,18,444.44,147000,4.61,Active,Product demo videos
+Q4 Year-End Push,Seasonal,2024-10-01,2024-12-31,38000,Content (Case Studies),6000,0,0,0.00%,0,0.00%,45,133.33,9,666.67,67500,1.78,Active,Organic traffic and nurture
+Customer Expansion Q2,Expansion,2024-04-01,2024-06-30,18000,Email (Customer),3000,0,4200,84.00%,420,10.00%,168,17.86,42,71.43,336000,18.67,Completed,Upsell to existing customers
+Customer Expansion Q2,Expansion,2024-04-01,2024-06-30,18000,In-App Messaging,2000,0,2500,0.00%,250,10.00%,125,16.00,28,71.43,250000,13.89,Completed,Feature adoption campaign
+Customer Expansion Q2,Expansion,2024-04-01,2024-06-30,18000,Webinar (Advanced),5000,0,180,0.00%,126,70.00%,98,51.02,32,156.25,196000,10.89,Completed,Power user training
+Customer Expansion Q2,Expansion,2024-04-01,2024-06-30,18000,Account-Based Outreach,8000,0,120,0.00%,96,80.00%,84,95.24,24,333.33,168000,9.33,Completed,High-touch CSM outreach
+Partner Co-Marketing Q3,Partner,2024-07-01,2024-09-30,15000,Co-Branded Webinar,6000,0,420,0.00%,210,50.00%,126,47.62,28,214.29,189000,12.60,Completed,Integration partner
+Partner Co-Marketing Q3,Partner,2024-07-01,2024-09-30,15000,Email (Co-Marketing),4000,0,6800,68.00%,340,5.00%,170,23.53,32,125.00,255000,17.00,Completed,Sent to both lists
+Partner Co-Marketing Q3,Partner,2024-07-01,2024-09-30,15000,Content (Integration),3000,75000,2250,3.00%,68,3.00%,48,62.50,12,250.00,72000,4.80,Completed,Integration guide
+Partner Co-Marketing Q3,Partner,2024-07-01,2024-09-30,15000,Social (Partner Tag),2000,180000,3600,2.00%,72,2.00%,42,47.62,8,250.00,63000,4.20,Completed,Cross-promoted posts
+Holiday Campaign 2023,Seasonal,2023-11-20,2023-12-31,32000,Email (Holiday Offer),5000,0,8500,85.00%,595,7.00%,297,16.84,48,104.17,356400,11.14,Completed,Limited-time discount
+Holiday Campaign 2023,Seasonal,2023-11-20,2023-12-31,32000,LinkedIn Ads,14000,680000,9520,1.40%,286,3.00%,143,97.90,24,583.33,171600,5.36,Completed,Holiday messaging
+Holiday Campaign 2023,Seasonal,2023-11-20,2023-12-31,32000,Display Retargeting,8000,850000,8500,1.00%,170,2.00%,85,94.12,14,571.43,102000,3.19,Completed,Cart abandonment retargeting
+Holiday Campaign 2023,Seasonal,2023-11-20,2023-12-31,32000,Social (Organic),2000,320000,6400,2.00%,128,2.00%,77,25.97,15,133.33,92400,2.89,Completed,Holiday-themed content
+Holiday Campaign 2023,Seasonal,2023-11-20,2023-12-31,32000,Contingency,3000,0,0,0.00%,0,0.00%,0,0.00,0,0.00,0,0.00,Completed,No issues encountered
+SMB Reactivation Q1,Reactivation,2024-01-01,2024-03-31,14000,Email (Win-back),4000,0,3200,64.00%,160,5.00%,96,41.67,18,222.22,115200,8.23,Completed,Targeted churned customers
+SMB Reactivation Q1,Reactivation,2024-01-01,2024-03-31,14000,LinkedIn Retargeting,6000,380000,5320,1.40%,160,3.00%,80,75.00,14,428.57,96000,6.86,Completed,Lookalike audiences
+SMB Reactivation Q1,Reactivation,2024-01-01,2024-03-31,14000,Content (Pain Point),4000,110000,3300,3.00%,99,3.00%,66,60.61,12,333.33,79200,5.66,Completed,Addressed objections
+Spring Refresh Campaign,Brand Awareness,2024-03-01,2024-04-30,25000,LinkedIn Video Ads,12000,920000,9200,1.00%,184,2.00%,92,130.43,16,750.00,110400,4.42,Completed,Brand awareness focus
+Spring Refresh Campaign,Brand Awareness,2024-03-01,2024-04-30,25000,Podcast Sponsorships,8000,0,350,0.00%,70,20.00%,49,163.27,11,727.27,58800,2.35,Completed,3 B2B marketing podcasts
+Spring Refresh Campaign,Brand Awareness,2024-03-01,2024-04-30,25000,LinkedIn Articles,3000,185000,5550,3.00%,167,3.00%,100,30.00,18,166.67,120000,4.80,Completed,Thought leadership content
+Spring Refresh Campaign,Brand Awareness,2024-03-01,2024-04-30,25000,Influencer Partnership,2000,95000,2850,3.00%,86,3.00%,60,33.33,12,166.67,72000,2.88,Completed,Industry influencer collab
+Product Feature Launch,Product Launch,2024-05-15,2024-06-30,20000,Email (Announcement),3000,0,7200,72.00%,504,7.00%,252,11.90,42,71.43,302400,15.12,Completed,Announced AI features
+Product Feature Launch,Product Launch,2024-05-15,2024-06-30,20000,LinkedIn Ads,9000,580000,8120,1.40%,244,3.00%,122,73.77,22,409.09,146400,7.32,Completed,Feature-focused ads
+Product Feature Launch,Product Launch,2024-05-15,2024-06-30,20000,Video Demo,5000,0,0,0.00%,0,0.00%,85,58.82,18,277.78,102000,5.10,Completed,Product walkthrough video
+Product Feature Launch,Product Launch,2024-05-15,2024-06-30,20000,Blog & SEO,3000,125000,3750,3.00%,113,3.00%,75,40.00,14,214.29,90000,4.50,Completed,Feature announcement blog
+Mid-Market Push Q3,Segment Expansion,2024-07-15,2024-09-30,42000,LinkedIn ABM,18000,280000,5600,2.00%,280,5.00%,140,128.57,32,562.50,252000,6.00,Completed,50-500 employee companies
+Mid-Market Push Q3,Segment Expansion,2024-07-15,2024-09-30,42000,Email (Target List),6000,0,4800,48.00%,288,6.00%,173,34.68,36,166.67,207600,8.65,Completed,Purchased list performed well
+Mid-Market Push Q3,Segment Expansion,2024-07-15,2024-09-30,42000,Content (Industry),8000,195000,5850,3.00%,176,3.00%,117,68.38,24,333.33,140400,4.68,Completed,Industry-specific content
+Mid-Market Push Q3,Segment Expansion,2024-07-15,2024-09-30,42000,Field Marketing,10000,0,280,0.00%,168,60.00%,126,79.37,36,277.78,226800,5.40,Completed,Regional events

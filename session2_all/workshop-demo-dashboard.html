@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workshop Live Dashboard - Facilitator View</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header h1 {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-success {
+      background: #10b981;
+      color: white;
+    }
+
+    .btn-warning {
+      background: #f59e0b;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .dashboard {
+      padding: 2rem;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 2px solid #334155;
+      transition: all 0.2s;
+    }
+
+    .stat-card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+    }
+
+    .stat-card-header {
+      color: #94a3b8;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-card-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card-footer {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    .progress-section {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid #334155;
+    }
+
+    .progress-section h2 {
+      color: #3b82f6;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .progress-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .progress-bar-container {
+      position: relative;
+    }
+
+    .progress-bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+    }
+
+    .progress-bar {
+      height: 40px;
+      background: #334155;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+
+    .progress-bar-fill.express {
+      background: linear-gradient(90deg, #10b981, #059669);
+    }
+
+    .progress-bar-fill.custom {
+      background: linear-gradient(90deg, #f59e0b, #d97706);
+    }
+
+    .progress-bar-fill.advanced {
+      background: linear-gradient(90deg, #ef4444, #dc2626);
+    }
+
+    .attendees-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .attendee-card {
+      background: #334155;
+      border-radius: 8px;
+      padding: 1rem;
+      border: 2px solid #475569;
+      transition: all 0.2s;
+    }
+
+    .attendee-card.stuck {
+      border-color: #ef4444;
+      animation: pulse 2s infinite;
+    }
+
+    .attendee-card.completed {
+      border-color: #10b981;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+      50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    }
+
+    .attendee-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .attendee-name {
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+
+    .attendee-status {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .status-ontrack {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .status-slow {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-stuck {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .status-completed {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .attendee-info {
+      color: #cbd5e1;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .attendee-progress-bar {
+      height: 8px;
+      background: #475569;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .attendee-progress-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    .attendee-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn-small {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+    }
+
+    .qna-section {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 2px solid #334155;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .question-item {
+      background: #334155;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .question-author {
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+
+    .question-votes {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #3b82f6;
+    }
+
+    .question-text {
+      color: #cbd5e1;
+      margin-bottom: 0.75rem;
+    }
+
+    .question-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1e293b;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-left: 4px solid #3b82f6;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast.success {
+      border-left-color: #10b981;
+    }
+
+    .toast.warning {
+      border-left-color: #f59e0b;
+    }
+
+    .toast.error {
+      border-left-color: #ef4444;
+    }
+
+    .controls-panel {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 2px solid #334155;
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard {
+        padding: 1rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .attendees-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div>
+      <h1>📊 Workshop Live Dashboard</h1>
+      <p style="font-size: 0.875rem; color: rgba(255,255,255,0.8); margin-top: 0.25rem;">
+        Real-time attendee tracking & progress monitoring
+      </p>
+    </div>
+    <div class="header-controls">
+      <button class="btn btn-warning" onclick="pauseAll()">⏸️ Pause All</button>
+      <button class="btn btn-success" onclick="broadcast()">📢 Broadcast</button>
+      <a href="workshop-demo-hub.html" class="btn" style="background: rgba(255,255,255,0.2); color: white; text-decoration: none;">← Back</a>
+    </div>
+  </div>
+
+  <div class="dashboard">
+    <!-- Statistics Overview -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-card-header">Total Attendees</div>
+        <div class="stat-card-value" id="total-attendees">0</div>
+        <div class="stat-card-footer">Active in workshop</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">Avg Completion Time</div>
+        <div class="stat-card-value" id="avg-time">--</div>
+        <div class="stat-card-footer">Minutes per GPT</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">Success Rate</div>
+        <div class="stat-card-value" id="success-rate">0%</div>
+        <div class="stat-card-footer" id="completed-count">0 completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-header">Need Help</div>
+        <div class="stat-card-value" id="stuck-count" style="color: #ef4444;">0</div>
+        <div class="stat-card-footer">Stuck for >3 min</div>
+      </div>
+    </div>
+
+    <!-- Simulation Controls -->
+    <div class="controls-panel">
+      <h2 style="color: #3b82f6; margin-bottom: 1rem;">Simulation Controls (Demo Mode)</h2>
+      <div class="controls-grid">
+        <button class="btn btn-success" onclick="startSimulation()">▶️ Start Simulation</button>
+        <button class="btn btn-warning" onclick="stopSimulation()">⏹️ Stop Simulation</button>
+        <button class="btn" style="background: #334155; color: white;" onclick="addAttendee()">➕ Add Attendee</button>
+        <button class="btn" style="background: #334155; color: white;" onclick="createProblem()">⚠️ Create Problem</button>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <label style="color: #cbd5e1;">Speed:</label>
+          <select id="speed-control" style="padding: 0.5rem; border-radius: 6px; background: #334155; color: white; border: none;">
+            <option value="1">1x</option>
+            <option value="2">2x</option>
+            <option value="5">5x</option>
+            <option value="10">10x</option>
+          </select>
+        </div>
+        <button class="btn btn-danger" onclick="exportData()">📊 Export Data</button>
+      </div>
+    </div>
+
+    <!-- Progress Distribution -->
+    <div class="progress-section">
+      <h2>Progress Distribution by Track</h2>
+      <div class="progress-bars">
+        <div class="progress-bar-container">
+          <div class="progress-bar-label">
+            <span>🟢 Express Track</span>
+            <span id="express-count">0 attendees</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill express" id="express-bar" style="width: 0%">0%</div>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-label">
+            <span>🟡 Custom Track</span>
+            <span id="custom-count">0 attendees</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill custom" id="custom-bar" style="width: 0%">0%</div>
+          </div>
+        </div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-label">
+            <span>🔴 Advanced Track</span>
+            <span id="advanced-count">0 attendees</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill advanced" id="advanced-bar" style="width: 0%">0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Individual Attendees -->
+    <div class="progress-section">
+      <h2>Individual Progress Tracking</h2>
+      <div class="attendees-grid" id="attendees-container"></div>
+    </div>
+
+    <!-- Q&A Feed -->
+    <div class="progress-section">
+      <h2>Q&A Feed</h2>
+      <div class="qna-section" id="qna-container"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Attendee data
+    const attendees = [];
+    const tracks = ['express', 'custom', 'advanced'];
+    const names = ['Alex', 'Jordan', 'Sam', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Avery', 'Quinn', 'Blake',
+                   'Jamie', 'Skyler', 'Cameron', 'Drew', 'Kendall', 'Reese', 'Parker', 'Sydney', 'Dakota', 'Sage'];
+
+    let simulationInterval = null;
+    let isSimulating = false;
+
+    // Initialize
+    function init() {
+      // Create initial attendees
+      for (let i = 0; i < 20; i++) {
+        addAttendee();
+      }
+      updateStats();
+      updateProgressBars();
+      renderAttendees();
+      generateQuestions();
+    }
+
+    // Add attendee
+    function addAttendee() {
+      const name = names[Math.floor(Math.random() * names.length)] + ' ' + String.fromCharCode(65 + Math.floor(Math.random() * 26));
+      const track = tracks[Math.floor(Math.random() * tracks.length)];
+      const maxSteps = track === 'express' ? 5 : track === 'custom' ? 7 : 10;
+
+      attendees.push({
+        id: attendees.length + 1,
+        name: name,
+        track: track,
+        currentStep: 1,
+        maxSteps: maxSteps,
+        timeElapsed: 0,
+        status: 'ontrack',
+        lastUpdate: Date.now()
+      });
+
+      updateStats();
+      updateProgressBars();
+      renderAttendees();
+      showToast(`${name} joined the workshop!`, 'success');
+    }
+
+    // Start simulation
+    function startSimulation() {
+      if (isSimulating) return;
+      isSimulating = true;
+      const speed = parseInt(document.getElementById('speed-control').value);
+
+      simulationInterval = setInterval(() => {
+        attendees.forEach(attendee => {
+          if (attendee.currentStep >= attendee.maxSteps) return;
+
+          // Random progress
+          if (Math.random() > 0.3) {
+            attendee.timeElapsed++;
+
+            // Determine status
+            const expectedTime = attendee.currentStep * 3;
+            if (attendee.timeElapsed > expectedTime + 5) {
+              attendee.status = 'stuck';
+            } else if (attendee.timeElapsed > expectedTime + 2) {
+              attendee.status = 'slow';
+            } else {
+              attendee.status = 'ontrack';
+            }
+
+            // Maybe advance step
+            if (Math.random() > 0.7) {
+              attendee.currentStep++;
+              attendee.timeElapsed = 0;
+              if (attendee.currentStep >= attendee.maxSteps) {
+                attendee.status = 'completed';
+                showToast(`${attendee.name} completed their GPT! 🎉`, 'success');
+              }
+            }
+          }
+        });
+
+        updateStats();
+        updateProgressBars();
+        renderAttendees();
+      }, 1000 / speed);
+
+      showToast('Simulation started', 'success');
+    }
+
+    // Stop simulation
+    function stopSimulation() {
+      isSimulating = false;
+      clearInterval(simulationInterval);
+      showToast('Simulation stopped', 'warning');
+    }
+
+    // Create problem
+    function createProblem() {
+      const ontrackAttendees = attendees.filter(a => a.status === 'ontrack');
+      if (ontrackAttendees.length === 0) return;
+
+      const attendee = ontrackAttendees[Math.floor(Math.random() * ontrackAttendees.length)];
+      attendee.status = 'stuck';
+      attendee.timeElapsed += 5;
+      renderAttendees();
+      showToast(`${attendee.name} needs help!`, 'error');
+    }
+
+    // Update stats
+    function updateStats() {
+      const completed = attendees.filter(a => a.status === 'completed').length;
+      const stuck = attendees.filter(a => a.status === 'stuck').length;
+      const avgTime = completed > 0
+        ? Math.round(attendees.filter(a => a.status === 'completed')
+          .reduce((sum, a) => sum + a.timeElapsed, 0) / completed)
+        : 0;
+
+      document.getElementById('total-attendees').textContent = attendees.length;
+      document.getElementById('avg-time').textContent = avgTime > 0 ? avgTime + 'm' : '--';
+      document.getElementById('success-rate').textContent = Math.round((completed / attendees.length) * 100) + '%';
+      document.getElementById('completed-count').textContent = completed + ' completed';
+      document.getElementById('stuck-count').textContent = stuck;
+    }
+
+    // Update progress bars
+    function updateProgressBars() {
+      tracks.forEach(track => {
+        const count = attendees.filter(a => a.track === track).length;
+        const percentage = (count / attendees.length) * 100;
+        document.getElementById(`${track}-count`).textContent = count + ' attendees';
+        document.getElementById(`${track}-bar`).style.width = percentage + '%';
+        document.getElementById(`${track}-bar`).textContent = Math.round(percentage) + '%';
+      });
+    }
+
+    // Render attendees
+    function renderAttendees() {
+      const container = document.getElementById('attendees-container');
+      container.innerHTML = '';
+
+      attendees.forEach(attendee => {
+        const progress = (attendee.currentStep / attendee.maxSteps) * 100;
+        const card = document.createElement('div');
+        card.className = `attendee-card ${attendee.status}`;
+        card.innerHTML = `
+          <div class="attendee-header">
+            <div class="attendee-name">${attendee.name}</div>
+            <div class="attendee-status status-${attendee.status}">
+              ${attendee.status === 'ontrack' ? '✓ On Track' :
+                attendee.status === 'slow' ? '⚠️ Slow' :
+                attendee.status === 'stuck' ? '🚨 Stuck' : '✓ Done'}
+            </div>
+          </div>
+          <div class="attendee-info">
+            <div>Track: ${attendee.track.charAt(0).toUpperCase() + attendee.track.slice(1)}</div>
+            <div>Step ${attendee.currentStep} of ${attendee.maxSteps} | ${attendee.timeElapsed}m elapsed</div>
+          </div>
+          <div class="attendee-progress-bar">
+            <div class="attendee-progress-fill" style="width: ${progress}%"></div>
+          </div>
+          ${attendee.status === 'stuck' ? `
+            <div class="attendee-actions">
+              <button class="btn btn-small btn-success" onclick="helpAttendee(${attendee.id})">Send Help</button>
+              <button class="btn btn-small" style="background: #334155; color: white;" onclick="viewDetails(${attendee.id})">View Details</button>
+            </div>
+          ` : ''}
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Generate questions
+    function generateQuestions() {
+      const questions = [
+        { author: 'Alex M', text: 'How do I upload multiple files to my GPT?', votes: 5 },
+        { author: 'Jordan K', text: 'Can I use API keys in my GPT instructions?', votes: 3 },
+        { author: 'Sam R', text: 'What\'s the difference between web browsing and code interpreter?', votes: 8 },
+        { author: 'Taylor B', text: 'How do I make my GPT public in the GPT Store?', votes: 2 }
+      ];
+
+      const container = document.getElementById('qna-container');
+      questions.forEach(q => {
+        const item = document.createElement('div');
+        item.className = 'question-item';
+        item.innerHTML = `
+          <div class="question-header">
+            <div class="question-author">${q.author}</div>
+            <div class="question-votes">
+              <span>👍 ${q.votes}</span>
+            </div>
+          </div>
+          <div class="question-text">${q.text}</div>
+          <div class="question-actions">
+            <button class="btn btn-small btn-success">Answer</button>
+            <button class="btn btn-small" style="background: #334155; color: white;">Mark Resolved</button>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    // Helper functions
+    function helpAttendee(id) {
+      const attendee = attendees.find(a => a.id === id);
+      if (attendee) {
+        attendee.status = 'ontrack';
+        attendee.timeElapsed = 0;
+        renderAttendees();
+        showToast(`Help sent to ${attendee.name}`, 'success');
+      }
+    }
+
+    function viewDetails(id) {
+      const attendee = attendees.find(a => a.id === id);
+      alert(`Attendee Details:\n\nName: ${attendee.name}\nTrack: ${attendee.track}\nStep: ${attendee.currentStep}/${attendee.maxSteps}\nTime: ${attendee.timeElapsed}m\nStatus: ${attendee.status}`);
+    }
+
+    function pauseAll() {
+      stopSimulation();
+      showToast('All attendees paused for group instruction', 'warning');
+    }
+
+    function broadcast() {
+      const message = prompt('Enter message to broadcast to all attendees:');
+      if (message) {
+        showToast(`Broadcast: "${message}"`, 'success');
+      }
+    }
+
+    function exportData() {
+      const data = JSON.stringify(attendees, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'workshop-data.json';
+      a.click();
+      showToast('Workshop data exported!', 'success');
+    }
+
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast ${type} show`;
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // Initialize on load
+    init();
+  </script>
+</body>
+</html>

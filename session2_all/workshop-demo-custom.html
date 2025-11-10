@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom GPT Builder - 25-Minute Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .timer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4ade80;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .editor-panel {
+            border-right: 2px solid #e5e7eb;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .preview-panel {
+            background: #f9fafb;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+            padding: 30px;
+            position: sticky;
+            top: 0;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f3f4f6;
+            border-bottom: 2px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 1em;
+            font-weight: 600;
+            color: #6b7280;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab.active {
+            color: #667eea;
+            background: white;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
+        }
+
+        .tab.completed::before {
+            content: '✓';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #1f2937;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .button-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .button-small {
+            padding: 8px 16px;
+            font-size: 0.9em;
+        }
+
+        .list-builder {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .list-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .list-item input {
+            flex: 1;
+        }
+
+        .remove-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .add-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .capability-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .capability-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .capability-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .capability-card.selected {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .capability-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .capability-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .capability-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .capability-desc {
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .use-cases {
+            font-size: 0.85em;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            color: #667eea;
+            margin-left: 5px;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #1f2937;
+            color: white;
+            text-align: left;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.85em;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .preview-box {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 25px;
+            position: sticky;
+            top: 20px;
+        }
+
+        .preview-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-content {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #374151;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .copy-btn {
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .checklist {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checklist-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .tip-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .tip-content {
+            color: #78350f;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .expandable {
+            margin-top: 20px;
+        }
+
+        .expandable-header {
+            background: #f3f4f6;
+            padding: 12px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expandable-header:hover {
+            background: #e5e7eb;
+        }
+
+        .expandable-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .expandable-content.open {
+            display: block;
+        }
+
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .template-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .template-card:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .save-indicator.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-panel {
+                position: static;
+            }
+        }
+
+        .ai-suggest-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .ai-suggest-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .suggestion-box {
+            display: none;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .suggestion-box.show {
+            display: block;
+        }
+
+        .download-template {
+            background: #10b981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9em;
+        }
+
+        .test-starter {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .test-starter:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .test-starter-text {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+
+        .test-starter-desc {
+            font-size: 0.85em;
+            color: #6b7280;
+        }
+
+        .export-section {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Custom GPT Builder Workshop</h1>
+            <p>Build Your Personalized AI Assistant in 25 Minutes</p>
+            <div class="timer" id="timer">Time Remaining: 25:00</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="editor-panel">
+                <div class="tabs">
+                    <button class="tab active" data-tab="instructions">1. Instructions</button>
+                    <button class="tab" data-tab="files">2. Files</button>
+                    <button class="tab" data-tab="capabilities">3. Capabilities</button>
+                    <button class="tab" data-tab="testing">4. Testing</button>
+                    <button class="tab" data-tab="export">5. Export</button>
+                </div>
+
+                <div id="instructions" class="tab-content active">
+                    <div class="section">
+                        <h2>
+                            <span class="section-icon">📝</span>
+                            Build Your GPT Instructions
+                        </h2>
+
+                        <div class="ai-suggest-section">
+                            <h3 style="margin-bottom: 10px;">Need inspiration?</h3>
+                            <p style="font-size: 0.9em; margin-bottom: 10px;">Tell us what kind of GPT you want to build, and we'll suggest a complete setup.</p>
+                            <input type="text" id="gptType" placeholder="e.g., Marketing Content Creator, Code Review Assistant, Language Tutor">
+                            <button class="ai-suggest-btn" onclick="generateSuggestions()">✨ AI Suggest Setup</button>
+                            <div class="suggestion-box" id="suggestionBox"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>GPT Name <span class="tooltip">ⓘ<span class="tooltiptext">Choose a clear, descriptive name that reflects your GPT's purpose</span></span></label>
+                            <input type="text" id="gptName" placeholder="e.g., Marketing Content Wizard" oninput="updatePreview()">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Role & Personality <span class="tooltip">ⓘ<span class="tooltiptext">Define who your GPT is and how it should behave</span></span></label>
+                            <textarea id="gptRole" placeholder="e.g., You are an expert marketing copywriter with 10 years of experience in tech startups. You're creative, data-driven, and always focus on conversion optimization." oninput="updatePreview()"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Key Responsibilities</label>
+                            <div class="list-builder" id="responsibilitiesList">
+                                <div class="list-item">
+                                    <input type="text" placeholder="e.g., Create engaging blog posts">
+                                </div>
+                            </div>
+                            <button class="add-btn" onclick="addListItem('responsibilitiesList')">+ Add Responsibility</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Things to Avoid</label>
+                            <div class="list-builder" id="avoidList">
+                                <div class="list-item">
+                                    <input type="text" placeholder="e.g., Don't use jargon without explanation">
+                                </div>
+                            </div>
+                            <button class="add-btn" onclick="addListItem('avoidList')">+ Add Restriction</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tone & Voice</label>
+                            <select id="toneVoice" onchange="updatePreview()">
+                                <option value="">Select a tone...</option>
+                                <option value="professional">Professional & Formal</option>
+                                <option value="friendly">Friendly & Conversational</option>
+                                <option value="enthusiastic">Enthusiastic & Energetic</option>
+                                <option value="technical">Technical & Precise</option>
+                                <option value="empathetic">Empathetic & Supportive</option>
+                                <option value="humorous">Humorous & Witty</option>
+                                <option value="custom">Custom (specify below)</option>
+                            </select>
+                            <input type="text" id="customTone" placeholder="Describe your custom tone..." style="margin-top: 10px; display: none;" oninput="updatePreview()">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Output Format Preferences</label>
+                            <textarea id="outputFormat" placeholder="e.g., Always use bullet points for lists, include a summary at the end, format code with syntax highlighting" oninput="updatePreview()"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="files" class="tab-content">
+                    <div class="section">
+                        <h2>
+                            <span class="section-icon">📁</span>
+                            Prepare Your Knowledge Base
+                        </h2>
+
+                        <div class="tip-box">
+                            <div class="tip-title">💡 Pro Tip</div>
+                            <div class="tip-content">
+                                Your GPT can access up to 20 files. Choose documents that contain your unique knowledge, brand voice, or specialized information.
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 25px; margin-bottom: 15px;">Preparation Checklist</h3>
+                        <div class="checklist" id="fileChecklist">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check1" onchange="updateProgress()">
+                                <label for="check1">Identify your key reference documents (FAQs, guides, policies)</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check2" onchange="updateProgress()">
+                                <label for="check2">Convert documents to supported formats (.txt, .md, .pdf, .docx)</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check3" onchange="updateProgress()">
+                                <label for="check3">Organize files with clear, descriptive names</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check4" onchange="updateProgress()">
+                                <label for="check4">Remove sensitive or confidential information</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="check5" onchange="updateProgress()">
+                                <label for="check5">Test file readability (check formatting, encoding)</label>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 25px; margin-bottom: 15px;">File Type Recommendations</h3>
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>📄 Markdown Files (.md)</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p style="margin-bottom: 10px;"><strong>Best for:</strong> Structured documentation, guides, tutorials</p>
+                                <p style="margin-bottom: 10px;"><strong>Why:</strong> Clean formatting, easy to read, supports code blocks</p>
+                                <a href="#" class="download-template" onclick="downloadTemplate('md'); return false;">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>📝 Text Files (.txt)</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p style="margin-bottom: 10px;"><strong>Best for:</strong> Lists, FAQs, simple reference data</p>
+                                <p style="margin-bottom: 10px;"><strong>Why:</strong> Universal compatibility, no formatting issues</p>
+                                <a href="#" class="download-template" onclick="downloadTemplate('txt'); return false;">Download Template</a>
+                            </div>
+                        </div>
+
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>📊 PDFs & Documents</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p style="margin-bottom: 10px;"><strong>Best for:</strong> Existing documentation, reports, whitepapers</p>
+                                <p style="margin-bottom: 10px;"><strong>Why:</strong> Preserves original formatting, widely available</p>
+                                <p style="font-size: 0.9em; color: #6b7280;">Note: Ensure PDFs are text-based, not scanned images</p>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 25px; margin-bottom: 15px;">How to Organize Your Knowledge Base</h3>
+                        <div class="tip-box" style="background: #f0f4ff; border-color: #667eea;">
+                            <div class="tip-title" style="color: #3730a3;">Organization Tips</div>
+                            <div class="tip-content" style="color: #4338ca;">
+                                <ul style="margin-left: 20px; margin-top: 10px;">
+                                    <li style="margin-bottom: 8px;">Use clear file names: "product-features.md" not "doc1.md"</li>
+                                    <li style="margin-bottom: 8px;">Group related information in single files</li>
+                                    <li style="margin-bottom: 8px;">Include a master index file listing all resources</li>
+                                    <li style="margin-bottom: 8px;">Add metadata at the top of each file (title, purpose, last updated)</li>
+                                    <li>Keep files under 10MB each for best performance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capabilities" class="tab-content">
+                    <div class="section">
+                        <h2>
+                            <span class="section-icon">⚡</span>
+                            Select Capabilities
+                        </h2>
+
+                        <p style="margin-bottom: 20px; color: #6b7280;">Choose which advanced features your GPT should have access to. Each capability expands what your GPT can do.</p>
+
+                        <div class="capability-cards">
+                            <div class="capability-card" data-capability="web" onclick="toggleCapability(this)">
+                                <div class="capability-icon">🌐</div>
+                                <div class="capability-title">Web Browsing</div>
+                                <div class="capability-desc">Access current information from the internet</div>
+                                <div class="use-cases">Use for: Research, news, real-time data</div>
+                                <span class="tooltip">ⓘ
+                                    <span class="tooltiptext">Enables your GPT to search and retrieve information from websites. Great for tasks requiring current events or up-to-date information.</span>
+                                </span>
+                            </div>
+
+                            <div class="capability-card" data-capability="code" onclick="toggleCapability(this)">
+                                <div class="capability-icon">💻</div>
+                                <div class="capability-title">Code Interpreter</div>
+                                <div class="capability-desc">Run Python code and analyze data</div>
+                                <div class="use-cases">Use for: Data analysis, calculations, file processing</div>
+                                <span class="tooltip">ⓘ
+                                    <span class="tooltiptext">Allows your GPT to execute Python code, perform data analysis, create charts, and process files. Essential for technical or analytical tasks.</span>
+                                </span>
+                            </div>
+
+                            <div class="capability-card" data-capability="dalle" onclick="toggleCapability(this)">
+                                <div class="capability-icon">🎨</div>
+                                <div class="capability-title">DALL-E Image Generation</div>
+                                <div class="capability-desc">Create custom images and graphics</div>
+                                <div class="use-cases">Use for: Visual content, diagrams, illustrations</div>
+                                <span class="tooltip">ⓘ
+                                    <span class="tooltiptext">Enables image generation capabilities. Perfect for creating visual content, mockups, or illustrative materials.</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Recommended Combinations</h3>
+                        <div class="template-grid">
+                            <div class="template-card" onclick="applyCapabilityTemplate('content')">
+                                <div style="font-size: 2em; margin-bottom: 10px;">✍️</div>
+                                <strong>Content Creator</strong>
+                                <div style="font-size: 0.85em; color: #6b7280; margin-top: 5px;">Web + DALL-E</div>
+                            </div>
+                            <div class="template-card" onclick="applyCapabilityTemplate('analyst')">
+                                <div style="font-size: 2em; margin-bottom: 10px;">📊</div>
+                                <strong>Data Analyst</strong>
+                                <div style="font-size: 0.85em; color: #6b7280; margin-top: 5px;">Code Interpreter</div>
+                            </div>
+                            <div class="template-card" onclick="applyCapabilityTemplate('researcher')">
+                                <div style="font-size: 2em; margin-bottom: 10px;">🔍</div>
+                                <strong>Researcher</strong>
+                                <div style="font-size: 0.85em; color: #6b7280; margin-top: 5px;">Web + Code</div>
+                            </div>
+                            <div class="template-card" onclick="applyCapabilityTemplate('all')">
+                                <div style="font-size: 2em; margin-bottom: 10px;">🚀</div>
+                                <strong>All-Rounder</strong>
+                                <div style="font-size: 0.85em; color: #6b7280; margin-top: 5px;">All Capabilities</div>
+                            </div>
+                        </div>
+
+                        <div class="tip-box" style="margin-top: 25px;">
+                            <div class="tip-title">💡 Capability Tips</div>
+                            <div class="tip-content">
+                                <ul style="margin-left: 20px; margin-top: 10px;">
+                                    <li style="margin-bottom: 8px;"><strong>Web Browsing:</strong> Enable if your GPT needs current information or must verify facts</li>
+                                    <li style="margin-bottom: 8px;"><strong>Code Interpreter:</strong> Essential for data analysis, math, or file manipulation</li>
+                                    <li><strong>DALL-E:</strong> Perfect for visual content creation, but adds processing time</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="testing" class="tab-content">
+                    <div class="section">
+                        <h2>
+                            <span class="section-icon">🧪</span>
+                            Test Your GPT
+                        </h2>
+
+                        <p style="margin-bottom: 20px; color: #6b7280;">Use these conversation starters to thoroughly test your GPT's capabilities and behavior.</p>
+
+                        <h3 style="margin-bottom: 15px;">Conversation Starter Templates</h3>
+                        <div id="testStarters">
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">General Knowledge Test</div>
+                                <div class="test-starter-desc">"Can you introduce yourself and explain what you can help me with?"</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Core Function Test</div>
+                                <div class="test-starter-desc">"Show me an example of your primary function."</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">File Access Test</div>
+                                <div class="test-starter-desc">"What information do you have in your knowledge base about [topic]?"</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Tone & Voice Test</div>
+                                <div class="test-starter-desc">"Explain [complex topic] in your typical communication style."</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Boundary Test</div>
+                                <div class="test-starter-desc">"Can you help me with [something outside scope]?"</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Format Test</div>
+                                <div class="test-starter-desc">"Create a [type of output] following your standard format."</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Complex Request Test</div>
+                                <div class="test-starter-desc">"I need help with [multi-step task]. Can you guide me through it?"</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Error Handling Test</div>
+                                <div class="test-starter-desc">"[Deliberately unclear or contradictory request]"</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Capability Test (if enabled)</div>
+                                <div class="test-starter-desc">"Use [web browsing/code interpreter/DALL-E] to [task]."</div>
+                            </div>
+                            <div class="test-starter" onclick="copyTestStarter(this)">
+                                <div class="test-starter-text">Edge Case Test</div>
+                                <div class="test-starter-desc">"What happens if [unusual scenario]?"</div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Testing Checklist</h3>
+                        <div class="checklist" id="testingChecklist">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test1" onchange="updateProgress()">
+                                <label for="test1">GPT introduces itself correctly with accurate description</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test2" onchange="updateProgress()">
+                                <label for="test2">Tone and personality match your specifications</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test3" onchange="updateProgress()">
+                                <label for="test3">Core functions work as expected</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test4" onchange="updateProgress()">
+                                <label for="test4">GPT can access and reference uploaded files</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test5" onchange="updateProgress()">
+                                <label for="test5">Output format follows your preferences</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test6" onchange="updateProgress()">
+                                <label for="test6">GPT respects boundaries and restrictions</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test7" onchange="updateProgress()">
+                                <label for="test7">Enabled capabilities function properly</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="test8" onchange="updateProgress()">
+                                <label for="test8">GPT handles unclear requests gracefully</label>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Common Issues & Fixes</h3>
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>❌ GPT is too generic or doesn't follow personality</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Fix:</strong> Strengthen your role description with specific examples. Add more detail about tone and behavior patterns.</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>❌ GPT can't find information in uploaded files</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Fix:</strong> Check file formatting. Add explicit instructions like "Always search your knowledge base before responding."</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>❌ Responses are too long or too short</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Fix:</strong> Add length guidelines to your instructions. Example: "Keep responses under 200 words unless asked for detail."</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable">
+                            <div class="expandable-header" onclick="toggleExpandable(this)">
+                                <span>❌ GPT goes outside its intended scope</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Fix:</strong> Strengthen your "Things to Avoid" section. Be explicit about boundaries and what to do when asked off-topic questions.</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-box" style="background: #f0fdf4; border-color: #10b981; margin-top: 25px;">
+                            <div class="tip-title" style="color: #065f46;">💡 Refine Your GPT</div>
+                            <div class="tip-content" style="color: #064e3b;">
+                                Don't expect perfection on the first try! Testing reveals areas for improvement. Iterate on your instructions, add examples to clarify behavior, and refine based on real conversations.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="export" class="tab-content">
+                    <div class="section">
+                        <h2>
+                            <span class="section-icon">💾</span>
+                            Export & Save Your Work
+                        </h2>
+
+                        <div class="export-section">
+                            <h3 style="margin-bottom: 15px;">Your Progress is Auto-Saved</h3>
+                            <p style="margin-bottom: 15px; color: #6b7280;">All your work is automatically saved to your browser. You can close this page and come back anytime to continue.</p>
+                            <div style="background: white; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                                <p style="font-weight: 600; margin-bottom: 10px;">Last saved: <span id="lastSaved">Never</span></p>
+                                <button class="button button-small" onclick="clearProgress()">Clear All & Start Over</button>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Download Your Complete Setup</h3>
+                        <p style="margin-bottom: 15px; color: #6b7280;">Export everything you've created as a downloadable file for backup or sharing.</p>
+
+                        <div class="action-buttons">
+                            <button class="button" onclick="exportAsJSON()">📥 Download as JSON</button>
+                            <button class="button button-secondary" onclick="exportAsText()">📄 Download as Text</button>
+                        </div>
+
+                        <h3 style="margin-top: 30px; margin-bottom: 15px;">Next Steps</h3>
+                        <div class="checklist">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next1">
+                                <label for="next1">Copy your instructions from the preview panel</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next2">
+                                <label for="next2">Go to <a href="https://chat.openai.com/gpts/editor" target="_blank" style="color: #667eea;">ChatGPT GPT Editor</a></label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next3">
+                                <label for="next3">Paste your instructions in the "Instructions" field</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next4">
+                                <label for="next4">Upload your prepared knowledge base files</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next5">
+                                <label for="next5">Enable selected capabilities</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next6">
+                                <label for="next6">Test using your conversation starters</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next7">
+                                <label for="next7">Iterate and refine based on testing</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="next8">
+                                <label for="next8">Publish and share with your team or community!</label>
+                            </div>
+                        </div>
+
+                        <div class="tip-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; color: white; margin-top: 30px;">
+                            <div class="tip-title" style="color: white;">🎉 Congratulations!</div>
+                            <div class="tip-content" style="color: white;">
+                                You've built a complete Custom GPT setup! Remember, the best GPTs are iteratively refined based on real-world use. Keep testing, keep improving, and watch your AI assistant become more valuable over time.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-panel">
+                <div class="preview-box">
+                    <div class="preview-title">
+                        <span>👁️</span>
+                        Live Instructions Preview
+                    </div>
+                    <div class="preview-content" id="previewContent">Start filling out the form to see your GPT instructions appear here...</div>
+                    <button class="button copy-btn" onclick="copyInstructions()">📋 Copy Instructions</button>
+
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 2px solid #e5e7eb;">
+                        <h3 style="margin-bottom: 15px; color: #1f2937;">Selected Capabilities</h3>
+                        <div id="capabilitiesPreview" style="font-size: 0.9em; color: #6b7280;">
+                            None selected yet
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; padding-top: 25px; border-top: 2px solid #e5e7eb;">
+                        <h3 style="margin-bottom: 15px; color: #1f2937;">Completion Status</h3>
+                        <div id="completionStatus" style="font-size: 0.9em; color: #6b7280;">
+                            Keep filling out the sections!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="save-indicator" id="saveIndicator">
+        ✓ Progress saved
+    </div>
+
+    <script>
+        // Timer functionality
+        let timeRemaining = 25 * 60; // 25 minutes in seconds
+        let timerInterval;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                document.getElementById('timer').textContent =
+                    `Time Remaining: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('timer').textContent = 'Time\'s up! But take all the time you need!';
+                }
+            }, 1000);
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.dataset.tab;
+
+                // Update tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                // Update content
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(tabName).classList.add('active');
+
+                saveProgress();
+            });
+        });
+
+        // Custom tone field toggle
+        document.getElementById('toneVoice').addEventListener('change', (e) => {
+            const customField = document.getElementById('customTone');
+            if (e.target.value === 'custom') {
+                customField.style.display = 'block';
+            } else {
+                customField.style.display = 'none';
+            }
+        });
+
+        // List builder functions
+        function addListItem(listId) {
+            const list = document.getElementById(listId);
+            const newItem = document.createElement('div');
+            newItem.className = 'list-item';
+            newItem.innerHTML = `
+                <input type="text" placeholder="Enter item..." oninput="updatePreview()">
+                <button class="remove-btn" onclick="removeListItem(this)">✕</button>
+            `;
+            list.appendChild(newItem);
+            updatePreview();
+        }
+
+        function removeListItem(btn) {
+            btn.parentElement.remove();
+            updatePreview();
+        }
+
+        // Capability selection
+        const selectedCapabilities = new Set();
+
+        function toggleCapability(card) {
+            const capability = card.dataset.capability;
+            if (selectedCapabilities.has(capability)) {
+                selectedCapabilities.delete(capability);
+                card.classList.remove('selected');
+            } else {
+                selectedCapabilities.add(capability);
+                card.classList.add('selected');
+            }
+            updateCapabilitiesPreview();
+            saveProgress();
+            markTabComplete('capabilities');
+        }
+
+        function applyCapabilityTemplate(template) {
+            // Clear all selections
+            selectedCapabilities.clear();
+            document.querySelectorAll('.capability-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Apply template
+            const templates = {
+                'content': ['web', 'dalle'],
+                'analyst': ['code'],
+                'researcher': ['web', 'code'],
+                'all': ['web', 'code', 'dalle']
+            };
+
+            templates[template].forEach(cap => {
+                selectedCapabilities.add(cap);
+                document.querySelector(`[data-capability="${cap}"]`).classList.add('selected');
+            });
+
+            updateCapabilitiesPreview();
+            saveProgress();
+        }
+
+        function updateCapabilitiesPreview() {
+            const preview = document.getElementById('capabilitiesPreview');
+            if (selectedCapabilities.size === 0) {
+                preview.innerHTML = 'None selected yet';
+            } else {
+                const capNames = {
+                    'web': '🌐 Web Browsing',
+                    'code': '💻 Code Interpreter',
+                    'dalle': '🎨 DALL-E Image Generation'
+                };
+                const list = Array.from(selectedCapabilities).map(cap =>
+                    `<div style="padding: 8px; background: white; border-radius: 6px; margin-bottom: 5px;">${capNames[cap]}</div>`
+                ).join('');
+                preview.innerHTML = list;
+            }
+        }
+
+        // Preview generation
+        function updatePreview() {
+            const name = document.getElementById('gptName').value;
+            const role = document.getElementById('gptRole').value;
+            const tone = document.getElementById('toneVoice').value;
+            const customTone = document.getElementById('customTone').value;
+            const outputFormat = document.getElementById('outputFormat').value;
+
+            // Get list items
+            const responsibilities = Array.from(document.querySelectorAll('#responsibilitiesList input'))
+                .map(input => input.value)
+                .filter(val => val.trim());
+
+            const avoidances = Array.from(document.querySelectorAll('#avoidList input'))
+                .map(input => input.value)
+                .filter(val => val.trim());
+
+            // Build preview
+            let preview = '';
+
+            if (name) {
+                preview += `# ${name}\n\n`;
+            }
+
+            if (role) {
+                preview += `## Role & Identity\n${role}\n\n`;
+            }
+
+            if (responsibilities.length > 0) {
+                preview += `## Key Responsibilities\n`;
+                responsibilities.forEach(resp => {
+                    preview += `- ${resp}\n`;
+                });
+                preview += '\n';
+            }
+
+            if (avoidances.length > 0) {
+                preview += `## Guidelines & Restrictions\n`;
+                avoidances.forEach(avoid => {
+                    preview += `- ${avoid}\n`;
+                });
+                preview += '\n';
+            }
+
+            if (tone && tone !== 'custom') {
+                const toneDescriptions = {
+                    'professional': 'Professional and formal',
+                    'friendly': 'Friendly and conversational',
+                    'enthusiastic': 'Enthusiastic and energetic',
+                    'technical': 'Technical and precise',
+                    'empathetic': 'Empathetic and supportive',
+                    'humorous': 'Humorous and witty'
+                };
+                preview += `## Communication Style\nTone: ${toneDescriptions[tone]}\n\n`;
+            } else if (tone === 'custom' && customTone) {
+                preview += `## Communication Style\nTone: ${customTone}\n\n`;
+            }
+
+            if (outputFormat) {
+                preview += `## Output Format\n${outputFormat}\n\n`;
+            }
+
+            document.getElementById('previewContent').textContent =
+                preview || 'Start filling out the form to see your GPT instructions appear here...';
+
+            saveProgress();
+            updateCompletionStatus();
+
+            // Mark tab as complete if there's content
+            if (name && role) {
+                markTabComplete('instructions');
+            }
+        }
+
+        function copyInstructions() {
+            const content = document.getElementById('previewContent').textContent;
+            navigator.clipboard.writeText(content).then(() => {
+                alert('Instructions copied to clipboard!');
+            });
+        }
+
+        // AI Suggestions
+        function generateSuggestions() {
+            const gptType = document.getElementById('gptType').value;
+            const suggestionBox = document.getElementById('suggestionBox');
+
+            if (!gptType) {
+                alert('Please enter a GPT type first!');
+                return;
+            }
+
+            // Simulate AI suggestions (in real implementation, this would call an API)
+            const suggestions = {
+                'marketing': {
+                    name: 'Marketing Content Wizard',
+                    role: 'You are an expert marketing copywriter with 10+ years of experience in digital marketing, specializing in conversion-optimized content. You understand psychology, persuasion, and brand voice.',
+                    responsibilities: [
+                        'Create compelling blog posts and articles',
+                        'Write engaging social media content',
+                        'Develop email marketing campaigns',
+                        'Craft product descriptions that convert'
+                    ],
+                    avoid: [
+                        'Generic or cliché marketing phrases',
+                        'Overly salesy or pushy language',
+                        'Ignoring brand voice guidelines'
+                    ],
+                    tone: 'enthusiastic',
+                    format: 'Use clear headings, bullet points for key takeaways, and include a call-to-action at the end of each piece.'
+                },
+                'code': {
+                    name: 'Code Review Assistant',
+                    role: 'You are a senior software engineer with expertise in code quality, best practices, and security. You provide constructive, actionable feedback on code.',
+                    responsibilities: [
+                        'Review code for bugs and logical errors',
+                        'Suggest performance improvements',
+                        'Identify security vulnerabilities',
+                        'Recommend best practices and patterns'
+                    ],
+                    avoid: [
+                        'Being overly critical without offering solutions',
+                        'Suggesting changes for minor style preferences',
+                        'Using jargon without explanation'
+                    ],
+                    tone: 'professional',
+                    format: 'Structure feedback with: 1) Summary, 2) Critical issues, 3) Improvements, 4) Best practices. Use code examples.'
+                }
+            };
+
+            // Simple matching (in real version, would use AI)
+            let suggestion = null;
+            const typeLower = gptType.toLowerCase();
+            if (typeLower.includes('market')) {
+                suggestion = suggestions.marketing;
+            } else if (typeLower.includes('code') || typeLower.includes('review')) {
+                suggestion = suggestions.code;
+            }
+
+            if (suggestion) {
+                // Apply suggestions
+                document.getElementById('gptName').value = suggestion.name;
+                document.getElementById('gptRole').value = suggestion.role;
+                document.getElementById('toneVoice').value = suggestion.tone;
+                document.getElementById('outputFormat').value = suggestion.format;
+
+                // Apply responsibilities
+                const respList = document.getElementById('responsibilitiesList');
+                respList.innerHTML = '';
+                suggestion.responsibilities.forEach(resp => {
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.innerHTML = `
+                        <input type="text" value="${resp}" oninput="updatePreview()">
+                        <button class="remove-btn" onclick="removeListItem(this)">✕</button>
+                    `;
+                    respList.appendChild(item);
+                });
+
+                // Apply avoidances
+                const avoidList = document.getElementById('avoidList');
+                avoidList.innerHTML = '';
+                suggestion.avoid.forEach(avoid => {
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.innerHTML = `
+                        <input type="text" value="${avoid}" oninput="updatePreview()">
+                        <button class="remove-btn" onclick="removeListItem(this)">✕</button>
+                    `;
+                    avoidList.appendChild(item);
+                });
+
+                suggestionBox.innerHTML = '<p style="color: #10b981; font-weight: 600;">✓ Suggestions applied! Review and customize as needed.</p>';
+                suggestionBox.classList.add('show');
+                updatePreview();
+            } else {
+                suggestionBox.innerHTML = `
+                    <p style="color: #667eea; font-weight: 600;">💡 Generic Suggestion</p>
+                    <p style="margin-top: 10px;">For a "${gptType}", consider:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Define specific expertise areas</li>
+                        <li>List 3-5 core responsibilities</li>
+                        <li>Specify preferred output formats</li>
+                        <li>Set clear boundaries</li>
+                    </ul>
+                `;
+                suggestionBox.classList.add('show');
+            }
+        }
+
+        // Expandable sections
+        function toggleExpandable(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('span:last-child');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('open');
+                arrow.textContent = '▲';
+            }
+        }
+
+        // Template downloads
+        function downloadTemplate(type) {
+            let content = '';
+            let filename = '';
+
+            if (type === 'md') {
+                content = `# Knowledge Base Document
+
+## Metadata
+- Title: [Document Title]
+- Purpose: [What this document covers]
+- Last Updated: [Date]
+
+## Overview
+[Brief description of what this document contains]
+
+## Main Content
+
+### Section 1
+[Your content here]
+
+### Section 2
+[Your content here]
+
+## FAQs
+
+**Q: [Question]**
+A: [Answer]
+
+## Related Documents
+- [Link to related doc 1]
+- [Link to related doc 2]
+`;
+                filename = 'knowledge-base-template.md';
+            } else if (type === 'txt') {
+                content = `KNOWLEDGE BASE DOCUMENT
+========================
+
+Title: [Document Title]
+Purpose: [What this document covers]
+Last Updated: [Date]
+
+OVERVIEW
+--------
+[Brief description]
+
+MAIN CONTENT
+-----------
+[Your content here]
+
+FAQs
+----
+Q: [Question]
+A: [Answer]
+`;
+                filename = 'knowledge-base-template.txt';
+            }
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Test starters
+        function copyTestStarter(element) {
+            const text = element.querySelector('.test-starter-desc').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const original = element.style.background;
+                element.style.background = '#f0fdf4';
+                setTimeout(() => {
+                    element.style.background = original;
+                }, 500);
+            });
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const total = checkboxes.length;
+            const percentage = (checked / total) * 100;
+
+            document.getElementById('progressFill').style.width = percentage + '%';
+            saveProgress();
+        }
+
+        function updateCompletionStatus() {
+            const name = document.getElementById('gptName').value;
+            const role = document.getElementById('gptRole').value;
+            const hasCapabilities = selectedCapabilities.size > 0;
+
+            let status = [];
+            if (name) status.push('✓ Name set');
+            if (role) status.push('✓ Role defined');
+            if (hasCapabilities) status.push('✓ Capabilities selected');
+
+            const statusDiv = document.getElementById('completionStatus');
+            if (status.length === 0) {
+                statusDiv.innerHTML = 'Keep filling out the sections!';
+            } else {
+                statusDiv.innerHTML = status.join('<br>');
+            }
+        }
+
+        function markTabComplete(tabName) {
+            const tab = document.querySelector(`[data-tab="${tabName}"]`);
+            if (tab && !tab.classList.contains('completed')) {
+                tab.classList.add('completed');
+            }
+        }
+
+        // Local storage
+        function saveProgress() {
+            const data = {
+                gptName: document.getElementById('gptName').value,
+                gptRole: document.getElementById('gptRole').value,
+                toneVoice: document.getElementById('toneVoice').value,
+                customTone: document.getElementById('customTone').value,
+                outputFormat: document.getElementById('outputFormat').value,
+                responsibilities: Array.from(document.querySelectorAll('#responsibilitiesList input')).map(i => i.value),
+                avoidances: Array.from(document.querySelectorAll('#avoidList input')).map(i => i.value),
+                capabilities: Array.from(selectedCapabilities),
+                checkboxes: Array.from(document.querySelectorAll('input[type="checkbox"]')).map(cb => ({
+                    id: cb.id,
+                    checked: cb.checked
+                }))
+            };
+
+            localStorage.setItem('customGPTBuilder', JSON.stringify(data));
+            document.getElementById('lastSaved').textContent = new Date().toLocaleString();
+
+            // Show save indicator
+            const indicator = document.getElementById('saveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('customGPTBuilder');
+            if (!saved) return;
+
+            const data = JSON.parse(saved);
+
+            document.getElementById('gptName').value = data.gptName || '';
+            document.getElementById('gptRole').value = data.gptRole || '';
+            document.getElementById('toneVoice').value = data.toneVoice || '';
+            document.getElementById('customTone').value = data.customTone || '';
+            document.getElementById('outputFormat').value = data.outputFormat || '';
+
+            // Restore responsibilities
+            if (data.responsibilities) {
+                const respList = document.getElementById('responsibilitiesList');
+                respList.innerHTML = '';
+                data.responsibilities.forEach(resp => {
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.innerHTML = `
+                        <input type="text" value="${resp}" oninput="updatePreview()">
+                        <button class="remove-btn" onclick="removeListItem(this)">✕</button>
+                    `;
+                    respList.appendChild(item);
+                });
+            }
+
+            // Restore avoidances
+            if (data.avoidances) {
+                const avoidList = document.getElementById('avoidList');
+                avoidList.innerHTML = '';
+                data.avoidances.forEach(avoid => {
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.innerHTML = `
+                        <input type="text" value="${avoid}" oninput="updatePreview()">
+                        <button class="remove-btn" onclick="removeListItem(this)">✕</button>
+                    `;
+                    avoidList.appendChild(item);
+                });
+            }
+
+            // Restore capabilities
+            if (data.capabilities) {
+                data.capabilities.forEach(cap => {
+                    selectedCapabilities.add(cap);
+                    document.querySelector(`[data-capability="${cap}"]`).classList.add('selected');
+                });
+                updateCapabilitiesPreview();
+            }
+
+            // Restore checkboxes
+            if (data.checkboxes) {
+                data.checkboxes.forEach(cb => {
+                    const checkbox = document.getElementById(cb.id);
+                    if (checkbox) checkbox.checked = cb.checked;
+                });
+            }
+
+            updatePreview();
+            updateProgress();
+        }
+
+        function clearProgress() {
+            if (confirm('Are you sure you want to clear all progress and start over?')) {
+                localStorage.removeItem('customGPTBuilder');
+                location.reload();
+            }
+        }
+
+        // Export functions
+        function exportAsJSON() {
+            const data = {
+                gptName: document.getElementById('gptName').value,
+                gptRole: document.getElementById('gptRole').value,
+                toneVoice: document.getElementById('toneVoice').value,
+                customTone: document.getElementById('customTone').value,
+                outputFormat: document.getElementById('outputFormat').value,
+                responsibilities: Array.from(document.querySelectorAll('#responsibilitiesList input')).map(i => i.value).filter(v => v),
+                avoidances: Array.from(document.querySelectorAll('#avoidList input')).map(i => i.value).filter(v => v),
+                capabilities: Array.from(selectedCapabilities),
+                instructions: document.getElementById('previewContent').textContent
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'custom-gpt-setup.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportAsText() {
+            let content = '# CUSTOM GPT SETUP EXPORT\n\n';
+            content += `Generated: ${new Date().toLocaleString()}\n\n`;
+            content += '## INSTRUCTIONS\n\n';
+            content += document.getElementById('previewContent').textContent;
+            content += '\n\n## CAPABILITIES\n\n';
+
+            const capNames = {
+                'web': 'Web Browsing',
+                'code': 'Code Interpreter',
+                'dalle': 'DALL-E Image Generation'
+            };
+
+            if (selectedCapabilities.size > 0) {
+                Array.from(selectedCapabilities).forEach(cap => {
+                    content += `- ${capNames[cap]}\n`;
+                });
+            } else {
+                content += 'None selected\n';
+            }
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'custom-gpt-setup.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+            startTimer();
+        });
+
+        // Save on input for all inputs
+        document.addEventListener('input', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                saveProgress();
+            }
+        });
+    </script>
+</body>
+</html>

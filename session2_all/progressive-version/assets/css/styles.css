@@ -116,7 +116,6 @@ a{color:var(--brand)}
 .theme-toggle{background:var(--panel-2);border:1px solid var(--border);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:20px;transition:transform .2s ease}
 .theme-toggle:hover{transform:scale(1.1)}
 
-
 /* Version Switcher Navbar */
 .version-nav{background:linear-gradient(135deg, var(--brand), var(--brand-2));padding:12px 0;border-bottom:2px solid rgba(255,255,255,.15);position:sticky;top:0;z-index:20}
 .version-nav-container{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;align-items:center;gap:16px}
