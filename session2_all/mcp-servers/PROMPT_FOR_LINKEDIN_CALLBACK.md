@@ -8,7 +8,7 @@ I need to create a LinkedIn OAuth callback page for my website edinfinite.com wh
 
 **Context:**
 - I have a LinkedIn Developer App set up
-- Client ID: `78xb5ow8n5wj7r`
+- Client ID: `YOUR_CLIENT_ID_HERE`
 - I need a redirect URL endpoint to replace the temporary Postman callback URL
 - This will be used for a LinkedIn MCP server that posts to LinkedIn
 - The site is hosted on Vercel (free tier)
@@ -49,7 +49,7 @@ Please create the file and let me know where to place it in the edinfinite.com p
 ---
 
 **My Current LinkedIn OAuth Flow:**
-1. User visits: `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=78xb5ow8n5wj7r&redirect_uri=YOUR_REDIRECT_URI&scope=openid%20profile%20w_member_social`
+1. User visits: `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID_HERE&redirect_uri=YOUR_REDIRECT_URI&scope=openid%20profile%20w_member_social`
 2. LinkedIn redirects to: `YOUR_REDIRECT_URI?code=AUTHORIZATION_CODE`
 3. I exchange the code for an access token manually using curl
 4. I use the access token in my LinkedIn MCP server
