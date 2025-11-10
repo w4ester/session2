@@ -12,6 +12,12 @@ Test link: https://chatgpt.com/gpts/editor
 Go to your LinkedIn profile and copy 2-3 of your past posts
 (Just copy/paste into a doc - takes 1-2 minutes, helpful for the session!)
 
+✅ OPTIONAL - DOWNLOAD MATERIALS FOR OFFLINE ACCESS:
+Want a backup? Download all workshop materials:
+1. Go to: https://github.com/w4ester/session2
+2. Click green "Code" button → "Download ZIP"
+3. Extract and open: slides/index.html (works offline!)
+
 That's it! See you tomorrow.
 
 Will

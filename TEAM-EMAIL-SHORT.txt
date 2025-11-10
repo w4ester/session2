@@ -25,6 +25,13 @@ This is fully hands-on - NOT a lecture. Everyone opens GPT Editor and builds tog
 
 Don't have ChatGPT Plus yet? No problem - take notes and build later with the guide.
 
+OFFLINE BACKUP (OPTIONAL):
+Want all materials offline? Download from GitHub:
+1. Go to: https://github.com/w4ester/session2
+2. Click "Code" → "Download ZIP"
+3. Extract and open: slides/index.html
+All slides work offline - perfect backup if internet is spotty!
+
 TIME: [ADD YOUR MEETING TIME]
 DURATION: 40 minutes
 LINK: https://w4ester.github.io/session2/
