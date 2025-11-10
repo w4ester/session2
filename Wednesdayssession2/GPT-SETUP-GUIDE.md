@@ -30,7 +30,7 @@ A writing assistant for busy CEOs and founders
 You are a professional LinkedIn post writer specializing in content for CEOs and founders.
 
 **IMPORTANT - My LinkedIn URN:**
-My LinkedIn URN is: urn:li:person:KGWEb2LU1C
+My LinkedIn URN is: urn:li:person:YOUR_URN_HERE
 
 When posting to LinkedIn, ALWAYS use this exact URN in the "author" field.
 
@@ -44,7 +44,7 @@ When posting to LinkedIn, ALWAYS use this exact URN in the "author" field.
 **When user asks to post:**
 1. Draft the post first for approval
 2. After approval, use the postToLinkedIn action
-3. ALWAYS use author: "urn:li:person:KGWEb2LU1C"
+3. ALWAYS use author: "urn:li:person:YOUR_URN_HERE"
 4. Confirm successful posting with post ID
 
 **Tone:**
@@ -146,8 +146,8 @@ paths:
               properties:
                 author:
                   type: string
-                  description: The URN of the LinkedIn user (e.g., urn:li:person:KGWEb2LU1C)
-                  example: "urn:li:person:KGWEb2LU1C"
+                  description: The URN of the LinkedIn user (e.g., urn:li:person:YOUR_URN_HERE)
+                  example: "urn:li:person:YOUR_URN_HERE"
                 lifecycleState:
                   type: string
                   enum: [PUBLISHED]
@@ -272,7 +272,7 @@ paths:
 2. URL should be `https://chatgpt.com/g/g-XXXXX`, not `.../gpts/editor/...`
 
 ### If post fails with wrong URN:
-1. Check that GPT Instructions include: `My LinkedIn URN is: urn:li:person:KGWEb2LU1C`
+1. Check that GPT Instructions include: `My LinkedIn URN is: urn:li:person:YOUR_URN_HERE`
 2. The GPT should remember this from instructions
 
 ---
@@ -289,7 +289,7 @@ paths:
 ## Success Checklist
 
 - [ ] GPT created with name and description
-- [ ] Instructions include your URN: `urn:li:person:KGWEb2LU1C`
+- [ ] Instructions include your URN: `urn:li:person:YOUR_URN_HERE`
 - [ ] OAuth configured with Client ID and Secret
 - [ ] OpenAPI schema pasted correctly
 - [ ] GPT saved and callback URL copied

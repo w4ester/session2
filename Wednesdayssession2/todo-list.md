@@ -12,7 +12,7 @@
 - [ ] Switch to "Configure" tab
 - [ ] Fill in Name: "LinkedIn Post Creator – CEO Edition2"
 - [ ] Fill in Description: "A writing assistant for busy CEOs and founders"
-- [ ] Paste Instructions from GPT-SETUP-GUIDE.md (includes URN: `urn:li:person:KGWEb2LU1C`)
+- [ ] Paste Instructions from GPT-SETUP-GUIDE.md (includes URN: `urn:li:person:YOUR_URN_HERE`)
 - [ ] Add 4 conversation starters
 - [ ] Uncheck all Capabilities (Web Browsing, DALL·E, Code Interpreter)
 
@@ -76,7 +76,7 @@
 
 ### 2.3 Test GPT Memory of URN
 - [ ] In same GPT chat, ask: "Post another message: This is test #2 from GPT memory"
-- [ ] Verify GPT does NOT ask for URN again (should use `urn:li:person:KGWEb2LU1C` from instructions)
+- [ ] Verify GPT does NOT ask for URN again (should use `urn:li:person:YOUR_URN_HERE` from instructions)
 - [ ] Verify post completes without re-authentication
 - [ ] Verify second post appears on LinkedIn
 
