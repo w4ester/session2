@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom GPT Templates - Copy & Paste Ready</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 2rem;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 600;
+      color: #6b7280;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab:hover {
+      background: #f3f4f6;
+    }
+
+    .tab.active {
+      color: #667eea;
+      border-bottom-color: #667eea;
+      background: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .field-group {
+      margin-bottom: 2rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .field-header {
+      background: #f9fafb;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .field-label {
+      font-weight: 700;
+      color: #1f2937;
+      font-size: 1.1rem;
+    }
+
+    .field-hint {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+
+    .copy-btn {
+      padding: 0.5rem 1rem;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.875rem;
+    }
+
+    .copy-btn:hover {
+      background: #5568d3;
+      transform: translateY(-1px);
+    }
+
+    .copy-btn.copied {
+      background: #10b981;
+    }
+
+    .field-content {
+      padding: 1.5rem;
+      background: white;
+    }
+
+    .field-content pre {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      color: #374151;
+      font-family: inherit;
+    }
+
+    .capability-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .capability-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+    }
+
+    .capability-checkbox {
+      width: 20px;
+      height: 20px;
+    }
+
+    .knowledge-files {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .file-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .file-name {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+
+    .file-desc {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+
+    .download-btn {
+      padding: 0.5rem 1rem;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.875rem;
+    }
+
+    .download-btn:hover {
+      background: #059669;
+    }
+
+    .copy-all-btn {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 1.1rem;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .copy-all-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .conversation-starters {
+      list-style: none;
+      padding: 0;
+    }
+
+    .conversation-starters li {
+      padding: 0.75rem;
+      background: #f9fafb;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #1f2937;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 1.5rem 2rem;
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+
+      .knowledge-files {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Custom GPT Templates</h1>
+      <p>Copy-paste ready configurations for CEOs, Marketing Executives, and AI Enthusiasts</p>
+    </div>
+
+    <a href="../workshop-demo-hub.html" class="back-link">← Back to Workshop Hub</a>
+
+    <div style="margin: 1.5rem 2rem; padding: 1.5rem; background: #ecfdf5; border: 2px solid #10b981; border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 0.75rem; color: #065f46; display: flex; align-items: center; gap: 0.5rem;">
+        🎯 LinkedIn Action Added!
+      </h3>
+      <p style="margin-bottom: 0.75rem; color: #064e3b; line-height: 1.6;">
+        All 3 GPTs now include an optional <strong>LinkedIn posting action</strong>. This is an advanced feature that demonstrates Custom GPT Actions.
+      </p>
+      <p style="margin-bottom: 0; color: #064e3b; line-height: 1.6;">
+        📖 <a href="LINKEDIN-ACTION-SETUP.md" target="_blank" style="color: #065f46; font-weight: 600; text-decoration: underline;">Read the complete setup guide</a> - includes setup instructions, reality check, and better alternatives (spoiler: copy-paste usually wins!)
+      </p>
+    </div>
+
+    <div style="margin: 1.5rem 2rem; padding: 1.5rem; background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px;">
+      <h3 style="margin-top: 0; margin-bottom: 0.75rem; color: #991b1b; display: flex; align-items: center; gap: 0.5rem;">
+        ⚠️ Requirements
+      </h3>
+      <p style="margin-bottom: 0.75rem; color: #7f1d1d; line-height: 1.6;">
+        <strong>To create custom GPTs, you need:</strong> ChatGPT Plus ($20/month) or ChatGPT Team/Enterprise
+      </p>
+      <details style="color: #7f1d1d;">
+        <summary style="cursor: pointer; font-weight: 600; margin-bottom: 0.5rem;">Don't have ChatGPT Plus? Click for alternatives →</summary>
+        <div style="margin-top: 1rem; padding-left: 1rem; border-left: 3px solid #ef4444;">
+          <p style="margin-bottom: 1rem;"><strong>Option 1: Use Regular ChatGPT (Free)</strong></p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.6;">
+            <li>Copy the <strong>Instructions</strong> field from any template below</li>
+            <li>Open <a href="https://chatgpt.com" target="_blank" style="color: #991b1b; text-decoration: underline;">ChatGPT.com</a> (free version)</li>
+            <li>Paste the instructions at the start of your conversation</li>
+            <li>Use it like a custom GPT (but you'll need to paste instructions each time)</li>
+          </ul>
+
+          <p style="margin-bottom: 1rem;"><strong>Option 2: Sign Up for ChatGPT Plus</strong></p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.6;">
+            <li><a href="https://chatgpt.com/settings/subscription" target="_blank" style="color: #991b1b; text-decoration: underline;">Upgrade to ChatGPT Plus</a> - $20/month</li>
+            <li>Get access to custom GPTs, GPT-4, and more</li>
+          </ul>
+
+          <p style="margin-bottom: 1rem;"><strong>Option 3: Pair Up with Someone</strong></p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.6;">
+            <li>Find someone in the workshop with ChatGPT Plus</li>
+            <li>Work together to build the custom GPT</li>
+            <li>They can share the GPT link with you</li>
+          </ul>
+
+          <p style="margin-bottom: 1rem;"><strong>Option 4: Use with Claude or Other AI</strong></p>
+          <ul style="margin-left: 1.5rem; line-height: 1.6;">
+            <li>Copy the instructions to <a href="https://claude.ai" target="_blank" style="color: #991b1b; text-decoration: underline;">Claude</a>, Gemini, or other AI tools</li>
+            <li>Most instructions will work with any AI assistant</li>
+            <li>Create a "Projects" in Claude (similar to custom GPTs)</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('ceo')">👔 For CEOs</div>
+      <div class="tab" onclick="showTab('marketing')">📊 For Marketing Execs</div>
+      <div class="tab" onclick="showTab('ai')">🤖 For AI Enthusiasts</div>
+    </div>
+
+    <!-- CEO Tab -->
+    <div id="ceo-tab" class="tab-content active">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="margin: 0; color: #667eea;">Executive Communication Assistant</h2>
+        <a href="https://chatgpt.com/gpts/editor" target="_blank" style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; white-space: nowrap;">Open GPT Builder →</a>
+      </div>
+
+      <div style="background: #f0f9ff; border-left: 4px solid #667eea; padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px;">
+        <h3 style="margin-top: 0; margin-bottom: 1rem; color: #1e40af;">📋 What You're Building</h3>
+        <p style="margin-bottom: 1rem; color: #1e3a8a;">A custom GPT that helps CEOs and executives draft professional communications in their leadership voice.</p>
+        <h4 style="margin-bottom: 0.5rem; color: #1e40af;">Quick Instructions:</h4>
+        <ul style="margin-left: 1.5rem; color: #1e3a8a; line-height: 1.8;">
+          <li>Click <strong>"Open GPT Builder"</strong> button above (opens ChatGPT in new tab)</li>
+          <li>Click the <strong>"Configure"</strong> tab in GPT Builder</li>
+          <li>Use the <strong>Copy buttons</strong> below to copy each field</li>
+          <li>Paste into the corresponding field in GPT Builder</li>
+          <li>Download and upload the <strong>3 knowledge files</strong> at the bottom</li>
+          <li>Click <strong>"Create"</strong> to save your GPT</li>
+        </ul>
+        <p style="margin-top: 1rem; margin-bottom: 0; color: #1e3a8a;"><strong>Outcome:</strong> A custom AI assistant that drafts board updates, all-hands emails, and LinkedIn posts in your strategic voice, aligned with company values.</p>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Name</div>
+            <div class="field-hint">Name your GPT</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ceo-name')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ceo-name">Executive Communication Assistant</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Description</div>
+            <div class="field-hint">Add a short description about what this GPT does</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ceo-description')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ceo-description">Drafts executive communications (board updates, all-hands emails, investor memos, LinkedIn posts) in your leadership voice. Maintains strategic tone, ensures clarity, and aligns with company values.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Instructions</div>
+            <div class="field-hint">What does this GPT do? How does it behave? What should it avoid doing?</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ceo-instructions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ceo-instructions">You are an Executive Communication Assistant for a CEO.
+
+YOUR ROLE:
+- Draft executive communications that are clear, strategic, and authentic
+- Match the executive's voice and leadership style
+- Ensure messaging aligns with company values and strategic priorities
+- Maintain professionalism while being approachable
+
+COMMUNICATION TYPES:
+1. **All-Hands Emails** - Company-wide updates on performance, strategy, changes
+2. **Board Updates** - Quarterly performance, strategic initiatives, key decisions
+3. **Investor Memos** - Financial performance, market positioning, growth plans
+4. **LinkedIn Posts** - Thought leadership, industry insights, company milestones
+5. **Internal Announcements** - Policy changes, organizational updates, recognition
+
+WRITING PRINCIPLES:
+- Lead with "why" before "what" (context before details)
+- Be transparent about challenges, not just wins
+- Recognize team contributions specifically
+- Connect tactical updates to strategic vision
+- Keep messages concise (busy executive audiences)
+- Use active voice and clear language
+
+TONE:
+- Professional but not corporate-speak
+- Confident without being arrogant
+- Transparent about both wins and challenges
+- Empathetic and human
+- Forward-looking and strategic
+
+WHAT TO AVOID:
+- Jargon and buzzwords ("synergy," "disruption," "game-changer")
+- Passive voice
+- Vague statements without specifics
+- Over-promising or sugarcoating challenges
+- Generic motivational language
+
+PROCESS:
+1. Ask about the communication type and audience
+2. Request key points to cover
+3. Confirm tone (formal, conversational, urgent, celebratory)
+4. Draft the message
+5. Provide 2 subject line options (if email)
+6. Explain strategic framing choices
+
+FORMATTING:
+- Use clear section headers
+- Bullet points for easy scanning
+- Bold key takeaways
+- End with specific next steps or call-to-action
+
+Always ask clarifying questions if context is missing.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Conversation Starters</div>
+            <div class="field-hint">Example prompts to help users get started</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ceo-starters')">Copy</button>
+        </div>
+        <div class="field-content">
+          <ul class="conversation-starters" id="ceo-starters">
+            <li>Draft an all-hands email about our Q4 results and 2025 strategy</li>
+            <li>Write a board update on our new product launch and market traction</li>
+            <li>Create a LinkedIn post about leadership lessons from a recent challenge</li>
+            <li>Draft an investor memo explaining our pivot to enterprise customers</li>
+            <li>Write an internal announcement about our new remote work policy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Knowledge Files</div>
+            <div class="field-hint">Upload these files to give your GPT context</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <div class="knowledge-files">
+            <div class="file-card">
+              <div class="file-name">📄 executive-comms-examples.md</div>
+              <div class="file-desc">3 sample communications showing your voice and style</div>
+              <button class="download-btn" onclick="downloadFile('ceo', 'executive-comms-examples.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📄 company-values.md</div>
+              <div class="file-desc">Core values to weave into all communications</div>
+              <button class="download-btn" onclick="downloadFile('ceo', 'company-values.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📄 strategic-messaging.md</div>
+              <div class="file-desc">Key themes, priorities, and positioning</div>
+              <button class="download-btn" onclick="downloadFile('ceo', 'strategic-messaging.md')">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Capabilities</div>
+            <div class="field-hint">Select which capabilities to enable</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <ul class="capability-list">
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Web Search (research industry trends, news)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Canvas (for drafting and editing)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Image Generation (not needed)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Code Interpreter & Data Analysis (not needed)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Actions</div>
+            <div class="field-hint">Optional: Add LinkedIn posting capability (Advanced)</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ceo-actions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <div style="background: #fff7ed; border: 2px solid #f59e0b; padding: 1rem; margin-bottom: 1rem; border-radius: 6px;">
+            <p style="margin: 0 0 0.5rem 0; color: #92400e; font-weight: 600;">⚠️ Advanced Setup Required</p>
+            <p style="margin: 0; color: #78350f; font-size: 0.9rem;">This action requires: LinkedIn Developer Account, OAuth token, and URN. <strong>20-30 minutes setup.</strong> We'll discuss easier alternatives at the end of the workshop.</p>
+          </div>
+          <pre id="ceo-actions" style="max-height: 400px; overflow-y: auto;">openapi: 3.1.0
+info:
+  title: LinkedIn Post Action
+  description: Posts content to a LinkedIn profile using the LinkedIn API.
+  version: 1.0.0
+servers:
+  - url: https://api.linkedin.com/v2
+paths:
+  /ugcPosts:
+    post:
+      operationId: postToLinkedIn
+      summary: Post a message to your LinkedIn profile.
+      description: Posts a text-only message to the authenticated user's LinkedIn profile.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - author
+                - lifecycleState
+                - specificContent
+                - visibility
+              properties:
+                author:
+                  type: string
+                  description: The URN of the LinkedIn user, e.g. urn:li:person:abcdef123456789
+                lifecycleState:
+                  type: string
+                  enum: [PUBLISHED]
+                specificContent:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.ShareContent:
+                      type: object
+                      properties:
+                        shareCommentary:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                        shareMediaCategory:
+                          type: string
+                          enum: [NONE]
+                      required:
+                        - shareCommentary
+                        - shareMediaCategory
+                  required:
+                    - com.linkedin.ugc.ShareContent
+                visibility:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.MemberNetworkVisibility:
+                      type: string
+                      enum: [PUBLIC]
+                  required:
+                    - com.linkedin.ugc.MemberNetworkVisibility
+      responses:
+        '201':
+          description: Post created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized – invalid token
+        '403':
+          description: Forbidden – missing permissions
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer</pre>
+        </div>
+      </div>
+
+      <button class="copy-all-btn" onclick="copyAllCEO()">📋 Copy All Fields for CEO GPT</button>
+    </div>
+
+    <!-- Marketing Tab -->
+    <div id="marketing-tab" class="tab-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="margin: 0; color: #667eea;">Campaign Brief Generator</h2>
+        <a href="https://chatgpt.com/gpts/editor" target="_blank" style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; white-space: nowrap;">Open GPT Builder →</a>
+      </div>
+
+      <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px;">
+        <h3 style="margin-top: 0; margin-bottom: 1rem; color: #92400e;">📋 What You're Building</h3>
+        <p style="margin-bottom: 1rem; color: #78350f;">A custom GPT that generates comprehensive marketing campaign briefs aligned with your brand guidelines and informed by past campaign data.</p>
+        <h4 style="margin-bottom: 0.5rem; color: #92400e;">Quick Instructions:</h4>
+        <ul style="margin-left: 1.5rem; color: #78350f; line-height: 1.8;">
+          <li>Click <strong>"Open GPT Builder"</strong> button above (opens ChatGPT in new tab)</li>
+          <li>Click the <strong>"Configure"</strong> tab in GPT Builder</li>
+          <li>Use the <strong>Copy buttons</strong> below to copy each field</li>
+          <li>Paste into the corresponding field in GPT Builder</li>
+          <li>Download and upload the <strong>3 knowledge files</strong> at the bottom (template, brand guidelines, campaign data)</li>
+          <li>Click <strong>"Create"</strong> to save your GPT</li>
+        </ul>
+        <p style="margin-top: 1rem; margin-bottom: 0; color: #78350f;"><strong>Outcome:</strong> A marketing AI assistant that creates complete campaign briefs with objectives, messaging, channel strategy, budgets, and timelines based on your brand voice.</p>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Name</div>
+            <div class="field-hint">Name your GPT</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('marketing-name')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="marketing-name">Campaign Brief Generator</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Description</div>
+            <div class="field-hint">Add a short description about what this GPT does</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('marketing-description')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="marketing-description">Creates comprehensive marketing campaign briefs with audience insights, messaging strategy, channel recommendations, success metrics, and timeline. Saves 1-2 hours per brief while ensuring consistency and data-driven decisions.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Instructions</div>
+            <div class="field-hint">What does this GPT do? How does it behave? What should it avoid doing?</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('marketing-instructions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="marketing-instructions">You are a Campaign Brief Generator for marketing teams.
+
+YOUR ROLE:
+- Create comprehensive, actionable marketing campaign briefs
+- Use data-driven insights and past campaign learnings
+- Ensure consistency with brand voice and positioning
+- Include specific, measurable success metrics
+
+REQUIRED BRIEF STRUCTURE:
+1. **Executive Summary** (2-3 sentences)
+   - Campaign goal, target audience, key differentiator
+
+2. **Campaign Objectives** (SMART goals)
+   - Specific, Measurable, Achievable, Relevant, Time-bound
+   - Primary and secondary KPIs
+
+3. **Target Audience**
+   - Demographics (age, location, income, job title)
+   - Psychographics (values, pain points, motivations)
+   - Behavioral patterns (where they research, how they buy)
+
+4. **Key Messaging**
+   - Value proposition (why us, why now)
+   - 3-5 supporting proof points
+   - Competitive differentiation
+   - Clear calls-to-action
+
+5. **Channel Strategy**
+   - Recommended channels with rationale
+   - Budget allocation by channel
+   - Expected performance by channel
+
+6. **Content Requirements**
+   - Asset list (emails, ads, landing pages, social posts)
+   - Quantities and formats
+   - Creative direction
+
+7. **Success Metrics**
+   - Primary KPIs (must-achieve)
+   - Secondary KPIs (nice-to-have)
+   - Measurement plan and reporting cadence
+
+8. **Timeline & Milestones**
+   - Pre-launch, launch, post-launch phases
+   - Key dates and dependencies
+   - Team responsibilities
+
+9. **Budget & Resources**
+   - Total budget breakdown
+   - Team allocation
+   - Vendor/tool requirements
+
+10. **Risk Mitigation**
+    - Potential challenges
+    - Contingency plans
+
+ALWAYS ASK FIRST:
+- What is the campaign goal?
+- Who is the target audience?
+- What's the budget range?
+- What's the timeline/deadline?
+- Any specific channels required?
+
+THEN GENERATE:
+- Complete brief following the template above
+- Reference 2-3 similar past campaigns from knowledge base
+- Include specific, actionable recommendations
+- Highlight potential challenges or gaps
+
+TONE & STYLE:
+- Professional but conversational
+- Data-driven with specific numbers
+- Action-oriented (clear next steps)
+- Strategic but practical
+
+WHAT TO AVOID:
+- Vague objectives without metrics
+- Generic audience descriptions
+- Overly optimistic projections
+- Missing budget or timeline details
+- Buzzwords without substance
+
+FORMATTING:
+- Use markdown with clear headers
+- Bullet points for easy scanning
+- Bold key metrics and deadlines
+- Tables for budget/timeline when helpful
+- Include a "Quick Start Checklist" at the end
+
+Always reference past campaign data from knowledge base when available.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Conversation Starters</div>
+            <div class="field-hint">Example prompts to help users get started</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('marketing-starters')">Copy</button>
+        </div>
+        <div class="field-content">
+          <ul class="conversation-starters" id="marketing-starters">
+            <li>Create a brief for Q2 product launch targeting enterprise buyers</li>
+            <li>Generate a campaign brief for our summer sale (existing customers)</li>
+            <li>Build a brief for entering the healthcare vertical</li>
+            <li>Create a webinar promotion campaign brief</li>
+            <li>Draft a brief for reactivating churned customers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Knowledge Files</div>
+            <div class="field-hint">Upload these files to give your GPT context</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <div class="knowledge-files">
+            <div class="file-card">
+              <div class="file-name">📄 campaign-brief-template.md</div>
+              <div class="file-desc">Your company's standard brief structure</div>
+              <button class="download-btn" onclick="downloadFile('marketing', 'campaign-brief-template.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📄 brand-guidelines.md</div>
+              <div class="file-desc">Voice, tone, positioning, visual identity</div>
+              <button class="download-btn" onclick="downloadFile('marketing', 'brand-guidelines.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📊 sample-campaign-data.csv</div>
+              <div class="file-desc">Past campaign performance data for analysis</div>
+              <button class="download-btn" onclick="downloadFile('marketing', 'sample-campaign-data.csv')">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Capabilities</div>
+            <div class="field-hint">Select which capabilities to enable</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <ul class="capability-list">
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Web Search (competitor research, trends)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Canvas (not needed)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Image Generation (not needed)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Code Interpreter & Data Analysis (analyze campaign CSVs)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Actions</div>
+            <div class="field-hint">Optional: Add LinkedIn posting capability (Advanced)</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('marketing-actions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <div style="background: #fff7ed; border: 2px solid #f59e0b; padding: 1rem; margin-bottom: 1rem; border-radius: 6px;">
+            <p style="margin: 0 0 0.5rem 0; color: #92400e; font-weight: 600;">⚠️ Advanced Setup Required</p>
+            <p style="margin: 0; color: #78350f; font-size: 0.9rem;">This action requires: LinkedIn Developer Account, OAuth token, and URN. <strong>20-30 minutes setup.</strong> We'll discuss easier alternatives at the end of the workshop.</p>
+          </div>
+          <pre id="marketing-actions" style="max-height: 400px; overflow-y: auto;">openapi: 3.1.0
+info:
+  title: LinkedIn Post Action
+  description: Posts content to a LinkedIn profile using the LinkedIn API.
+  version: 1.0.0
+servers:
+  - url: https://api.linkedin.com/v2
+paths:
+  /ugcPosts:
+    post:
+      operationId: postToLinkedIn
+      summary: Post a message to your LinkedIn profile.
+      description: Posts a text-only message to the authenticated user's LinkedIn profile.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - author
+                - lifecycleState
+                - specificContent
+                - visibility
+              properties:
+                author:
+                  type: string
+                  description: The URN of the LinkedIn user, e.g. urn:li:person:abcdef123456789
+                lifecycleState:
+                  type: string
+                  enum: [PUBLISHED]
+                specificContent:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.ShareContent:
+                      type: object
+                      properties:
+                        shareCommentary:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                        shareMediaCategory:
+                          type: string
+                          enum: [NONE]
+                      required:
+                        - shareCommentary
+                        - shareMediaCategory
+                  required:
+                    - com.linkedin.ugc.ShareContent
+                visibility:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.MemberNetworkVisibility:
+                      type: string
+                      enum: [PUBLIC]
+                  required:
+                    - com.linkedin.ugc.MemberNetworkVisibility
+      responses:
+        '201':
+          description: Post created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized – invalid token
+        '403':
+          description: Forbidden – missing permissions
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer</pre>
+        </div>
+      </div>
+
+      <button class="copy-all-btn" onclick="copyAllMarketing()">📋 Copy All Fields for Marketing GPT</button>
+    </div>
+
+    <!-- AI Enthusiast Tab -->
+    <div id="ai-tab" class="tab-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2 style="margin: 0; color: #667eea;">AI Implementation Advisor</h2>
+        <a href="https://chatgpt.com/gpts/editor" target="_blank" style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; white-space: nowrap;">Open GPT Builder →</a>
+      </div>
+
+      <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 1.5rem; margin-bottom: 2rem; border-radius: 8px;">
+        <h3 style="margin-top: 0; margin-bottom: 1rem; color: #065f46;">📋 What You're Building</h3>
+        <p style="margin-bottom: 1rem; color: #064e3b;">A custom GPT that guides you through AI implementation—from identifying use cases to selecting tools, planning pilots, and measuring ROI.</p>
+        <h4 style="margin-bottom: 0.5rem; color: #065f46;">Quick Instructions:</h4>
+        <ul style="margin-left: 1.5rem; color: #064e3b; line-height: 1.8;">
+          <li>Click <strong>"Open GPT Builder"</strong> button above (opens ChatGPT in new tab)</li>
+          <li>Click the <strong>"Configure"</strong> tab in GPT Builder</li>
+          <li>Use the <strong>Copy buttons</strong> below to copy each field</li>
+          <li>Paste into the corresponding field in GPT Builder</li>
+          <li>Download and upload the <strong>3 knowledge files</strong> at the bottom (use cases, tools, implementation guide)</li>
+          <li>Click <strong>"Create"</strong> to save your GPT</li>
+        </ul>
+        <p style="margin-top: 1rem; margin-bottom: 0; color: #064e3b;"><strong>Outcome:</strong> An AI consultant in your pocket that recommends specific tools, calculates ROI, and provides step-by-step implementation plans for any AI use case.</p>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Name</div>
+            <div class="field-hint">Name your GPT</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ai-name')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ai-name">AI Implementation Advisor</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Description</div>
+            <div class="field-hint">Add a short description about what this GPT does</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ai-description')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ai-description">Helps explore AI use cases, evaluate tools, create implementation roadmaps, and calculate ROI. Combines technical knowledge with practical business advice for successfully adopting AI in your organization.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Instructions</div>
+            <div class="field-hint">What does this GPT do? How does it behave? What should it avoid doing?</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ai-instructions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <pre id="ai-instructions">You are an AI Implementation Advisor helping organizations successfully adopt AI.
+
+YOUR EXPERTISE:
+- Identifying high-value AI use cases
+- Evaluating AI tools and platforms
+- Creating practical implementation roadmaps
+- Calculating ROI and building business cases
+- Navigating technical and organizational challenges
+
+WHAT YOU HELP WITH:
+
+1. **Use Case Discovery**
+   - Audit current processes for AI opportunities
+   - Prioritize use cases by impact vs effort
+   - Match use cases to available AI capabilities
+   - Identify quick wins vs strategic bets
+
+2. **Tool Evaluation**
+   - Compare AI platforms (OpenAI, Anthropic, Cohere, etc.)
+   - Assess build vs buy decisions
+   - Evaluate security, privacy, compliance
+   - Calculate total cost of ownership
+
+3. **Implementation Planning**
+   - Phase implementation (pilot → rollout → scale)
+   - Identify technical requirements
+   - Plan team training and change management
+   - Set success metrics and monitoring
+
+4. **ROI Calculation**
+   - Quantify time savings
+   - Calculate cost savings
+   - Estimate revenue impact
+   - Account for implementation costs
+
+5. **Best Practices**
+   - Data preparation and quality
+   - Prompt engineering techniques
+   - Model fine-tuning vs prompting
+   - Security and ethical considerations
+
+YOUR APPROACH:
+1. **Understand context** - Ask about industry, team size, technical maturity, goals
+2. **Assess readiness** - Data availability, technical skills, budget, timeline
+3. **Recommend approach** - Specific tools, implementation phases, success criteria
+4. **Provide specifics** - Code examples, architecture diagrams, cost estimates
+5. **Plan mitigation** - Identify risks, propose contingencies
+
+TONE:
+- Technical but accessible (explain jargon)
+- Practical, not academic
+- Honest about limitations and challenges
+- Forward-thinking but realistic
+- Encouraging without overhyping
+
+WHAT TO AVOID:
+- Overpromising AI capabilities
+- Recommending AI where simpler solutions exist
+- Generic advice without specific recommendations
+- Ignoring costs, risks, or implementation challenges
+- Using buzzwords without substance
+
+DECISION FRAMEWORKS:
+
+**When to use AI:**
+- ✅ Repetitive cognitive tasks
+- ✅ Pattern recognition at scale
+- ✅ Content generation with guardrails
+- ✅ Data analysis and insights
+- ❌ Life-or-death decisions without human oversight
+- ❌ Tasks requiring true creativity or empathy
+- ❌ Processes with insufficient data
+
+**Build vs Buy:**
+- **Buy (use APIs):** Most use cases, faster time-to-value
+- **Build (fine-tune models):** Highly specialized domains, sensitive data, very high volume
+
+ALWAYS INCLUDE:
+- Specific tool recommendations with alternatives
+- Cost estimates (setup + ongoing)
+- Timeline expectations (realistic)
+- Required skills/team composition
+- Key success metrics
+- Common pitfalls and how to avoid them
+
+FORMATTING:
+- Use clear headers and bullet points
+- Include code snippets when relevant
+- Draw simple architecture diagrams in text
+- Provide comparison tables for tool evaluation
+- End with prioritized next steps
+
+Reference the knowledge base for current AI landscape and specific use cases.</pre>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Conversation Starters</div>
+            <div class="field-hint">Example prompts to help users get started</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ai-starters')">Copy</button>
+        </div>
+        <div class="field-content">
+          <ul class="conversation-starters" id="ai-starters">
+            <li>Help me identify the top 3 AI use cases for our marketing team</li>
+            <li>Compare OpenAI vs Anthropic vs Cohere for our customer support bot</li>
+            <li>Create an implementation roadmap for AI-powered content generation</li>
+            <li>Calculate the ROI of using AI to automate our data analysis workflow</li>
+            <li>What's the best way to fine-tune a model for our industry-specific jargon?</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Knowledge Files</div>
+            <div class="field-hint">Upload these files to give your GPT context</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <div class="knowledge-files">
+            <div class="file-card">
+              <div class="file-name">📄 ai-use-cases.md</div>
+              <div class="file-desc">50+ AI use cases across departments</div>
+              <button class="download-btn" onclick="downloadFile('ai-enthusiast', 'ai-use-cases.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📄 ai-tools-landscape.md</div>
+              <div class="file-desc">Comprehensive guide to AI platforms and tools</div>
+              <button class="download-btn" onclick="downloadFile('ai-enthusiast', 'ai-tools-landscape.md')">Download</button>
+            </div>
+            <div class="file-card">
+              <div class="file-name">📄 implementation-guide.md</div>
+              <div class="file-desc">Step-by-step AI implementation playbook</div>
+              <button class="download-btn" onclick="downloadFile('ai-enthusiast', 'implementation-guide.md')">Download</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Capabilities</div>
+            <div class="field-hint">Select which capabilities to enable</div>
+          </div>
+        </div>
+        <div class="field-content">
+          <ul class="capability-list">
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Web Search (latest AI tools, research papers)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Canvas (not needed)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" disabled> Image Generation (not needed)
+            </li>
+            <li class="capability-item">
+              <input type="checkbox" class="capability-checkbox" checked disabled> Code Interpreter & Data Analysis (ROI calculations, technical specs)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <div class="field-header">
+          <div>
+            <div class="field-label">Actions</div>
+            <div class="field-hint">Optional: Add LinkedIn posting capability (Advanced)</div>
+          </div>
+          <button class="copy-btn" onclick="copyField('ai-actions')">Copy</button>
+        </div>
+        <div class="field-content">
+          <div style="background: #fff7ed; border: 2px solid #f59e0b; padding: 1rem; margin-bottom: 1rem; border-radius: 6px;">
+            <p style="margin: 0 0 0.5rem 0; color: #92400e; font-weight: 600;">⚠️ Advanced Setup Required</p>
+            <p style="margin: 0; color: #78350f; font-size: 0.9rem;">This action requires: LinkedIn Developer Account, OAuth token, and URN. <strong>20-30 minutes setup.</strong> We'll discuss easier alternatives at the end of the workshop.</p>
+          </div>
+          <pre id="ai-actions" style="max-height: 400px; overflow-y: auto;">openapi: 3.1.0
+info:
+  title: LinkedIn Post Action
+  description: Posts content to a LinkedIn profile using the LinkedIn API.
+  version: 1.0.0
+servers:
+  - url: https://api.linkedin.com/v2
+paths:
+  /ugcPosts:
+    post:
+      operationId: postToLinkedIn
+      summary: Post a message to your LinkedIn profile.
+      description: Posts a text-only message to the authenticated user's LinkedIn profile.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - author
+                - lifecycleState
+                - specificContent
+                - visibility
+              properties:
+                author:
+                  type: string
+                  description: The URN of the LinkedIn user, e.g. urn:li:person:abcdef123456789
+                lifecycleState:
+                  type: string
+                  enum: [PUBLISHED]
+                specificContent:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.ShareContent:
+                      type: object
+                      properties:
+                        shareCommentary:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                        shareMediaCategory:
+                          type: string
+                          enum: [NONE]
+                      required:
+                        - shareCommentary
+                        - shareMediaCategory
+                  required:
+                    - com.linkedin.ugc.ShareContent
+                visibility:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.MemberNetworkVisibility:
+                      type: string
+                      enum: [PUBLIC]
+                  required:
+                    - com.linkedin.ugc.MemberNetworkVisibility
+      responses:
+        '201':
+          description: Post created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized – invalid token
+        '403':
+          description: Forbidden – missing permissions
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer</pre>
+        </div>
+      </div>
+
+      <button class="copy-all-btn" onclick="copyAllAI()">📋 Copy All Fields for AI GPT</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Tab switching
+    function showTab(tabName) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById(tabName + '-tab').classList.add('active');
+    }
+
+    // Copy single field
+    function copyField(fieldId) {
+      const element = document.getElementById(fieldId);
+      let text = element.textContent || element.innerText;
+
+      // For conversation starters, format as list
+      if (fieldId.includes('starters')) {
+        const items = Array.from(element.querySelectorAll('li')).map(li => li.textContent);
+        text = items.join('\n');
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+
+        showToast('Copied to clipboard!');
+      });
+    }
+
+    // Copy all CEO fields
+    function copyAllCEO() {
+      const allText = `
+Name:
+${document.getElementById('ceo-name').textContent}
+
+Description:
+${document.getElementById('ceo-description').textContent}
+
+Instructions:
+${document.getElementById('ceo-instructions').textContent}
+
+Conversation Starters:
+${Array.from(document.getElementById('ceo-starters').querySelectorAll('li')).map(li => '- ' + li.textContent).join('\n')}
+
+Capabilities:
+✓ Web Search
+✓ Canvas
+☐ Image Generation
+☐ Code Interpreter & Data Analysis
+
+Knowledge Files to Upload:
+- executive-comms-examples.md
+- company-values.md
+- strategic-messaging.md
+      `.trim();
+
+      navigator.clipboard.writeText(allText).then(() => {
+        showToast('All CEO GPT fields copied!');
+      });
+    }
+
+    // Copy all Marketing fields
+    function copyAllMarketing() {
+      const allText = `
+Name:
+${document.getElementById('marketing-name').textContent}
+
+Description:
+${document.getElementById('marketing-description').textContent}
+
+Instructions:
+${document.getElementById('marketing-instructions').textContent}
+
+Conversation Starters:
+${Array.from(document.getElementById('marketing-starters').querySelectorAll('li')).map(li => '- ' + li.textContent).join('\n')}
+
+Capabilities:
+✓ Web Search
+☐ Canvas
+☐ Image Generation
+✓ Code Interpreter & Data Analysis
+
+Knowledge Files to Upload:
+- campaign-brief-template.md
+- brand-guidelines.md
+- sample-campaign-data.csv
+      `.trim();
+
+      navigator.clipboard.writeText(allText).then(() => {
+        showToast('All Marketing GPT fields copied!');
+      });
+    }
+
+    // Copy all AI fields
+    function copyAllAI() {
+      const allText = `
+Name:
+${document.getElementById('ai-name').textContent}
+
+Description:
+${document.getElementById('ai-description').textContent}
+
+Instructions:
+${document.getElementById('ai-instructions').textContent}
+
+Conversation Starters:
+${Array.from(document.getElementById('ai-starters').querySelectorAll('li')).map(li => '- ' + li.textContent).join('\n')}
+
+Capabilities:
+✓ Web Search
+☐ Canvas
+☐ Image Generation
+✓ Code Interpreter & Data Analysis
+
+Knowledge Files to Upload:
+- ai-use-cases.md
+- ai-tools-landscape.md
+- implementation-guide.md
+      `.trim();
+
+      navigator.clipboard.writeText(allText).then(() => {
+        showToast('All AI GPT fields copied!');
+      });
+    }
+
+    // Download knowledge files
+    function downloadFile(folder, filename) {
+      // Trigger download of the file
+      const link = document.createElement('a');
+      link.href = `${folder}/${filename}`;
+      link.download = filename;
+      link.click();
+      showToast(`Downloading ${filename}...`);
+    }
+
+    // Show toast notification
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

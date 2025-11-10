@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: LinkedIn Post Action
+  description: Posts content to a LinkedIn profile using the LinkedIn API.
+  version: 1.0.0
+servers:
+  - url: https://api.linkedin.com/v2
+paths:
+  /ugcPosts:
+    post:
+      operationId: postToLinkedIn
+      summary: Post a message to your LinkedIn profile.
+      description: Posts a text-only message to the authenticated user's LinkedIn profile.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - author
+                - lifecycleState
+                - specificContent
+                - visibility
+              properties:
+                author:
+                  type: string
+                  description: The URN of the LinkedIn user, e.g. urn:li:person:abcdef123456789
+                lifecycleState:
+                  type: string
+                  enum: [PUBLISHED]
+                specificContent:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.ShareContent:
+                      type: object
+                      properties:
+                        shareCommentary:
+                          type: object
+                          properties:
+                            text:
+                              type: string
+                        shareMediaCategory:
+                          type: string
+                          enum: [NONE]
+                      required:
+                        - shareCommentary
+                        - shareMediaCategory
+                  required:
+                    - com.linkedin.ugc.ShareContent
+                visibility:
+                  type: object
+                  properties:
+                    com.linkedin.ugc.MemberNetworkVisibility:
+                      type: string
+                      enum: [PUBLIC]
+                  required:
+                    - com.linkedin.ugc.MemberNetworkVisibility
+      responses:
+        '201':
+          description: Post created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized – invalid token
+        '403':
+          description: Forbidden – missing permissions
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

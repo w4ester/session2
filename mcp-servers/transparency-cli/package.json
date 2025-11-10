@@ -1,0 +1,32 @@
+{
+  "name": "@edinfinite/transparency-cli",
+  "version": "1.0.0",
+  "description": "CLI client for analyzing privacy policies using Transparency MCP server with local or cloud LLMs",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "transparency": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-client",
+    "privacy",
+    "transparency",
+    "ai",
+    "cli",
+    "ollama",
+    "local-llm"
+  ],
+  "author": "Will F <howdy@edinfinite.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.1",
+    "axios": "^1.13.2",
+    "chalk": "^5.6.2",
+    "commander": "^14.0.2",
+    "ora": "^9.0.0"
+  }
+}
