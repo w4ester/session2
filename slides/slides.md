@@ -8,73 +8,40 @@
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1rem 0;">
 
 <!-- Todd Marks Card -->
-<div id="speaker-card-todd" class="speaker-card" onclick="toggleSpeaker('todd')" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
+<div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">Todd Marks</div>
-<div style="font-size: 0.85em; font-weight: 500;">Program Champion/Moderator</div>
-
-<div id="speaker-content-todd" style="display: none; margin-top: 0.75rem; font-size: 0.8em; line-height: 1.5; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.75rem;">
-
-**YPO Northeast One Regional Integrated**
-
-Leading today's session and facilitating Q&A throughout the workshop.
-
-</div>
+<div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Program Champion/Moderator</div>
+<div style="font-size: 0.75em;">YPO Northeast One Regional Integrated</div>
 
 </div>
 
 <!-- Mo Ezderman Card -->
-<div id="speaker-card-mo" class="speaker-card" onclick="toggleSpeaker('mo')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">Mo Ezderman</div>
-<div style="font-size: 0.85em; font-weight: 500;">Director of AI Engineering</div>
+<div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
+<div style="font-size: 0.75em; margin-bottom: 0.5rem;">Handling Q&A</div>
 
-<div id="speaker-content-mo" style="display: none; margin-top: 0.75rem; font-size: 0.8em; line-height: 1.5; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.75rem;">
-
-**Mindgrub**
-
-<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin: 0.5rem 0;">
-<a href="mailto:mezderman@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 1.05em;">📧 mezderman@mindgrub.com</a>
-</div>
-
-20+ years developing AI systems. Notable achievements:
-
-- AI platform with **Siri Co-Founder Tom Gruber**
-- AI tools with **NCMEC** for victim identification
-- Fraud detection with **FBI and Google**
-
+<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
+<a href="mailto:mezderman@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 mezderman@mindgrub.com</a>
 </div>
 
 </div>
 
 <!-- William Forrester Card -->
-<div id="speaker-card-william" class="speaker-card" onclick="toggleSpeaker('william')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
+<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">William Forrester</div>
-<div style="font-size: 0.85em; font-weight: 500;">AI Innovation Lead</div>
+<div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
+<div style="font-size: 0.75em; margin-bottom: 0.5rem;">Handling Demo</div>
 
-<div id="speaker-content-william" style="display: none; margin-top: 0.75rem; font-size: 0.8em; line-height: 1.5; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 0.75rem;">
-
-**Mindgrub**
-
-<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin: 0.5rem 0;">
-<a href="mailto:wforrester@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 1.05em;">📧 wforrester@mindgrub.com</a>
-</div>
-
-Educational technology leader specializing in AI innovation:
-
-- **Accessible, intelligent solutions**
-- **4+ years** designing stateful AI systems
-- Bridging **AI capabilities** and practical applications
-
+<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
+<a href="mailto:wforrester@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 wforrester@mindgrub.com</a>
 </div>
 
 </div>
 
-</div>
-
-<div style="text-align: center; margin-top: 0.75rem; font-size: 0.8em; color: #64748b; font-style: italic;">
-👆 Click any speaker to view contact details
 </div>
 
 </div>
@@ -94,10 +61,6 @@ Educational technology leader specializing in AI innovation:
 
 This GPT can write AND post directly to LinkedIn from chat!
 
-</div>
-
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
 ---
