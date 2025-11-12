@@ -656,7 +656,7 @@ We'll address them now before moving to Part 2
 <div style="font-size: 0.85em;">
 
 <div style="background: #e7f3ff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.9em; margin-bottom: 0.75rem;">
-**📖 Full Technical Guide:** [LinkedIn Custom GPT Posting Setup Guide](linkedin_custom_gpt_posting_setup.md)
+**📖 Full Technical Guide:** [LinkedIn Custom GPT Posting Setup Guide](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md)
 </div>
 
 **You need these TWO things:**
@@ -1368,7 +1368,7 @@ Your GPT can now:
 
 ### Resources:
 
-📖 **Full Guide:** [linkedin_custom_gpt_posting_setup.md](linkedin_custom_gpt_posting_setup.md)
+📖 **Full Guide:** [linkedin_custom_gpt_posting_setup.md](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md)
 💻 **Slides:** https://w4ester.github.io/session2/
 🔗 **Demo GPT:** [LinkedIn Post Creator](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
 
