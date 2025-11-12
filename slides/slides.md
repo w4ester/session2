@@ -1314,7 +1314,7 @@ Your GPT can now:
 <div style="background: #e7f3ff; padding: 1rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
 
 **📖 Full Technical Guide:**
-[linkedin_custom_gpt_posting_setup.md](linkedin_custom_gpt_posting_setup.md)
+[linkedin_custom_gpt_posting_setup.md](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md)
 
 - Security best practices
 - Rotate Client Secrets
