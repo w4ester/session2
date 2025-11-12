@@ -3,54 +3,65 @@
 
 ### **YPO Live: Digital Campus 2025**
 
-<div style="margin: 2rem 0;">
+<div style="margin: 1.5rem 0;">
 
-<div style="text-align: center; padding: 1rem 0; border-bottom: 2px solid #e2e8f0; margin-bottom: 2rem;">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+
+<div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center;">
+
+### Todd Marks
 
 **Program Champion/Moderator**
 
-**Todd Marks**
-*YPO Northeast One Regional Integrated*
+**YPO Northeast One Regional Integrated**
+
+<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
+
+Leading today's session and facilitating Q&A throughout the workshop.
 
 </div>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+</div>
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 ### Mo Ezderman
 
-**Director of AI Engineering, Mindgrub**
+**Director of AI Engineering**
+
+**Mindgrub**
 
 [mezderman@mindgrub.com](mailto:mezderman@mindgrub.com)
 
-<div style="margin-top: 1rem; font-size: 0.9em; line-height: 1.6;">
+<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
 
-20+ years developing AI systems that solve real-world problems. Notable achievements include:
+20+ years developing AI systems. Notable achievements:
 
-- Co-developed generative AI music platform with **Siri Co-Founder Tom Gruber**
-- Created AI tools with **NCMEC** for child exploitation victim identification
-- Built fraud detection systems that helped **FBI and Google** dismantle the largest ad fraud operation
-
-</div>
+- AI platform with **Siri Co-Founder Tom Gruber**
+- AI tools with **NCMEC** for victim identification
+- Fraud detection with **FBI and Google**
 
 </div>
 
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+</div>
+
+<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 ### William Forrester
 
-**AI Innovation Lead, Mindgrub**
+**AI Innovation Lead**
+
+**Mindgrub**
 
 [wforrester@mindgrub.com](mailto:wforrester@mindgrub.com)
 
-<div style="margin-top: 1rem; font-size: 0.9em; line-height: 1.6;">
+<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
 
-Educational technology leader specializing in AI innovation and implementation. Focus areas include:
+Educational technology leader specializing in AI innovation:
 
-- Transforming AI experiences into **accessible, intelligent solutions**
+- **Accessible, intelligent solutions**
 - **4+ years** designing stateful AI systems
-- Bridging the gap between **cutting-edge AI capabilities** and practical applications
+- Bridging **AI capabilities** and practical applications
 
 </div>
 
