@@ -703,11 +703,16 @@ LinkedIn REQUIRES a Company Page for Developer Apps.
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/9" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-**Note:** PRESENTER: "Quick check in chat: 👍 if you have BOTH LinkedIn account AND Company Page. If not, directions provided above - take your time or do later. All resources available now and later!"
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Quick check in chat: 👍 if you have BOTH LinkedIn account AND Company Page. If not, directions provided above - take your time or do later. All resources available now and later!"
+</div>
+</details>
 
 ---
 
@@ -862,8 +867,8 @@ You'll see:
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/10" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
 ---
@@ -1210,8 +1215,8 @@ Next slide: Let's test posting!
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/11" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
 ---
@@ -1312,8 +1317,8 @@ Your GPT can now:
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/12" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
 ---
@@ -1361,13 +1366,18 @@ Use the Q&A feature in Zoom toolbar
 
 </div>
 
-<div style="margin-top: 2rem;">
-<a href="https://w4ester.github.io/session2/slides/#/13" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-**Note:** PRESENTER: "Amazing work everyone! We've built something production-ready today. Todd will now moderate our Q&A session. Remember, the recording and all materials will be sent within 48 hours. Let's hear your questions! And remember folks can always follow along at https://w4ester.github.io/session2/slides/"
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Amazing work everyone! We've built something production-ready today. Todd will now moderate our Q&A session. Remember, the recording and all materials will be sent within 48 hours. Let's hear your questions! And remember folks can always follow along at https://w4ester.github.io/session2/slides/"
+</div>
+</details>
 
 ---
 
@@ -1415,11 +1425,16 @@ Share this: *Everyone can build. This is your playground for ideas.*
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/14" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-**Note:** PRESENTER: "Before we wrap, two things. First—quick terminal demo of MCP connecting multiple tools. [DEMO]. Second—notice what happened today? You shifted from USER to PRODUCER. You didn't just use AI—you extended it. Share this with your teams: no one has to be passive. We're all builders now. This is your playground for creativity and ideas. Links are all here and on GitHub pages. Thank you!"
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Before we wrap, two things. First—quick terminal demo of MCP connecting multiple tools. [DEMO]. Second—notice what happened today? You shifted from USER to PRODUCER. You didn't just use AI—you extended it. Share this with your teams: no one has to be passive. We're all builders now. This is your playground for creativity and ideas. Links are all here and on GitHub pages. Thank you!"
+</div>
+</details>
 
 ---
 
