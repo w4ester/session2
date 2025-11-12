@@ -932,6 +932,22 @@ ALWAYS INCLUDE: Tool recommendations, cost estimates, timelines, required skills
       checkSlideOverflow();
       console.log('Slides initialized with enhanced viewport handling');
     });
+
+    // Speaker card toggle function for Slide 0
+    window.toggleSpeaker = function(speaker) {
+      const content = document.getElementById('speaker-content-' + speaker);
+      const card = document.getElementById('speaker-card-' + speaker);
+
+      if (content && card) {
+        if (content.style.display === 'none' || content.style.display === '') {
+          content.style.display = 'block';
+          card.style.transform = 'scale(1.02)';
+        } else {
+          content.style.display = 'none';
+          card.style.transform = 'scale(1)';
+        }
+      }
+    };
   </script>
 </body>
 </html>

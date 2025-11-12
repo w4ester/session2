@@ -77,21 +77,6 @@ Educational technology leader specializing in AI innovation:
 👆 Click any speaker to view contact details
 </div>
 
-<script>
-function toggleSpeaker(speaker) {
-  const content = document.getElementById('speaker-content-' + speaker);
-  const card = document.getElementById('speaker-card-' + speaker);
-
-  if (content.style.display === 'none') {
-    content.style.display = 'block';
-    card.style.transform = 'scale(1.02)';
-  } else {
-    content.style.display = 'none';
-    card.style.transform = 'scale(1)';
-  }
-}
-</script>
-
 </div>
 
 <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.9em; margin-top: 1rem; border-left: 4px solid #f59e0b;">
