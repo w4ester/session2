@@ -31,8 +31,8 @@
 <div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
 <div style="font-size: 0.75em; margin-bottom: 0.5rem;">Handling Q&A</div>
 
-<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
-<a href="mailto:mezderman@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 mezderman@mindgrub.com</a>
+<div style="background: rgba(255,255,255,0.9); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
+<a href="mailto:mezderman@mindgrub.com" style="color: #1e293b; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 mezderman@mindgrub.com</a>
 </div>
 
 <button onclick="window.toggleSpeaker('mo')" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid rgba(255,255,255,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-top: 0.5rem; width: 100%;">
@@ -52,8 +52,8 @@
 <div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
 <div style="font-size: 0.75em; margin-bottom: 0.5rem;">Handling Demo</div>
 
-<div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
-<a href="mailto:wforrester@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 wforrester@mindgrub.com</a>
+<div style="background: rgba(255,255,255,0.9); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
+<a href="mailto:wforrester@mindgrub.com" style="color: #1e293b; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 wforrester@mindgrub.com</a>
 </div>
 
 <button onclick="window.toggleSpeaker('will')" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid rgba(255,255,255,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-top: 0.5rem; width: 100%;">
