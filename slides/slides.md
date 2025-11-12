@@ -7,15 +7,15 @@
 
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
 
-<div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-align: center;">
+<!-- Todd Marks Card -->
+<div id="speaker-card-todd" class="speaker-card" onclick="toggleSpeaker('todd')" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
 
-### Todd Marks
+<div style="font-size: 1.8em; font-weight: bold; margin-bottom: 0.5rem;">Todd Marks</div>
+<div style="font-size: 1.1em; font-weight: 600;">Program Champion/Moderator</div>
 
-**Program Champion/Moderator**
+<div id="speaker-content-todd" style="display: none; margin-top: 1rem; font-size: 0.9em; line-height: 1.6; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 1rem;">
 
 **YPO Northeast One Regional Integrated**
-
-<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
 
 Leading today's session and facilitating Q&A throughout the workshop.
 
@@ -23,17 +23,17 @@ Leading today's session and facilitating Q&A throughout the workshop.
 
 </div>
 
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<!-- Mo Ezderman Card -->
+<div id="speaker-card-mo" class="speaker-card" onclick="toggleSpeaker('mo')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
 
-### Mo Ezderman
+<div style="font-size: 1.8em; font-weight: bold; margin-bottom: 0.5rem;">Mo Ezderman</div>
+<div style="font-size: 1.1em; font-weight: 600;">Director of AI Engineering</div>
 
-**Director of AI Engineering**
+<div id="speaker-content-mo" style="display: none; margin-top: 1rem; font-size: 0.9em; line-height: 1.6; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 1rem;">
 
 **Mindgrub**
 
-[mezderman@mindgrub.com](mailto:mezderman@mindgrub.com)
-
-<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
+<a href="mailto:mezderman@mindgrub.com" style="color: #fbbf24; text-decoration: underline;">mezderman@mindgrub.com</a>
 
 20+ years developing AI systems. Notable achievements:
 
@@ -45,17 +45,17 @@ Leading today's session and facilitating Q&A throughout the workshop.
 
 </div>
 
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<!-- William Forrester Card -->
+<div id="speaker-card-william" class="speaker-card" onclick="toggleSpeaker('william')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s;">
 
-### William Forrester
+<div style="font-size: 1.8em; font-weight: bold; margin-bottom: 0.5rem;">William Forrester</div>
+<div style="font-size: 1.1em; font-weight: 600;">AI Innovation Lead</div>
 
-**AI Innovation Lead**
+<div id="speaker-content-william" style="display: none; margin-top: 1rem; font-size: 0.9em; line-height: 1.6; border-top: 2px solid rgba(255,255,255,0.3); padding-top: 1rem;">
 
 **Mindgrub**
 
-[wforrester@mindgrub.com](mailto:wforrester@mindgrub.com)
-
-<div style="margin-top: 1rem; font-size: 0.85em; line-height: 1.5;">
+<a href="mailto:wforrester@mindgrub.com" style="color: #fbbf24; text-decoration: underline;">wforrester@mindgrub.com</a>
 
 Educational technology leader specializing in AI innovation:
 
@@ -68,6 +68,25 @@ Educational technology leader specializing in AI innovation:
 </div>
 
 </div>
+
+<div style="text-align: center; margin-top: 1rem; font-size: 0.85em; color: #64748b; font-style: italic;">
+Click any speaker to view details
+</div>
+
+<script>
+function toggleSpeaker(speaker) {
+  const content = document.getElementById('speaker-content-' + speaker);
+  const card = document.getElementById('speaker-card-' + speaker);
+
+  if (content.style.display === 'none') {
+    content.style.display = 'block';
+    card.style.transform = 'scale(1.02)';
+  } else {
+    content.style.display = 'none';
+    card.style.transform = 'scale(1)';
+  }
+}
+</script>
 
 </div>
 
