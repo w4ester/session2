@@ -141,7 +141,7 @@ This GPT can write AND post directly to LinkedIn from chat!
 <a href="https://w4ester.github.io/session2/slides/" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
-**Note:** PRESENTER: "This session is your choice — follow along building, watch and learn, or ask questions anytime. Use Q&A feature in Zoom toolbar. Let's get started!"
+**Note:** PRESENTER: "Our session material is shared with you now and will remain open on my personal GitHub. So don't feel rushed or overwhelmed. Please also remember you have the chatification of the internet in front of you—feel free to ask the LLM questions you might have first... I hear it's pretty good! Let's get started!"
 
 ---
 
