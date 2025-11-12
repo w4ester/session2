@@ -113,11 +113,16 @@ This GPT can write AND post directly to LinkedIn from chat!
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-**Note:** PRESENTER: "Our session material is shared with you now and will remain open on my personal GitHub. So don't feel rushed or overwhelmed. Please also remember you have the chatification of the internet in front of you—feel free to ask the LLM questions you might have first... I hear it's pretty good! Let's get started!"
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Our session material is shared with you now and will remain open on my personal GitHub. So don't feel rushed or overwhelmed. Please also remember you have the chatification of the internet in front of you—feel free to ask the LLM questions you might have first... I hear it's pretty good! Let's get started!"
+</div>
+</details>
 
 ---
 
