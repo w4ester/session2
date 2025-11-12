@@ -579,8 +579,15 @@ for business leaders
 - ✅ Has a hook
 - ✅ Ends with a takeaway
 
+<div style="background: #e8f5e9; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid #4caf50;">
+<strong>💡 Let's try your CustomGPT with instructions now configured!</strong>
+<p style="margin: 0.5rem 0 0 0; font-size: 0.9em;">Test it in the preview pane on the right, or click below to open your GPT editor in a new tab.</p>
+</div>
+
 <div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/7" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<a href="https://chatgpt.com/gpts/editor" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #4caf50 0%, #45a049 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em; box-shadow: 0 4px 12px rgba(76,175,80,0.3); transition: all 0.3s;">
+🚀 Try Your CustomGPT
+</a>
 </div>
 
 Note: PRESENTER: "Let's type a test prompt - type your own and hit enter. You should get a LinkedIn post draft response." Seeing my result. "It output a draft post. Yours should look similar. Everyone got a post draft response? Great. Now here's where going to grow our action next..."
