@@ -154,11 +154,16 @@ Build a Custom GPT that:
 </div>
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/1" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-Note: PRESENTER: Share - "any questions post in chat." Pause. "By the end of this session, we'll go from ideas to customgpt to published post in LinkedIn."
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+Share - "any questions post in chat." Pause. "By the end of this session, we'll go from ideas to customgpt to published post in LinkedIn."
+</div>
+</details>
 
 ---
 
@@ -504,11 +509,16 @@ You can upload docs (e.g., past LinkedIn posts, brand guidelines, or writing sam
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/5" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-Note: PRESENTER: "We're skipping Knowledge uploads today to save time. The GPT will work fine without it. Again, you can always add files later to fine-tune the voice - just revisit the editor click your CustomGPT and you can edit/update and add docs."
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"We're skipping Knowledge uploads today to save time. The GPT will work fine without it. Again, you can always add files later to fine-tune the voice - just revisit the editor click your CustomGPT and you can edit/update and add docs."
+</div>
+</details>
 
 ---
 
@@ -550,11 +560,16 @@ Note: PRESENTER: "We're skipping Knowledge uploads today to save time. The GPT w
 
 </div>
 
-<div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/6" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-Note: PRESENTER: "Scroll to Capabilities. Check Web Browsing. Leave the rest unchecked. That's it." Demo on screen. "Web Browsing lets your CustomGPT go online (e.g., research current trends). You don't need code or canvas for LinkedIn posts but image generation maybe and can add by editing later will have to update scopes-remember this for later - not because we will do that today but how evolution of AI choice in building makes this a moment to consider ... the CRUD (create, read, update, delete) ."
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Scroll to Capabilities. Check Web Browsing. Leave the rest unchecked. That's it." Demo on screen. "Web Browsing lets your CustomGPT go online (e.g., research current trends). You don't need code or canvas for LinkedIn posts but image generation maybe and can add by editing later will have to update scopes-remember this for later - not because we will do that today but how evolution of AI choice in building makes this a moment to consider ... the CRUD (create, read, update, delete) ."
+</div>
+</details>
 
 ---
 
@@ -615,13 +630,18 @@ We'll address them now before moving to Part 2
 
 </div>
 
-<div style="margin-top: 2rem;">
-<a href="https://w4ester.github.io/session2/slides/#/8" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
+<div style="background: #e8f5e9; padding: 1rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid #4caf50;">
+<p style="margin: 0; font-size: 0.9em;">💡 <strong>You're not losing but gaining</strong> - All information will be available during and after session2 on my personal GitHub</p>
 </div>
 
-**Note:** PRESENTER: "Great work everyone! Let's take 5 minutes for questions. Use the Q&A feature in Zoom. Todd will feed questions to us. Any issues building your GPT? Questions about what we've covered? This is your time! Remember folks can follow along at https://w4ester.github.io/session2/slides/"
+<details style="margin: 1.5rem 0; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; cursor: pointer; user-select: none;">📝 Presenter Notes (Click to expand)</summary>
+<div style="padding: 1rem 0 0 0; color: #666;">
+"Great work everyone! Let's take 5 minutes for questions. Use the Q&A feature in Zoom. Todd will feed questions to us. Any issues building your GPT? Questions about what we've covered? This is your time! Remember folks can follow along at https://w4ester.github.io/session2/slides/"
+</div>
+</details>
 
 ---
 
