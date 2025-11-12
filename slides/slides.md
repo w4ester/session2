@@ -1239,6 +1239,18 @@ My URN is: **urn:li:person:YOUR_URN_HERE**
 3. Authorize on LinkedIn
 4. Post goes live! ✅
 
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0;">
+<button onclick="window.showScreenshot('../screenshots/step7i-gpt-test-post.png', 'GPT Test Post')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 1rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 0.85em; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s;">
+🎬 ChatGPT Side
+</button>
+<button onclick="window.showScreenshot('../screenshots/step7b-api-post-success.png', 'API Post Success')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 1rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 0.85em; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s;">
+🎬 API Success
+</button>
+<a href="https://www.linkedin.com/in/w4ester/recent-activity/all/" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #0077b5 0%, #005885 100%); color: white; padding: 0.75rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.85em; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s; text-align: center;">
+🔴 Live LinkedIn Feed
+</a>
+</div>
+
 <div style="background: #d4edda; padding: 1rem; margin-top: 1.5rem; border-radius: 8px;">
 
 ### 🎉 SUCCESS!
