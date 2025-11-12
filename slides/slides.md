@@ -8,16 +8,24 @@
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1rem 0;">
 
 <!-- Todd Marks Card -->
-<div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<div id="speaker-card-todd" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">Todd Marks</div>
 <div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Program Champion/Moderator</div>
-<div style="font-size: 0.75em;">YPO Northeast One Regional Integrated</div>
+<div style="font-size: 0.75em; margin-bottom: 0.5rem;">YPO Northeast One Regional Integrated</div>
+
+<button onclick="window.toggleSpeaker('todd')" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid rgba(255,255,255,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-top: 0.5rem; width: 100%;">
+📸 View Photo
+</button>
+
+<div id="speaker-photo-todd" style="display: none; margin-top: 0.5rem; text-align: center;">
+<img src="slide0-todd.jpeg" style="width: 100%; max-width: 200px; border-radius: 8px; border: 3px solid rgba(255,255,255,0.5);" alt="Todd Marks">
+</div>
 
 </div>
 
 <!-- Mo Ezderman Card -->
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<div id="speaker-card-mo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">Mo Ezderman</div>
 <div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
@@ -27,10 +35,18 @@
 <a href="mailto:mezderman@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 mezderman@mindgrub.com</a>
 </div>
 
+<button onclick="window.toggleSpeaker('mo')" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid rgba(255,255,255,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-top: 0.5rem; width: 100%;">
+📸 View Photo
+</button>
+
+<div id="speaker-photo-mo" style="display: none; margin-top: 0.5rem; text-align: center;">
+<img src="slide0-mo.jpeg" style="width: 100%; max-width: 200px; border-radius: 8px; border: 3px solid rgba(255,255,255,0.5);" alt="Mo Ezderman">
+</div>
+
 </div>
 
 <!-- William Forrester Card -->
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+<div id="speaker-card-will" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
 
 <div style="font-size: 1.3em; font-weight: bold; margin-bottom: 0.25rem;">William Forrester</div>
 <div style="font-size: 0.85em; font-weight: 500; margin-bottom: 0.5rem;">Speaker</div>
@@ -38,6 +54,14 @@
 
 <div style="background: rgba(255,255,255,0.2); padding: 0.5rem; border-radius: 6px; margin-top: 0.5rem;">
 <a href="mailto:wforrester@mindgrub.com" style="color: #fbbf24; text-decoration: none; font-weight: 600; font-size: 0.9em;">📧 wforrester@mindgrub.com</a>
+</div>
+
+<button onclick="window.toggleSpeaker('will')" style="background: rgba(255,255,255,0.3); color: white; border: 1px solid rgba(255,255,255,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85em; font-weight: 600; margin-top: 0.5rem; width: 100%;">
+📸 View Photo
+</button>
+
+<div id="speaker-photo-will" style="display: none; margin-top: 0.5rem; text-align: center;">
+<img src="slide0-will.jpeg" style="width: 100%; max-width: 200px; border-radius: 8px; border: 3px solid rgba(255,255,255,0.5);" alt="William Forrester">
 </div>
 
 </div>

@@ -933,18 +933,18 @@ ALWAYS INCLUDE: Tool recommendations, cost estimates, timelines, required skills
       console.log('Slides initialized with enhanced viewport handling');
     });
 
-    // Speaker card toggle function for Slide 0
+    // Speaker card toggle function for Slide 0 - toggles photo visibility
     window.toggleSpeaker = function(speaker) {
-      const content = document.getElementById('speaker-content-' + speaker);
-      const card = document.getElementById('speaker-card-' + speaker);
+      const photoDiv = document.getElementById('speaker-photo-' + speaker);
+      const button = event.target;
 
-      if (content && card) {
-        if (content.style.display === 'none' || content.style.display === '') {
-          content.style.display = 'block';
-          card.style.transform = 'scale(1.02)';
+      if (photoDiv) {
+        if (photoDiv.style.display === 'none' || photoDiv.style.display === '') {
+          photoDiv.style.display = 'block';
+          button.innerHTML = '📸 Hide Photo';
         } else {
-          content.style.display = 'none';
-          card.style.transform = 'scale(1)';
+          photoDiv.style.display = 'none';
+          button.innerHTML = '📸 View Photo';
         }
       }
     };
