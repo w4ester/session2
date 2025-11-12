@@ -1445,30 +1445,40 @@ You're now **producers**, not just users.
 
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px;">
 
-### 📬 Stay Connected
+<h3 style="color: white;">📬 Stay Connected</h3>
 
-**Mo Ezderman**
-[mezderman@mindgrub.com](mailto:mezderman@mindgrub.com)
+<p style="color: white; margin: 1rem 0;">
+<strong>Mo Ezderman</strong><br>
+<a href="mailto:mezderman@mindgrub.com" style="color: white; text-decoration: underline;">mezderman@mindgrub.com</a>
+</p>
 
-**William Forrester**
-[wforrester@mindgrub.com](mailto:wforrester@mindgrub.com)
+<p style="color: white; margin: 1rem 0;">
+<strong>William Forrester</strong><br>
+<a href="mailto:wforrester@mindgrub.com" style="color: white; text-decoration: underline;">wforrester@mindgrub.com</a>
+</p>
 
-**Questions?** We're here to help!
+<p style="color: white; margin: 1rem 0;"><strong>Questions?</strong> We're here to help!</p>
 
 </div>
 
 <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 12px;">
 
-### 🔗 Resources
+<h3 style="color: white;">🔗 Resources</h3>
 
-📖 **Full Guide:**
-[LinkedIn GPT Setup](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md)
+<p style="color: white; margin: 0.75rem 0;">
+📖 <strong>Full Guide:</strong><br>
+<a href="https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md" style="color: white; text-decoration: underline;">LinkedIn GPT Setup</a>
+</p>
 
-💻 **Slides:**
-[w4ester.github.io/session2](https://w4ester.github.io/session2/)
+<p style="color: white; margin: 0.75rem 0;">
+💻 <strong>Slides:</strong><br>
+<a href="https://w4ester.github.io/session2/" style="color: white; text-decoration: underline;">w4ester.github.io/session2</a>
+</p>
 
-🤖 **Demo GPT:**
-[LinkedIn Post Creator](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
+<p style="color: white; margin: 0.75rem 0;">
+🤖 <strong>Demo GPT:</strong><br>
+<a href="https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator" style="color: white; text-decoration: underline;">LinkedIn Post Creator</a>
+</p>
 
 </div>
 
