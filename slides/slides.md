@@ -1323,3 +1323,77 @@ Share this: *Everyone can build. This is your playground for ideas.*
 **Note:** PRESENTER: "Before we wrap, two things. First—quick terminal demo of MCP connecting multiple tools. [DEMO]. Second—notice what happened today? You shifted from USER to PRODUCER. You didn't just use AI—you extended it. Share this with your teams: no one has to be passive. We're all builders now. This is your playground for creativity and ideas. Links are all here and on GitHub pages. Thank you!"
 
 ---
+
+## Slide 16: Thank You! 🙏
+
+<div style="text-align: center; padding: 3rem 2rem;">
+
+# Thank You for Being Here Today! 🎉
+
+<div style="font-size: 1.2em; margin: 2rem 0; line-height: 1.8;">
+
+You didn't just **learn** AI today—
+
+You **built**, **connected**, and **deployed**.
+
+You're now **producers**, not just users.
+
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem auto; max-width: 900px; text-align: left;">
+
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px;">
+
+### 📬 Stay Connected
+
+**Mo Ezderman**
+[mezderman@mindgrub.com](mailto:mezderman@mindgrub.com)
+
+**William Forrester**
+[wforrester@mindgrub.com](mailto:wforrester@mindgrub.com)
+
+**Questions?** We're here to help!
+
+</div>
+
+<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 12px;">
+
+### 🔗 Resources
+
+📖 **Full Guide:**
+[LinkedIn GPT Setup](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md)
+
+💻 **Slides:**
+[w4ester.github.io/session2](https://w4ester.github.io/session2/)
+
+🤖 **Demo GPT:**
+[LinkedIn Post Creator](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
+
+</div>
+
+</div>
+
+<div style="background: #e7f3ff; padding: 2rem; border-radius: 12px; margin: 2rem auto; max-width: 700px;">
+
+### 🚀 What's Next?
+
+**Next Session:** December 3, 2025 @ 11:00am ET
+**Topic:** AI-Powered Multimedia Production
+
+**Today's Recording:** Available within 48 hours
+
+</div>
+
+<div style="font-size: 2em; margin-top: 2rem;">
+
+Keep Building. Keep Creating. Keep Growing. ✨
+
+</div>
+
+<div style="margin-top: 2rem; font-size: 0.85em; color: #64748b;">
+
+*Presentation powered by AI tools we built together today*
+
+</div>
+
+</div>
