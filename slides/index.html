@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Session 2 — Custom Models / GPT (Slides)</title>
+  <title>Session 2: Boost Marketing Teams — From Custom GPT to AI Agents (Preview)</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" id="theme">
@@ -16,14 +16,12 @@
     }
 
     .reveal .slides {
-      /* Responsive typography that works on all screens */
       font-size: clamp(18px, 2vw, 32px);
       text-align: center;
       width: 100% !important;
       height: 100% !important;
     }
 
-    /* Force slides to scale properly and be fully visible */
     html, body {
       width: 100%;
       height: 100%;
@@ -45,7 +43,6 @@
       align-items: center;
     }
 
-    /* Better responsive breakpoints for all screen sizes */
     @media (max-width: 1024px) {
       .reveal .slides {
         font-size: clamp(16px, 2.2vw, 28px);
@@ -64,23 +61,6 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .reveal .slides {
-        font-size: clamp(12px, 3vw, 20px);
-      }
-      .reveal .slides > section {
-        padding: 0.75rem !important;
-      }
-    }
-
-    /* Ensure text is always visible and readable */
-    .reveal * {
-      max-width: 100%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      hyphens: auto;
-    }
-
     /* Title slide styling */
     .reveal h1 {
       font-size: 2.8em;
@@ -89,8 +69,6 @@
       margin-bottom: 0.4em;
       line-height: 1.2;
       text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      word-wrap: break-word;
-      overflow-wrap: break-word;
     }
 
     .reveal h2 {
@@ -102,9 +80,6 @@
       padding-bottom: 0.3em;
       display: inline-block;
       min-width: 60%;
-      max-width: 95%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
     }
 
     .reveal h3 {
@@ -112,8 +87,6 @@
       font-weight: 600;
       color: #334155;
       margin: 0.6em 0 0.4em 0;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
     }
 
     .reveal h4 {
@@ -121,68 +94,9 @@
       font-weight: 600;
       color: #475569;
       margin: 0.5em 0 0.3em 0;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
     }
 
-    /* Responsive headings */
-    @media (max-width: 768px) {
-      .reveal h1 {
-        font-size: 2.2em;
-        margin-bottom: 0.3em;
-      }
-
-      .reveal h2 {
-        font-size: 1.6em;
-        min-width: 50%;
-        max-width: 100%;
-        border-bottom-width: 2px;
-      }
-
-      .reveal h3 {
-        font-size: 1.3em;
-      }
-
-      .reveal h4 {
-        font-size: 1.1em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal h1 {
-        font-size: 1.8em;
-        line-height: 1.3;
-      }
-
-      .reveal h2 {
-        font-size: 1.4em;
-        min-width: 40%;
-      }
-
-      .reveal h3 {
-        font-size: 1.2em;
-      }
-
-      .reveal h4 {
-        font-size: 1em;
-      }
-    }
-
-    /* Tagline / subtitle styling */
-    .reveal p strong:first-child {
-      display: block;
-      font-size: 1.1em;
-      color: #7c5cff;
-      font-weight: 600;
-      margin: 0.3em 0;
-    }
-
-    /* Paragraph spacing */
-    .reveal p {
-      margin: 0.4em 0;
-    }
-
-    /* Metadata styling (Speakers, Moderator, etc.) */
+    /* Metadata styling */
     .reveal .metadata {
       background: rgba(124, 92, 255, 0.08);
       border-left: 4px solid #7c5cff;
@@ -193,31 +107,11 @@
       line-height: 1.6;
       max-width: 85%;
       text-align: left;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
     }
 
     .reveal .metadata strong {
       color: #7c5cff;
       font-weight: 600;
-    }
-
-    /* Responsive metadata */
-    @media (max-width: 768px) {
-      .reveal .metadata {
-        max-width: 95%;
-        font-size: 0.85em;
-        padding: 1em;
-        margin: 1em auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal .metadata {
-        font-size: 0.8em;
-        padding: 0.75em;
-        border-left-width: 3px;
-      }
     }
 
     /* Lists */
@@ -231,96 +125,6 @@
 
     .reveal li {
       margin: 0.25em 0;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* Responsive lists */
-    @media (max-width: 768px) {
-      .reveal ul, .reveal ol {
-        max-width: 95%;
-        font-size: 0.95em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal ul, .reveal ol {
-        max-width: 100%;
-        font-size: 0.9em;
-      }
-
-      .reveal li {
-        margin: 0.2em 0;
-      }
-    }
-
-    /* Tables */
-    .reveal table {
-      border-collapse: collapse;
-      margin: 1em auto;
-      font-size: clamp(0.7em, 1.5vw, 0.85em);
-      width: 85%;
-      max-width: 100%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: table;
-    }
-
-    /* Table wrapper for horizontal scroll on mobile */
-    .reveal table-wrapper {
-      overflow-x: auto;
-      overflow-y: visible;
-      width: 100%;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .reveal table th {
-      background: linear-gradient(135deg, #7c5cff, #6366f1);
-      color: white;
-      padding: clamp(0.5em, 1.5vw, 0.8em);
-      font-weight: 600;
-      border: none;
-      white-space: nowrap;
-    }
-
-    .reveal table td {
-      padding: clamp(0.4em, 1.2vw, 0.7em);
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .reveal table tr:nth-child(even) {
-      background: rgba(124, 92, 255, 0.03);
-    }
-
-    .reveal table tr:hover {
-      background: rgba(124, 92, 255, 0.08);
-    }
-
-    /* Responsive tables */
-    @media (max-width: 768px) {
-      .reveal table {
-        font-size: 0.7em;
-        width: 95%;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-
-      .reveal table th,
-      .reveal table td {
-        padding: 0.5em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal table {
-        font-size: 0.65em;
-        width: 100%;
-      }
-
-      .reveal table th,
-      .reveal table td {
-        padding: 0.4em 0.3em;
-      }
     }
 
     /* Code blocks */
@@ -330,7 +134,6 @@
       margin: 1em auto;
       max-width: 85%;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
     }
 
     .reveal pre code {
@@ -339,36 +142,6 @@
       line-height: 1.5;
       max-height: 500px;
       overflow: auto;
-      word-wrap: break-word;
-      white-space: pre-wrap;
-    }
-
-    /* Responsive code blocks */
-    @media (max-width: 768px) {
-      .reveal pre {
-        max-width: 95%;
-        margin: 0.75em auto;
-      }
-
-      .reveal pre code {
-        font-size: 0.65em;
-        padding: 0.8em;
-        max-height: 400px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal pre {
-        max-width: 100%;
-        border-radius: 4px;
-        margin: 0.5em auto;
-      }
-
-      .reveal pre code {
-        font-size: 0.6em;
-        padding: 0.6em;
-        max-height: 300px;
-      }
     }
 
     /* Inline code */
@@ -378,7 +151,6 @@
       padding: 0.2em 0.4em;
       border-radius: 4px;
       font-size: 0.9em;
-      word-break: break-word;
     }
 
     /* Links */
@@ -394,25 +166,7 @@
       border-bottom-color: #7c5cff;
     }
 
-    /* Brand color highlights */
-    .reveal .brand {
-      color: #7c5cff;
-      font-weight: 600;
-    }
-
-    /* Emoji larger */
-    .reveal p:has(> :first-child):has(> a[href*="w4ester.github.io"]) {
-      font-size: 1.1em;
-      margin: 1em 0;
-    }
-
-    /* Checkmark items */
-    .reveal li:has(> ✅) {
-      list-style: none;
-      margin-left: -1em;
-    }
-
-    /* Note styling (speaker notes that show in slides) */
+    /* Blockquotes */
     .reveal blockquote {
       background: rgba(124, 92, 255, 0.05);
       border-left: 4px solid #7c5cff;
@@ -441,37 +195,16 @@
       border-radius: 4px;
     }
 
-    /* Strong emphasis in different contexts */
-    .reveal strong {
-      color: #1e293b;
-      font-weight: 700;
-    }
-
-    /* Section transitions */
+    /* Section styling */
     .reveal section {
       background: white;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      box-sizing: border-box;
-      max-width: 100%;
     }
 
-    /* Mobile responsive section - simplified */
-    @media (max-width: 768px) {
-      .reveal section {
-        border-radius: 8px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .reveal section {
-        border-radius: 4px;
-      }
-    }
-
-    /* Responsive images - always fit within slide */
+    /* Responsive images */
     .reveal img {
-      max-width: 100%;
+      max-width: 85%;
       height: auto;
       display: block;
       margin: 1rem auto;
@@ -479,168 +212,165 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Responsive images on smaller screens */
-    @media (max-width: 768px) {
-      .reveal img {
-        max-width: 100%;
-        margin: 0.75rem auto;
-      }
+    /* Screenshot images */
+    .reveal .screenshot {
+      max-width: 75%;
+      border: 2px solid #e2e8f0;
     }
 
-    @media (max-width: 480px) {
-      .reveal img {
-        max-width: 100%;
-        margin: 0.5rem auto;
-        border-radius: 4px;
-      }
+    .reveal .screenshot-large {
+      max-width: 90%;
     }
 
-    /* Template Cards (Slide 3) */
-    .template-cards-container {
+    /* Grid layouts */
+    .reveal .grid-2 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1rem 0;
+      text-align: left;
+    }
+
+    .reveal .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1rem;
-      margin: 2rem auto;
+      margin: 1rem 0;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .reveal .grid-2,
+      .reveal .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Highlight boxes */
+    .reveal .highlight-box {
+      background: rgba(124, 92, 255, 0.08);
+      border-left: 4px solid #7c5cff;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .reveal .success-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid #10b981;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .reveal .error-box {
+      background: rgba(239, 68, 68, 0.08);
+      border-left: 4px solid #ef4444;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    .reveal .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+    }
+
+    /* ROI calculation box */
+    .reveal .roi-box {
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.1), rgba(99, 102, 241, 0.1));
+      border: 2px solid #7c5cff;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      max-width: 85%;
+      font-weight: 600;
+    }
+
+    /* Strong emphasis */
+    .reveal strong {
+      color: #1e293b;
+      font-weight: 700;
+    }
+
+    /* Small text */
+    .reveal .small {
+      font-size: 0.8em;
+    }
+
+    .reveal .tiny {
+      font-size: 0.65em;
+    }
+
+    /* Template cards - for Slides 3 & 4 */
+    .template-cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem auto;
       max-width: 90%;
     }
 
     .template-card {
-      background: rgba(124, 92, 255, 0.05);
-      border: 2px solid rgba(124, 92, 255, 0.3);
+      background: white;
+      border: 2px solid #e2e8f0;
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
-      text-align: center;
+      text-align: left;
     }
 
     .template-card:hover {
       border-color: #7c5cff;
-      background: rgba(124, 92, 255, 0.1);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(124, 92, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(124, 92, 255, 0.15);
     }
 
     .template-card-header {
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
     }
 
     .template-card-role {
-      color: #64748b;
       font-size: 0.9em;
-      margin-bottom: 1rem;
+      color: #7c5cff;
+      margin-bottom: 0.5rem;
     }
 
     .template-card-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      text-align: left;
+      display: none;
+      margin-top: 0.8rem;
     }
 
     .template-card.expanded .template-card-content {
-      max-height: 500px;
-      overflow-y: auto;
-    }
-
-    .template-card.expanded {
-      background: rgba(124, 92, 255, 0.15);
-      border-color: #7c5cff;
-    }
-
-    /* Slide 8: Step Accordion Styles */
-    .step-buttons-container {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .step-button {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9em;
-      font-weight: 500;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .step-button:hover {
-      background: rgba(124, 92, 255, 0.1);
-      border-color: #7c5cff;
-      transform: translateX(5px);
-    }
-
-    .step-button.active {
-      background: rgba(124, 92, 255, 0.15);
-      border-color: #7c5cff;
-      font-weight: 600;
-    }
-
-    .step-number {
-      background: #7c5cff;
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9em;
-      flex-shrink: 0;
-    }
-
-    .step-content-container {
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 1.5rem;
-      min-height: 300px;
-    }
-
-    .step-content {
-      display: none;
-    }
-
-    .step-content.active {
       display: block;
-      animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .template-field {
-      margin: 1rem 0;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      background: #f8fafc;
+      border-radius: 8px;
     }
 
     .template-field-label {
       font-weight: 600;
-      color: #7c5cff;
-      margin-bottom: 0.5rem;
+      color: #475569;
+      margin-bottom: 0.3rem;
       font-size: 0.9em;
     }
 
     .template-field-value {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 0.75rem;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-      font-size: 0.85em;
+      color: #1e293b;
       line-height: 1.5;
+      margin-bottom: 0.5rem;
     }
 
-    /* Copy Buttons */
     .copy-btn {
       background: #7c5cff;
       color: white;
@@ -650,215 +380,328 @@
       cursor: pointer;
       font-size: 0.85em;
       font-weight: 600;
-      transition: all 0.2s ease;
-      margin-top: 0.5rem;
+      transition: background 0.3s;
     }
 
     .copy-btn:hover {
-      background: #6366f1;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(124, 92, 255, 0.3);
-    }
-
-    .copy-btn:active {
-      transform: translateY(0);
+      background: #6346e6;
     }
 
     .copy-btn.copied {
       background: #10b981;
     }
 
-    /* Tab Interface (Slide 4) */
-    .tab-container {
-      margin: 2rem auto;
-      max-width: 90%;
+    .instructions-container {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 0.5rem;
     }
 
-    .tab-buttons,
-    .template-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      justify-content: center;
-    }
-
-    .tab-btn {
-      background: rgba(124, 92, 255, 0.1);
-      color: #7c5cff;
-      border: 2px solid rgba(124, 92, 255, 0.3);
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
+    .instructions-text {
+      font-family: 'Courier New', monospace;
       font-size: 0.75em;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: #1e293b;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .starter-item {
+      background: white;
+      border-left: 3px solid #7c5cff;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    /* Step-by-step navigation - for Slides 9 & 10 */
+    .step-buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .step-button {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: left;
+      font-size: 0.85em;
       font-weight: 600;
-      transition: all 0.2s ease;
+      color: #475569;
     }
 
-    .tab-btn:hover {
-      background: rgba(124, 92, 255, 0.2);
+    .step-button:hover {
       border-color: #7c5cff;
+      background: rgba(124, 92, 255, 0.05);
     }
 
-    .tab-btn.active {
+    .step-button.active {
       background: #7c5cff;
       color: white;
       border-color: #7c5cff;
     }
 
-    .tab-content {
-      display: none;
+    .step-number {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      background: rgba(124, 92, 255, 0.2);
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      font-size: 0.9em;
     }
 
-    .tab-content.active {
+    .step-button.active .step-number {
+      background: white;
+      color: #7c5cff;
+    }
+
+    .step-content-container {
+      position: relative;
+    }
+
+    .step-content {
+      display: none;
+      text-align: left;
+    }
+
+    .step-content.active {
       display: block;
     }
 
-    .tab-note {
+    /* Enhanced Viewport Handling - MORE AGGRESSIVE */
+
+    /* Most common laptop screens (1080p-1200p height) */
+    @media (max-height: 1200px) {
+      .reveal h1 { font-size: 2em !important; }
+      .reveal h2 { font-size: 1.4em !important; }
+      .reveal h3 { font-size: 1.1em !important; }
+      .reveal .slides { font-size: clamp(13px, 1.6vw, 22px) !important; }
+      .reveal .slides > section { padding: 1.2rem !important; }
+      .reveal .metadata { padding: 0.7em !important; font-size: 0.85em !important; line-height: 1.5 !important; }
+      .reveal pre code { font-size: 0.65em !important; max-height: 400px !important; }
+      .reveal ul, .reveal ol { line-height: 1.4 !important; margin: 0.5em auto !important; }
+      .reveal li { margin: 0.2em 0 !important; }
+      .reveal p { margin: 0.6em auto !important; }
+
+      /* Reduce spacing in boxes */
+      .reveal section > div[style*="background"] {
+        padding: 0.7rem !important;
+        margin: 0.8rem 0 !important;
+      }
+
+      /* Compact grid layouts */
+      .reveal section > div[style*="grid-template-columns"] {
+        gap: 1rem !important;
+      }
+    }
+
+    /* Smaller screens */
+    @media (max-height: 900px) {
+      .reveal h1 { font-size: 1.8em !important; }
+      .reveal h2 { font-size: 1.3em !important; }
+      .reveal h3 { font-size: 1em !important; }
+      .reveal .slides { font-size: clamp(12px, 1.5vw, 20px) !important; }
+      .reveal .slides > section { padding: 0.9rem !important; }
+      .reveal .metadata { padding: 0.6em !important; font-size: 0.8em !important; line-height: 1.4 !important; }
+      .reveal pre code { font-size: 0.6em !important; max-height: 350px !important; }
+      .reveal ul, .reveal ol { line-height: 1.3 !important; }
+      .reveal p { margin: 0.5em auto !important; }
+
+      /* More aggressive spacing reduction */
+      .reveal section > div[style*="background"] {
+        padding: 0.6rem !important;
+        margin: 0.6rem 0 !important;
+      }
+    }
+
+    @media (max-height: 800px) {
+      .reveal h1 { font-size: 1.6em !important; }
+      .reveal h2 { font-size: 1.2em !important; }
+      .reveal h3 { font-size: 0.95em !important; }
+      .reveal .slides { font-size: clamp(11px, 1.4vw, 18px) !important; }
+      .reveal .slides > section { padding: 0.7rem !important; }
+      .reveal .metadata { padding: 0.5em !important; font-size: 0.75em !important; line-height: 1.3 !important; }
+      .reveal pre code { font-size: 0.55em !important; max-height: 300px !important; }
+      .reveal ul, .reveal ol { line-height: 1.25 !important; }
+
+      .reveal section > div[style*="background"] {
+        padding: 0.5rem !important;
+        margin: 0.5rem 0 !important;
+      }
+    }
+
+    @media (max-height: 650px) {
+      .reveal h1 { font-size: 1.4em !important; }
+      .reveal h2 { font-size: 1.1em !important; }
+      .reveal h3 { font-size: 0.9em !important; }
+      .reveal .slides { font-size: clamp(10px, 1.3vw, 16px) !important; }
+      .reveal .slides > section { padding: 0.5rem !important; }
+      .reveal .metadata { padding: 0.4em !important; font-size: 0.7em !important; line-height: 1.2 !important; }
+      .reveal pre code { font-size: 0.5em !important; max-height: 250px !important; }
+      .reveal ul, .reveal ol { line-height: 1.2 !important; }
+
+      .reveal section > div[style*="background"] {
+        padding: 0.4rem !important;
+        margin: 0.4rem 0 !important;
+      }
+    }
+
+    /* Ultrawide screen support (>2000px) */
+    @media (min-width: 2000px) {
+      .reveal .slides > section {
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Small laptop screens (13-14 inch) */
+    @media (max-width: 1440px) and (max-height: 900px) {
+      .reveal .slides { font-size: clamp(15px, 1.9vw, 26px) !important; }
+      .reveal h1 { font-size: 2.4em !important; }
+      .reveal h2 { font-size: 1.7em !important; }
+    }
+
+    /* Grid layout auto-adjustment */
+    @media (max-width: 900px) {
+      .reveal section > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+    }
+
+    /* SUPER AGGRESSIVE fixes for accordion slides (Slides 11 & 12) */
+    @media (max-height: 1200px) {
+      /* Reduce base font size for accordion slides */
+      .reveal .step-buttons-container {
+        font-size: 0.8em !important;
+      }
+
+      .reveal .step-content-container {
+        font-size: 0.75em !important;
+        line-height: 1.3 !important;
+      }
+
+      /* Step buttons - ultra compact */
+      .reveal .step-button {
+        font-size: 0.7em !important;
+        padding: 0.5rem 0.6rem !important;
+        margin-bottom: 0.4rem !important;
+        line-height: 1.3 !important;
+      }
+
+      .reveal .step-number {
+        width: 1.4em !important;
+        height: 1.4em !important;
+        font-size: 0.8em !important;
+        margin-right: 0.4rem !important;
+      }
+
+      /* Step content - extreme spacing reduction */
+      .reveal .step-content {
+        font-size: 0.8em !important;
+        line-height: 1.3 !important;
+      }
+
+      .reveal .step-content h3 {
+        font-size: 0.95em !important;
+        margin: 0.3rem 0 !important;
+        line-height: 1.2 !important;
+      }
+
+      .reveal .step-content p {
+        margin: 0.3em 0 !important;
+        line-height: 1.3 !important;
+      }
+
+      .reveal .step-content li {
+        margin: 0.2em 0 !important;
+        line-height: 1.3 !important;
+      }
+
+      .reveal .step-content ol,
+      .reveal .step-content ul {
+        margin: 0.3em 0 !important;
+      }
+
+      /* Screenshots - much smaller */
+      .reveal .step-content img.screenshot {
+        max-height: 35vh !important;
+        margin: 0.3rem auto !important;
+      }
+
+      /* Info/warning boxes - minimal spacing */
+      .reveal .step-content div[style*="background"] {
+        padding: 0.4rem !important;
+        margin: 0.3rem 0 !important;
+        font-size: 0.85em !important;
+        line-height: 1.25 !important;
+      }
+
+      /* Code blocks - super compact */
+      .reveal .step-content pre {
+        margin: 0.3rem 0 !important;
+        font-size: 0.65em !important;
+      }
+
+      .reveal .step-content code {
+        font-size: 0.8em !important;
+        padding: 0.1em 0.3em !important;
+      }
+
+      .reveal .step-content pre code {
+        padding: 0.5em !important;
+        line-height: 1.3 !important;
+      }
+    }
+
+    /* Better image scaling */
+    .reveal img {
+      max-width: 100% !important;
+      max-height: 60vh !important;
+      object-fit: contain !important;
+      margin: 0.5rem auto !important;
+    }
+
+    @media (max-height: 800px) {
+      .reveal img {
+        max-height: 45vh !important;
+      }
+    }
+
+    /* Better scroll handling for overflow content */
+    .reveal .slides > section::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .reveal .slides > section::-webkit-scrollbar-track {
       background: rgba(124, 92, 255, 0.1);
-      border-left: 4px solid #7c5cff;
-      padding: 0.75rem 1rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      font-size: 0.9em;
-      color: #475569;
-      font-style: italic;
+      border-radius: 3px;
     }
 
-    .instructions-container {
-      background: #f8f9fa;
-      border-radius: 8px;
-      padding: 0.5rem;
-      margin: 0.25rem 0;
-      max-height: 120px;
-      overflow-y: auto;
+    .reveal .slides > section::-webkit-scrollbar-thumb {
+      background: rgba(124, 92, 255, 0.5);
+      border-radius: 3px;
     }
 
-    .instructions-text {
-      font-family: 'Monaco', 'Courier New', monospace;
-      font-size: 0.5em;
-      line-height: 1.3;
-      white-space: pre-wrap;
-      color: #1e293b;
-    }
-
-    .starters-container {
-      margin-top: 0.25rem;
-    }
-
-    .starter-item {
-      background: rgba(124, 92, 255, 0.05);
-      border-left: 3px solid #7c5cff;
-      padding: 0.25rem 0.5rem;
-      margin: 0.25rem 0;
-      border-radius: 4px;
-      font-size: 0.65em;
-    }
-
-    /* Compact spacing for tab content on Slide 4 */
-    .tab-content h3 {
-      margin-top: 0.25rem;
-      margin-bottom: 0.25rem;
-      font-size: 0.95em;
-    }
-
-    .tab-content .copy-btn {
-      padding: 0.35rem 0.75rem;
-      font-size: 0.7em;
-      margin: 0.25rem 0;
-    }
-
-    .tab-content p {
-      margin: 0.25rem 0;
-      font-size: 0.7em;
-    }
-
-    .tab-content {
-      font-size: 0.9em;
-    }
-
-    /* Toast Notifications */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: #10b981;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      font-weight: 600;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Responsive adjustments for cards and tabs */
-    @media (max-width: 1024px) {
-      .template-cards-container {
-        grid-template-columns: 1fr;
-        max-width: 95%;
-      }
-
-      .tab-container {
-        max-width: 95%;
-      }
-
-      .instructions-container {
-        max-height: 100px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .template-card {
-        padding: 1rem;
-      }
-
-      .tab-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.85em;
-      }
-
-      .instructions-text {
-        font-size: 0.7em;
-      }
-
-      .toast {
-        bottom: 1rem;
-        right: 1rem;
-        font-size: 0.9em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .template-cards-container {
-        gap: 0.75rem;
-      }
-
-      .template-card {
-        padding: 0.75rem;
-      }
-
-      .tab-buttons {
-        flex-direction: column;
-      }
-
-      .copy-btn {
-        width: 100%;
-        padding: 0.6rem;
-      }
+    .reveal .slides > section::-webkit-scrollbar-thumb:hover {
+      background: rgba(124, 92, 255, 0.7);
     }
   </style>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
-      <!-- Load slides from Markdown for easy editing -->
+      <!-- Load slides from Markdown -->
       <section data-markdown="slides.md"
                data-separator="^---$"
                data-separator-notes="^Note:"></section>
@@ -872,24 +715,20 @@
 
     const deck = new Reveal({
       hash: true,
-      slideNumber: 'c',  // Show current slide number matching URL hash
+      slideNumber: 'h',  // Show horizontal index - matches URL hash (1, 2, 3...)
       progress: true,
       controls: true,
       center: true,
 
-      // Responsive sizing - works on all screen sizes
+      // Responsive sizing
       width: '100%',
       height: '100%',
       margin: 0.04,
       minScale: 0.2,
       maxScale: 2.0,
 
-      // Force horizontal-only navigation (left to right)
+      // Horizontal navigation only
       navigationMode: 'linear',
-
-      // Disable vertical slides
-      controlsLayout: 'edges',
-      controlsBackArrows: 'faded',
 
       // Smooth transitions
       transition: 'slide',
@@ -901,13 +740,33 @@
       plugins: [ Markdown, Highlight ]
     });
     deck.initialize();
-  </script>
 
-  <!-- Template Selection & Copy Functionality -->
-  <script>
-    // Template Instructions Storage
-    const templateInstructions = {
-      ceo: `You are an Executive Communication Assistant for a CEO.
+    // Interactive card toggling for template cards (Slides 3 & 4)
+    window.toggleCard = function(cardId) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.classList.toggle('expanded');
+      }
+    };
+
+    // Copy to clipboard functionality
+    window.copyToClipboard = function(text, buttonId) {
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById(buttonId) || event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    };
+
+    // Template instructions copying
+    window.copyTemplateInstructions = function(template) {
+      const instructions = {
+        ceo: `You are an Executive Communication Assistant for a CEO.
 
 YOUR ROLE:
 - Draft executive communications that are clear, strategic, and authentic
@@ -916,51 +775,26 @@ YOUR ROLE:
 - Maintain professionalism while being approachable
 
 COMMUNICATION TYPES:
-1. All-Hands Emails - Company-wide updates on performance, strategy, changes
-2. Board Updates - Quarterly performance, strategic initiatives, key decisions
-3. Investor Memos - Financial performance, market positioning, growth plans
-4. LinkedIn Posts - Thought leadership, industry insights, company milestones
-5. Internal Announcements - Policy changes, organizational updates, recognition
+1. All-Hands Emails - Company-wide updates
+2. Board Updates - Quarterly performance, strategic initiatives
+3. Investor Memos - Financial performance, market positioning
+4. LinkedIn Posts - Thought leadership, company milestones
+5. Internal Announcements - Policy changes, organizational updates
 
 WRITING PRINCIPLES:
-- Lead with "why" before "what" (context before details)
+- Lead with "why" before "what"
 - Be transparent about challenges, not just wins
 - Recognize team contributions specifically
 - Connect tactical updates to strategic vision
-- Keep messages concise (busy executive audiences)
+- Keep messages concise
 - Use active voice and clear language
 
-TONE:
-- Professional but not corporate-speak
-- Confident without being arrogant
-- Transparent about both wins and challenges
-- Empathetic and human
-- Forward-looking and strategic
+TONE: Professional but not corporate-speak, confident without being arrogant, transparent, empathetic, forward-looking
 
-WHAT TO AVOID:
-- Jargon and buzzwords ("synergy," "disruption," "game-changer")
-- Passive voice
-- Vague statements without specifics
-- Over-promising or sugarcoating challenges
-- Generic motivational language
+WHAT TO AVOID: Jargon, passive voice, vague statements, overpromising
 
-PROCESS:
-1. Ask about the communication type and audience
-2. Request key points to cover
-3. Confirm tone (formal, conversational, urgent, celebratory)
-4. Draft the message
-5. Provide 2 subject line options (if email)
-6. Explain strategic framing choices
-
-FORMATTING:
-- Use clear section headers
-- Bullet points for easy scanning
-- Bold key takeaways
-- End with specific next steps or call-to-action
-
-Always ask clarifying questions if context is missing.`,
-
-      marketing: `You are a Campaign Brief Generator for marketing teams.
+PROCESS: Ask about communication type → Request key points → Confirm tone → Draft message → Provide subject options → Explain framing`,
+        marketing: `You are a Campaign Brief Generator for marketing teams.
 
 YOUR ROLE:
 - Create comprehensive, actionable marketing campaign briefs
@@ -969,89 +803,23 @@ YOUR ROLE:
 - Include specific, measurable success metrics
 
 REQUIRED BRIEF STRUCTURE:
-1. **Executive Summary** (2-3 sentences)
-   - Campaign goal, target audience, key differentiator
+1. Executive Summary (2-3 sentences)
+2. Campaign Objectives (SMART goals with KPIs)
+3. Target Audience (demographics, psychographics, behaviors)
+4. Key Messaging (value prop, proof points, differentiation)
+5. Channel Strategy (recommended channels, budget allocation)
+6. Content Requirements (asset list, quantities, creative direction)
+7. Success Metrics (primary/secondary KPIs, measurement plan)
+8. Timeline & Milestones (phases, dates, responsibilities)
+9. Budget & Resources (breakdown, team, vendors/tools)
+10. Risk Mitigation (challenges, contingency plans)
 
-2. **Campaign Objectives** (SMART goals)
-   - Specific, Measurable, Achievable, Relevant, Time-bound
-   - Primary and secondary KPIs
+PROCESS: Ask about goal → audience → budget → timeline → channels → Generate brief → Reference past campaigns → Include actionable recommendations
 
-3. **Target Audience**
-   - Demographics (age, location, income, job title)
-   - Psychographics (values, pain points, motivations)
-   - Behavioral patterns (where they research, how they buy)
+TONE: Professional but conversational, data-driven, action-oriented, strategic but practical
 
-4. **Key Messaging**
-   - Value proposition (why us, why now)
-   - 3-5 supporting proof points
-   - Competitive differentiation
-   - Clear calls-to-action
-
-5. **Channel Strategy**
-   - Recommended channels with rationale
-   - Budget allocation by channel
-   - Expected performance by channel
-
-6. **Content Requirements**
-   - Asset list (emails, ads, landing pages, social posts)
-   - Quantities and formats
-   - Creative direction
-
-7. **Success Metrics**
-   - Primary KPIs (must-achieve)
-   - Secondary KPIs (nice-to-have)
-   - Measurement plan and reporting cadence
-
-8. **Timeline & Milestones**
-   - Pre-launch, launch, post-launch phases
-   - Key dates and dependencies
-   - Team responsibilities
-
-9. **Budget & Resources**
-   - Total budget breakdown
-   - Team allocation
-   - Vendor/tool requirements
-
-10. **Risk Mitigation**
-    - Potential challenges
-    - Contingency plans
-
-ALWAYS ASK FIRST:
-- What is the campaign goal?
-- Who is the target audience?
-- What's the budget range?
-- What's the timeline/deadline?
-- Any specific channels required?
-
-THEN GENERATE:
-- Complete brief following the template above
-- Reference 2-3 similar past campaigns from knowledge base
-- Include specific, actionable recommendations
-- Highlight potential challenges or gaps
-
-TONE & STYLE:
-- Professional but conversational
-- Data-driven with specific numbers
-- Action-oriented (clear next steps)
-- Strategic but practical
-
-WHAT TO AVOID:
-- Vague objectives without metrics
-- Generic audience descriptions
-- Overly optimistic projections
-- Missing budget or timeline details
-- Buzzwords without substance
-
-FORMATTING:
-- Use markdown with clear headers
-- Bullet points for easy scanning
-- Bold key metrics and deadlines
-- Tables for budget/timeline when helpful
-- Include a "Quick Start Checklist" at the end
-
-Always reference past campaign data from knowledge base when available.`,
-
-      ai: `You are an AI Implementation Advisor helping organizations successfully adopt AI.
+WHAT TO AVOID: Vague objectives, generic descriptions, overly optimistic projections, missing details, buzzwords`,
+        ai: `You are an AI Implementation Advisor helping organizations successfully adopt AI.
 
 YOUR EXPERTISE:
 - Identifying high-value AI use cases
@@ -1061,212 +829,108 @@ YOUR EXPERTISE:
 - Navigating technical and organizational challenges
 
 WHAT YOU HELP WITH:
+1. Use Case Discovery (audit processes, prioritize by impact vs effort, identify quick wins)
+2. Tool Evaluation (compare platforms, build vs buy, security/privacy, total cost of ownership)
+3. Implementation Planning (pilot → rollout → scale, technical requirements, training, metrics)
+4. ROI Calculation (time savings, cost savings, revenue impact, implementation costs)
+5. Best Practices (data quality, prompt engineering, fine-tuning vs prompting, security)
 
-1. **Use Case Discovery**
-   - Audit current processes for AI opportunities
-   - Prioritize use cases by impact vs effort
-   - Match use cases to available AI capabilities
-   - Identify quick wins vs strategic bets
+YOUR APPROACH: Understand context → Assess readiness → Recommend approach → Provide specifics → Plan mitigation
 
-2. **Tool Evaluation**
-   - Compare AI platforms (OpenAI, Anthropic, Cohere, etc.)
-   - Assess build vs buy decisions
-   - Evaluate security, privacy, compliance
-   - Calculate total cost of ownership
+TONE: Technical but accessible, practical not academic, honest about limitations, realistic, encouraging without overhyping
 
-3. **Implementation Planning**
-   - Phase implementation (pilot → rollout → scale)
-   - Identify technical requirements
-   - Plan team training and change management
-   - Set success metrics and monitoring
-
-4. **ROI Calculation**
-   - Quantify time savings
-   - Calculate cost savings
-   - Estimate revenue impact
-   - Account for implementation costs
-
-5. **Best Practices**
-   - Data preparation and quality
-   - Prompt engineering techniques
-   - Model fine-tuning vs prompting
-   - Security and ethical considerations
-
-YOUR APPROACH:
-1. **Understand context** - Ask about industry, team size, technical maturity, goals
-2. **Assess readiness** - Data availability, technical skills, budget, timeline
-3. **Recommend approach** - Specific tools, implementation phases, success criteria
-4. **Provide specifics** - Code examples, architecture diagrams, cost estimates
-5. **Plan mitigation** - Identify risks, propose contingencies
-
-TONE:
-- Technical but accessible (explain jargon)
-- Practical, not academic
-- Honest about limitations and challenges
-- Forward-thinking but realistic
-- Encouraging without overhyping
-
-WHAT TO AVOID:
-- Overpromising AI capabilities
-- Recommending AI where simpler solutions exist
-- Generic advice without specific recommendations
-- Ignoring costs, risks, or implementation challenges
-- Using buzzwords without substance
+WHAT TO AVOID: Overpromising, recommending AI where simpler solutions exist, generic advice, ignoring costs/risks, buzzwords
 
 DECISION FRAMEWORKS:
+- When to use AI: ✅ Repetitive tasks, pattern recognition, content generation, data analysis | ❌ Life-or-death decisions, true creativity/empathy, insufficient data
+- Build vs Buy: Buy (APIs) for most use cases | Build (fine-tune) for specialized domains, sensitive data, high volume
 
-**When to use AI:**
-- ✅ Repetitive cognitive tasks
-- ✅ Pattern recognition at scale
-- ✅ Content generation with guardrails
-- ✅ Data analysis and insights
-- ❌ Life-or-death decisions without human oversight
-- ❌ Tasks requiring true creativity or empathy
-- ❌ Processes with insufficient data
+ALWAYS INCLUDE: Tool recommendations, cost estimates, timelines, required skills, success metrics, common pitfalls`
+      };
 
-**Build vs Buy:**
-- **Buy (use APIs):** Most use cases, faster time-to-value
-- **Build (fine-tune models):** Highly specialized domains, sensitive data, very high volume
-
-ALWAYS INCLUDE:
-- Specific tool recommendations with alternatives
-- Cost estimates (setup + ongoing)
-- Timeline expectations (realistic)
-- Required skills/team composition
-- Key success metrics
-- Common pitfalls and how to avoid them
-
-FORMATTING:
-- Use clear headers and bullet points
-- Include code snippets when relevant
-- Draw simple architecture diagrams in text
-- Provide comparison tables for tool evaluation
-- End with prioritized next steps
-
-Reference the knowledge base for current AI landscape and specific use cases.`
-    };
-
-    // Copy template instructions by key
-    function copyTemplateInstructions(templateKey) {
-      const text = templateInstructions[templateKey];
+      const text = instructions[template];
       if (text) {
-        copyToClipboard(text, 'copy-' + templateKey + '-instructions');
-      }
-    }
-
-    // Slide 3: Accordion Template Cards
-    function toggleCard(cardId) {
-      const cards = document.querySelectorAll('.template-card');
-      const clickedCard = document.getElementById(cardId);
-
-      // Close all cards
-      cards.forEach(card => {
-        if (card.id !== cardId) {
-          card.classList.remove('expanded');
-        }
-      });
-
-      // Toggle clicked card
-      clickedCard.classList.toggle('expanded');
-
-      // Save template choice if expanded
-      if (clickedCard.classList.contains('expanded')) {
-        const template = cardId.replace('card-', '');
-        sessionStorage.setItem('selectedTemplate', template);
-      }
-    }
-
-    // Slide 8: Step Accordion
-    function showStep(stepNumber) {
-      // Remove active class from all buttons
-      document.querySelectorAll('.step-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      // Remove active class from all content
-      document.querySelectorAll('.step-content').forEach(content => {
-        content.classList.remove('active');
-      });
-
-      // Add active class to clicked button
-      const activeButton = document.getElementById('step-btn-' + stepNumber);
-      if (activeButton) {
-        activeButton.classList.add('active');
-      }
-
-      // Add active class to corresponding content
-      const activeContent = document.getElementById('step-content-' + stepNumber);
-      if (activeContent) {
-        activeContent.classList.add('active');
-      }
-    }
-
-    // Copy to Clipboard Function
-    function copyToClipboard(text, buttonId) {
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById(buttonId);
-        const originalText = btn.textContent;
-
-        // Visual feedback
-        btn.classList.add('copied');
-        btn.textContent = '✓ Copied!';
-
-        // Show toast notification
-        showToast('Copied to clipboard!');
-
-        // Reset button after 2 seconds
-        setTimeout(() => {
-          btn.classList.remove('copied');
-          btn.textContent = originalText;
-        }, 2000);
-      }).catch(err => {
-        console.error('Copy failed:', err);
-        showToast('Copy failed. Please try again.', true);
-      });
-    }
-
-    // Toast Notification
-    function showToast(message, isError = false) {
-      let toast = document.getElementById('toast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'toast';
-        toast.className = 'toast';
-        document.body.appendChild(toast);
-      }
-
-      toast.textContent = message;
-      toast.style.background = isError ? '#ef4444' : '#10b981';
-      toast.classList.add('show');
-
-      setTimeout(() => {
-        toast.classList.remove('show');
-      }, 3000);
-    }
-
-    // Slide 4: Auto-expand accordion based on Slide 3 choice
-    document.addEventListener('DOMContentLoaded', () => {
-      // Wait for Reveal.js to be ready
-      if (typeof Reveal !== 'undefined') {
-        Reveal.on('slidechanged', event => {
-          // Check if we're on Slide 4 (horizontal index 4)
-          if (event.indexh === 4) {
-            const savedTemplate = sessionStorage.getItem('selectedTemplate') || 'ceo';
-            const cardId = 'card-slide4-' + savedTemplate;
-            const card = document.getElementById(cardId);
-
-            // Expand the selected card
-            if (card && !card.classList.contains('expanded')) {
-              // Close all other cards first
-              document.querySelectorAll('[id^="card-slide4-"]').forEach(c => {
-                c.classList.remove('expanded');
-              });
-              // Expand the selected card
-              card.classList.add('expanded');
-            }
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.getElementById(`copy-${template}-instructions`);
+          if (btn) {
+            const originalText = btn.textContent;
+            btn.textContent = '✅ Copied!';
+            btn.style.background = '#10b981';
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.background = '';
+            }, 2000);
           }
         });
       }
+    };
+
+    // Step navigation for Slides 9 & 10
+    window.showStep = function(stepId) {
+      // Determine which set of steps (app or oauth)
+      const prefix = stepId.startsWith('app-') ? 'app' : 'oauth';
+
+      // Hide all step contents and deactivate buttons in this set
+      const allContents = document.querySelectorAll(`[id^="step-content-${prefix}-"]`);
+      const allButtons = document.querySelectorAll(`[id^="step-btn-${prefix}-"]`);
+
+      allContents.forEach(content => content.classList.remove('active'));
+      allButtons.forEach(button => button.classList.remove('active'));
+
+      // Show selected step
+      const content = document.getElementById(`step-content-${stepId}`);
+      const button = document.getElementById(`step-btn-${stepId}`);
+
+      if (content) content.classList.add('active');
+      if (button) button.classList.add('active');
+    };
+
+    // Enhanced Viewport Handler
+    function handleViewportResize() {
+      const vh = window.innerHeight;
+      const vw = window.innerWidth;
+
+      // Add viewport size class to body for CSS targeting
+      document.body.classList.remove('viewport-small', 'viewport-medium', 'viewport-large', 'viewport-xlarge');
+
+      if (vh < 700) {
+        document.body.classList.add('viewport-small');
+      } else if (vh < 900) {
+        document.body.classList.add('viewport-medium');
+      } else if (vw < 2000) {
+        document.body.classList.add('viewport-large');
+      } else {
+        document.body.classList.add('viewport-xlarge');
+      }
+
+      // Log viewport info for debugging (remove in production)
+      console.log(`Viewport: ${vw}x${vh}`, document.body.className);
+    }
+
+    // Check for overflow content and adjust
+    function checkSlideOverflow() {
+      deck.on('slidechanged', function() {
+        const currentSlide = document.querySelector('.reveal .slides section.present');
+        if (!currentSlide) return;
+
+        const slideHeight = currentSlide.offsetHeight;
+        const contentHeight = currentSlide.scrollHeight;
+
+        if (contentHeight > slideHeight * 0.95) {
+          currentSlide.style.fontSize = '0.9em';
+          currentSlide.style.lineHeight = '1.4';
+        }
+      });
+    }
+
+    // Initialize viewport handlers
+    handleViewportResize();
+    window.addEventListener('resize', handleViewportResize);
+
+    // Initialize overflow checker after Reveal loads
+    deck.on('ready', function() {
+      checkSlideOverflow();
+      console.log('Slides initialized with enhanced viewport handling');
     });
   </script>
 </body>

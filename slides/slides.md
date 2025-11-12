@@ -1,27 +1,79 @@
-# Build Your LinkedIn Post GPT
+# Slide 0: Session 2: Boost Your Marketing Team
+## CustomGPT with Action and Agents
 
-**Live Build Session**
+### **YPO Live: Digital Campus 2025**
 
-<div class="metadata">
-<strong>Duration:</strong> 40 Minutes | Follow Along or Build With Me Today<br><br>
-<strong>What we're building:</strong> We will build a custom GPT that writes LinkedIn posts for LinkedIn ... and maybe a specail suprise ...<br>
-<strong>Your result:</strong> Create and publish LinkedIn posts in seconds
+<div style="font-size: 0.85em; margin: 1.5rem 0;">
+
+**Program Champion/Moderator:** Todd Marks — YPO Northeast One Regional Integrated
+
+**Your Speakers:**
+
+**Mo Ezderman** — [mezderman@mindgrub.com](mailto:mezderman@mindgrub.com)
+Builder and innovator with 20+ years developing AI systems that solve real problems. Co-developed generative AI music platform with Siri Co-Founder Tom Gruber, created AI tools with NCMEC for child exploitation victim identification, and helped build fraud detection tools that dismantled the largest ad fraud operation with FBI and Google.
+
+**William Forrester** — [wforrester@mindgrub.com](mailto:wforrester@mindgrub.com)
+Educational leader with cutting-edge AI innovation expertise. 4+ years transforming AI experiences into accessible, intelligent solutions with stateful systems design.
+
 </div>
 
-### Today's Flow:
-- ✅ **Part 1:** Build Custom GPT (15 min)
-- ✅ **Part 2:** Create Post for LinkedIn (10 min) - Our Custom GPT ouput from our chat
-- ✅ **Part 3:** Make Some Updates to LinkedIn Custom GPT (5 min) - will test live to show it is working
-- 🎉 **Part 4:** A WOW ... (10 min) - Demo Action for Custom GPT
+<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.9em; margin-top: 1rem; border-left: 4px solid #f59e0b;">
 
-**⚠️ Before we start:** Make sure you have ChatGPT Plus ($20/month) and can access [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
+**📱 TO FOLLOW ALONG (Optional):**
+- **ChatGPT Plus** or Corporate account ($20/month) — [chat.openai.com/plus](https://chat.openai.com/plus)
+- **LinkedIn Account** + Company Page (we'll show you how to create one)
 
-Note: This is fully hands-on. No sitting back. Everyone is building RIGHT NOW.
+</div>
+
+<div style="background: #e7f3ff; padding: 1rem; border-radius: 8px; font-size: 0.85em; margin-top: 1rem;">
+
+**🎉 See the working Custom GPT we'll build today:**
+[LinkedIn Post Creator (OAuth enabled)](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
+
+This GPT can write AND post directly to LinkedIn from chat!
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
 
 ---
 
-## Slide 1: The LinkedIn Problem
-### ⏱️ 3 minutes
+## Slide 1: Workshop Agenda & Setup
+
+<div class="metadata">
+<strong>Duration:</strong> 60 Minutes Total | Interactive Build Session<br><br>
+<strong>What we're building:</strong> A CustomGPT that writes social media posts AND posts directly to LinkedIn from chat<br>
+<strong>Your result:</strong> Create and publish LinkedIn posts from chat to your feed<br>
+<strong>Resources:</strong> All materials at https://w4ester.github.io/session2/
+</div>
+
+### Today's Flow (60 min):
+- ✅ **Part 1:** Build CustomGPT (13 min) — Slides 1-7
+- 💬 **Q&A Break:** Questions & Discussion (5 min)
+- ✅ **Part 2:** Add LinkedIn Action with OAuth (23 min) — Slides 8-11
+- 💬 **Final Q&A:** Wrap-up & Questions (15-20 min)
+
+<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.9em; margin-top: 1rem; border-left: 4px solid #f59e0b;">
+
+**⚠️ TO FOLLOW ALONG (Reminder):**
+- **ChatGPT Plus** ($20/mo) or Corporate account — [chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)
+- **LinkedIn Account** + Company Page
+- **Or just watch!** All resources available after session
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+**Note:** PRESENTER: "This session is your choice — follow along building, watch and learn, or ask questions anytime. Use Q&A feature in Zoom toolbar. Let's get started!"
+
+---
+
+## Slide 2: The LinkedIn Problem
+### ⏱️ 2 minutes
 
 **How much time do you and/or team spend on social media content (e.g., LinkedIn)?**
 
@@ -53,16 +105,20 @@ Build a Custom GPT that:
 </div>
 </div>
 
-Note: PRESENTER: Ask the room - "Raise your hand if LinkedIn content takes too long." Pause. "By the end of this session, you'll go from idea to published post in 2 minutes." Start the timer - we have 40 minutes.
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/1" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: PRESENTER: Share - "any questions post in chat." Pause. "By the end of this session, we'll go from ideas to customgpt to published post in LinkedIn."
 
 ---
 
-## Slide 2: Open GPT Editor Together
-### ⏱️ 2 minutes
+## Slide 3: Open GPT Editor Together
+### ⏱️ 1.5 minutes
 
 <div style="font-size: 0.85em;">
 
-### 🚨 Let's Build Or Watch (remember all we do today is shared with you ... to reference)
+### 🚨 Build Or Watch (remember things we do today is shared for your reference)
 
 </div>
 
@@ -72,25 +128,23 @@ Note: PRESENTER: Ask the room - "Raise your hand if LinkedIn content takes too l
 
 - **Step 1:** Open a new tab
 - **Step 2:** Go to: **[chatgpt.com/gpts/editor](https://chatgpt.com/gpts/editor)**
-- **Step 3:** You should see a split screen:
-  - Left side: Configuration panel
-  - Right side: Preview chat
+- **Step 3:** You should now have split gpt screens:
+  - Left side: Configuration panel (click that panel)
+  - Right side: Preview of custome gpt chat we are building
 
 <div style="background: #fff3cd; padding: 1rem; margin-top: 1.5rem; border-radius: 8px; font-size: 0.75em;">
 
 **⚠️ If you see "Upgrade to Plus":**
 
-You need ChatGPT Plus to continue. Sign up at [chat.openai.com/plus](https://chat.openai.com/plus) ($20/month)
-
-**Backup Plan:** Take detailed notes and build it after the workshop.
+You do need ChatGPT Plus to continue building today. But no pressure this will all be here even the shared custom gpt step by step. To sign up [chat.openai.com/plus](https://chat.openai.com/plus) ($20/month)
 
 </div>
 
 <div style="background: #d1ecf1; padding: 1rem; margin-top: 1rem; border-radius: 8px; font-size: 0.75em;">
 
-**✅ Success Check:**
+**✅ Question / Success Check In Chat:**
 
-Click thumbs up or in chat thumbs up to Mo to show you all are all good and see your GPT Editor interface.
+Please feel free to ask humans or your AI during the session questions, and give thumbs up if all is good, also...big believer in community learning so feel free to share questions for answers after today's session. Mo and Todd are also sheparding the chat for support - thank you all around.
 
 </div>
 
@@ -104,14 +158,18 @@ Click thumbs up or in chat thumbs up to Mo to show you all are all good and see 
 
 </div>
 
-Note: PRESENTER: "I'm screen sharing my GPT Editor now. Your screen should look exactly like mine. If it doesn't, raise your hand and someone will help you." Wait. "Okay, we're going to build this together. Everyone types what I type, when I type it. Stay with me."
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/2" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: PRESENTER: "I'm screen sharing my Custom GPT Editor. Your screen should look similar to mine if you are building during this Session. If it doesn't, again let us know in the chat or screen shot mine and put it in your gpt and say ... make my screen look like this ... you might be suprised how accurate your response is...will give 1 minute for us to get screen oriented." 1 minute wait time. "Okay, going to build CustomGPT. Everyone can copy and paste in theirs (if building) from the slide show ... you can see the 3 options in personas and instructions directly in the slides."
 
 ---
 
-## Slide 3: Choose Your Template & Name It
-### ⏱️ 3 minutes
+## Slide 4: Choose Your Template & Name
+### ⏱️ 2 minutes
 
-### Choose your version to best match your role(s)
+### Choose a version you want to role(s)
 
 <div class="template-cards-container">
 
@@ -171,14 +229,18 @@ Note: PRESENTER: "I'm screen sharing my GPT Editor now. Your screen should look 
 
 </div>
 
-✅ **Success Check:** Name and Description pasted in your GPT Editor
+✅ **Success Check:** Name and Description pasted directly in to your CustomGPT Editor
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/3" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
 
 Note: PRESENTER: "Click your role - CEO, Marketing, or AI. Card expands. Click Copy Name, paste in GPT Editor. Click Copy Description, paste in GPT Editor. Your choice saves automatically for the next slide."
 
 ---
 
-## Slide 4: Copy Instructions (The Brain of Your GPT)
-### ⏱️ 5 minutes
+## Slide 5: Copy Instructions (The Voodo IT Doo as Your CustomGPT)
+### ⏱️ 3 minutes
 
 <div style="font-size: 0.8em; margin-bottom: 0.5rem;">Your choice pre-loaded - click card to expand</div>
 
@@ -346,23 +408,25 @@ ALWAYS INCLUDE: Tool recommendations, cost estimates, timelines, required skills
 </div>
 <!-- End Template Cards Container -->
 
-Note: PRESENTER: "Click a card to expand it. Your Slide 3 choice is already expanded. Copy Instructions button, paste in GPT Editor. Copy conversation starters if you want. Click another card to switch templates."
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/4" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: Share: "Click a card to expand it. Your Slide 3 choice is already expanded. Copy Instructions button, paste in GPT Editor. Copy conversation starters if you want. Click another card to switch templates."
 
 ---
 
-## Slide 5: Skip Knowledge for Now
+## Slide 6: Skip Knowledge for Now but feel free to add up to 20 documents (GPT limit for CustomGPT)
 ### ⏱️ 1 minute
 
-### We're skipping this to save time (you can add later)
+### We're skipping this just to save a bit of time (you can definitely come back to add later to your own)
 
 <div style="background: #d1ecf1; padding: 1.5rem; border-radius: 8px;">
 
 ### Knowledge Files (Optional):
-You can upload past LinkedIn posts, brand guidelines, or writing samples to make the GPT match your voice even better.
+You can upload docs (e.g., past LinkedIn posts, brand guidelines, or writing samples) to make the CustomGPT match your voice even better.
 
-**For today:** I will just add a few documents for best practices for posting on social media
-
-**After the workshop:** Upload 5-10 of your best LinkedIn posts to fine-tune the voice.
+**After the workshop:** Upload up to 20 of your best LinkedIn posts to fine-tune your CustomGPT to better match your voice, company, teams...!
 
 </div>
 
@@ -371,33 +435,32 @@ You can upload past LinkedIn posts, brand guidelines, or writing samples to make
 <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
 
 ### What You COULD Upload:
-- Past LinkedIn posts (PDF/text)
+- PDF/Markdown/JSON are best choices for GPT*
 - Brand voice guidelines
 - Company one-pager
 - Your resume/bio
+- Best choice matching CustomGPT build you want
 
 </div>
 
 <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px;">
 
-### Why We're Skipping:
-- ⏱️ Saves 10 minutes
-- ✅ GPT works great without it
-- 🎯 Want to get to LinkedIn posting
-- 📝 Easy to add later
-
 </div>
 
 </div>
 
-Note: PRESENTER: "We're skipping Knowledge uploads today to save time. The GPT will work great without it. You can always add files later to fine-tune the voice. Let's keep moving - we want to get to the LinkedIn posting!"
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/5" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: PRESENTER: "We're skipping Knowledge uploads today to save time. The GPT will work fine without it. Again, you can always add files later to fine-tune the voice - just revisit the editor click your CustomGPT and you can edit/update and add docs."
 
 ---
 
-## Slide 6: Enable Capabilities (Quick)
-### ⏱️ 2 minutes
+## Slide 7: Enable Capabilities (Quick)
+### ⏱️ 1.5 minutes
 
-### Just check these two boxes:
+### Check one box:
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0;">
 
@@ -426,23 +489,28 @@ Note: PRESENTER: "We're skipping Knowledge uploads today to save time. The GPT w
 
 ### ✅ Your checklist:
 - ✅ Web Browsing: CHECKED
+- ❌ Canvas
 - ❌ DALL-E: Unchecked
 - ❌ Code Interpreter: Unchecked
 
 </div>
 
-Note: PRESENTER: "Scroll to Capabilities. Check Web Browsing. Leave the rest unchecked. That's it." Demo on screen. "Web Browsing lets your GPT research current trends. You don't need image generation or code for LinkedIn posts."
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/6" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: PRESENTER: "Scroll to Capabilities. Check Web Browsing. Leave the rest unchecked. That's it." Demo on screen. "Web Browsing lets your CustomGPT go online (e.g., research current trends). You don't need code or canvas for LinkedIn posts but image generation maybe and can add by editing later will have to update scopes-remember this for later - not because we will do that today but how evolution of AI choice in building makes this a moment to consider ... the CRUD (create, read, update, delete) ."
 
 ---
 
-## Slide 7: Quick Test (Does It Work?)
-### ⏱️ 3 minutes
+## Slide 8: Quick Test (Does It Work?)
+### ⏱️ 2 minutes
 
 ### Test your GPT right now in the preview chat:
 
 <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; font-family: monospace; margin: 2rem 0;">
 
-**Type this:**
+**Type something you want here is my thought:**
 ```
 Write a LinkedIn post about the importance of AI literacy
 for business leaders
@@ -450,44 +518,138 @@ for business leaders
 
 </div>
 
-### What Should Happen:
-- ✅ GPT drafts a post in the style you chose (CEO/Marketing/AI)
+### What Happens:
+- ✅ CustomGPT drafts post in the style chosen (CEO/Marketing/AI) for me CEO style
 - ✅ Post is 150-250 words
-- ✅ Has a strong hook
+- ✅ Has a hook
 - ✅ Ends with a takeaway
 
-Note: PRESENTER: "Everyone type this test prompt in the preview chat on the right." Show on screen. "Hit enter. You should get a LinkedIn post draft back." Demo the result. "See? It wrote a post. Yours should look similar. Everyone got a post? Great. Now here's where it gets cool..."
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/7" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+Note: PRESENTER: "Let's type a test prompt - type your own and hit enter. You should get a LinkedIn post draft response." Seeing my result. "It output a draft post. Yours should look similar. Everyone got a post draft response? Great. Now here's where going to grow our action next..."
 
 ---
 
-## Slide 8: Add LinkedIn Posting Power 🚀
-### ⏱️ 15 minutes
+## Slide 9: Q&A Break 💬
+### ⏱️ 5 minutes
 
-### Now the cool part: Make it actually POST to LinkedIn
+<div style="text-align: center; padding: 2rem;">
 
-<div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
+### Questions & Discussion
+
+**How's it going so far?**
+
+- Built your Custom GPT? ✅
+- Tested it with a LinkedIn post draft? ✅
+- Ready to add the posting Action? 🚀
+
+<div style="background: #e7f3ff; padding: 1.5rem; margin: 2rem auto; border-radius: 12px; max-width: 80%;">
+
+**Submit your questions using the Q&A feature in Zoom toolbar**
+
+We'll address them now before moving to Part 2
+
+</div>
+
+<div style="margin-top: 2rem;">
+<a href="https://w4ester.github.io/session2/slides/#/8" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+</div>
+
+**Note:** PRESENTER: "Great work everyone! Let's take 5 minutes for questions. Use the Q&A feature in Zoom. Todd will feed questions to us. Any issues building your GPT? Questions about what we've covered? This is your time! Remember folks can follow along at https://w4ester.github.io/session2/slides/"
+
+---
+
+## Slide 10: LinkedIn Prerequisites - Do You Have These?
+### ⏱️ 2 minutes
+
+<div style="font-size: 0.9em;">
+
+<div style="background: #e7f3ff; padding: 0.8rem; border-radius: 8px; font-size: 0.9em; margin-bottom: 1rem;">
+
+**📖 Full Technical Guide:** [LinkedIn Custom GPT Posting Setup Guide](linkedin_custom_gpt_posting_setup.md)
+
+</div>
+
+**You need these TWO things:**
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0;">
+
+<div style="background: #d4edda; padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
+
+### ✅ LinkedIn Personal Account
+
+You have this! Your personal profile where you post.
+
+</div>
+
+<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+
+### ⚠️ LinkedIn Company Page
+
+LinkedIn REQUIRES a Company Page for Developer Apps.
+
+**Don't have one? Takes 2 minutes!**
+
+</div>
+
+</div>
+
+**How to Create a Company Page (If Needed):**
+
+1. Go to: [linkedin.com/company/setup/new/](https://www.linkedin.com/company/setup/new/) → Choose **"Company"**
+2. Fill in: **Company name** (your name/business), **Website**, **Industry**, **Size** (1 employee)
+3. Click **"Create page"** — Done! You're now a Page Admin
+
+<img src="../screenshots/slides-index4-html9.png" alt="LinkedIn Create Page Options" style="max-width: 65%; margin: 1rem auto;" />
+
+<div style="background: #e7f3ff; padding: 0.8rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
+
+**💡 Why?** Every Developer App must be tied to a Page for verification. This does NOT force posts to the Page - you can still post as yourself!
+
+</div>
+
+**✅ Success Check:** Can you see your Company Page in LinkedIn? Ready for next slide!
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/9" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+**Note:** PRESENTER: "Quick check in chat: 👍 if you have BOTH LinkedIn account AND Company Page. If not, directions provided above - take your time or do later. All resources available now and later!"
+
+---
+
+## Slide 11: Create Your LinkedIn Developer App
+### ⏱️ 8 minutes
+
+<div style="font-size: 0.88em;">
+
+**This app will allow your Custom GPT to post to LinkedIn securely using OAuth.**
+
+<div style="display: grid; grid-template-columns: 250px 1fr; gap: 1.5rem; align-items: start;">
 
 <!-- Left Column: Step Buttons -->
 <div class="step-buttons-container">
 
-<div id="step-btn-1" class="step-button active" onclick="showStep(1)">
-  <span class="step-number">1</span> Scroll to "Actions" Section
+<div id="step-btn-app-1" class="step-button active" onclick="showStep('app-1')">
+  <span class="step-number">1</span> Go to LinkedIn Developers
 </div>
 
-<div id="step-btn-2" class="step-button" onclick="showStep(2)">
-  <span class="step-number">2</span> Click "Create new action"
+<div id="step-btn-app-2" class="step-button" onclick="showStep('app-2')">
+  <span class="step-number">2</span> Create App & Associate Page
 </div>
 
-<div id="step-btn-3" class="step-button" onclick="showStep(3)">
-  <span class="step-number">3</span> Copy/Paste OpenAPI Schema
+<div id="step-btn-app-3" class="step-button" onclick="showStep('app-3')">
+  <span class="step-number">3</span> Request Products (Permissions)
 </div>
 
-<div id="step-btn-4" class="step-button" onclick="showStep(4)">
-  <span class="step-number">4</span> Configure Authentication
-</div>
-
-<div id="step-btn-5" class="step-button" onclick="showStep(5)">
-  <span class="step-number">5</span> Save Your GPT
+<div id="step-btn-app-4" class="step-button" onclick="showStep('app-4')">
+  <span class="step-number">4</span> Get Client ID & Secret
 </div>
 
 </div>
@@ -496,174 +658,135 @@ Note: PRESENTER: "Everyone type this test prompt in the preview chat on the righ
 <div class="step-content-container">
 
 <!-- Step 1 Content -->
-<div id="step-content-1" class="step-content active">
+<div id="step-content-app-1" class="step-content active">
 
-In your GPT Editor, scroll down to **"Actions"** (below Capabilities).
+### Go to LinkedIn Developers Portal
 
-**Note:** PRESENTER: "Scroll down in your GPT Editor. See the Actions section?"
+**Open this link:** [LinkedIn Developers - My Apps](https://www.linkedin.com/developers/apps)
+
+Click **"Create app"** button
+
+<img src="../screenshots/step2-app-settings-tab.png" alt="LinkedIn Developers" class="screenshot" />
+
+**Note:** PRESENTER: "Open LinkedIn Developers portal. Click 'Create app' to start."
 
 </div>
 
 <!-- Step 2 Content -->
-<div id="step-content-2" class="step-content">
+<div id="step-content-app-2" class="step-content">
 
-Click the **"Create new action"** button.
+### Create App & Associate with Your Company Page
 
-**Note:** PRESENTER: "Click 'Create new action.'" Show on screen.
+**Fill in the app form:**
+
+1. **App name:** "My LinkedIn Post GPT" (or any name you want)
+2. **LinkedIn Page:** Select YOUR Company Page (from Slide 8)
+3. **Privacy policy URL:** Your website or LinkedIn profile URL
+4. **App logo:** Upload any image (optional)
+5. Click **"Create app"**
+
+**After creating, you MUST verify:**
+
+1. Go to your app's **Settings** tab
+2. Under **"LinkedIn Page"**, send a verification request
+3. As the Page Admin, approve the request (you'll get a notification)
+4. Confirm you see **"Verified"** status
+
+<div style="background: #fff3cd; padding: 0.7rem; margin-top: 0.8rem; border-radius: 8px; font-size: 0.95em;">
+
+⚠️ **The app MUST be verified before you can use it!** Usually takes 1 minute.
+
+</div>
+
+**Note:** PRESENTER: "Fill in app name. Select YOUR Company Page. Add privacy policy URL. Create app. Go to Settings tab, send verification request, approve it. Wait for Verified status."
 
 </div>
 
 <!-- Step 3 Content -->
-<div id="step-content-3" class="step-content">
+<div id="step-content-app-3" class="step-content">
 
-**Copy the OpenAPI Schema below and paste it into the Schema box in GPT Editor:**
+### Request Products (API Permissions)
 
-<div style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 8px; max-height: 400px; overflow-y: auto; font-family: 'Courier New', monospace; font-size: 0.75em; margin: 1rem 0;">
+Go to your app's **"Products"** tab
 
-```yaml
-openapi: 3.1.0
-info:
-  title: LinkedIn Post Action
-  description: Posts content to a LinkedIn profile using the LinkedIn API.
-  version: 1.0.0
-servers:
-  - url: https://api.linkedin.com/v2
-paths:
-  /ugcPosts:
-    post:
-      operationId: postToLinkedIn
-      summary: Post a message to your LinkedIn profile.
-      description: Posts a text-only message to the authenticated user's LinkedIn profile.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - author
-                - lifecycleState
-                - specificContent
-                - visibility
-              properties:
-                author:
-                  type: string
-                  description: The URN of the LinkedIn user, e.g. urn:li:person:abcdef123456789
-                lifecycleState:
-                  type: string
-                  enum: [PUBLISHED]
-                specificContent:
-                  type: object
-                  properties:
-                    com.linkedin.ugc.ShareContent:
-                      type: object
-                      properties:
-                        shareCommentary:
-                          type: object
-                          properties:
-                            text:
-                              type: string
-                        shareMediaCategory:
-                          type: string
-                          enum: [NONE]
-                      required:
-                        - shareCommentary
-                        - shareMediaCategory
-                  required:
-                    - com.linkedin.ugc.ShareContent
-                visibility:
-                  type: object
-                  properties:
-                    com.linkedin.ugc.MemberNetworkVisibility:
-                      type: string
-                      enum: [PUBLIC]
-                  required:
-                    - com.linkedin.ugc.MemberNetworkVisibility
-      responses:
-        '201':
-          description: Post created successfully
-        '400':
-          description: Bad request
-        '401':
-          description: Unauthorized – invalid token
-        '403':
-          description: Forbidden – missing permissions
-```
+Request access to **TWO products:**
+
+1. ✅ **"Sign In with LinkedIn using OpenID Connect"**
+   - This gets your URN (profile ID)
+   - Grants: `openid`, `profile`, `email`
+
+2. ✅ **"Share on LinkedIn"**
+   - This lets you post!
+   - Grants: `w_member_social`
+
+Click **"Request access"** for each one.
+
+<img src="../screenshots/step3-products-tab.png" alt="Products Tab" class="screenshot" />
+
+<div style="background: #d4edda; padding: 0.7rem; margin-top: 0.8rem; border-radius: 8px; font-size: 0.95em;">
+
+✅ **Approval is usually instant!** Refresh to see both products added.
 
 </div>
 
-**Note:** PRESENTER: "Here's the complete OpenAPI schema. You can scroll through it. Select all and copy, then paste it into the Schema box in your GPT Editor."
+**Note:** PRESENTER: "Go to Products tab. Request both: 'Sign In with LinkedIn OIDC' (gets URN) and 'Share on LinkedIn' (posting permission). Refresh to confirm."
 
 </div>
 
 <!-- Step 4 Content -->
-<div id="step-content-4" class="step-content">
+<div id="step-content-app-4" class="step-content">
 
-Scroll down to **"Authentication"** section:
+### Get Your Client ID & Secret
 
-1. Select **"Bearer"** from dropdown
-2. Paste the workshop access token (I'll provide this)
-3. Click **"Test"** - you should see "Success"
+Go to your app's **"Auth"** tab
 
-<div style="background: #d1ecf1; padding: 1rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
+You'll see:
 
-**🔑 Workshop Access Token:**
+1. **Client ID** - visible (long number)
+2. **Primary Client Secret** - click **"Show"** to reveal it
 
-I'll share this in chat / on screen during the workshop.
+<img src="../screenshots/step3-auth-tab-credentials.png" alt="Auth Tab Credentials" class="screenshot" />
 
-**Note:** This is a shared token for testing only. After the workshop, you can set up your own
+**Copy BOTH and save them somewhere safe!**
+
+- Client ID: `123456789` (example)
+- Client Secret: `A1b2C3d4E5f6...` (secret - don't share!)
+
+<div style="background: #fff3cd; padding: 0.7rem; margin-top: 0.8rem; border-radius: 8px; font-size: 0.95em;">
+
+⚠️ **Keep your Client Secret private!** It's like a password for your app.
+
+</div>
+
+<div style="background: #d4edda; padding: 0.7rem; margin-top: 0.8rem; border-radius: 8px; font-size: 0.95em;">
+
+✅ **Ready for next slide!** You now have:
+- Verified LinkedIn Developer App ✓
+- Two Products approved ✓
+- Client ID & Secret saved ✓
+
+</div>
+
+**Note:** PRESENTER: "Auth tab → Copy Client ID. Click Show for Client Secret → Copy it. Save both in Notes. DO NOT share Client Secret! Everyone got both? Great!"
 
 </div>
 
 </div>
 
-<!-- Step 5 Content -->
-<div id="step-content-5" class="step-content">
-
-1. Click **"Update"** or **"Create"** (top right)
-2. Choose **"Only me"** for now
-3. Click **"Confirm"**
-
-✅ **You now have a LinkedIn-posting GPT!**
-
-**Note:** PRESENTER: "Great! Click Update to save your GPT."
-
 </div>
 
-</div>
-
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/10" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
 ---
 
-## Slide 9: POST TO LINKEDIN! 🎉
-### ⏱️ 5 minutes
+## Slide 12: Configure OAuth + Add LinkedIn Action
+### ⏱️ 10 minutes
 
-# 🚀 Time to Post!
+### Now let's connect your GPT to LinkedIn using OAuth
 
-Your GPT can now write AND publish to LinkedIn.
-
----
-
-### Try This Prompt:
-
-```
-Write a LinkedIn post about what I'm learning at this AI workshop
-and post it to LinkedIn.
-
-My URN is: urn:li:person:YOUR_URN_HERE
-```
-
-**Replace YOUR_URN_HERE with your actual URN** (we'll help you get this)
-
-Note: PRESENTER: "Everyone needs their LinkedIn URN. Go to [show method to get URN]. Copy it." Help people get their URNs. "Now go to your GPT. Type the prompt with your URN." Demo on screen. "Watch - it's writing... now asking if I want to post... I say yes... BOOM. Check LinkedIn - it's live!" Show LinkedIn with the new post.
-
----
-
-## 🔐 Want OAuth Instead? Here's How
-### ⏱️ 15 minutes (Advanced)
-
-### Full OAuth Setup - Post with your own LinkedIn account
+You have your Client ID and Secret from [Slide 11](https://w4ester.github.io/session2/slides/#/11). Time to add the Action!
 
 <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
 
@@ -671,23 +794,23 @@ Note: PRESENTER: "Everyone needs their LinkedIn URN. Go to [show method to get U
 <div class="step-buttons-container">
 
 <div id="step-btn-oauth-1" class="step-button active" onclick="showStep('oauth-1')">
-  <span class="step-number">1</span> Create LinkedIn App
+  <span class="step-number">1</span> Open Actions in GPT Editor
 </div>
 
 <div id="step-btn-oauth-2" class="step-button" onclick="showStep('oauth-2')">
-  <span class="step-number">2</span> Configure OAuth in GPT
+  <span class="step-number">2</span> Paste LinkedIn Schema
 </div>
 
 <div id="step-btn-oauth-3" class="step-button" onclick="showStep('oauth-3')">
-  <span class="step-number">3</span> Get Your LinkedIn URN
+  <span class="step-number">3</span> Configure OAuth
 </div>
 
 <div id="step-btn-oauth-4" class="step-button" onclick="showStep('oauth-4')">
-  <span class="step-number">4</span> Add Callback URL
+  <span class="step-number">4</span> Get Your URN
 </div>
 
 <div id="step-btn-oauth-5" class="step-button" onclick="showStep('oauth-5')">
-  <span class="step-number">5</span> Test & Post!
+  <span class="step-number">5</span> Add Callback URL
 </div>
 
 </div>
@@ -698,49 +821,198 @@ Note: PRESENTER: "Everyone needs their LinkedIn URN. Go to [show method to get U
 <!-- Step 1 Content -->
 <div id="step-content-oauth-1" class="step-content active">
 
-### Create Your LinkedIn App
+### Open Actions in Your GPT Editor
 
-Open: **[LinkedIn Developers](https://www.linkedin.com/developers/apps)**
+In your **GPT Editor**, scroll down to the **"Actions"** section (below Capabilities).
 
-1. Click **"Create app"**
-2. Fill in required fields:
-   - **App name:** "My LinkedIn Post GPT"
-   - **LinkedIn Page:** (select your company page or create one)
-   - **App logo:** (upload any logo image)
-3. Click **"Create app"**
+Click **"Create new action"**
 
-**Next:**
-1. Go to **"Products"** tab
-2. Request access to:
-   - ✅ **"Share on LinkedIn"**
-   - ✅ **"Sign In with LinkedIn using OpenID Connect"**
-3. Wait for approval (usually instant)
+<img src="../screenshots/step6a-action-editor-blank.png" alt="Actions Section" class="screenshot" />
 
-**Note:** PRESENTER: "Go to LinkedIn Developers. Create new app. Name it anything. Request the two products shown."
+**Note:** PRESENTER: "In your GPT Editor, scroll down to Actions. Click 'Create new action.' You'll see a schema editor."
 
 </div>
 
 <!-- Step 2 Content -->
 <div id="step-content-oauth-2" class="step-content">
 
-### Configure OAuth in Your GPT
+### Paste the Working LinkedIn Schema
 
-In your **GPT Editor** → **Actions** → **Authentication**:
+**Copy this ENTIRE schema and paste it into the Schema box:**
 
-1. Select **"OAuth"** from dropdown
-2. Enter these values:
-
-<div style="background: #f0f0f0; padding: 1rem; border-radius: 8px; font-size: 0.85em; margin: 1rem 0;">
-
-**Client ID:**
+```json
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "LinkedIn Post Action",
+    "description": "Posts content to a LinkedIn profile using the LinkedIn API",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.linkedin.com/v2"
+    }
+  ],
+  "paths": {
+    "/ugcPosts": {
+      "post": {
+        "operationId": "postToLinkedIn",
+        "summary": "Post a message to your LinkedIn profile",
+        "description": "Posts a text-only message to the authenticated user's LinkedIn profile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "author",
+                  "lifecycleState",
+                  "specificContent",
+                  "visibility"
+                ],
+                "properties": {
+                  "author": {
+                    "type": "string",
+                    "description": "URN of the author (urn:li:person:YOUR_URN_HERE)"
+                  },
+                  "lifecycleState": {
+                    "type": "string",
+                    "enum": [
+                      "PUBLISHED"
+                    ],
+                    "default": "PUBLISHED"
+                  },
+                  "specificContent": {
+                    "type": "object",
+                    "properties": {
+                      "com.linkedin.ugc.ShareContent": {
+                        "type": "object",
+                        "properties": {
+                          "shareCommentary": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "type": "string",
+                                "description": "The text content to post"
+                              }
+                            }
+                          },
+                          "shareMediaCategory": {
+                            "type": "string",
+                            "enum": [
+                              "NONE"
+                            ],
+                            "default": "NONE"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "visibility": {
+                    "type": "object",
+                    "properties": {
+                      "com.linkedin.ugc.MemberNetworkVisibility": {
+                        "type": "string",
+                        "enum": [
+                          "PUBLIC",
+                          "CONNECTIONS"
+                        ],
+                        "default": "PUBLIC"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Post created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "URN of the created post"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - invalid or expired token"
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://www.linkedin.com/oauth/v2/authorization",
+            "tokenUrl": "https://www.linkedin.com/oauth/v2/accessToken",
+            "scopes": {
+              "openid": "OpenID Connect authentication",
+              "profile": "Access to profile information",
+              "email": "Access to email address",
+              "w_member_social": "Permission to post content"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": [
+        "openid",
+        "profile",
+        "email",
+        "w_member_social"
+      ]
+    }
+  ]
+}
 ```
-(from LinkedIn app → Auth tab)
-```
 
-**Client Secret:**
-```
-(from LinkedIn app → Auth tab → Click "Show")
-```
+<img src="../screenshots/step6b-schema-pasted.png" alt="Schema Pasted" class="screenshot" />
+
+<div style="background: #e7f3ff; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+
+**📝 This is the PROVEN working schema!** It includes OAuth security at the root level, which is required for posting.
+
+</div>
+
+**Note:** PRESENTER: "Select all of this JSON schema. Copy it. Paste it into the Schema box in your GPT. This tells your GPT exactly how to talk to LinkedIn's API with OAuth."
+
+</div>
+
+<!-- Step 3 Content -->
+<div id="step-content-oauth-3" class="step-content">
+
+### Configure OAuth Authentication
+
+Scroll down to the **"Authentication"** section.
+
+1. Select **"OAuth"** from the dropdown
+
+2. Enter these values **EXACTLY:**
+
+**Client ID:** Paste yours from [Slide 11](https://w4ester.github.io/session2/slides/#/11)
+
+**Client Secret:** Paste yours from [Slide 11](https://w4ester.github.io/session2/slides/#/11)
 
 **Authorization URL:**
 ```
@@ -757,150 +1029,297 @@ https://www.linkedin.com/oauth/v2/accessToken
 openid profile email w_member_social
 ```
 
-</div>
+<img src="../screenshots/step7u-oauth-with-correct-scopes.png" alt="OAuth Configured" class="screenshot" />
 
-**Where to find Client ID & Secret:**
-- LinkedIn app → **"Auth"** tab
-- Copy **Client ID** (visible)
-- Click **"Show"** next to Primary Client Secret → Copy it
+<div style="background: #fff3cd; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
 
-**Note:** PRESENTER: "Go to your LinkedIn app Auth tab. Copy Client ID and Secret. Paste them in GPT OAuth config."
+⚠️ **All four scopes are required!** Make sure to type them exactly with spaces between each.
 
 </div>
 
-<!-- Step 3 Content -->
-<div id="step-content-oauth-3" class="step-content">
-
-### Get Your LinkedIn URN
-
-**Your URN identifies your LinkedIn profile to the API.**
-
-**Option A: Use OAuth Flow (Easier)**
-
-Once OAuth is configured, ask your GPT:
-```
-Get my LinkedIn URN using OAuth
-```
-
-**Option B: Manual Method**
-
-1. **Get Access Token:**
-
-Visit this URL (replace YOUR_CLIENT_ID):
-```
-https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=https://oauth.pstmn.io/v1/callback&scope=openid%20profile%20email%20w_member_social
-```
-
-2. **Authorize** → You'll be redirected to:
-```
-https://oauth.pstmn.io/v1/callback?code=AQT...
-```
-
-3. **Exchange code for token:**
-```bash
-curl -X POST https://www.linkedin.com/oauth/v2/accessToken \
-  -d "grant_type=authorization_code" \
-  -d "code=PASTE_CODE_HERE" \
-  -d "redirect_uri=https://oauth.pstmn.io/v1/callback" \
-  -d "client_id=YOUR_CLIENT_ID" \
-  -d "client_secret=YOUR_CLIENT_SECRET"
-```
-
-4. **Get URN:**
-```bash
-curl https://api.linkedin.com/v2/userinfo \
-  -H "Authorization: Bearer ACCESS_TOKEN"
-```
-
-5. **Response:**
-```json
-{
-  "sub": "ABC123XYZ",
-  "name": "Your Name"
-}
-```
-
-6. **Build URN:**
-```
-urn:li:person:ABC123XYZ
-```
-
-**Note:** PRESENTER: "Easiest way - let your GPT get it for you using OAuth. Or follow manual steps."
+**Note:** PRESENTER: "Scroll to Authentication. Choose OAuth. Paste YOUR Client ID and Secret from earlier. Then enter the Authorization URL, Token URL, and Scopes exactly as shown. The scopes are: openid space profile space email space w_member_social."
 
 </div>
 
 <!-- Step 4 Content -->
 <div id="step-content-oauth-4" class="step-content">
 
-### Add Callback URL to LinkedIn
+### Get Your LinkedIn URN (Profile ID)
 
-**This is CRITICAL - OAuth won't work without it!**
+**Quick method - LinkedIn Token Generator:**
 
-1. In **GPT Editor** → **Actions** section, scroll to bottom
-2. Copy the **Callback URL** (looks like):
+1. Open: [LinkedIn OAuth Token Generator](https://www.linkedin.com/developers/tools/oauth/token-generator)
+2. Check all four scopes (openid, profile, email, w_member_social)
+3. Click "Request access token"
+4. Authorize
+5. Scroll down to **"Token Details"**
+6. Find the **`sub`** field
+
+<img src="../screenshots/step7h-token-generated.png" alt="Token with SUB" class="screenshot" />
+
+**Your URN format:**
 ```
-https://chat.openai.com/aip/g-abc123xyz.../oauth/callback
+urn:li:person:YOUR_SUB_VALUE
 ```
 
-3. Go to **LinkedIn app** → **"Auth"** tab
-4. Find **"Authorized redirect URLs for your app"**
-5. Click **"Update"** or **"+ Add redirect URL"**
-6. **Paste the exact callback URL**
-7. Click **"Update"**
+Example: If `sub` is `ABC123XYZ`, your URN is `urn:li:person:ABC123XYZ`
 
-<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; font-size: 0.85em; margin-top: 1rem;">
+<div style="background: #d4edda; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
 
-⚠️ **Must match EXACTLY** - Copy/paste to avoid typos!
+✅ **Save your URN!** You'll need it when posting. Example: `urn:li:person:KGWEb2LU1C`
 
 </div>
 
-**Note:** PRESENTER: "Copy callback URL from GPT Editor. Paste it in LinkedIn app Auth tab. Click Update."
+<div style="background: #e7f3ff; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+
+**📝 Your URN is NOT secret** - it's just your LinkedIn profile ID. It's safe to use in prompts!
+
+</div>
+
+**Note:** PRESENTER: "Open the Token Generator link. Check all four scopes. Request token. Scroll down to Token Details. Find the 'sub' field. Write your URN as urn:li:person:YOUR_SUB_VALUE. This is your LinkedIn profile ID - not secret, just an identifier!"
 
 </div>
 
 <!-- Step 5 Content -->
 <div id="step-content-oauth-5" class="step-content">
 
-### Test Your OAuth Setup!
+### Add Callback URL to LinkedIn App
 
-1. **Save your GPT** (click "Update" or "Create")
-2. **Open your GPT** in chat
-3. **Type:**
-```
-Post this to LinkedIn: "Just built my own LinkedIn GPT with OAuth!
-This is amazing. #AI #GPT"
+**THIS IS CRITICAL - The app won't work without this!**
 
-My URN is: urn:li:person:YOUR_URN
-```
+1. In your **GPT Editor** → **Actions** section, scroll to the bottom
+2. Find and **copy** the **Callback URL** (looks like):
+   ```
+   https://chat.openai.com/aip/g-abc123xyz.../oauth/callback
+   ```
 
-4. **Click "Sign in to api.linkedin.com"** button
-5. **Authorize** on LinkedIn
-6. **Post should complete!**
+3. Go back to **LinkedIn Developers** → Your App → **"Auth"** tab
+4. Find **"Authorized redirect URLs for your app"**
+5. Click **"+ Add redirect URL"**
+6. **Paste the exact callback URL** from your GPT
+7. Click **"Update"**
 
-✅ **Check LinkedIn** - your post should be live!
+<img src="../screenshots/step7a-linkedin-redirect-urls-both.png" alt="Callback URL Added" class="screenshot" />
 
-<div style="background: #d4edda; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+<div style="background: #fff3cd; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
 
-**🎉 Success!** You now have a GPT that posts to YOUR LinkedIn using OAuth!
-
-</div>
-
-**Note:** PRESENTER: "Everyone try it! Type the post prompt with your URN. Click sign in. Authorize. Boom - live on LinkedIn!"
+⚠️ **Must match EXACTLY!** Copy/paste to avoid typos. One wrong character = OAuth fails.
 
 </div>
 
+<div style="background: #d4edda; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
+
+✅ **You're done setting up!** Click "Update" or "Create" in your GPT Editor to save.
+
+Next slide: Let's test posting!
+
 </div>
 
+**Note:** PRESENTER: "In your GPT Editor, scroll down in Actions section. See the Callback URL at the bottom? Copy it. Go to LinkedIn app Auth tab. Add redirect URL. Paste your callback URL EXACTLY. Click Update. Now save your GPT by clicking Update or Create. Everyone saved? Great!"
+
+</div>
+
+</div>
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/11" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
 </div>
 
 ---
 
-**Note:** Full setup guide available at [GPT-SETUP-GUIDE.md](../GPT-SETUP-GUIDE.md)
+## Slide 13: POST TO LINKEDIN LIVE! 🎉
+### ⏱️ 3 minutes
+
+<div style="font-size: 0.9em;">
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+
+<div>
+
+## 🚀 Test Your Setup
+
+**Type this prompt in your GPT:**
+
+<div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 0.9em; margin: 1rem 0;">
+
+Write a LinkedIn post about what I learned in this AI workshop and post it to LinkedIn.
+
+My URN is: **urn:li:person:YOUR_URN_HERE**
+
+</div>
+
+**What Happens:**
+
+1. GPT asks for confirmation
+2. Click "Sign in to api.linkedin.com"
+3. Authorize on LinkedIn
+4. Post goes live! ✅
+
+<div style="background: #d4edda; padding: 1rem; margin-top: 1.5rem; border-radius: 8px;">
+
+### 🎉 SUCCESS!
+
+Your GPT can now:
+- ✅ Write posts in your voice
+- ✅ Ask for your approval
+- ✅ Post directly to LinkedIn
+- ✅ Secure OAuth (no hardcoded tokens!)
+
+</div>
+
+</div>
+
+<div>
+
+### What You Built Today:
+
+✅ LinkedIn Developer App (verified)
+✅ OAuth connection (secure & automatic)
+✅ Custom GPT with LinkedIn Action
+✅ Posted live to your LinkedIn feed
+
+### Next Steps:
+
+- **Edit schema** - Add your URN so you don't type it each time
+- **Add starters** - "Draft a LinkedIn post about [topic]"
+- **Share GPT** - Set to "Anyone with the link"
+
+<div style="background: #e7f3ff; padding: 1rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
+
+**📖 Full Technical Guide:**
+[linkedin_custom_gpt_posting_setup.md](linkedin_custom_gpt_posting_setup.md)
+
+- Security best practices
+- Rotate Client Secrets
+- Add images/links to posts
+- Troubleshooting
+
+</div>
+
+</div>
+
+</div>
+
+<details style="margin-top: 1.5rem; background: #f8f9fa; padding: 1rem; border-radius: 8px; cursor: pointer;">
+<summary style="font-weight: 600; font-size: 0.95em;">📝 Presenter Notes (click to expand)</summary>
+<div style="padding: 1rem 0; font-size: 0.9em; line-height: 1.6;">
+
+"Everyone type the prompt with YOUR URN. Watch - GPT writes the post. Click confirm. Sign in to LinkedIn button appears. Click it. Authorize on LinkedIn. BOOM! Post is live. Check your LinkedIn feed right now - it should be there! Everyone see their post? Awesome! You just posted from Custom GPT using OAuth. This is production-ready - it auto-refreshes tokens, it's secure, and you control everything. Congrats!"
+
+</div>
+</details>
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/12" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
 
 ---
 
-### Let's Check LinkedIn:
+## Slide 14: Final Q&A & Wrap-Up 💬
+### ⏱️ 15-20 minutes
 
-Go Linkedin ... and I will post in real time from custom gpt
+<div style="text-align: center; padding: 2rem;">
 
-And post should be live at https://www.linkedin.com/in/w4ester/
+## Thank You! 🎉
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; text-align: left;">
+
+<div>
+
+### What You Accomplished Today:
+
+✅ Built a Custom GPT from scratch
+✅ Connected it to LinkedIn via OAuth
+✅ Posted live to your LinkedIn feed
+✅ Learned production-ready AI integration
+
+</div>
+
+<div>
+
+### Resources:
+
+📖 **Full Guide:** [linkedin_custom_gpt_posting_setup.md](linkedin_custom_gpt_posting_setup.md)
+💻 **Slides:** https://w4ester.github.io/session2/
+🔗 **Demo GPT:** [LinkedIn Post Creator](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
+
+**Next Session:** Dec 03, 11:00am ET
+"AI-Powered Multimedia Production"
+
+</div>
+
+</div>
+
+<div style="background: #e7f3ff; padding: 1.5rem; margin: 2rem auto; border-radius: 12px; max-width: 80%;">
+
+**Your Questions & Discussion**
+
+Use the Q&A feature in Zoom toolbar
+
+</div>
+
+<div style="margin-top: 2rem;">
+<a href="https://w4ester.github.io/session2/slides/#/13" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+</div>
+
+**Note:** PRESENTER: "Amazing work everyone! We've built something production-ready today. Todd will now moderate our Q&A session. Remember, the recording and all materials will be sent within 48 hours. Let's hear your questions! And remember folks can always follow along at https://w4ester.github.io/session2/slides/"
+
+---
+
+## Slide 15: Bonus - What's Next? 🚀
+
+<div style="font-size: 0.85em;">
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+
+<div>
+
+### Question 1:
+
+**"Can I connect multiple tools?"**
+
+**MCP** (Model Context Protocol) = AI + Your Tools:
+- File systems, Databases, APIs
+- Dev environments & more
+
+**→ Quick Terminal Demo** ⚡
+
+</div>
+
+<div>
+
+### Question 2:
+
+**"What does this mean for my team?"**
+
+**Users → Producers** 🚀
+
+You **extended** AI, connected **real systems**, made it **work for you**.
+
+Share this: *Everyone can build. This is your playground for ideas.*
+
+</div>
+
+</div>
+
+<div style="background: #e7f3ff; padding: 1rem; margin: 1.5rem 0; border-radius: 8px; text-align: center; font-size: 0.9em;">
+
+**📚 Resources:** [GitHub Pages](https://w4ester.github.io/session2/) • [Full Guide](https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md) • [Slides](https://w4ester.github.io/session2/slides/) • [Demo GPT](https://chatgpt.com/g/g-6913a50f23cc8191ad8c4ccf633b723e-linkedin-post-creator)
+
+</div>
+
+</div>
+
+<div style="margin-top: 2rem; text-align: center;">
+<a href="https://w4ester.github.io/session2/slides/#/14" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+</div>
+
+**Note:** PRESENTER: "Before we wrap, two things. First—quick terminal demo of MCP connecting multiple tools. [DEMO]. Second—notice what happened today? You shifted from USER to PRODUCER. You didn't just use AI—you extended it. Share this with your teams: no one has to be passive. We're all builders now. This is your playground for creativity and ideas. Links are all here and on GitHub pages. Thank you!"
+
+---
