@@ -759,7 +759,7 @@ Click **"Create app"** button
 **Fill in the app form:**
 
 1. **App name:** "My LinkedIn Post GPT" (or any name you want)
-2. **LinkedIn Page:** Select YOUR Company Page (from Slide 8)
+2. **LinkedIn Page:** Select YOUR Company Page (from Slide 10)
 3. **Privacy policy URL:** Your website or LinkedIn profile URL
 4. **App logo:** Upload any image (optional)
 5. Click **"Create app"**
