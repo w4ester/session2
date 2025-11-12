@@ -4,6 +4,46 @@
 
 ---
 
+## 🤖 Prompt for LLM (Use This to Get Help!)
+
+**Copy and paste this into ChatGPT, Claude, or any LLM to get step-by-step help:**
+
+```
+Help me set up LinkedIn + Custom GPT integration using this guide:
+https://w4ester.github.io/session2/linkedin_custom_gpt_posting_setup.md
+
+Please walk me through each step, one at a time. I'll tell you when I'm ready to move to the next step.
+
+Remember: I AM IN CONTROL. I am the creator, the driver, and the thinker.
+- If I have a thought or question at any point, STOP and answer it
+- If I want to change the style or approach, YOU follow MY direction
+- If I want to go deeper or skip ahead, I'm the boss
+- Step through WITH me, not FOR me - this is collaborative
+
+I'm currently at: [Step 0 / Step 1 / Step 2 / etc.]
+
+Let's begin!
+```
+
+**What this means for YOU (the human):**
+- ✅ The LLM will step through as much or as little as you want
+- ✅ YOU are in control at all times
+- ✅ YOU are the creator, driver, and thinker
+- ✅ Have a thought, question, or want a style change? **You're the boss!**
+- ✅ Go in any direction of information interaction you choose
+- ✅ The LLM is your assistant, not your leader
+
+**Don't be afraid to:**
+- "Wait, explain that again differently"
+- "Skip this part, I already did it"
+- "Go slower here, I'm confused"
+- "Show me an example"
+- "Let me try this myself first"
+
+**YOU are building this. The LLM is just helping you think through it.**
+
+---
+
 ## What you will have at the end
 
 - A **LinkedIn Developer App** that's verified and allowed to post **as you**.
@@ -426,11 +466,11 @@ paths:
 |-------|---------------|-----------------|------------|
 | **Authorization URL** | LinkedIn OAuth authorization endpoint | `https://www.linkedin.com/oauth/v2/authorization` | *(same)* |
 | **Token URL** | LinkedIn OAuth token endpoint | `https://www.linkedin.com/oauth/v2/accessToken` | *(same)* |
-| **Scope** | Permissions (space-separated) | `openid profile email w_member_social` | *(same - must be exact!)* |
+| **Scope** | Permissions (space-separated) | `openid profile w_member_social email` | *(same - must be exact!)* |
 | **Client ID** | From Step 4.2 | `86a1b2c3d4e5f6` | *(your Client ID from Step 4)* |
 | **Client Secret** | From Step 4.3 | `AbCdEfGh12345...` (🔒) | *(your Client Secret from Step 4)* |
 
-**⚠️ CRITICAL:** The Scope field must be **exactly**: `openid profile email w_member_social` (with spaces, no commas)
+**⚠️ CRITICAL:** The Scope field must be **exactly**: `openid profile w_member_social email` (with spaces, no commas)
 
 ### 5.5 Copy Your GPT's Callback URL
 
@@ -646,7 +686,7 @@ Connect my LinkedIn and make a public test post that says
 
 ## Troubleshooting (common, easy fixes)
 
-- **Scope error / consent loop:** In the GPT's OAuth scopes, use *exactly* `openid profile email w_member_social`.
+- **Scope error / consent loop:** In the GPT's OAuth scopes, use *exactly* `openid profile w_member_social email`.
 - **Redirect URI error:** The URL in your GPT must match what's listed on the LinkedIn app **Auth** tab character‑for‑character.
 - **403 Not enough permissions:** Ensure the app's **Products** include *Share on LinkedIn*, and that you're posting to `/rest/posts` with the required headers.
 - **429 Too Many Requests:** Wait and retry with backoff; you're rate‑limited.
@@ -708,7 +748,7 @@ curl -X POST 'https://api.linkedin.com/rest/posts' \
 > 3) Guide me to configure OAuth in the GPT with:
 >    - Authorization URL `https://www.linkedin.com/oauth/v2/authorization`
 >    - Token URL `https://www.linkedin.com/oauth/v2/accessToken`
->    - Scopes `openid profile email w_member_social`
+>    - Scopes `openid profile w_member_social email`
 >    - My callback URL above (and added in the LinkedIn app).
 > 4) Provide a minimal **OpenAPI schema** with `GET /v2/userinfo` and `POST /rest/posts` (with the `Linkedin-Version` + `X-Restli-Protocol-Version` headers).
 > 5) Walk me through an **end‑to‑end test** that creates a text post.
