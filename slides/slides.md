@@ -1125,37 +1125,71 @@ openid profile email w_member_social
 
 ### Get Your LinkedIn URN (Profile ID)
 
-**Quick method - LinkedIn Token Generator:**
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: 0.9em;">
 
-1. Open: [LinkedIn OAuth Token Generator](https://www.linkedin.com/developers/tools/oauth/token-generator)
-2. Check all four scopes (openid, profile, email, w_member_social)
-3. Click "Request access token"
-4. Authorize
-5. Scroll down to **"Token Details"**
-6. Find the **`sub`** field
+<div>
 
-<img src="../screenshots/step7h-token-generated.png" alt="Token with SUB" class="screenshot" />
+**📋 Simple Steps:**
 
-**Your URN format:**
-```
-urn:li:person:YOUR_SUB_VALUE
-```
+1. **Open:** [LinkedIn Token Generator](https://www.linkedin.com/developers/tools/oauth/token-generator)
+2. **Select** your app from dropdown
+3. **Check** all 4 scopes:
+   - ✅ openid
+   - ✅ profile
+   - ✅ email
+   - ✅ w_member_social
+4. **Click** "Request access token"
+5. **Authorize** (LinkedIn will ask permission)
+6. **Scroll down** to "Token Details" section
+7. **Find** the `sub` field
+8. **Format:** `urn:li:person:YOUR_SUB_VALUE`
 
-Example: If `sub` is `ABC123XYZ`, your URN is `urn:li:person:ABC123XYZ`
+<div style="background: #e7f3ff; padding: 0.75rem; margin-top: 1rem; border-radius: 8px; font-size: 0.95em;">
 
-<div style="background: #d4edda; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
-
-✅ **Save your URN!** You'll need it when posting. Example: `urn:li:person:KGWEb2LU1C`
-
-</div>
-
-<div style="background: #e7f3ff; padding: 1rem; margin-top: 1rem; border-radius: 8px;">
-
-**📝 Your URN is NOT secret** - it's just your LinkedIn profile ID. It's safe to use in prompts!
+**Example:**
+- `sub` = `KGWEb2LU1C`
+- URN = `urn:li:person:KGWEb2LU1C`
 
 </div>
 
-**Note:** PRESENTER: "Open the Token Generator link. Check all four scopes. Request token. Scroll down to Token Details. Find the 'sub' field. Write your URN as urn:li:person:YOUR_SUB_VALUE. This is your LinkedIn profile ID - not secret, just an identifier!"
+</div>
+
+<div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 3px solid #667eea;">
+
+**🤖 Need Help? Use This LLM Prompt:**
+
+<div style="background: white; padding: 0.75rem; border-radius: 6px; font-family: monospace; font-size: 0.85em; margin-top: 0.5rem;">
+
+I need to find my LinkedIn URN. I'm at this page: https://www.linkedin.com/developers/tools/oauth/token-generator
+
+Can you walk me through:
+1. Which app to select
+2. Which scopes to check
+3. How to generate the token
+4. Where to find the 'sub' field
+5. How to format it as a URN
+
+My LinkedIn URN format should be: urn:li:person:XXXXX
+
+</div>
+
+<div style="background: #fff3cd; padding: 0.75rem; margin-top: 1rem; border-radius: 6px; font-size: 0.9em;">
+
+**💡 Tip:** Paste this prompt into ChatGPT, Claude, or any LLM with the page open, and it will guide you step-by-step!
+
+</div>
+
+</div>
+
+</div>
+
+<div style="background: #d4edda; padding: 0.75rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
+
+✅ **Your URN is NOT secret** - it's just your LinkedIn profile ID. Safe to use in prompts!
+
+</div>
+
+**Note:** PRESENTER: "Two ways: Follow steps on left, OR copy the LLM prompt on right and have AI walk you through it. Your URN is just your LinkedIn profile ID - not secret, just an identifier!"
 
 </div>
 
