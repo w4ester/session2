@@ -653,50 +653,37 @@ We'll address them now before moving to Part 2
 ## Slide 10: LinkedIn Prerequisites - Do You Have These?
 ### ⏱️ 2 minutes
 
-<div style="font-size: 0.9em;">
+<div style="font-size: 0.85em;">
 
-<div style="background: #e7f3ff; padding: 0.8rem; border-radius: 8px; font-size: 0.9em; margin-bottom: 1rem;">
-
+<div style="background: #e7f3ff; padding: 0.5rem 0.75rem; border-radius: 8px; font-size: 0.9em; margin-bottom: 0.75rem;">
 **📖 Full Technical Guide:** [LinkedIn Custom GPT Posting Setup Guide](linkedin_custom_gpt_posting_setup.md)
-
 </div>
 
 **You need these TWO things:**
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1rem 0;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0.5rem 0;">
 
-<div style="background: #d4edda; padding: 1rem; border-radius: 8px; border-left: 4px solid #10b981;">
-
+<div style="background: #d4edda; padding: 0.75rem; border-radius: 8px; border-left: 4px solid #10b981;">
 ### ✅ LinkedIn Personal Account
-
 You have this! Your personal profile where you post.
-
 </div>
 
-<div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
-
+<div style="background: #fff3cd; padding: 0.75rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
 ### ⚠️ LinkedIn Company Page
-
-LinkedIn REQUIRES a Company Page for Developer Apps.
-
-**Don't have one? Takes 2 minutes!**
-
+LinkedIn REQUIRES a Company Page for Developer Apps. **Don't have one? Takes 2 minutes!**
 </div>
 
 </div>
 
 **How to Create a Company Page (If Needed):**
-
-1. Go to: [linkedin.com/company/setup/new/](https://www.linkedin.com/company/setup/new/) → Choose **"Company"**
-2. Fill in: **Company name** (your name/business), **Website**, **Industry**, **Size** (1 employee)
+1. [linkedin.com/company/setup/new/](https://www.linkedin.com/company/setup/new/) → Choose **"Company"**
+2. Fill in: **Company name**, **Website**, **Industry**, **Size** (1 employee)
 3. Click **"Create page"** — Done! You're now a Page Admin
 
-<img src="../screenshots/slides-index4-html9.png" alt="LinkedIn Create Page Options" style="max-width: 65%; margin: 1rem auto;" />
+<img src="../screenshots/slides-index4-html9.png" alt="LinkedIn Create Page Options" style="max-width: 50%; margin: 0.5rem auto; display: block;" />
 
-<div style="background: #e7f3ff; padding: 0.8rem; margin-top: 1rem; border-radius: 8px; font-size: 0.9em;">
-
+<div style="background: #e7f3ff; padding: 0.5rem 0.75rem; margin-top: 0.75rem; border-radius: 8px; font-size: 0.9em;">
 **💡 Why?** Every Developer App must be tied to a Page for verification. This does NOT force posts to the Page - you can still post as yourself!
-
 </div>
 
 **✅ Success Check:** Can you see your Company Page in LinkedIn? Ready for next slide!
