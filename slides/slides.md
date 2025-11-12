@@ -208,7 +208,9 @@ Please feel free to ask humans or your AI during the session questions, and give
 </div>
 
 <div style="margin-top: 2rem; text-align: center;">
-<a href="https://w4ester.github.io/session2/slides/#/2" target="_blank" style="display: inline-block; background: #0077b5; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9em;">📱 Follow Along with Slides</a>
+<button onclick="window.showScreenshot('../screenshots/step5b-gpt-editor-start.png', 'GPT Editor - Getting Started')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9em; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.3s;">
+🎬 View Demo - GPT Editor
+</button>
 </div>
 
 Note: PRESENTER: "I'm screen sharing my Custom GPT Editor. Your screen should look similar to mine if you are building during this Session. If it doesn't, again let us know in the chat or screen shot mine and put it in your gpt and say ... make my screen look like this ... you might be suprised how accurate your response is...will give 1 minute for us to get screen oriented." 1 minute wait time. "Okay, going to build CustomGPT. Everyone can copy and paste in theirs (if building) from the slide show ... you can see the 3 options in personas and instructions directly in the slides."
