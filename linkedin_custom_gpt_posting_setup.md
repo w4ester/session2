@@ -684,6 +684,434 @@ Connect my LinkedIn and make a public test post that says
 
 ---
 
+## 🔍 How to Find Your LinkedIn URN (Standalone Guide)
+
+**What is a LinkedIn URN?**
+- URN = "Uniform Resource Name" - your unique LinkedIn member ID
+- Format: `urn:li:person:XXXXXXXXXX`
+- Example: Sarah's URN is `urn:li:person:KGWEb2LU1C`
+- **Not a secret!** It's just an identifier, like a username
+
+**When do you need it?**
+- When posting to LinkedIn via API (your GPT does this automatically)
+- When testing with cURL commands
+- When debugging "who am I posting as?"
+
+---
+
+### Method 1: Let Your Custom GPT Get It (Easiest!)
+
+**If your GPT is already set up with OAuth (from Step 7):**
+
+1. **Open your GPT** in ChatGPT
+2. **Ask it:** "What's my LinkedIn URN?"
+3. **GPT automatically:**
+   - Calls `GET https://api.linkedin.com/v2/userinfo`
+   - Extracts the `sub` field
+   - Returns: "Your URN is `urn:li:person:KGWEb2LU1C`"
+
+**Done!** ✅
+
+---
+
+### Method 2: Use LinkedIn's Token Generator (Manual)
+
+**Sarah uses this method to get her URN manually:**
+
+#### 2.1 Generate a Test Access Token
+
+1. **Go to:** https://www.linkedin.com/developers/tools/oauth/token-generator
+2. **Select your app:** `Sarah's LinkedIn Assistant` *(you: select your app)*
+3. **Check these 4 scopes:**
+   - ✅ `openid`
+   - ✅ `profile`
+   - ✅ `email`
+   - ✅ `w_member_social`
+4. **Click:** `Request access token` button
+5. **Authorize** on LinkedIn (you'll see permission screen)
+6. **Copy the access token** - looks like:
+   ```
+   AQXNvXt2E7b...xyz123
+   ```
+   - Sarah's token (example): `AQXNvXt2E7bK1mP9...` *(yours will be different)*
+
+**⚠️ Note:** This token expires in ~60 days. It's just for testing!
+
+#### 2.2 Call the UserInfo Endpoint
+
+**Open your terminal and run:**
+
+```bash
+curl -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  https://api.linkedin.com/v2/userinfo
+```
+
+**Sarah's example (fake token for demo):**
+```bash
+curl -H "Authorization: Bearer AQXNvXt2E7bK1mP9..." \
+  https://api.linkedin.com/v2/userinfo
+```
+
+**Response:**
+```json
+{
+  "sub": "KGWEb2LU1C",
+  "name": "Sarah Johnson",
+  "given_name": "Sarah",
+  "family_name": "Johnson",
+  "email": "sarah@example.com",
+  "email_verified": true
+}
+```
+
+#### 2.3 Build Your URN
+
+**Take the `sub` value and format it:**
+
+- **Sarah's `sub`:** `KGWEb2LU1C`
+- **Sarah's URN:** `urn:li:person:KGWEb2LU1C`
+
+**Your URN format:**
+```
+urn:li:person:{YOUR_SUB_VALUE}
+```
+
+**Write it down!** You'll use this when posting via API.
+
+---
+
+### Method 3: OAuth Flow (Step-by-Step Exchange)
+
+**For developers who want to understand the full OAuth flow:**
+
+#### 3.1 Get Authorization Code
+
+**Build this URL (replace with your values):**
+```
+https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=openid%20profile%20w_member_social%20email
+```
+
+**Sarah's example:**
+```
+https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86a1b2c3d4e5f6&redirect_uri=https://chat.openai.com/aip/g-abc123.../oauth/callback&scope=openid%20profile%20w_member_social%20email
+```
+
+**Visit this URL in your browser:**
+1. You'll log in to LinkedIn
+2. You'll see permission screen
+3. Click "Allow"
+4. LinkedIn redirects you to your callback URL with a `code`:
+   ```
+   https://chat.openai.com/aip/g-abc123.../oauth/callback?code=AQTxyz123...
+   ```
+5. **Copy the `code` value**
+
+#### 3.2 Exchange Code for Access Token
+
+```bash
+curl -X POST 'https://www.linkedin.com/oauth/v2/accessToken' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'grant_type=authorization_code' \
+  --data-urlencode 'code=YOUR_CODE' \
+  --data-urlencode 'client_id=YOUR_CLIENT_ID' \
+  --data-urlencode 'client_secret=YOUR_CLIENT_SECRET' \
+  --data-urlencode 'redirect_uri=YOUR_REDIRECT_URI'
+```
+
+**Sarah's example (fake credentials):**
+```bash
+curl -X POST 'https://www.linkedin.com/oauth/v2/accessToken' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'grant_type=authorization_code' \
+  --data-urlencode 'code=AQTxyz123...' \
+  --data-urlencode 'client_id=86a1b2c3d4e5f6' \
+  --data-urlencode 'client_secret=AbCdEfGh12345...' \
+  --data-urlencode 'redirect_uri=https://chat.openai.com/aip/g-abc123.../oauth/callback'
+```
+
+**Response:**
+```json
+{
+  "access_token": "AQXNvXt2E7bK1mP9...",
+  "expires_in": 5184000,
+  "scope": "openid,profile,w_member_social,email"
+}
+```
+
+#### 3.3 Get UserInfo with Token
+
+```bash
+curl -H "Authorization: Bearer AQXNvXt2E7bK1mP9..." \
+  https://api.linkedin.com/v2/userinfo
+```
+
+**Returns your `sub` → build your URN!**
+
+---
+
+## 📊 Visual: LinkedIn OAuth Flow Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    LinkedIn OAuth 2.0 + OIDC Flow               │
+└─────────────────────────────────────────────────────────────────┘
+
+Step 1: User Authorization Request
+┌──────────────┐                                    ┌──────────────┐
+│   Your GPT   │──────────────────────────────────▶│   LinkedIn   │
+│  (ChatGPT)   │  "Please authorize this app"       │    OAuth     │
+└──────────────┘   Authorization URL +              └──────────────┘
+                   Client ID + Scopes                       │
+                                                             │
+                                                             ▼
+                                               ┌──────────────────────┐
+                                               │ User sees permission │
+                                               │ screen and clicks    │
+                                               │ "Allow"              │
+                                               └──────────────────────┘
+                                                             │
+Step 2: Authorization Code                                   │
+┌──────────────┐                                    ┌────────▼──────┐
+│   Your GPT   │◀──────────────────────────────────│   LinkedIn    │
+│  (ChatGPT)   │  Redirect to callback URL          │               │
+└──────────────┘  with code=AQTxyz123...            └───────────────┘
+       │
+       │
+Step 3: Token Exchange
+       │
+       ▼
+┌──────────────┐                                    ┌──────────────┐
+│   Your GPT   │──────────────────────────────────▶│   LinkedIn   │
+│  (ChatGPT)   │  POST /oauth/v2/accessToken        │  Token API   │
+└──────────────┘  Code + Client Secret              └──────────────┘
+       │                                                     │
+       │                                                     │
+       ◀─────────────────────────────────────────────────────┘
+         Returns: { "access_token": "AQX...", "expires_in": 5184000 }
+
+Step 4: Get User Info (URN)
+┌──────────────┐                                    ┌──────────────┐
+│   Your GPT   │──────────────────────────────────▶│   LinkedIn   │
+│  (ChatGPT)   │  GET /v2/userinfo                  │  UserInfo    │
+└──────────────┘  Authorization: Bearer AQX...      │     API      │
+       │                                            └──────────────┘
+       │                                                     │
+       ◀─────────────────────────────────────────────────────┘
+         Returns: { "sub": "KGWEb2LU1C", "name": "Sarah Johnson" }
+       │
+       │
+       ▼
+  urn:li:person:KGWEb2LU1C  ← Your LinkedIn URN!
+
+Step 5: Create Post
+┌──────────────┐                                    ┌──────────────┐
+│   Your GPT   │──────────────────────────────────▶│   LinkedIn   │
+│  (ChatGPT)   │  POST /rest/posts                  │   Posts API  │
+└──────────────┘  author: urn:li:person:KGWEb2LU1C  └──────────────┘
+                  Authorization: Bearer AQX...              │
+                  commentary: "Hello LinkedIn!"             │
+                                                            │
+       ◀─────────────────────────────────────────────────────┘
+         Returns: 201 Created
+         Header: x-restli-id: urn:li:share:7234567890...
+```
+
+---
+
+## 🔧 URN-Specific Troubleshooting
+
+### Problem 1: "Invalid author URN"
+
+**Error message:**
+```json
+{
+  "status": 400,
+  "message": "Invalid author URN format"
+}
+```
+
+**Causes & Fixes:**
+
+| Cause | Wrong Format | Correct Format |
+|-------|-------------|----------------|
+| Missing `urn:li:person:` prefix | `KGWEb2LU1C` | `urn:li:person:KGWEb2LU1C` |
+| Used organization URN instead | `urn:li:organization:123` | `urn:li:person:KGWEb2LU1C` |
+| Typo in URN | `urn:li:persons:KGW...` (extra 's') | `urn:li:person:KGWEb2LU1C` |
+| Used old member ID format | `id:12345` | `urn:li:person:KGWEb2LU1C` |
+
+**How to fix:**
+1. Get fresh URN from `GET /v2/userinfo`
+2. Copy the `sub` value exactly
+3. Format as: `urn:li:person:{sub}`
+
+---
+
+### Problem 2: "Post appears on Company Page instead of personal profile"
+
+**What happened:**
+- You used your Company Page's URN by accident
+- Format: `urn:li:organization:123456789`
+
+**How to fix:**
+1. Confirm you're using **person URN**, not organization URN
+2. Person URN format: `urn:li:person:KGWEb2LU1C`
+3. Organization URN format: `urn:li:organization:123456789`
+4. Check the `author` field in your POST request
+
+**Sarah's example:**
+- ❌ Wrong: `"author": "urn:li:organization:987654321"` → posts to Company Page
+- ✅ Correct: `"author": "urn:li:person:KGWEb2LU1C"` → posts to personal profile
+
+---
+
+### Problem 3: "URN doesn't match authenticated user"
+
+**Error message:**
+```json
+{
+  "status": 403,
+  "message": "Not authorized to post as this member"
+}
+```
+
+**Cause:**
+- Your access token is for User A
+- But you're trying to post as User B's URN
+
+**How to fix:**
+1. Make sure the access token and URN are from the **same LinkedIn account**
+2. Re-run `GET /v2/userinfo` with your current token to get the correct URN
+3. Don't copy someone else's URN - always use your own!
+
+**Sarah's example:**
+- Sarah's token → Sarah's `sub` → `urn:li:person:KGWEb2LU1C` ✅
+- Sarah's token → Alex's URN → `urn:li:person:DifferentID` ❌ (403 error)
+
+---
+
+### Problem 4: "Can't find my URN - /v2/me returns different ID"
+
+**Issue:**
+- You're using the old `/v2/me` endpoint (legacy API)
+- Returns `id` field instead of `sub` field
+
+**Difference:**
+
+| Old API (legacy) | New API (OpenID Connect) |
+|------------------|---------------------------|
+| `GET /v2/me` | `GET /v2/userinfo` |
+| Returns: `"id": "12345"` | Returns: `"sub": "KGWEb2LU1C"` |
+| Uses `r_liteprofile` scope | Uses `openid profile` scopes |
+| ❌ Deprecated | ✅ Current standard |
+
+**How to fix:**
+1. Use `GET /v2/userinfo` (not `/v2/me`)
+2. Use scopes: `openid profile w_member_social email`
+3. Extract the `sub` field (not `id`)
+4. Format as: `urn:li:person:{sub}`
+
+---
+
+### Problem 5: "Token Generator doesn't show my app"
+
+**Possible causes:**
+
+1. **App not verified**
+   - Solution: Go to Step 2 and verify your app with your LinkedIn Page
+
+2. **Products not added**
+   - Solution: Go to Step 3 and add "Sign in with LinkedIn using OpenID Connect"
+
+3. **Wrong LinkedIn account**
+   - Solution: Make sure you're logged into the LinkedIn account that owns the app
+
+4. **App was deleted**
+   - Solution: Go to https://www.linkedin.com/developers/apps and check if your app exists
+
+---
+
+### Problem 6: "URN works in cURL but not in my GPT"
+
+**Possible causes:**
+
+1. **GPT is using wrong OAuth token**
+   - Each user who authorizes the GPT gets their own token
+   - You can't hardcode a URN - it must come from `GET /v2/userinfo`
+
+2. **GPT not calling /v2/userinfo first**
+   - Solution: Check your GPT Instructions (Step 6)
+   - Make sure it says: "Call GET /v2/userinfo to get `sub`"
+
+3. **Scope mismatch**
+   - cURL test used different scopes than GPT
+   - Solution: Both should use `openid profile w_member_social email`
+
+**Sarah's debugging process:**
+
+1. **Test with cURL** (works ✅):
+   ```bash
+   curl -X POST 'https://api.linkedin.com/rest/posts' \
+     -H "Authorization: Bearer AQXNvXt2E7b..." \
+     -H "Linkedin-Version: 202502" \
+     -H "X-Restli-Protocol-Version: 2.0.0" \
+     -d '{"author": "urn:li:person:KGWEb2LU1C", ...}'
+   ```
+
+2. **Test with GPT** (fails ❌):
+   - Sarah checks GPT logs
+   - Sees: GPT is using hardcoded URN instead of calling `/v2/userinfo`
+   - Fix: Update GPT Instructions to call `/v2/userinfo` first
+
+3. **Test again** (works ✅):
+   - GPT calls `/v2/userinfo` → gets `sub`
+   - GPT builds `urn:li:person:{sub}`
+   - GPT posts successfully!
+
+---
+
+## 🎓 Quick Reference: URN Cheat Sheet
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    LinkedIn URN Quick Guide                  │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  What is it?                                                │
+│    Unique identifier for your LinkedIn profile in the API  │
+│                                                             │
+│  Format:                                                    │
+│    urn:li:person:XXXXXXXXXX                                 │
+│                                                             │
+│  Example:                                                   │
+│    urn:li:person:KGWEb2LU1C                                 │
+│                                                             │
+│  How to get it:                                             │
+│    1. Get access token (Token Generator or OAuth)          │
+│    2. Call: GET /v2/userinfo                                │
+│    3. Extract: "sub" field                                  │
+│    4. Format: urn:li:person:{sub}                           │
+│                                                             │
+│  Common mistakes:                                           │
+│    ❌ Missing prefix: KGWEb2LU1C                            │
+│    ❌ Wrong endpoint: GET /v2/me (use /v2/userinfo)         │
+│    ❌ Wrong field: "id" (use "sub")                         │
+│    ❌ Organization URN: urn:li:organization:123             │
+│    ✅ Correct: urn:li:person:KGWEb2LU1C                     │
+│                                                             │
+│  When to use it:                                            │
+│    - "author" field when creating posts                     │
+│    - Testing API calls with cURL                            │
+│    - Debugging "who am I posting as?"                       │
+│                                                             │
+│  Is it secret?                                              │
+│    No! It's just an identifier, like a username.            │
+│    Don't confuse it with access tokens (those ARE secret).  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Troubleshooting (common, easy fixes)
 
 - **Scope error / consent loop:** In the GPT's OAuth scopes, use *exactly* `openid profile w_member_social email`.
